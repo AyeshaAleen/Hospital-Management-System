@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6830BE8B-2C4F-4E31-82CA-F763608F49FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domains</RootNamespace>
+    <AssemblyName>Domains</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="itinsync\icom\audit\Audit.cs" />
+    <Compile Include="itinsync\icom\buisnesstransaction\BuisnessTransaction.cs" />
+    <Compile Include="itinsync\icom\document\document.cs" />
+    <Compile Include="itinsync\icom\document\xdocumentdefination.cs" />
+    <Compile Include="itinsync\icom\error\ErrorBlock.cs" />
+    <Compile Include="itinsync\icom\financial\bank\BankAccount.cs" />
+    <Compile Include="itinsync\icom\gl\paymentgl\paymentgl.cs" />
+    <Compile Include="itinsync\icom\gl\receipts\logreceipts\LogReceipt.cs" />
+    <Compile Include="itinsync\icom\gl\receipts\logreceipts\Receipts.cs" />
+    <Compile Include="itinsync\icom\header\Header.cs" />
+    <Compile Include="itinsync\icom\interfaces\interfacerequestresponse.cs" />
+    <Compile Include="itinsync\icom\interfaces\interfaces.cs" />
+    <Compile Include="itinsync\icom\interfaces\request\IRequestHandler.cs" />
+    <Compile Include="itinsync\icom\interfaces\response\GenaricResponse.cs" />
+    <Compile Include="itinsync\icom\interfaces\response\IResponseHandler.cs" />
+    <Compile Include="itinsync\icom\invoice\Invoice.cs" />
+    <Compile Include="itinsync\icom\invoice\TDRDetails.cs" />
+    <Compile Include="itinsync\icom\invoice\TDROD.cs" />
+    <Compile Include="itinsync\icom\invoice\TDRS.cs" />
+    <Compile Include="itinsync\icom\lookup\LookUp.cs" />
+    <Compile Include="itinsync\icom\lookup\trans\LookupTrans.cs" />
+    <Compile Include="itinsync\icom\pages\PageName.cs" />
+    <Compile Include="itinsync\icom\payment\Batch.cs" />
+    <Compile Include="itinsync\icom\payment\Payment.cs" />
+    <Compile Include="itinsync\icom\permission\Permission.cs" />
+    <Compile Include="itinsync\icom\role\Role.cs" />
+    <Compile Include="itinsync\icom\task\Task.cs" />
+    <Compile Include="itinsync\icom\task\taskdedinition\TaskDefinition.cs" />
+    <Compile Include="itinsync\icom\team\Team.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserAccounts.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserPermission.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserRegion.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserRole.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserTeam.cs" />
+    <Compile Include="itinsync\icom\vehicle\Vehicle.cs" />
+    <Compile Include="itinsync\icom\vendor\Address.cs" />
+    <Compile Include="itinsync\icom\vendor\Agreement.cs" />
+    <Compile Include="itinsync\icom\vendor\associate\VendorAssociation.cs" />
+    <Compile Include="itinsync\icom\vendor\Emails.cs" />
+    <Compile Include="itinsync\icom\vendor\Phones.cs" />
+    <Compile Include="itinsync\icom\vendor\Rate.cs" />
+    <Compile Include="itinsync\icom\vendor\Vendor.cs" />
+    <Compile Include="itinsync\icom\views\session\user\UserInformation.cs" />
+    <Compile Include="itinsync\icom\views\user\UserTeamView.cs" />
+    <Compile Include="itinsync\interfaces\domain\IDomain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
