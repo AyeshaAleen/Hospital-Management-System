@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Webroot/CommonMaster.Master" AutoEventWireup="true" CodeBehind="testMaster.master.cs" Inherits="Forms.Webroot.testMaster" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="CommonMasterhead" runat="server">
+    <asp:ContentPlaceHolder ID="CommonMerFooter" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonMasterBody" runat="server">
+
+      <!-- ========== Left Sidebar Start ========== -->
+
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <ul>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Dashboard 1</a></li>
+                                    <li><a href="#">Dashboard 2</a></li>
+                                    <li><a href="#">Dashboard 3</a></li>
+                                    <li><a href="#">Dashboard 4</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i> <span> Pages </span> </a>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+			<!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+			<!-- Start right Content here -->
+			<!-- ============================================================== -->
+			<div class="content-page">
+				<!-- Start content -->
+				<div class="content">
+					<div class="container">
+
+						<!-- Page-Title -->
+						<div class="row">
+							<div class="col-sm-12">
+                                <div class="btn-group pull-right m-t-15">
+                                    <button type="button" class="btn btn-default waves-effect waves-light"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </button>
+                                    
+                                </div>
+
+								<h4 class="page-title"><%: Page.Title %></h4>
+								<ol class="breadcrumb">
+									<li>
+										<a href="#">Itinsync</a>
+									</li>
+									<li>
+										<a href="#">Forms</a>
+									</li>
+									<li class="active">
+										<%: Page.Title %>
+									</li>
+								</ol>
+							</div>
+						</div>
+						
+                        <asp:ContentPlaceHolder ID="CommonMast" runat="server">
+
+                        </asp:ContentPlaceHolder>
+
+            		</div> <!-- container -->
+                               
+                </div> <!-- content -->
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="CommonMasterFooter" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
