@@ -16,7 +16,7 @@
                                                 </button>
                             </section>
 
-                        <asp:Button ID="btnd" OnClick="btnd_Click" runat="server" Text="dsfdf" CssClass="ladda-button btn btn-success" OnClientClick="message()"/>
+                        <asp:Button ID="btnd" OnClick="btnd_Click" runat="server" Text="dsfdf" CssClass="ladda-button btn btn-success" OnClientClick="message('Failed ijnmi  ju ')"/>
 
 
                         <h5><b>Input Tags</b></h5>

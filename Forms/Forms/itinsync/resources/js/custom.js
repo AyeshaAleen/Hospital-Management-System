@@ -37,6 +37,6 @@ $(document).ready(function () {
 
 });
 
-function message() {
-    $.Notification.notify('success', 'top right', 'Sample Notification', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae orci ut dolor scelerisque aliquam.')
+function message(msg) {
+    $.Notification.notify('error', 'top right', 'Sample Notification', msg)
 }

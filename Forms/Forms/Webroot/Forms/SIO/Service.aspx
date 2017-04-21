@@ -7,12 +7,13 @@
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Service</b></h4>
-
+          
 
                 <table data-toggle="table">
                     <thead>
                         <tr>
                             <th>Service </th>
+                            <th></th>
                             <th data-align="center">Yes</th>
                             <th data-align="center">No</th>
                             <th data-align="center">N/a</th>
@@ -20,100 +21,57 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
                         <tr>
-                            <td>
-
-                                <strong>Times within standards:</strong>
-                                <br>
-
-                                <div class="spl">
-                                    <table class="table table-responsive">
-                                        <tr>
-                                            <td style="border: 0; width: 50%; padding: 0">Front Counter Line 
-                                            </td>
-                                            <td style="border: 0; width: 50%; padding: 0">
-                                                <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="border: 0; padding: 0">Front Counter Service  
-                                            </td>
-                                            <td style="border: 0; padding: 0">
-                                                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="border: 0; padding: 0">Drive-Thru Line  
-                                            </td>
-                                            <td style="border: 0; padding: 0">
-                                                <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td style="border: 0; padding: 0">Drive-Thru Service  
-                                            </td>
-                                            <td style="border: 0; padding: 0">
-                                                <asp:TextBox ID="TextBox10" runat="server"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="border: 0; padding: 0">KVS  
-                                            </td>
-                                            <td style="border: 0; padding: 0">
-                                                <asp:TextBox ID="TextBox11" runat="server"></asp:TextBox>
-                                            </td>
-                                        </tr>
-                                    </table>
-
-                                </div>
-
-                            </td>
+                            <td colspan="6"><strong>Times within standards:</strong></td>
+                        </tr>
 
 
-                            <td style="line-height: 1.95">
-                                <br />
-                                <asp:RadioButton GroupName="13" runat="server" /><br />
-                                <asp:RadioButton GroupName="14" runat="server" /><br />
-                                <asp:RadioButton GroupName="15" runat="server" /><br />
-                                <asp:RadioButton GroupName="16" runat="server" /><br />
-                                <asp:RadioButton GroupName="17" runat="server" />
-
-                            </td>
-                            <td style="line-height: 1.95">
-                                <br />
-
-                                <asp:RadioButton GroupName="13" runat="server" /><br />
-                                <asp:RadioButton GroupName="14" runat="server" /><br />
-                                <asp:RadioButton GroupName="15" runat="server" /><br />
-                                <asp:RadioButton GroupName="16" runat="server" /><br />
-                                <asp:RadioButton GroupName="17" runat="server" />
-                            </td>
-
-                            <td style="line-height: 1.95">
-                                <br />
-
-                                <asp:RadioButton GroupName="13" runat="server" /><br />
-                                <asp:RadioButton GroupName="14" runat="server" /><br />
-                                <asp:RadioButton GroupName="15" runat="server" /><br />
-                                <asp:RadioButton GroupName="16" runat="server" /><br />
-                                <asp:RadioButton GroupName="17" runat="server" />
-                            </td>
-
-                            <td>
-                                <br>
-                                <p style="line-height: 1.95">
-                                    5<br>
-                                    5<br>
-                                    5<br>
-                                    5<br>
-                                    10
-                                
-                            </td>
+                        <tr>
+                            <td>Front Counter Line</td>
+                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
+                            <td><asp:RadioButton GroupName="13" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="13" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="13" runat="server" /></td>
+                            <td>5</td>
                         </tr>
 
                         <tr>
-                            <td>
+                            <td>Front Counter Service</td>
+                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
+                            <td><asp:RadioButton GroupName="14" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="14" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="14" runat="server" /></td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Drive-Thru Line</td>
+                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
+                            <td><asp:RadioButton GroupName="15" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="15" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="15" runat="server" /></td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>Drive-Thru Service</td>
+                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
+                            <td><asp:RadioButton GroupName="16" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="16" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="16" runat="server" /></td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+                            <td>KVS</td>
+                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
+                            <td><asp:RadioButton GroupName="17" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="17" runat="server" /></td>
+                            <td><asp:RadioButton GroupName="17" runat="server" /></td>
+                            <td>10</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2">
                                 Ask, Ask, Tell and "I see 3" 
                             </td>
 
@@ -128,7 +86,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Order accurately filled; condiments, napkins receipt, etc.  
                             </td>
 
@@ -143,7 +101,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Nice Hospitality - Hospitality- Smiles, courteous, helpful, friendly, eye contact
                             </td>
 
@@ -158,7 +116,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Management Appearance- proper uniform, complete with name tag, clean/well groomed
                             </td>
 
@@ -173,7 +131,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Crew Appearance- proper uniform, complete with name tag, clean/well groomed 
                             </td>
 
@@ -188,7 +146,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 DT & Counter Equipment- operating and positioned properly, enough headsets, etc 
                             </td>
 
@@ -203,7 +161,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Order taker suggestive sells when appropriate 
                             </td>
 
@@ -220,7 +178,7 @@
 
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Travel paths completed.
                             </td>
 
@@ -236,7 +194,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 Table Service is being executed at 100%
                             </td>
 
@@ -250,7 +208,7 @@
                         </tr>
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 VOICE survey is communicated to every quest
                             </td>
 
@@ -266,7 +224,7 @@
 
 
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 <strong>Service - Total</strong>
                             </td>
                             <td colspan="3">

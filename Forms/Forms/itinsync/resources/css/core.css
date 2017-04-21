@@ -182,6 +182,12 @@ a:focus {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.p-l-r-20 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
 .m-0 {
   margin: 0px !important;
 }
@@ -604,8 +610,8 @@ textarea.form-control {
   border-radius: 3px;
 }
 .form-horizontal .form-group {
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .form-control-feedback {
   line-height: 38px !important;
@@ -2190,4 +2196,7 @@ input[type=submit] {
     background: none;
     border: none;
     font-style: normal;
+}
+table tr td {
+    vertical-align:middle !important;
 }

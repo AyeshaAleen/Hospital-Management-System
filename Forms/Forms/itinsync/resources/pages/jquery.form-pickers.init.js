@@ -20,8 +20,9 @@ jQuery(document).ready(function() {
                 
                 // Date Picker
                 jQuery('#datepicker').datepicker();
-                jQuery('#datepicker-autoclose').datepicker({
-                	autoclose: true,
+                jQuery('.datepicker-autoclose').datepicker({
+                    format: "mm/dd/yyyy",
+                    autoclose: true,
                 	todayHighlight: true
                 });
                 jQuery('#datepicker-inline').datepicker();
@@ -31,7 +32,7 @@ jQuery(document).ready(function() {
 					multidate: true,
 					multidateSeparator: ","
                 });
-                jQuery('#date-range').datepicker({
+               jQuery('#date-range').datepicker({
                     toggleActive: true
                 });
                 
@@ -55,32 +56,32 @@ jQuery(document).ready(function() {
 				
 				
 				//Date range picker
-				$('.input-daterange-datepicker').daterangepicker({
-					buttonClasses: ['btn', 'btn-sm'],
-		            applyClass: 'btn-default',
-		            cancelClass: 'btn-white'
-				});
-		        $('.input-daterange-timepicker').daterangepicker({
-		            timePicker: true,
-                    timePickerIncrement: 30,
-                    locale: {
-                        format: 'MM/DD/YYYY h:mm A'
-                    },
-		            buttonClasses: ['btn', 'btn-sm'],
-		            applyClass: 'btn-default',
-		            cancelClass: 'btn-white'
-		        });
-		        $('.input-limit-datepicker').daterangepicker({
-		            format: 'MM/DD/YYYY',
-		            minDate: '06/01/2015',
-		            maxDate: '06/30/2015',
-		            buttonClasses: ['btn', 'btn-sm'],
-		            applyClass: 'btn-default',
-		            cancelClass: 'btn-white',
-		            dateLimit: {
-		                days: 6
-		            }
-		        });
+				//$('.input-daterange-datepicker').daterangepicker({
+					//buttonClasses: ['btn', 'btn-sm'],
+		            //applyClass: 'btn-default',
+		            //cancelClass: 'btn-white'
+				//});
+		        //$('.input-daterange-timepicker').daterangepicker({
+		            //timePicker: true,
+                    //timePickerIncrement: 30,
+                    //locale: {
+                        //format: 'MM/DD/YYYY h:mm A'
+                    //},
+		            //buttonClasses: ['btn', 'btn-sm'],
+		            //applyClass: 'btn-default',
+		            //cancelClass: 'btn-white'
+		       // });
+		        //$('.input-limit-datepicker').daterangepicker({
+		           // format: 'MM/DD/YYYY',
+		            //minDate: '06/01/2015',
+		           // maxDate: '06/30/2015',
+		            //buttonClasses: ['btn', 'btn-sm'],
+		            //applyClass: 'btn-default',
+		            //cancelClass: 'btn-white',
+		            //dateLimit: {
+		               // days: 6
+		            //}
+		        //});
 		
 		        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
 		

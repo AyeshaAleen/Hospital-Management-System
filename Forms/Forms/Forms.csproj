@@ -219,6 +219,7 @@
     <Content Include="itinsync\resources\css\icons.css" />
     <Content Include="itinsync\resources\css\pages.css" />
     <Content Include="itinsync\resources\css\responsive.css" />
+    <Content Include="itinsync\resources\css\signature-pad.css" />
     <Content Include="itinsync\resources\css\typicons.css" />
     <Content Include="itinsync\resources\css\variables.css" />
     <Content Include="itinsync\resources\fonts\fontawesome-webfont.svg" />
@@ -232,18 +233,15 @@
     <Content Include="itinsync\resources\images\agsquare.png" />
     <Content Include="itinsync\resources\images\crossword.png" />
     <Content Include="itinsync\resources\images\download.png" />
-    <Content Include="itinsync\resources\images\favicon_1.ico" />
     <Content Include="itinsync\resources\images\foggy_birds.png" />
     <Content Include="itinsync\resources\images\geometry.png" />
     <Content Include="itinsync\resources\images\geometry2.png" />
     <Content Include="itinsync\resources\images\headline.png" />
-    <Content Include="itinsync\resources\images\logo_dark.png" />
-    <Content Include="itinsync\resources\images\logo_light.png" />
-    <Content Include="itinsync\resources\images\logo_sm.png" />
     <Content Include="itinsync\resources\images\macbook.png" />
     <Content Include="itinsync\resources\images\multiple-arrow.png" />
     <Content Include="itinsync\resources\images\preloader.gif" />
     <Content Include="itinsync\resources\images\sp-loading.gif" />
+    <Content Include="itinsync\resources\js\app.js" />
     <Content Include="itinsync\resources\js\bootstrap.min.js" />
     <Content Include="itinsync\resources\js\detect.js" />
     <Content Include="itinsync\resources\js\fastclick.js" />
@@ -256,6 +254,7 @@
     <Content Include="itinsync\resources\js\jquery.slimscroll.js" />
     <Content Include="itinsync\resources\js\modernizr.min.js" />
     <Content Include="itinsync\resources\js\pace.min.js" />
+    <Content Include="itinsync\resources\js\signature_pad.js" />
     <Content Include="itinsync\resources\js\waves.js" />
     <Content Include="itinsync\resources\js\custom.js" />
     <Content Include="itinsync\resources\js\wow.min.js" />
