@@ -5,7 +5,7 @@
 
 <asp:Content ID="cntGeneralSIOBody" ContentPlaceHolderID="FormMasterBody" runat="server">
 
-    <div class="row">
+    <div class="row" id="validate">
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>General SIO</b></h4>
@@ -26,11 +26,11 @@
                                 Pre-shift/Maintenance checklist complete
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="1" runat="server" /></td>
+                                <asp:RadioButton GroupName="1" ID="buttonGroup_Checklist" runat="server" irequired="1" imask="" imessage="Reason.This.Field.is.Required" /></td>
                             <td>
-                                <asp:RadioButton GroupName="1" runat="server" /></td>
+                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" imessage="Reason.This.Field.is.Required" /></td>
                             <td>
-                                <asp:RadioButton GroupName="1" runat="server" /></td>
+                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" imessage="Reason.This.Field.is.Required" /></td>
                             <td>10</td>
                         </tr>
 
@@ -39,11 +39,11 @@
                                 Staffing – hours +/- appropriate for volume
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" /></td>
+                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask="" imessage="Reason.This.Field.is.Required"  /></td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" /></td>
+                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask="" imessage="Reason.This.Field.is.Required"  /></td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" /></td>
+                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask="" imessage="Reason.This.Field.is.Required"  /></td>
                             <td>10</td>
                         </tr>
 
@@ -214,7 +214,7 @@
                 </table>
                    
                   <div class="clearfix"></div>
-                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"  CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
+                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"  OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
            <div class="clearfix"></div>
             </div>
         </div>
@@ -223,4 +223,5 @@
 </asp:Content>
 
 <asp:Content ID="cntGeneralSIOFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+    
 </asp:Content>

@@ -2894,11 +2894,13 @@
     <Content Include="itinsync\resources\plugins\x-editable\img\loading.gif" />
     <Content Include="itinsync\resources\plugins\x-editable\js\bootstrap-editable.js" />
     <Content Include="itinsync\resources\plugins\x-editable\js\bootstrap-editable.min.js" />
+    <Content Include="itinsync\resources\validate\IValidation.js" />
     <Content Include="itinsync\translations\lang_en.properties" />
     <Content Include="itinsync\translations\lang_fr.properties" />
     <Content Include="itinsync\translations\lang_sp.properties" />
     <Content Include="itinsync\translations\lang_ud.properties" />
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
+    <Content Include="Webroot\CommonMaster.js" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
     <Content Include="Webroot\Forms\SIO\GeneralSIO.aspx" />

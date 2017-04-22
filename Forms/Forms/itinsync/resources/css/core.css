@@ -2200,3 +2200,6 @@ input[type=submit] {
 table tr td {
     vertical-align:middle !important;
 }
+.border-color-red {
+    border: 1px solid red;
+}

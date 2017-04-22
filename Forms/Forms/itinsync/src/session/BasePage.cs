@@ -48,7 +48,66 @@ namespace Forms.itinsync.src.session
                 Response.Redirect("Login.aspx");
             }
         }
+        protected void Page_SaveStateComplete(object sender, EventArgs e)
+        {
+            setIMessage(this);
 
+        }
+        public void setIMessage(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                if ((c.GetType() == typeof(TextBox)))
+                {
+                    ((TextBox)(c)).Attributes["imessage"] = trasnlation(((TextBox)(c)).Attributes["imessage"]);
+
+                    ((TextBox)(c)).Attributes["placeholder"] = trasnlation(((TextBox)(c)).Attributes["placeholder"]);
+
+
+                }
+
+                else if ((c.GetType() == typeof(HtmlInputText)))
+                {
+                    ((HtmlInputText)(c)).Attributes["imessage"] = trasnlation(((HtmlInputText)(c)).Attributes["imessage"]);
+
+                }
+                else if ((c.GetType() == typeof(DropDownList)))
+                {
+
+                    ((DropDownList)(c)).Attributes["imessage"] = trasnlation(((DropDownList)(c)).Attributes["imessage"]);
+                }
+                else if ((c.GetType() == typeof(CalendarExtender)))
+                {
+
+
+                }
+                else if ((c.GetType() == typeof(Button)))
+                {
+                    ((Button)(c)).Text = trasnlation(((Button)(c)).Text);
+                }
+                else if ((c.GetType() == typeof(HtmlInputRadioButton)))
+                {
+
+                    ((HtmlInputRadioButton)(c)).Attributes["imessage"] = trasnlation(((HtmlInputRadioButton)(c)).Attributes["imessage"]);
+                }
+                else if ((c.GetType() == typeof(HtmlSelect)))
+                {
+
+                    ((HtmlSelect)(c)).Attributes["imessage"] = trasnlation(((HtmlSelect)(c)).Attributes["imessage"]);
+                }
+                else if ((c.GetType() == typeof(Repeater)))
+                {
+                    //  ((Repeater)(c)).dis = true;
+                }
+
+
+                if (c.HasControls())
+                {
+                    setIMessage(c);
+                }
+            }
+
+        }
 
         public string xmlConversion(Control parent, string outPut)
         {

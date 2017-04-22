@@ -3,7 +3,7 @@
 <asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="FormMasterBody" runat="server">
-    <div class="row">
+    <div class="row" id="validate">
         <div class="col-sm-12">
             <div class="card-box">
                 <h2 class="text-center m-t-0">Shift Performance Verification Tool</h2>
@@ -13,7 +13,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Restaurant Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="txtStore" runat="server" class="form-control" irequired="1" imask="" imessage="Reason.This.Field.is.Required" />
                     </div>
                 </div>
 
@@ -192,8 +192,8 @@
                 <div class="clearfix"></div>
 
                 <div class="col-md-12 m-t-40">
-                    <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" Enabled="false" />
+                    <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
                 </div>
 
                 <div class="clearfix"></div>
@@ -202,4 +202,5 @@
     </div>
 </asp:Content>
 <asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+    
 </asp:Content>

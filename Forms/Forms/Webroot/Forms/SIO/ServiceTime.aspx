@@ -8,6 +8,7 @@
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Service Time</b></h4>
 
+                <div id="iErrorPanel"></div>
 
                 <table data-toggle="table">
                     <thead>
@@ -25,150 +26,149 @@
                         <th data-align="center">Service Time</th>
                         <th data-align="center">Actual</th>
                     </tr>
-</thead>
+                  </thead>
                     <tbody>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox>
-                        </td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server" ></asp:TextBox></td>
 
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
-
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
 
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox class="form-control" irequired="1" imask="numeric" imessage="Reason.This.Field.is.Required" runat="server"></asp:TextBox></td>
 
                     </tr>
                    
                     <tr>
                         <td>
-                            <label style="text-align: center !important;">Drive Thru Line Avg</label>
+                            <label>Drive Thru Line Avg</label>
                             <asp:TextBox class="form-control" runat="server"></asp:TextBox>
                         </td>
                         <td>
@@ -190,7 +190,7 @@
                 <div class="clearfix"></div>
 
                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
-                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
                 <div class="clearfix"></div>
             
             </div>

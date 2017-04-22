@@ -200,7 +200,7 @@
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-10 text-custom"></i>Settings</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-lock m-r-10 text-custom"></i>Lock screen</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="Login/Login.aspx"><i class="ti-power-off m-r-10 text-danger"></i>Logout</a></li>
+                                    <li><a href="<%= ResolveClientUrl("~/Webroot/Login/Login.aspx") %>"><i class="ti-power-off m-r-10 text-danger"></i>Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -210,8 +210,10 @@
             </div>
         </div>
         <form id="forms" class="form-horizontal"  runat="server" role="form">
+            <div id="formValidate">
             <asp:ContentPlaceHolder ID="CommonMasterBody" runat="server">
             </asp:ContentPlaceHolder>
+                </div>
         </form>
 
         <footer class="footer">
@@ -282,6 +284,8 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.jquery.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/custom.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
+
 
     <asp:ContentPlaceHolder ID="CommonMasterFooter" runat="server">
     </asp:ContentPlaceHolder>

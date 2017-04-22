@@ -37,6 +37,14 @@ $(document).ready(function () {
 
 });
 
+
+function validate() {
+    debugger
+    var validator = new IValidation("forms", true)
+             validator.initValidation();
+            return iFormIsValid(validator);
+        }
+
 function message(msg) {
     $.Notification.notify('error', 'top right', 'Sample Notification', msg)
 }
