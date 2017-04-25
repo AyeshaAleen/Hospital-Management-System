@@ -20,5 +20,10 @@ namespace Domains.itinsync.icom.useraccounts
         {
             return userpermissionid;
         }
+        public void setTransID(object transID)
+        {
+
+        }
     }
+
 }

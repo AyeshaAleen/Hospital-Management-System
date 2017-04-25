@@ -1,30 +1,49 @@
-﻿using Domains.itinsync.icom.task.taskdedinition;
+﻿using System;
+using Domains.itinsync.icom.task.taskdedinition;
+using Domains.itinsync.interfaces.domain;
+using Domains.itinsync.icom.annotation;
 
-namespace Entities.itinsync.task
+namespace domains.itinsync.task
 {
-    public class Task
+    public class Task : IDomain
     {
         public enum columns
-        {
-            taskid, body, tranid, trandate, trantime, duedate, deadlinedate,
-            taskdefinitionid, subjectid, teamid, status, name, parentref
+        { body, transID, transDate, transTime, dueDate, deadlineDate, taskDefinitionID,
+          subjectID, teamID, status, name, parentRef, userID, vendorID, dueTime, deadlineTime, priority
         }
-        public int taskid { get; set; }
-        public string body { get; set; }
-        public int tranid { get; set; }
-        public string trandate { get; set; }
-        public string trantime { get; set; }
-        public string duedate { get; set; }
-        public string deadlinedate { get; set; }
-        public int taskdefinitionid { get; set; }
-        public string subjectid { get; set; }
-        public int teamid { get; set; }
-        public string status { get; set; }
-        public string statusText { get; set; }
-        public string alertState { get; set; }
-        public string name { get; set; }
-        public string parentref { get; set; }
-        public TaskDefinition taskDefinition { get; set; }
+        public enum primaryKey { taskID }
+        public Int32 taskID { get; set; }
+        public String body { get; set; }
+        public Int32 transID { get; set; }
+        public String transDate { get; set; }
+        [DateTimeAttribute(relatedTag = "transDate")]
+        public String transTime { get; set; }
+        public String dueDate { get; set; }
+        [DateTimeAttribute(relatedTag = "dueDate")]
+        public String dueTime { get; set; }
+        public String deadlineDate { get; set; }
+        [DateTimeAttribute(relatedTag = "deadlineDate")]
+        public String deadlineTime { get; set; }
+        public Int32 taskDefinitionID { get; set; }
+        public Int32 subjectID { get; set; }
+        public Int32 teamID { get; set; }
 
+        [LookupAttribute(lookupName = "LKTaskStatus", relatedTag = "status_Text")]
+        public String status { get; set; }
+        public String status_Text { get; set; }
+        public String alertState { get; set; }
+        public String name { get; set; }
+        public String parentRef { get; set; }
+        public Int32 userID { get; set; }
+        public Int32 vendorID { get; set; }
+
+        public int priority { get; set; }
+        public TaskDefinition taskDefinition { get; set; }
+        public object getKey() { return taskID; }
+
+        public void setTransID(object transID)
+        {
+            this.transID = (Int32)transID;
+        }
     }
 }

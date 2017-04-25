@@ -30,5 +30,9 @@ namespace Domains.itinsync.icom.lookup.trans
         {
             throw new NotImplementedException();
         }
+        public void setTransID(object transID)
+        {
+
+        }
     }
 }

@@ -3317,7 +3317,9 @@
     <Compile Include="itinsync\src\session\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="itinsync\src\session\MasterBasePage.cs" />
+    <Compile Include="itinsync\src\session\MasterBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="itinsync\src\session\Session.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3427,9 +3429,17 @@
     <Folder Include="itinsync\setting\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{478A59F1-CC21-48A7-BE85-6E92173AAF53}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domains\Domains.csproj">
       <Project>{6830BE8B-2C4F-4E31-82CA-F763608F49FF}</Project>
       <Name>Domains</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{9970624E-5A66-4567-8220-02CA50B3E842}</Project>
+      <Name>Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
       <Project>{CBA3D7C7-3B0A-4AE8-B327-67B7667E86F8}</Project>

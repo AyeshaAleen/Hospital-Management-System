@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DAO.itinsync.icom.BaseAS;
+using Services.itinsync.icom.cache;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
@@ -16,6 +19,14 @@ namespace Forms
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+           
+            BaseAS.Source = ConfigurationManager.ConnectionStrings["mysqlConnection"].ConnectionString;
+
+
+            new CacheManagmentService().executeAsPrimary(null);
+
+
         }
     }
 }

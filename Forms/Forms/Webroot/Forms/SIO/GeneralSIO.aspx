@@ -3,53 +3,53 @@
 <asp:Content ID="cntGeneralSIOHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 
-<asp:Content ID="cntGeneralSIOBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntGeneralSIOBody" ContentPlaceHolderID="FormMasterBody" runat="server"> 
 
     <div class="row" id="validate">
         <div class="col-sm-12">
             <div class="card-box">
-                <h4 class="m-t-0 header-title"><b>General SIO</b></h4>
+                <h4 class="m-t-0 header-title"><b><% Response.Write(trasnlation("General.SIO")); %></b></h4>
               
                 <table data-toggle="table">
                     <thead>
                         <tr>
-                            <th>General SIO</th>
-                            <th data-align="center">Yes</th>
-                            <th data-align="center">No</th>
-                            <th data-align="center">N/a</th>
-                            <th data-align="center">Pts</th>
+                            <th><% Response.Write(trasnlation("General.SIO")); %></th>
+                            <th data-align="center"><% Response.Write(trasnlation("Yes")); %></th>
+                            <th data-align="center"><% Response.Write(trasnlation("No")); %></th>
+                            <th data-align="center"><% Response.Write(trasnlation("N/a")); %></th>
+                            <th data-align="center"><% Response.Write(trasnlation("Pts")); %></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                Pre-shift/Maintenance checklist complete
+                                <% Response.Write(trasnlation("Preshift.Maintenance.checklist.complete")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="1" ID="buttonGroup_Checklist" runat="server" irequired="1" imask="" imessage="Reason.This.Field.is.Required" /></td>
+                                <asp:RadioButton GroupName="1" ID="buttonGroup_Checklist" runat="server" irequired="1" imask="" /></td>
                             <td>
-                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" imessage="Reason.This.Field.is.Required" /></td>
+                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" /></td>
                             <td>
-                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" imessage="Reason.This.Field.is.Required" /></td>
+                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" /></td>
                             <td>10</td>
                         </tr>
 
                         <tr>
                             <td>
-                                Staffing – hours +/- appropriate for volume
+                                <% Response.Write(trasnlation("Staffing.hours.appropriate.for.volume")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask="" imessage="Reason.This.Field.is.Required"  /></td>
+                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask=""  /></td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask="" imessage="Reason.This.Field.is.Required"  /></td>
+                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask=""  /></td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask="" imessage="Reason.This.Field.is.Required"  /></td>
+                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask=""  /></td>
                             <td>10</td>
                         </tr>
 
                        <tr>
                             <td>
-                                Crew positioned to meet customer demands
+                                <% Response.Write(trasnlation("Crew.positioned.to.meet.customer.demands")); %>
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="3" runat="server" /></td>
@@ -62,7 +62,7 @@
 
                         <tr>
                             <td>
-                                Second side open / Split function (when needed)
+                                <% Response.Write(trasnlation("Second.side.open.Split.function")); %>
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="4" runat="server" /></td>
@@ -75,7 +75,7 @@
 
                         <tr>
                             <td>
-                                Proactively Manages Danger Zones
+                                <% Response.Write(trasnlation("Proactively.Manages.Danger.Zones")); %>
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="5" runat="server" /></td>
@@ -88,7 +88,7 @@
 
                         <tr>
                             <td>
-                                Stocking 24/2 (SIP) 
+                                <% Response.Write(trasnlation("Stocking.SIP")); %> 
                             </td>
                            
                             <td>
@@ -103,7 +103,7 @@
 
                         <tr>
                             <td>
-                                Manager sets targets, everyone knows targets
+                                <% Response.Write(trasnlation("Manager.sets.targets.everyone.knows.targets")); %>
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="7" runat="server" /></td>
@@ -116,7 +116,7 @@
 
                         <tr>
                             <td>
-                                Targets, results, and secondary duties are tracked
+                                <% Response.Write(trasnlation("Targets.results.and.secondary.duties.tracked")); %>
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="8" runat="server" /></td>
@@ -130,7 +130,7 @@
 
                         <tr>
                             <td>
-                                Manager managing from the Observation Zone
+                                <% Response.Write(trasnlation("Manager.managing.from.the.Observation.Zone")); %>
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="9" runat="server" /></td>
@@ -144,7 +144,7 @@
 
                         <tr>
                             <td>
-                                Cars are pulled forward immediately if the order is not ready
+                                <% Response.Write(trasnlation("Cars.are.pulled.forward.immediately")); %>
                             </td>
                            
                             <td>
@@ -159,7 +159,7 @@
 
                         <tr>
                             <td>
-                                Hand washing is taking place 
+                                <% Response.Write(trasnlation("Hand.washing.is.taking.place")); %> 
                             </td>
                             
                             <td>
@@ -174,7 +174,7 @@
 
                         <tr>
                             <td>
-                                Food Safety Daily Checklist Complete
+                                <% Response.Write(trasnlation("Food.Safety.Daily.Checklist.Complete")); %>
                             </td>
                           
                             <td>
@@ -189,7 +189,7 @@
 
                         <tr>
                             <td>
-                                Shift Manager Food Safety Certified
+                                <% Response.Write(trasnlation("Shift.Manager.Food.Safety.Certified")); %>
                             </td>
                             
                             <td>
@@ -204,7 +204,7 @@
 
                         <tr>
                             <td>
-                                <strong>SIO General - Total</strong>
+                                <strong><% Response.Write(trasnlation("SIO.General.Total")); %></strong>
                             </td>
                             <td colspan="3">
                                 <asp:TextBox ID="txtSIOTotal" class="form-control" runat="server"></asp:TextBox></td>

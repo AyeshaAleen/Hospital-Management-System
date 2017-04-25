@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="itinsync\icom\annotation\DateTimeAttribute.cs" />
+    <Compile Include="itinsync\icom\annotation\LookupAttribute.cs" />
     <Compile Include="itinsync\icom\audit\Audit.cs" />
-    <Compile Include="itinsync\icom\buisnesstransaction\BuisnessTransaction.cs" />
+    <Compile Include="itinsync\icom\BusinessTranscation\BusinessTranscation.cs" />
     <Compile Include="itinsync\icom\document\document.cs" />
     <Compile Include="itinsync\icom\document\xdocumentdefination.cs" />
     <Compile Include="itinsync\icom\error\ErrorBlock.cs" />
@@ -69,7 +71,9 @@
     <Compile Include="itinsync\icom\role\Role.cs" />
     <Compile Include="itinsync\icom\task\Task.cs" />
     <Compile Include="itinsync\icom\task\taskdedinition\TaskDefinition.cs" />
+    <Compile Include="itinsync\icom\task\taskdedinition\xTaskDefinition.cs" />
     <Compile Include="itinsync\icom\team\Team.cs" />
+    <Compile Include="itinsync\icom\translation\LookupTrans.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserAccounts.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserPermission.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRegion.cs" />
@@ -88,6 +92,7 @@
     <Compile Include="itinsync\interfaces\domain\IDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

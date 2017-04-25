@@ -23,6 +23,7 @@ namespace Utils.itinsync.icom.cache.translation
 
 
             List<LookUp> languages = LookupManager.readbyLookupName(LookupsConstant.LKUserLang);
+            //languages.Add(new LookUp().code);
             foreach (LookUp lk in languages)
             {
                 Dictionary<string, string> langcacheMap = new Dictionary<string, string>();

@@ -8,6 +8,16 @@ namespace Utils.itinsync.icom.constant.application
 {
     public static class ApplicationCodes
     {
+        public static readonly string FULL_CSS_LAYOUT = "../itinsync/resources/css/layout/full/bootstrap.min.css";
+        public static readonly string HALF_CSS_LAYOUT = "../itinsync/resources/css/layout/half/bootstrap.min.css";
+        public static readonly string ONETHIRD_CSS_LAYOUT = "../itinsync/resources/css/layout/onethird/bootstrap.min.css";
+
+        public static string CURRENT_CSS_LAYOUT = FULL_CSS_LAYOUT;
+
+        public static readonly Int32 TRUE_INDICATOR = 1;
+        public static readonly Int32 FALSE_INDICATOR = 0;
+        public static readonly string CONTEXTPATH = System.AppDomain.CurrentDomain.BaseDirectory;
+
         public static readonly string DTOOBJECT = "DTOOBJECT";
         public static readonly string READONLYSTATE = "READONLYSTATE";
         public static readonly string EMAIL_CONTACT = "Emails";
@@ -15,16 +25,17 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string ADDRESS_CONTACT = "Address";
 
 
-        public static readonly string TRUE_INDICATOR = "1";
-        public static readonly string FALSE_INDICATOR = "0";
+
         public static readonly string DEFAULT_USER_LANG = "en";
         public static readonly string SOURCELOCATION = "C:/DMS/CSV";
 
 
         ///*************Roles******************************///
+
         public static readonly string ROLES_CUSTOMER = "3001";
         public static readonly string ROLES_SUPPLIER = "3002";
         public static readonly string ROLES_THRIRD_PARTY = "3003";
+        public static readonly string ROLES_CUSTOMER_USER = "1005";
 
 
         ///**************VENDOR PAYMENT FREQUECNY*************///
@@ -35,6 +46,12 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly int PAYMENT_FREQUENCY_3MONTHLY = 3;
         public static readonly int PAYMENT_FREQUENCY_4MONTHLY = 4;
         public static readonly int PAYMENT_FREQUENCY_5MONTHLY = 5;
+
+
+        ///**************TASK STATUS CODES*************///
+        public static readonly string TASK_STATUS_NEW = "100";
+        public static readonly string TASK_STATUS_INPROGRESS = "101";
+        public static readonly string TAKS_STATUS_COMPLETE = "102";
 
 
 
@@ -48,22 +65,21 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string INVOICE_STATUS_HOLD = "-1";
 
         ///**************INVOICE TYPE*************///
-        
+
         public static readonly string INVOICE_TYPE_INVOICE_CODE = "5003";
         public static readonly string INVOICE_TYPE_COMMISSION_CODE = "5005";
-        
+
 
         ///***************TRANSCATION TYPE***********///
 
         public static readonly string TRANTYPE_DISBURSMENT = "701";
         public static readonly string TRANTYPE_COLLECTION = "702";
 
-        ///***************TASK STATUS***********///
 
-        public static readonly string TASK_STATUS_NEW = "0";
-        public static readonly string TASK_STATUS_COMPLETE = "1";
+        ///**************DOCUMENT DIRECTORY*************///
 
-       
+        public static readonly string DOCUMENT_DIRECTORY = "C:/DMS/";
+
 
         ///***************GL STATUS***********///
 
@@ -75,10 +91,19 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string GL_TRANTYPE_PARTIAL_PAID = "4";
         public static readonly string GL_TRANTYPE_PARTIAL_RECEIVED = "5";
 
+        ///***************Email Setting***********///
+        public static string EMAIL_HOST_NAME = "www.itinsync.net";//"smtp.gmail.com";
+        public static int EMAIL_PORT_NO = 587;
+        public static string EMAIl_USER = "info@itinsync.com";//"video.config";
+        public static string EMAIl_PASSWORD = "info1975";//"Waqar-123";
+        public static string EMAIl_FROM_ADDRESS = "info@itinsync.com";//"video.config@gmail.com";
+        public static string EMAIl_ENABLE_SSL = "true";
 
+        ///***************Document Type***********///
+        public static readonly string DOCUMENT_TYPE_NEW_ORDER = "900";
 
         //***********ErrorCode*********/////
-        public static readonly Int32 ERROR                   = 60;
+        public static readonly Int32 ERROR = 60;
         public static readonly Int32 ERROR_INVALID_USERNAME = 60;
         public static readonly Int32 ERROR_INVALID_PASSWORD = 61;
         public static readonly Int32 ERROR_INVALID_INACTIVE = 62;
@@ -90,8 +115,8 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly Int32 ERROR_DISBURSMENT_PROBLEM = 69;
         public static readonly Int32 ERROR_COLLECTION_PROBLEM = 70;
         public static readonly Int32 ERROR_NO = 0;
-        public static readonly string ERROR_TEXT = "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a> ";
-        public static readonly string SUCCESS_TEXT = "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a> Request completed successfully <br> ";
+        public static readonly string ERROR_TEXT = "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>";
+        public static readonly string SUCCESS_TEXT = "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>";
         public static readonly Int32 ERROR_FILEREAD_PROBLEM = 71;
     }
 }

@@ -1,27 +1,35 @@
-﻿using Domains.itinsync.interfaces.domain;
+﻿
+
+
+using Domains.itinsync.icom.session.user;
+using Domains.itinsync.interfaces.domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domains.itinsync.icom.header
 {
-    public class Header : IDomain
+    public class Header : System.Attribute, IDomain
     {
-        public Header()
-        {
-            this.currentPageNo = 0;
+        public Header() { this.currentPageNo = 0; }
+        public enum columns { previousPageNo, userid, lang, transID }
+        public enum primaryKey { currentPageNo }
+        public UserInformation userinformation = new UserInformation();
+      
 
-        }
-        public int currentPageNo { get; set; }
-        public int previousPageNo { get; set; }
-        public int userid { get; set; }
-        public string lang { get; set; }
-        public int transID { get; set; }
-        public object getKey()
+
+
+        public Int32 currentPageNo { get; set; }
+        public Int32 previousPageNo { get; set; }
+        public Int32 userID { get; set; }
+
+
+
+        public String lang { get; set; }
+        public Int32 transID { get; set; }
+        public object getKey() { return currentPageNo; }
+
+        public void setTransID(object transID)
         {
-            throw new NotImplementedException();
+            this.transID = (Int32)transID;
         }
     }
 }

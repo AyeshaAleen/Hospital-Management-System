@@ -1,36 +1,25 @@
 ﻿using Domains.itinsync.interfaces.domain;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domains.itinsync.icom.lookup
 {
-    public class LookUp :  System.Attribute, IDomain
+    public class LookUp : System.Attribute, IDomain
     {
-        public enum columns
+        public enum columns { name, code, text, fr, sp, ud }
+        public enum primaryKey { lookUpID }
+        public enum forignKey { }
+        public Int32 lookUpID { get; set; }
+        public String name { get; set; }
+        public String code { get; set; }
+        public String text { get; set; }
+        public String fr { get; set; }
+        public String sp { get; set; }
+        public String ud { get; set; }
+        public object getKey() { return lookUpID; }
+
+        public void setTransID(object transID)
         {
-            code, text, name
-        }
-        public enum primaryKey
-        {
-            id
-        }
 
-        public enum forignKey
-        {
-        }
-
-        public string code { get; set; }
-
-        public string text { get; set; }
-
-        public string name { get; set; }
-
-        public object getKey()
-        {
-            return null;
         }
     }
 }

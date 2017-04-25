@@ -51,6 +51,7 @@
     <Compile Include="itinsync\icom\constant\application\ApplicationCodes.cs" />
     <Compile Include="itinsync\icom\constant\audit\AuditEventCodes.cs" />
     <Compile Include="itinsync\icom\constant\lookup\LookupsConstant.cs" />
+    <Compile Include="itinsync\icom\constant\lookup\LookupTransConstant.cs" />
     <Compile Include="itinsync\icom\constant\page\PageConstant.cs" />
     <Compile Include="itinsync\icom\constant\task\TaskDefinitionConstant.cs" />
     <Compile Include="itinsync\icom\date\DateFunctions.cs" />

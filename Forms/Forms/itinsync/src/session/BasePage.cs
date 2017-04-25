@@ -158,6 +158,8 @@ namespace Forms.itinsync.src.session
         public string trasnlation(string key)
         {
             return TranslationManager.trans(key, getUserInformation() == null ? "" : getUserInformation().userAccount.lang);
+
+           
         }
 
         public void DateFormatter(Control parent)
@@ -334,7 +336,7 @@ namespace Forms.itinsync.src.session
         }
         public Int32 getUserID()
         {
-            return getUserInformation() == null ? -1 : getUserInformation().userAccount.userid;
+            return getUserInformation() == null ? -1 : getUserInformation().userAccount.userID;
         }
 
 
