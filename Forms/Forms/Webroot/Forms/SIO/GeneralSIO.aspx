@@ -26,8 +26,11 @@
                                 <% Response.Write(trasnlation("Preshift.Maintenance.checklist.complete")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="1" ID="buttonGroup_Checklist" runat="server" irequired="1" imask="" /></td>
+                                <input type="radio" name="gender" id="gendermale" runat="server" value="male" irequired="1" > Male<br>
+                                
+                                <asp:RadioButton GroupName="1" ID="buttonGroup_Checklist" runat="server" irequired="1"  /></td>
                             <td>
+                                 <input type="radio" name="gender" id="genderfemale" runat="server" value="female" > female<br>
                                 <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" /></td>
                             <td>
                                 <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" /></td>

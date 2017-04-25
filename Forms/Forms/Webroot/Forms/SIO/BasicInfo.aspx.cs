@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Forms.itinsync.src.session;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Forms.Webroot.Forms.SIO
 {
-    public partial class BasicInfo : System.Web.UI.Page
+    public partial class BasicInfo : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +22,7 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
+           String xml =  xmlConversion(this,"BASICINFORMATION");
         }
     }
 }
