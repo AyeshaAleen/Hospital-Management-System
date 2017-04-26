@@ -38,9 +38,17 @@
 
             <div class="panel-body">
                 <h2 class="text-center">Login</h2>
-                <a href="../Forms/SIO/GeneralSIO.aspx" class="btn btn-success btn-block text-uppercase waves-effect waves-light">Go</a>
-                
-                <form class="form-horizontal m-t-20" action="index.html">
+                <div class="center">
+                    <div class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        User Created successfully.<strong>Thank You..!</strong>
+                    </div>
+
+                    <div class="alert alert-danger fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertFailure" runat="server">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    </div>
+                </div>
+                <form class="form-horizontal m-t-20" id="frmlogin" runat="server">
 
                     <div class="form-group ">
                         <div class="col-xs-12">
@@ -68,7 +76,7 @@
 
                     <div class="form-group text-center m-t-40">
                         <div class="col-xs-12">
-                            <button class="btn btn-success btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                            <asp:Button ID="btnLogin" OnClick="btnLogin_Click" runat="server" class="btn btn-success btn-block text-uppercase waves-effect waves-light" Text="Login" />
                         </div>
                     </div>
 

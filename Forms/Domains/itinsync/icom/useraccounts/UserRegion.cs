@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domains.itinsync.icom.annotation;
+using Domains.itinsync.interfaces.domain;
+using System;
 
-namespace Entities.itinsync.users
+namespace Domains.itinsync.useraccounts
 {
-    public class UserRegion
+    public class UserRegion : System.Attribute, IDomain
     {
-        public enum columns { id, code, userid }
-        public int id { get; set; }
-        public string code { get; set; }
-        public string codeText { get; set; }
-        public int userid { get; set; }
+        public enum columns { code, userID }
+        public enum primaryKey { userRegionID }
+        public Int32 userRegionID { get; set; }
+
+        
+        public String code { get; set; }
+        public String codeText { get; set; }
+        public Int32 userID { get; set; }
+        public object getKey() { return userRegionID; }
+
+        public void setTransID(object transID)
+        {
+         
+        }
     }
 }

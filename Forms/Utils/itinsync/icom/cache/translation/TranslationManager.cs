@@ -74,16 +74,20 @@ namespace Utils.itinsync.icom.cache.translation
                 load();
 
 
-
-            if (GlobalStaticCache.translationcacheMap.ContainsKey(lang))
+            if (key != null)
             {
-                if (GlobalStaticCache.translationcacheMap[lang].ContainsKey(key))
-                    return GlobalStaticCache.translationcacheMap[lang][key];
+                if (GlobalStaticCache.translationcacheMap.ContainsKey(lang))
+                {
+                    if (GlobalStaticCache.translationcacheMap[lang].ContainsKey(key))
+                        return GlobalStaticCache.translationcacheMap[lang][key];
+                    else
+                        return "???" + key + "???";
+                }
                 else
                     return "???" + key + "???";
             }
             else
-                return "???" + key + "???";
+                return key;
         }
     }
 }

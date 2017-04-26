@@ -2,6 +2,7 @@
 using Domains.itinsync.icom.interfaces.response;
 using Domains.itinsync.icom.useraccounts;
 using Domains.itinsync.icom.views.user;
+using Domains.itinsync.useraccounts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Domains.itinsync.icom.session.user
 
         public List<UserTeamView> userTeams { get; set; }
 
-        //public List<UserRegion> userRegion { get; set; }
+        public List<UserRegion> userRegion { get; set; }
 
         public List<UserRole> userRoles { get; set; }
 

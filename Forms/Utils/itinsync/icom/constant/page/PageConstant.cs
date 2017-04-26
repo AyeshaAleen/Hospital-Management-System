@@ -18,6 +18,9 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_EXIT_TDR = "ExistTDR.aspx";
         public static string PAGE_PERSONAL_INBOX = "PersonalInbox.aspx";
 
+
+        public static string PAGE_SIO = "/Webroot/Forms/SIO/GeneralSIO";
+
         public static string PAGE_MANAGE_USER_CITIES = "ManageUserCities.aspx";
         public static string PAGE_MANAGE_USER = "ManageUser.aspx";
 

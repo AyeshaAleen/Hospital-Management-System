@@ -40,7 +40,7 @@ namespace Forms.itinsync.src.session
                 Sessions.getSession().Set(SessionKey.DICTONARYKEY, new Dictionary<string, string>());
 
 
-                Response.Redirect(PageConstant.PAGE_PERSONAL_INBOX);
+                Response.Redirect(PageConstant.PAGE_SIO);
 
             }
             else
@@ -470,7 +470,7 @@ namespace Forms.itinsync.src.session
             {
                 foreach (UserPermission up in userinfo.userPermissions)
                 {
-                    if (up.Code == permission.Code)
+                    if (up.code == permission.Code)
                     {
                         addVisitURLStack(pageNo);
 

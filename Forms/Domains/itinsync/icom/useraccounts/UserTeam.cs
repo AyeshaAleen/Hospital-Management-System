@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domains.itinsync.interfaces.domain;
+using System;
 
-namespace Entities.itinsync.users
+namespace domains.itinsync.useraccounts
 {
-    public class UserTeam
+    public class UserTeam : System.Attribute, IDomain
     {
-        public enum columns { userteamid, userid, teamid }
-        public int userteamid { get; set; }
-        public int userid { get; set; }
-        public int teamid { get; set; }
+        public enum columns { userID, teamID }
+        public enum primaryKey { userTeamID }
+        public Int32 userTeamID { get; set; }
+        public Int32 userID { get; set; }
+        public Int32 teamID { get; set; }
+        public object getKey() { return userTeamID; }
+
+        public void setTransID(object transID)
+        {
+            
+        }
     }
 }

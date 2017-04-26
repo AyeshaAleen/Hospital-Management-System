@@ -13,7 +13,7 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string ONETHIRD_CSS_LAYOUT = "../itinsync/resources/css/layout/onethird/bootstrap.min.css";
 
         public static string CURRENT_CSS_LAYOUT = FULL_CSS_LAYOUT;
-
+        
         public static readonly Int32 TRUE_INDICATOR = 1;
         public static readonly Int32 FALSE_INDICATOR = 0;
         public static readonly string CONTEXTPATH = System.AppDomain.CurrentDomain.BaseDirectory;
@@ -25,7 +25,7 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string ADDRESS_CONTACT = "Address";
 
 
-
+      
         public static readonly string DEFAULT_USER_LANG = "en";
         public static readonly string SOURCELOCATION = "C:/DMS/CSV";
 
@@ -65,10 +65,10 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string INVOICE_STATUS_HOLD = "-1";
 
         ///**************INVOICE TYPE*************///
-
+        
         public static readonly string INVOICE_TYPE_INVOICE_CODE = "5003";
         public static readonly string INVOICE_TYPE_COMMISSION_CODE = "5005";
-
+        
 
         ///***************TRANSCATION TYPE***********///
 
@@ -103,7 +103,7 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string DOCUMENT_TYPE_NEW_ORDER = "900";
 
         //***********ErrorCode*********/////
-        public static readonly Int32 ERROR = 60;
+        public static readonly Int32 ERROR                   = 60;
         public static readonly Int32 ERROR_INVALID_USERNAME = 60;
         public static readonly Int32 ERROR_INVALID_PASSWORD = 61;
         public static readonly Int32 ERROR_INVALID_INACTIVE = 62;

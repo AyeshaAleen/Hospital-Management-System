@@ -49,6 +49,7 @@
     <Compile Include="itinsync\icom\cache\task\taskdefinition\TaskDefinitionManager.cs" />
     <Compile Include="itinsync\icom\cache\translation\TranslationManager.cs" />
     <Compile Include="itinsync\icom\constant\application\ApplicationCodes.cs" />
+    <Compile Include="itinsync\icom\constant\application\ReadByConstant.cs" />
     <Compile Include="itinsync\icom\constant\audit\AuditEventCodes.cs" />
     <Compile Include="itinsync\icom\constant\lookup\LookupsConstant.cs" />
     <Compile Include="itinsync\icom\constant\lookup\LookupTransConstant.cs" />
@@ -56,7 +57,9 @@
     <Compile Include="itinsync\icom\constant\task\TaskDefinitionConstant.cs" />
     <Compile Include="itinsync\icom\date\DateFunctions.cs" />
     <Compile Include="itinsync\icom\exceptions\ItinsyncException.cs" />
+    <Compile Include="itinsync\icom\SecurityManager.cs" />
     <Compile Include="itinsync\icom\ServiceUtils.cs" />
+    <Compile Include="itinsync\icom\Utils.cs" />
     <Compile Include="itinsync\icom\xml\XMLUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -7,9 +7,8 @@ namespace Domains.itinsync.icom.useraccounts
     public class UserAccounts : System.Attribute, IDomain
     {
         public enum columns
-        {
-            userName, password, role, loginCount, firstName, lastName,
-            lastLogin, isLock, userPhone, userEmail, transID, lang, timeZone, countryCode, vendorID, MobileProvider
+        { userName, password, role, loginCount, firstName, lastName,
+          lastLogin, isLock,  userPhone, userEmail, transID, lang, timeZone, countryCode, vendorID, MobileProvider
         }
         public enum primaryKey { userID }
         public enum forignKey { transID }

@@ -62,6 +62,14 @@
     <Compile Include="itinsync\icom\task\taskdefinition\TaskDefinitionDAO.cs" />
     <Compile Include="itinsync\icom\task\taskdefinition\xTaskDefinitionDAO.cs" />
     <Compile Include="itinsync\icom\translation\LookupTransDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserAccountsDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserPermissionDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserRegionDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserRoleDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserTeamDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserVecationDAO.cs" />
+    <Compile Include="itinsync\icom\views\UserPermissionViewDAO.cs" />
+    <Compile Include="itinsync\icom\views\UserTeamViewDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

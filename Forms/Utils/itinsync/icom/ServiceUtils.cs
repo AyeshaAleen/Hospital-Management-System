@@ -181,7 +181,7 @@ namespace Utils.itinsync.icom
 
         public static bool isChange(object newValue, object OldValue)
         {
-            if (newValue != null  && newValue != OldValue)
+            if (newValue != null && !string.IsNullOrWhiteSpace(newValue.ToString()) && newValue != OldValue)
                 return true;
             return false;
         }
@@ -273,6 +273,10 @@ namespace Utils.itinsync.icom
         public static string appendCreateQuotes(string whereCaluse, int value)
         {
             return whereCaluse + " " +  value + " ,";
+        }
+        public static string appendCreateQuotes(string whereCaluse, Int64 value)
+        {
+            return whereCaluse + " " + value + " ,";
         }
         public static string appendCreateQuotes(string whereCaluse, double value)
         {
