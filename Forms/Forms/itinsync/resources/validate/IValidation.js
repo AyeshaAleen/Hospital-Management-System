@@ -131,6 +131,21 @@ IValidation.prototype.initValidation = function ()
     // Is the passed div valid??
     if (!theDiv)
         return;
+
+    // remove all button group container objects...relevant while reinitialising
+    var arrBtnGrp = new Array();
+    var arrInputs = theDiv.getElementsByTagName("INPUT");
+    for (var i = 0; i < arrInputs.length; i++) {
+        var elemInput = arrInputs[i];
+        if (!elemInput)
+            continue;
+        var typeInput = elemInput.type.toUpperCase();
+
+        var idBtnGrp = elemInput.getAttribute('id');
+        if ((typeInput == 'HIDDEN') && idBtnGrp && (idBtnGrp.indexOf('buttonGroup_') == 0)) {
+            elemInput.parentNode.removeChild(elemInput);
+        }
+    }
   
   
     // Get all the components
@@ -188,6 +203,9 @@ IValidation.prototype.initValidationForInputFields = function (inputFields, idDi
                 // Does it validate?
                 this.validateInput(false, buttonGroup);
             }
+            else
+                this.validateInput(false, buttonGroup);
+
         }
         else
         {
@@ -205,7 +223,7 @@ IValidation.prototype.initValidationForInputFields = function (inputFields, idDi
         // Add the action handlers
         if ((inputType == 'RADIO') || (inputType == 'CHECKBOX'))
         {
-            //this.addEvent(inputObj, 'click', this.validateInput);
+           // inputObj.addEventListener('change', removeManadatory);
         }
         else
         {
@@ -452,6 +470,23 @@ IValidation.prototype.isEmpty = function (inputObj, tagName, type)
                     }
                 }
             }
+            else  // We assume this to be a button group field
+                if (type == 'HIDDEN') {
+                    // Get all the radio buttons and look for the
+                    var idBtnGrp = inputObj.getAttribute('id');
+                    if (idBtnGrp && idBtnGrp.indexOf('buttonGroup_') != 0)
+                        return ctlEmpty;
+
+                    var sRadioName = idBtnGrp.substring(12);
+                    var arrBtnGrp = document.getElementsByName(sRadioName);
+                    for (var i = 0; i < arrBtnGrp.length; i++) {
+                        var radio = arrBtnGrp[i];
+                        if (radio.checked) {
+                            ctlEmpty = false;
+                            break;
+                        }
+                    }
+                }
     }
     else if (tagName == 'SELECT')
     {
@@ -564,7 +599,16 @@ IValidation.prototype.isFormValid = function (bShowMessage) {
             var validationMsg = inputObj.getAttribute("imessage");
             var reasonMessage = "";
 
-            inputObj.className = "border-color-red form-control";
+            
+            if (inputObj.id.indexOf("buttonGroup_") == 0 &&  type == "HIDDEN")
+            {
+                var sRadioName = inputObj.id.substring(12);
+                var arrBtnGrp = document.getElementsByName(sRadioName);
+                arrBtnGrp.className = "border-color-red form-control";
+
+            }
+            else
+                inputObj.className = "border-color-red form-control";
             // get any failure reasons
             if (inputObj.reasonArray) {
                 for (var iReason = 0 ; iReason < inputObj.reasonArray.length ; iReason++) {

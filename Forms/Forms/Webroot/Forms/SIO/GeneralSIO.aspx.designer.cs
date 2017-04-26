@@ -13,6 +13,15 @@ namespace Forms.Webroot.Forms.SIO {
     public partial class GeneralSIO {
         
         /// <summary>
+        /// gendermale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton gendermale;
+        
+        /// <summary>
         /// buttonGroup_Checklist control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton buttonGroup_Checklist;
+        
+        /// <summary>
+        /// genderfemale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton genderfemale;
         
         /// <summary>
         /// txtSIOTotal control.

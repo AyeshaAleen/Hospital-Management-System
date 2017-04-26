@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         <div class="input-group">
-                            <input type="text" class="form-control datepicker-autoclose" placeholder="mm/dd/yyyy">
+                            <input type="text" class="form-control datepicker-autoclose" id="dateid" placeholder="mm/dd/yyyy">
                             <span class="input-group-addon"><i class="icon-calender"></i></span>
                         </div>
                     </div>
