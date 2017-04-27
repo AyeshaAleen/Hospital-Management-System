@@ -170,73 +170,67 @@ namespace Forms.itinsync.src.session
             XmlNode xNode = doc.DocumentElement.FirstChild;
             while (xNode != null)
             {
-                Control  abc =parent.FindControl("txtSIOTotal");
-                TextBox aa = (TextBox)parent.FindControl(xNode.Name);
-                Control c = FindControl(xNode.Name);
-                foreach (Control control in parent.Controls)
-                {
+                setControlValues(parent,xNode.Name, xNode.InnerText);
 
-                    if (control.GetType() == typeof(TextBox))
-                        ((TextBox)control).Text = xNode.InnerXml;
-
-                    else if ((control.GetType() == typeof(HtmlInputText)))
-                        ((HtmlInputText)control).Value = xNode.InnerXml;
-
-                    else if ((control.GetType() == typeof(DropDownList)))
-                        ((DropDownList)control).SelectedValue = xNode.InnerXml;
-
-                    else if ((control.GetType() == typeof(HtmlInputRadioButton)))
-                        ((HtmlInputRadioButton)control).Value = xNode.InnerXml;
-
-                    else if ((control.GetType() == typeof(HtmlSelect)))
-                        ((HtmlSelect)control).Value = xNode.InnerXml;
-
-                    else if ((control.GetType() == typeof(CheckBox)))
-                    {
-                        if (xNode.InnerXml == "1" || xNode.InnerXml == "Y" || xNode.InnerXml == "y" || xNode.InnerXml == "true")
-                            ((CheckBox)control).Checked = true;
-                        else
-                            ((CheckBox)control).Checked = false;
-                    }
-
-
-                    xNode = xNode.NextSibling;
-                }
+                xNode = xNode.NextSibling;
             }
 
-            /*for (int i = 0; i < elemList.Count; i++)
+            
+
+        }
+
+        public void setControlValues(Control parent, string inputName,string value)
+        {
+            foreach (Control control in parent.Controls)
             {
-                Control control =  parent.FindControl(elemList[i].Name);
 
-                if (control == null)
-                    continue;
-
-
-                if (control.GetType() == typeof(TextBox))
-                    ((TextBox)control).Text = elemList[i].InnerXml;
-
-                else if ((control.GetType() == typeof(HtmlInputText)))
-                    ((HtmlInputText)control).Value = elemList[i].InnerXml;
-
-                else if ((control.GetType() == typeof(DropDownList)))
-                    ((DropDownList)control).SelectedValue = elemList[i].InnerXml;
-
-                else if ((control.GetType() == typeof(HtmlInputRadioButton)))
-                    ((HtmlInputRadioButton)control).Value = elemList[i].InnerXml;
-
-                else if ((control.GetType() == typeof(HtmlSelect)))
-                    ((HtmlSelect)control).Value = elemList[i].InnerXml;
-
-                else if ((control.GetType() == typeof(CheckBox)))
+                if (control.GetType() == typeof(TextBox) && ((TextBox)control).ID == inputName)
                 {
-                    if (elemList[i].InnerXml == "1" || elemList[i].InnerXml == "Y" || elemList[i].InnerXml == "y" || elemList[i].InnerXml == "true")
+                    ((TextBox)control).Text = value;
+                    break;
+                }
+
+                else if (control.GetType() == typeof(HtmlInputText) && ((HtmlInputText)control).ID == inputName)
+                {
+                    ((HtmlInputText)control).Value = value;
+                    break;
+                }
+
+                else if (control.GetType() == typeof(HtmlInputText) && ((HtmlInputText)control).ID == inputName)
+                {
+                    ((DropDownList)control).SelectedValue= value;
+                    break;
+                }
+
+                else if (control.GetType() == typeof(HtmlInputRadioButton) && ((HtmlInputRadioButton)control).ID == inputName)
+                {
+                    if (value == "1" || value == "Y" || value == "y" || value == "true")
+                        ((HtmlInputRadioButton)control).Checked = true;
+                    else
+                        ((HtmlInputRadioButton)control).Checked = false;
+                    
+                    
+                    break;
+                }
+                else if (control.GetType() == typeof(HtmlSelect) && ((HtmlSelect)control).ID == inputName)
+                {
+                    ((HtmlSelect)control).Value = value;
+                    break;
+                }
+                else if (control.GetType() == typeof(CheckBox) && ((CheckBox)control).ID == inputName)
+                {
+                    if (value == "1" || value== "Y" || value== "y" || value== "true")
                         ((CheckBox)control).Checked = true;
                     else
                         ((CheckBox)control).Checked = false;
+                    break;
                 }
-                    
-            }*/
+                if (control.HasControls())
+                    setControlValues(control, inputName, value);
+            }
 
+
+            
         }
 
         public string getDateFormate()
