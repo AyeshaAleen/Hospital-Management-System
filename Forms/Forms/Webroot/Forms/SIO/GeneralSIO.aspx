@@ -26,14 +26,11 @@
                                 <% Response.Write(trasnlation("Preshift.Maintenance.checklist.complete")); %>
                             </td>
                             <td>
-                                <input type="radio" name="gender" id="gendermale" runat="server" value="male" irequired="1" > Male<br>
-                                
-                                <asp:RadioButton GroupName="1" ID="buttonGroup_Checklist" runat="server" irequired="1"  /></td>
+                                <input id="radGSIO1" type="radio" name="1" runat="server" irequired="1"  /></td>
                             <td>
-                                 <input type="radio" name="gender" id="genderfemale" runat="server" value="female" > female<br>
-                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" /></td>
+                                <input id="radGSIO2" type="radio" name="1" runat="server" irequired="1" imask="" /></td>
                             <td>
-                                <asp:RadioButton GroupName="1" runat="server" irequired="1" imask="" /></td>
+                                <input id="radGSIO3" type="radio" name="1" runat="server" irequired="1" imask="" /></td>
                             <td>10</td>
                         </tr>
 
@@ -42,11 +39,11 @@
                                 <% Response.Write(trasnlation("Staffing.hours.appropriate.for.volume")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask=""  /></td>
+                                <input id="radGSIO4" type="radio"  name="2" runat="server" irequired ="1" imask=""  /></td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask=""  /></td>
+                                <input id="radGSIO5" type="radio"  name="2" runat="server" irequired ="1" imask=""  /></td>
                             <td>
-                                <asp:RadioButton GroupName="2" runat="server" irequired ="1" imask=""  /></td>
+                                <input id="radGSIO6" type="radio"  name="2" runat="server" irequired ="1" imask=""  /></td>
                             <td>10</td>
                         </tr>
 
@@ -55,11 +52,11 @@
                                 <% Response.Write(trasnlation("Crew.positioned.to.meet.customer.demands")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="3" runat="server" /></td>
+                                <input id="radGSIO7" type="radio"  name="3" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="3" runat="server" /></td>
+                                <input id="radGSIO8" type="radio"  name="3" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="3" runat="server" /></td>
+                                <input id="radGSIO9" type="radio"  name="3" runat="server" /></td>
                             <td>10</td>
                         </tr>
 
@@ -68,11 +65,11 @@
                                 <% Response.Write(trasnlation("Second.side.open.Split.function")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="4" runat="server" /></td>
+                                <input id="radGSIO10" type="radio"  name="4" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="4" runat="server" /></td>
+                                <input id="radGSIO11" type="radio"  name="4" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="4" runat="server" /></td>
+                                <input id="radGSIO12" type="radio"  name="4" runat="server" /></td>
                             <td>10</td>
                         </tr>
 
@@ -81,11 +78,11 @@
                                 <% Response.Write(trasnlation("Proactively.Manages.Danger.Zones")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="5" runat="server" /></td>
+                                <input id="radGSIO13" type="radio"  name="5" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="5" runat="server" /></td>
+                                <input id="radGSIO14" type="radio"  name="5" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="5" runat="server" /></td>
+                                <input id="radGSIO15" type="radio"  name="5" runat="server" /></td>
                             <td>10</td>
                         </tr>
 
@@ -95,11 +92,11 @@
                             </td>
                            
                             <td>
-                                <asp:RadioButton GroupName="6" runat="server" /></td>
+                                <input id="radGSIO16" type="radio"  name="6" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="6" runat="server" /></td>
+                                <input id="radGSIO17" type="radio"  name="6" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="6" runat="server" /></td>
+                                <input id="radGSIO18" type="radio"  name="6" runat="server" /></td>
                             
                             <td>5</td>
                         </tr>
@@ -109,11 +106,11 @@
                                 <% Response.Write(trasnlation("Manager.sets.targets.everyone.knows.targets")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="7" runat="server" /></td>
+                                <input id="radGSIO19" type="radio"  name="7" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="7" runat="server" /></td>
+                                <input id="radGSIO20" type="radio"  name="7" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="7" runat="server" /></td>
+                                <input id="radGSIO21" type="radio"  name="7" runat="server" /></td>
                              <td>5</td>
                         </tr>
 
@@ -122,11 +119,11 @@
                                 <% Response.Write(trasnlation("Targets.results.and.secondary.duties.tracked")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="8" runat="server" /></td>
+                                <input id="radGSIO22" type="radio"  name="8" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="8" runat="server" /></td>
+                                <input id="radGSIO23" type="radio"  name="8" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="8" runat="server" /></td>
+                                <input id="radGSIO24" type="radio"  name="8" runat="server" /></td>
                             
                             <td>5</td>
                         </tr>
@@ -136,11 +133,11 @@
                                 <% Response.Write(trasnlation("Manager.managing.from.the.Observation.Zone")); %>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="9" runat="server" /></td>
+                                <input id="radGSIO25" type="radio"  name="9" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="9" runat="server" /></td>
+                                <input id="radGSIO26" type="radio"  name="9" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="9" runat="server" /></td>
+                                <input id="radGSIO27" type="radio"  name="9" runat="server" /></td>
                             
                             <td>10</td>
                         </tr>
@@ -151,11 +148,11 @@
                             </td>
                            
                             <td>
-                                <asp:RadioButton GroupName="10" runat="server" /></td>
+                                <input id="radGSIO28" type="radio"  name="10" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="10" runat="server" /></td>
+                                <input id="radGSIO29" type="radio"  name="10" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="10" runat="server" /></td>
+                                <input id="radGSIO30" type="radio"  name="10" runat="server" /></td>
                             
                             <td>5</td>
                         </tr>
@@ -166,11 +163,11 @@
                             </td>
                             
                             <td>
-                                <asp:RadioButton GroupName="11" runat="server" /></td>
+                                <input id="radGSIO31" type="radio"  name="11" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="11" runat="server" /></td>
+                                <input id="radGSIO32" type="radio"  name="11" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="11" runat="server" /></td>
+                                <input id="radGSIO33" type="radio"  name="11" runat="server" /></td>
                            
                             <td>5</td>
                         </tr>
@@ -181,11 +178,11 @@
                             </td>
                           
                             <td>
-                                <asp:RadioButton GroupName="12" runat="server" /></td>
+                                <input id="radGSIO34" type="radio"  name="12" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="12" runat="server" /></td>
+                                <input id="radGSIO35" type="radio"  name="12" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="12" runat="server" /></td>
+                                <input id="radGSIO36" type="radio"  name="12" runat="server" /></td>
                             
                             <td>10</td>
                         </tr>
@@ -196,11 +193,11 @@
                             </td>
                             
                             <td>
-                                <asp:RadioButton GroupName="13" runat="server" /></td>
+                                <input id="radGSIO37" type="radio"  name="13" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="13" runat="server" /></td>
+                                <input id="radGSIO38" type="radio"  name="13" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="13" runat="server" /></td>
+                                <input id="radGSIO39" type="radio"  name="13" runat="server" /></td>
                             
                             <td>5</td>
                         </tr>

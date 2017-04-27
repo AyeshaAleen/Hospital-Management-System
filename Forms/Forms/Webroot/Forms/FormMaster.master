@@ -48,6 +48,16 @@
 						<!-- Page-Title -->
 						<div class="row">
 							<div class="col-sm-12">
+                                 <div class="center"  style="position:absolute; left:25%; right:25%; z-index:1">
+                                    <div class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                         <% Response.Write(trasnlation("Success.Text")); %>
+                                    </div>
+
+                                    <div class="alert alert-danger fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertFailure" runat="server">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    </div>
+                                </div>
                                 <div class="btn-group pull-right m-t-15">
                                     <button type="button" class="btn btn-inverse waves-effect waves-light"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </button>
                                     

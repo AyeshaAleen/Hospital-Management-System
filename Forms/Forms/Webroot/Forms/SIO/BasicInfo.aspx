@@ -13,7 +13,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Restaurant Name</label>
-                        <input type="text" id="txtStore" runat="server" class="form-control" irequired="1" imask="" imessage="Reason.This.Field.is.Required" />
+                        <input type="text" id="txtStore" runat="server" class="form-control" irequired="1" imask="" />
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="control-label">Time</label>
                         <div class="input-group clockpicker " data-placement="top" data-align="top" data-autoclose="true">
-                            <input type="text" class="form-control" value="12:00">
+                            <input type="text" class="form-control" id="txtBI1" runat="server" value="12:00">
                             <span class="input-group-addon"><span class="icon-clock"></span></span>
                         </div>
                     </div>
@@ -41,42 +41,42 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Shift Manager Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="txtBI2" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Completed By</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="txtBI3" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">General SIO</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="txtBI4" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Quality</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="txtBI5" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Service</label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="txtBI6" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Cleanliness</label>
-                        <input type="text" class="form-control">
+                        <input type="text"  id="txtBI7" runat="server" class="form-control">
                     </div>
                 </div>
 
@@ -85,8 +85,8 @@
                         <label class="control-label">Overall</label>
                         <div class="input-group">
                             <span class="input-group-addon half-addon">
-                                <asp:Label ID="Label1" runat="server" Text="100%"></asp:Label></span>
-                            <input type="text" class="form-control">
+                                <asp:Label ID="lblBI1" runat="server" Text="100%"></asp:Label></span>
+                            <input type="text" id="txtBI12" runat="server" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -96,31 +96,33 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Break Fast Food Safety</label>
-                        <input type="text" class="form-control">
+                        <input type="text"  id="txtBI8" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">PreShift Check List</label>
-                        <input type="text" class="form-control">
+                        <input type="text"  id="txtBI9" runat="server" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label"></label>
-                        <asp:CheckBox runat="server" CssClass="checkbox" Text="Auto Fail" />
+                        <label class="control-label">
+                            <input type="checkbox" runat="server" id="chkBI1" CssClass="checkbox" />Auto Fail
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">DSPT Completed 24 hours in Advance</label><br />
                         <div class="radio radio-inline">
-                            <asp:RadioButton GroupName="100" runat="server" Text="Yes" />
+                            <input type="radio" id="radBI1" name="100" runat="server" Text="Yes" />
                         </div>
                         <div class="radio radio-inline">
-                            <asp:RadioButton GroupName="100" runat="server" Text="No" />
+                            <input type="radio" id="radBI2" name="100" runat="server" Text="No" />
                         </div>
 
                     </div>
@@ -129,11 +131,11 @@
                 <div class="col-md-12">
                     <h4 class="header-title">Send To</h4>
                     <p>
-                        <asp:CheckBox runat="server" CssClass="checkbox" Text="Select All" /></p>
+                        <input type="checkbox" id="chkBI4" runat="server" CssClass="checkbox" />Select All</p>
 
                     <p>
                         <asp:CheckBoxList runat="server"
-                            RepeatLayout="Flow" RepeatColumns="8" CssClass="checkbox" RepeatDirection="Horizontal"
+                            RepeatLayout="Flow" RepeatColumns="8" ID="chkBI5" CssClass="checkbox" RepeatDirection="Horizontal"
                             DataValueField="ID" DataTextField="Name">
                         </asp:CheckBoxList>
                     </p>
@@ -146,7 +148,7 @@
 
                         <div class="form-group">
                                 <label class="control-label">Signer Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text"  id="txtBI10" runat="server" class="form-control">
                             </div>
                         <div id="signature-pad-1" class="m-signature-pad">
                             <div class="m-signature-pad--body">
@@ -168,7 +170,7 @@
                     <div class="col-sm-6 p-l-r-20">
                         <div class="form-group">
                                 <label class="control-label">Signer Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text"  id="txtBI11" runat="server" class="form-control">
                             </div>
                         <div id="signature-pad-2" class="m-signature-pad">
                             <div class="m-signature-pad--body">
@@ -194,6 +196,7 @@
                 <div class="col-md-12 m-t-40">
                     <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                    <asp:Button ID="Button1" runat="server" Text="btnnnnnn" CssClass="btn sa-close btn-inverse waves-effect waves-light pull-right" />
                 </div>
 
                 <div class="clearfix"></div>

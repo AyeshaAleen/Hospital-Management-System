@@ -75,11 +75,11 @@
         });
 
         //Auto Close Timer
-        $('#sa-close').click(function () {
+        $('.sa-close').click(function () {
             swal({
                 title: "Auto close alert!",
-                text: "I will close in 2 seconds.",
-                timer: 2000,
+                text: "Form Submitted Successfully...!",
+                timer: 5000,
                 showConfirmButton: false
             });
         });

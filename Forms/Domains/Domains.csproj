@@ -45,8 +45,8 @@
     <Compile Include="itinsync\icom\annotation\LookupAttribute.cs" />
     <Compile Include="itinsync\icom\audit\Audit.cs" />
     <Compile Include="itinsync\icom\BusinessTranscation\BusinessTranscation.cs" />
-    <Compile Include="itinsync\icom\document\document.cs" />
-    <Compile Include="itinsync\icom\document\xdocumentdefination.cs" />
+    <Compile Include="itinsync\icom\Document\Document.cs" />
+    <Compile Include="itinsync\icom\Document\xdocumentdefination.cs" />
     <Compile Include="itinsync\icom\error\ErrorBlock.cs" />
     <Compile Include="itinsync\icom\financial\bank\BankAccount.cs" />
     <Compile Include="itinsync\icom\gl\paymentgl\paymentgl.cs" />

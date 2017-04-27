@@ -147,8 +147,8 @@ namespace DAO.itinsync.icom.BaseAS.CRUDBase
                     query = ServiceUtils.appendCreateQuotes(query, Convert.ToInt32(value));
                 else if (value != null && typeof(double).IsAssignableFrom(value.GetType()))
                     query = ServiceUtils.appendCreateQuotes(query, Convert.ToDouble(value));
-                //else if (value != null && typeof(long).IsAssignableFrom(value.GetType()))
-                //    query = ServiceUtils.appendCreateQuotes(query, Convert.ToInt64(value));
+                else if (value != null && typeof(long).IsAssignableFrom(value.GetType()))
+                    query = ServiceUtils.appendCreateQuotes(query, Convert.ToInt64(value));
                 else
                     query = ServiceUtils.appendCreateQuotes(query, Convert.ToString(value));
             }

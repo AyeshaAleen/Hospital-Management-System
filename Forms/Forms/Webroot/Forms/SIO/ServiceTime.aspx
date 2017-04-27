@@ -30,159 +30,159 @@
                     <tbody>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST1" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST2" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST3" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST4" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server" ></asp:TextBox></td>
+                            <asp:TextBox ID="txtST5" class="form-control" irequired="1" imask="numeric" runat="server" ></asp:TextBox></td>
 
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST6" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST7" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST8" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST9" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST10" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST11" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST12" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST13" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST14" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST15" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST16" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST17" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST18" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST19" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST20" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST21" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST22" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST23" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST24" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
-
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST25" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST26" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST27" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST28" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST29" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST30" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST31" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST32" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST33" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST34" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST35" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <asp:TextBox ID="txtST36" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="txtST37" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="txtST38" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="txtST39" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="txtST40" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
 
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST41" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST42" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST43" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST44" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST45" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
 
                     <tr>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST46" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST47" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST48" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST49" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
                         <td>
-                            <asp:TextBox class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST50" class="form-control" irequired="1" imask="numeric" runat="server"></asp:TextBox></td>
 
                     </tr>
                    
                     <tr>
                         <td>
                             <label>Drive Thru Line Avg</label>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtST51" class="form-control" runat="server"></asp:TextBox>
                         </td>
                         <td>
                             <label>Drive Thru Service Avg</label>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST52" class="form-control" runat="server"></asp:TextBox></td>
                         <td>
                             <label>Front Counter Line Avg</label>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST53" class="form-control" runat="server"></asp:TextBox></td>
                         <td>
                             <label>Front Counter Service Avg</label>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST54" class="form-control" runat="server"></asp:TextBox></td>
                         <td>
                             <label>KVS Actual Avg</label>
-                            <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtST55" class="form-control" runat="server"></asp:TextBox></td>
                     </tr>
 </tbody>
                 </table>

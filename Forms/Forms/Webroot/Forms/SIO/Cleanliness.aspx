@@ -26,11 +26,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="14" runat="server" /></td>
+                                <input type="radio" id="radClean1" name="14" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="14" runat="server" /></td>
+                                <input type="radio" id="radClean2" name="14" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="14" runat="server" /></td>
+                                <input type="radio" id="radClean3" name="14" runat="server" /></td>
 
                             <td>15</td>
                         </tr>
@@ -41,11 +41,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="15" runat="server" /></td>
+                                <input type="radio" id="radClean4" name="15" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="15" runat="server" /></td>
+                                <input type="radio" id="radClean5" name="15" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="15" runat="server" /></td>
+                                <input type="radio" id="radClean6" name="15" runat="server" /></td>
 
                             <td>15</td>
                         </tr>
@@ -55,11 +55,11 @@
                                 <p>Restrooms- Clean, odor free, supplies available, hand dryer working </p>
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="16" runat="server" /></td>
+                                <input type="radio" id="radClean7" name="16" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="16" runat="server" /></td>
+                                <input type="radio" id="radClean8" name="16" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="16" runat="server" /></td>
+                                <input type="radio" id="radClean9" name="16" runat="server" /></td>
 
                             <td>15</td>
                         </tr>
@@ -70,11 +70,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="17" runat="server" /></td>
+                                <input type="radio" id="radClean10" name="17" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="17" runat="server" /></td>
+                                <input type="radio" id="radClean11" name="17" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="17" runat="server" /></td>
+                                <input type="radio" id="radClean12" name="17" runat="server" /></td>
 
                             <td>10</td>
                         </tr>
@@ -85,11 +85,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="18" runat="server" /></td>
+                                <input type="radio" id="radClean13" name="18" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="18" runat="server" /></td>
+                                <input type="radio" id="radClean14" name="18" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="18" runat="server" /></td>
+                                <input type="radio" id="radClean15" name="18" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -100,11 +100,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="19" runat="server" /></td>
+                                <input type="radio" id="radClean16" name="19" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="19" runat="server" /></td>
+                                <input type="radio" id="radClean17" name="19" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="19" runat="server" /></td>
+                                <input type="radio" id="radClean18" name="19" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -115,11 +115,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="20" runat="server" /></td>
+                                <input type="radio" id="radClean19" name="20" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="20" runat="server" /></td>
+                                <input type="radio" id="radClean20" name="20" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="20" runat="server" /></td>
+                                <input type="radio" id="radClean21" name="20" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -130,11 +130,11 @@
 
                             </td>
                             <td>
-                                <asp:RadioButton GroupName="21" runat="server" /></td>
+                                <input type="radio" id="radClean22" name="21" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="21" runat="server" /></td>
+                                <input type="radio" id="radClean23" name="21" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="21" runat="server" /></td>
+                                <input type="radio" id="radClean24" name="21" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -145,11 +145,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="22" runat="server" /></td>
+                                <input type="radio" id="radClean25" name="22" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="22" runat="server" /></td>
+                                <input type="radio" id="radClean26" name="22" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="22" runat="server" /></td>
+                                <input type="radio" id="radClean27" name="22" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -160,11 +160,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="23" runat="server" /></td>
+                                <input type="radio" id="radClean28" name="23" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="23" runat="server" /></td>
+                                <input type="radio" id="radClean29" name="23" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="23" runat="server" /></td>
+                                <input type="radio" id="radClean30" name="23" runat="server" /></td>
 
                             <td>10</td>
                         </tr>
@@ -175,11 +175,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="24" runat="server" /></td>
+                                <input type="radio" id="radClean31" name="24" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="24" runat="server" /></td>
+                                <input type="radio" id="radClean32" name="24" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="24" runat="server" /></td>
+                                <input type="radio" id="radClean33" name="24" runat="server" /></td>
 
                             <td>10</td>
                         </tr>
@@ -189,7 +189,7 @@
                                 <p><strong>Cleanliness - Total</strong></p>
                             </td>
                             <td colspan="3">
-                                <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                                <input type="text" id="txtCleanlinessTotal" class="form-control" runat="server" /></td>
                             <td>
                                 <span class="form-control">100</span></td>
 

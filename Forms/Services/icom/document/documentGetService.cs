@@ -1,0 +1,43 @@
+﻿using DAO.itinsync.icom.BaseAS.frame;
+
+using Domains.itinsync.icom.interfaces.response;
+using System;
+using Utils.itinsync.icom.constant.application;
+using Utils.itinsync.icom.exceptions;
+using Utils.itinsync.icom.constant.audit;
+using DAO.itinsync.icom.document;
+using Services.itinsync.icom.documents.dto;
+
+
+//Created By Qundeel Ch
+
+namespace Services.itinsync.icom.documents
+{
+    public class DocumentGetService : FrameAS
+    {
+        DocumentDTO dto = null;
+
+        protected override IResponseHandler executeBody(object o)
+        {
+            try
+            {
+                dto = (DocumentDTO)o;
+
+
+                dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
+
+
+            }
+            catch (Exception ex)
+            {
+                dto.getErrorBlock().ErrorCode = ApplicationCodes.ERROR;
+                dto.getErrorBlock().ErrorText = ApplicationCodes.ERROR_TEXT;
+                throw new ItinsyncException(ex, dto.getErrorBlock().ErrorText, dto.getErrorBlock().ErrorCode);
+            }
+            return dto;
+        }
+
+
+
+    }
+}

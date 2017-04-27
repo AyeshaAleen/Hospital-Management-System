@@ -55,6 +55,8 @@
     <Compile Include="itinsync\icom\BaseAS\dbcontext\DBContext.cs" />
     <Compile Include="itinsync\icom\BaseAS\frame\FrameAS.cs" />
     <Compile Include="itinsync\icom\BusinessTranscation\BusinessTranscationDAO.cs" />
+    <Compile Include="itinsync\icom\Document\DocumentDAO.cs" />
+    <Compile Include="itinsync\icom\Document\xDocumentDefinationDAO.cs" />
     <Compile Include="itinsync\icom\lookup\LookupDAO.cs" />
     <Compile Include="itinsync\icom\pages\PageNameDAO.cs" />
     <Compile Include="itinsync\icom\permission\PermissionDAO.cs" />

@@ -16,7 +16,7 @@ var formValidationMasks = new Array();
 // Patterns
 
 formValidationMasks['email'] = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/gi;	// Email
-formValidationMasks['serveremail'] = /\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/gi; //Server Side Email
+formValidationMasks['serveremail'] = /\b[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b/gi; //Server Sif Email
 formValidationMasks['numeric'] = /^[0-9]+$/gi;	// Numeric
 formValidationMasks['numericaccount'] = /^[*,0-9]+$/gi; // Numeric account
 formValidationMasks['numericIntPosNeg'] = /^[-]?[0-9]+$/gi;	// Numeric
@@ -177,7 +177,7 @@ IValidation.prototype.initValidationForInputFields = function (inputFields, idDi
         // Get the id
         var inputObjName = inputObj.getAttribute('id');
         if (checkOrRadio)
-            inputObjName = inputObj.getAttribute('name');
+            inputObjName = inputObj.getAttribute('id');
         if (inputObjName == null)
             inputObjName = inputObj.getAttribute('name');
 

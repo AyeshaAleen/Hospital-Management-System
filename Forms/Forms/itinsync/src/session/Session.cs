@@ -36,7 +36,7 @@ namespace Forms.itinsync.src.session
             /// TDRS
             /// </summary>
             PARENTREF,
-
+            XML,
 
             /// <summary>
             /// Int32

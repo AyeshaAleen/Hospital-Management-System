@@ -1,27 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domains.itinsync.icom.annotation;
+using Domains.itinsync.interfaces.domain;
+using System;
 
-namespace Entities.itinsync.audit
+namespace Domain.itinsync.document
 {
-    public class document
+    public class Document : System.Attribute, IDomain
     {
         public enum columns
-        {
-            documentid, documentName, documentdefinitionid,
-            transdate, transtime, status, data, filepath, parentref
-        }
-        public int documentid { get; set; }
+        { documentName, documentDefinitionID, transDate, transTime, status, data, filePath, parentRef, vendorid, type, extension }
+        public enum primaryKey { documentID }
+        public Int32 documentID { get; set; }
         public string documentName { get; set; }
-        public int documentdefinitionid { get; set; }
-        public string transdate { get; set; }
-        public string transtime { get; set; }
+        public Int32 documentDefinitionID { get; set; }
+        public string transDate { get; set; }
+        [DateTimeAttribute(relatedTag = "transDate")]
+        public string transTime { get; set; }
         public string status { get; set; }
-        public string data { get; set; }
-        public string filepath { get; set; }
-        public string parentref { get; set; }
-
+        public String data { get; set; }
+        public string filePath { get; set; }
+        public string parentRef { get; set; }
+        public Int32 vendorid { get; set; }
+        public Int32 transID { get; set; }
+        public string type { get; set; }
+        public string extension { get; set; }
+        public object getKey() { return documentID; }
+        public void setTransID(object transID)
+        {
+            this.transID = (Int32)transID;
+        }
     }
 }

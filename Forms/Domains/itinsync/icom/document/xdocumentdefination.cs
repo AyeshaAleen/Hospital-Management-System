@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domains.itinsync.interfaces.domain;
+using System;
 
-namespace Entities.itinsync.audit
+namespace domains.itinsync.document
 {
-    public class xdocumentdefination
+    public class xDocumentDefination : System.Attribute, IDomain
     {
-        public enum columns
+        public enum columns { name, rdlcPath, dataTable, parameters }
+        public enum primaryKey { xDocumentDefinationID }
+        public Int32 xDocumentDefinationID { get; set; }
+        public String name { get; set; }
+        public String rdlcPath { get; set; }
+        public String dataTable { get; set; }
+        public String parameters { get; set; }
+        public object getKey() { return xDocumentDefinationID;  }
+
+        public void setTransID(object transID)
         {
-            id, name, rdlcpath, datatable, parameters
+           
         }
-        public int id { get; set; }
-        public string name { get; set; }
-        public string rdlcpath { get; set; }
-        public string datatable { get; set; }
-        public string parameters { get; set; }
     }
 }

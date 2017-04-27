@@ -1,4 +1,5 @@
 ﻿using AjaxControlToolkit;
+using Domains.itinsync.icom.header;
 using Domains.itinsync.icom.interfaces.response;
 using Domains.itinsync.icom.permission;
 using Domains.itinsync.icom.session.user;
@@ -11,6 +12,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Xml;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.cache.global;
 using Utils.itinsync.icom.cache.permission;
@@ -123,10 +125,18 @@ namespace Forms.itinsync.src.session
                     outPut = outPut + XMLUtils.appendTag(((DropDownList)(c)).ID, ((DropDownList)(c)).SelectedValue);
 
                 else if ((c.GetType() == typeof(HtmlInputRadioButton)))
-                    outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).Name, ((HtmlInputRadioButton)(c)).Value);
+                {
+                    if (((HtmlInputRadioButton)(c)).Checked)
+                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, 1);
+                    else
+                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, 0);
+                }
+
+                //else if ((c.GetType() == typeof(HtmlInputRadioButton)))
+                //    outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, ((HtmlInputRadioButton)(c)).Checked);
 
                 else if ((c.GetType() == typeof(HtmlSelect)))
-                    outPut = outPut + XMLUtils.appendTag(((HtmlSelect)(c)).Name, ((HtmlSelect)(c)).Value);
+                    outPut = outPut + XMLUtils.appendTag(((HtmlSelect)(c)).ID, ((HtmlSelect)(c)).Value);
 
                 else if ((c.GetType() == typeof(CheckBox)))
                 {
@@ -147,6 +157,88 @@ namespace Forms.itinsync.src.session
 
             return outPut;
         }
+
+        public void processXML(Control parent, string xml, string root)
+        {
+
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml);
+            XmlNodeList elemList = doc.GetElementsByTagName(root);
+            
+
+            XmlNode xNode = doc.DocumentElement.FirstChild;
+            while (xNode != null)
+            {
+                Control  abc =parent.FindControl("txtSIOTotal");
+                TextBox aa = (TextBox)parent.FindControl(xNode.Name);
+                Control c = FindControl(xNode.Name);
+                foreach (Control control in parent.Controls)
+                {
+
+                    if (control.GetType() == typeof(TextBox))
+                        ((TextBox)control).Text = xNode.InnerXml;
+
+                    else if ((control.GetType() == typeof(HtmlInputText)))
+                        ((HtmlInputText)control).Value = xNode.InnerXml;
+
+                    else if ((control.GetType() == typeof(DropDownList)))
+                        ((DropDownList)control).SelectedValue = xNode.InnerXml;
+
+                    else if ((control.GetType() == typeof(HtmlInputRadioButton)))
+                        ((HtmlInputRadioButton)control).Value = xNode.InnerXml;
+
+                    else if ((control.GetType() == typeof(HtmlSelect)))
+                        ((HtmlSelect)control).Value = xNode.InnerXml;
+
+                    else if ((control.GetType() == typeof(CheckBox)))
+                    {
+                        if (xNode.InnerXml == "1" || xNode.InnerXml == "Y" || xNode.InnerXml == "y" || xNode.InnerXml == "true")
+                            ((CheckBox)control).Checked = true;
+                        else
+                            ((CheckBox)control).Checked = false;
+                    }
+
+
+                    xNode = xNode.NextSibling;
+                }
+            }
+
+            /*for (int i = 0; i < elemList.Count; i++)
+            {
+                Control control =  parent.FindControl(elemList[i].Name);
+
+                if (control == null)
+                    continue;
+
+
+                if (control.GetType() == typeof(TextBox))
+                    ((TextBox)control).Text = elemList[i].InnerXml;
+
+                else if ((control.GetType() == typeof(HtmlInputText)))
+                    ((HtmlInputText)control).Value = elemList[i].InnerXml;
+
+                else if ((control.GetType() == typeof(DropDownList)))
+                    ((DropDownList)control).SelectedValue = elemList[i].InnerXml;
+
+                else if ((control.GetType() == typeof(HtmlInputRadioButton)))
+                    ((HtmlInputRadioButton)control).Value = elemList[i].InnerXml;
+
+                else if ((control.GetType() == typeof(HtmlSelect)))
+                    ((HtmlSelect)control).Value = elemList[i].InnerXml;
+
+                else if ((control.GetType() == typeof(CheckBox)))
+                {
+                    if (elemList[i].InnerXml == "1" || elemList[i].InnerXml == "Y" || elemList[i].InnerXml == "y" || elemList[i].InnerXml == "true")
+                        ((CheckBox)control).Checked = true;
+                    else
+                        ((CheckBox)control).Checked = false;
+                }
+                    
+            }*/
+
+        }
+
         public string getDateFormate()
         {
             return DateFunctions.EXTERNADATEFORMATE;
@@ -302,9 +394,9 @@ namespace Forms.itinsync.src.session
         }
         protected void showSuccessMessage(IResponseHandler response)
         {
-            HtmlGenericControl alertSuccess = (HtmlGenericControl)this.Master.FindControl("alertSuccess");
+            HtmlGenericControl alertSuccess = (HtmlGenericControl)this.Master.Master.FindControl("alertSuccess");
             alertSuccess.Visible = true;
-            alertSuccess.InnerHtml = ApplicationCodes.SUCCESS_TEXT;
+            //alertSuccess.InnerHtml = ApplicationCodes.SUCCESS_TEXT;
         }
         protected void showSuccessMessage(string response)
         {
@@ -527,6 +619,29 @@ namespace Forms.itinsync.src.session
                 return Convert.ToBoolean(Sessions.getSession().Get(SessionKey.SESSIONEXIST));
 
             return false;
+        }
+
+        public Header getHeader()
+        {
+            Header header = new Header();
+            header.userID = getUserID();
+            header.currentPageNo = getCurrentPage();
+            header.previousPageNo = getLastVisitedURLCode();
+            header.userinformation = getUserInformation();
+            header.lang = getUserInformation() == null || getUserInformation().userAccount == null ? ApplicationCodes.DEFAULT_USER_LANG : getUserInformation().userAccount.lang;
+
+            return header;
+        }
+
+
+        public void setXMLSession(string value)
+        {
+            Sessions.getSession().Set(SessionKey.XML, value);
+
+        }
+        public string getXMLSession()
+        {
+            return Convert.ToString(Sessions.getSession().Get(SessionKey.XML));
         }
     }
 }
