@@ -51,7 +51,7 @@
 
         <!-- Top Bar Start -->
         <div class="topbar">
-            <%--<div class="center" style="position:absolute; left:40%; right:20%; top:5%; z-index:1">
+            <div class="center" style="position:absolute; left:40%; right:20%; top:5%; z-index:1">
                                     <div style="background:#fff" class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                          <% Response.Write(trasnlation("Success.Text")); %>
@@ -60,7 +60,7 @@
                                     <div style="background:#fff" class="alert alert-danger fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertFailure" runat="server">
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                     </div>
-                                </div>--%>
+                                </div>
             <!-- LOGO -->
             <div class="topbar-left">
                 <div class="text-center">

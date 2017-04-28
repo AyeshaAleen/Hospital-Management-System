@@ -19,10 +19,14 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!IsPostBack)
             {
-                loaddata();
+                //loaddata();
             }
         }
 
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            loaddata();
+        }
         private void loaddata()
         {
             if (!string.IsNullOrEmpty(getXMLSession()))

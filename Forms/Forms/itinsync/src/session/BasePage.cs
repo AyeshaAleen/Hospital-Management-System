@@ -127,9 +127,9 @@ namespace Forms.itinsync.src.session
                 else if ((c.GetType() == typeof(HtmlInputRadioButton)))
                 {
                     if (((HtmlInputRadioButton)(c)).Checked)
-                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, 1);
+                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, true);
                     else
-                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, 0);
+                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, false);
                 }
 
                 //else if ((c.GetType() == typeof(HtmlInputRadioButton)))
@@ -140,15 +140,24 @@ namespace Forms.itinsync.src.session
 
                 else if ((c.GetType() == typeof(CheckBox)))
                 {
-                    if(((CheckBox)(c)).Checked)
-                        outPut = outPut + XMLUtils.appendTag(((CheckBox)(c)).ID, true);
+                    string[] id = c.ClientID.Split('_');
+                    if (((CheckBox)(c)).Checked)
+                        outPut = outPut + XMLUtils.appendTag(id[2], true);
                     else
-                        outPut = outPut + XMLUtils.appendTag(((CheckBox)(c)).ID, false);
+                        outPut = outPut + XMLUtils.appendTag(id[2], false);
                 }
-                   
 
-                
-                   
+                else if ((c.GetType() == typeof(HtmlInputCheckBox)))
+                {
+                    if (((HtmlInputCheckBox)(c)).Checked)
+                        outPut = outPut + XMLUtils.appendTag(((HtmlInputCheckBox)(c)).ID, true);
+                    else
+                        outPut = outPut + XMLUtils.appendTag(((HtmlInputCheckBox)(c)).ID, false);
+                }
+
+
+
+
                 if (c.HasControls())
                      outPut = xmlConversion(c, outPut);
                 
@@ -160,23 +169,17 @@ namespace Forms.itinsync.src.session
 
         public void processXML(Control parent, string xml, string root)
         {
-
-
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xml);
             XmlNodeList elemList = doc.GetElementsByTagName(root);
-            
-
-            XmlNode xNode = doc.DocumentElement.FirstChild;
-            while (xNode != null)
+            if (elemList != null)
             {
-                setControlValues(parent,xNode.Name, xNode.InnerText);
-
-                xNode = xNode.NextSibling;
+                XmlNode mynode = elemList.Item(0);
+                foreach (XmlNode childnode in mynode.ChildNodes)
+                {
+                    setControlValues(parent, childnode.Name, childnode.InnerText);
+                }
             }
-
-            
-
         }
 
         public void setControlValues(Control parent, string inputName,string value)
@@ -204,7 +207,7 @@ namespace Forms.itinsync.src.session
 
                 else if (control.GetType() == typeof(HtmlInputRadioButton) && ((HtmlInputRadioButton)control).ID == inputName)
                 {
-                    if (value == "1" || value == "Y" || value == "y" || value == "true")
+                    if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
                         ((HtmlInputRadioButton)control).Checked = true;
                     else
                         ((HtmlInputRadioButton)control).Checked = false;
@@ -219,7 +222,7 @@ namespace Forms.itinsync.src.session
                 }
                 else if (control.GetType() == typeof(CheckBox) && ((CheckBox)control).ID == inputName)
                 {
-                    if (value == "1" || value== "Y" || value== "y" || value== "true")
+                    if (value == "1" || value== "Y" || value== "y" || value== "True" || value == "true")
                         ((CheckBox)control).Checked = true;
                     else
                         ((CheckBox)control).Checked = false;
@@ -519,6 +522,19 @@ namespace Forms.itinsync.src.session
         {
             Sessions.getSession().Set(SessionKey.SUBJECTID, value);
         }
+        public void setSubjectID(int value)
+        {
+            Sessions.getSession().Set(SessionKey.SUBJECTID, value);
+        }
+        public Int32 getSubjectIDInt()
+        {
+            string Subject_ID = Convert.ToString(Sessions.getSession().Get(SessionKey.SUBJECTID));
+            if (!string.IsNullOrEmpty(Subject_ID))
+                return Convert.ToInt32(Subject_ID);
+            else
+                return 0;
+        }
+
         public string getSubjectID()
         {
             return Convert.ToString(Sessions.getSession().Get(SessionKey.SUBJECTID));

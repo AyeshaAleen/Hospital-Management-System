@@ -19,8 +19,12 @@ namespace Forms.Webroot.Forms.SIO
         {
             if(!IsPostBack)
             {
-                loaddata();
+              //  loaddata();
             }
+        }
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            loaddata();
         }
         private void loaddata()
         {
@@ -37,8 +41,10 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            GeneralSIO.xml += "<BasicInfo>" + xmlConversion(this, "") + "</BasicInfo>";
+            GeneralSIO.xml += "<BasicInfo>" + xmlConversion(this, "") + "</BasicInfo>" + "</SIO>";
             DocumentDTO dto = new DocumentDTO();
+            if (getSubjectIDInt() > 0)
+                dto.document.documentID = getSubjectIDInt();
             dto.document.documentName = "SIO";
             dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();

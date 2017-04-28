@@ -181,7 +181,7 @@
                                 <p><strong>Quality - Total</strong></p>
                             </td>
                             <td colspan="3">
-                                <asp:TextBox class="form-control" runat="server"></asp:TextBox></td>
+                                <input type="text" id="txtQuality1" class="form-control" runat="server"/></td>
                             <td>
                                 <span class="form-control">100</span></td>
 

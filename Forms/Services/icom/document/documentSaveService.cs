@@ -29,8 +29,8 @@ namespace Services.itinsync.icom.documents
                 else
                 {
                     dto.documentDefination.name = dto.document.documentName;
-                    //dto.document.documentDefinitionID = xDocumentDefinationDAO.getInstance(dbContext).create(dto.documentDefination);
-                    
+                   dto.document.documentDefinitionID=xDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
+
                     DocumentDAO.getInstance(dbContext).create(dto.document);
                 }
             }

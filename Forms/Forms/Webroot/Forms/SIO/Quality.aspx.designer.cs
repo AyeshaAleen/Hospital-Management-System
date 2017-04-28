@@ -319,6 +319,15 @@ namespace Forms.Webroot.Forms.SIO {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radQuality33;
         
         /// <summary>
+        /// txtQuality1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtQuality1;
+        
+        /// <summary>
         /// btnPrevious control.
         /// </summary>
         /// <remarks>

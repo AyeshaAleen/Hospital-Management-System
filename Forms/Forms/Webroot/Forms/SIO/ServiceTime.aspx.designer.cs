@@ -19,7 +19,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST1;
         
         /// <summary>
         /// txtST2 control.
@@ -28,7 +28,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST2;
         
         /// <summary>
         /// txtST3 control.
@@ -37,7 +37,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST3;
         
         /// <summary>
         /// txtST4 control.
@@ -46,7 +46,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST4;
         
         /// <summary>
         /// txtST5 control.
@@ -55,7 +55,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST5;
         
         /// <summary>
         /// txtST6 control.
@@ -64,7 +64,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST6;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST6;
         
         /// <summary>
         /// txtST7 control.
@@ -73,7 +73,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST7;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST7;
         
         /// <summary>
         /// txtST8 control.
@@ -82,7 +82,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST8;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST8;
         
         /// <summary>
         /// txtST9 control.
@@ -91,7 +91,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST9;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST9;
         
         /// <summary>
         /// txtST10 control.
@@ -100,7 +100,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST10;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST10;
         
         /// <summary>
         /// txtST11 control.
@@ -109,7 +109,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST11;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST11;
         
         /// <summary>
         /// txtST12 control.
@@ -118,7 +118,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST12;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST12;
         
         /// <summary>
         /// txtST13 control.
@@ -127,7 +127,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST13;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST13;
         
         /// <summary>
         /// txtST14 control.
@@ -136,7 +136,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST14;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST14;
         
         /// <summary>
         /// txtST15 control.
@@ -145,7 +145,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST15;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST15;
         
         /// <summary>
         /// txtST16 control.
@@ -154,7 +154,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST16;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST16;
         
         /// <summary>
         /// txtST17 control.
@@ -163,7 +163,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST17;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST17;
         
         /// <summary>
         /// txtST18 control.
@@ -172,7 +172,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST18;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST18;
         
         /// <summary>
         /// txtST19 control.
@@ -181,7 +181,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST19;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST19;
         
         /// <summary>
         /// txtST20 control.
@@ -190,7 +190,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST20;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST20;
         
         /// <summary>
         /// txtST21 control.
@@ -199,7 +199,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST21;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST21;
         
         /// <summary>
         /// txtST22 control.
@@ -208,7 +208,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST22;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST22;
         
         /// <summary>
         /// txtST23 control.
@@ -217,7 +217,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST23;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST23;
         
         /// <summary>
         /// txtST24 control.
@@ -226,7 +226,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST24;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST24;
         
         /// <summary>
         /// txtST25 control.
@@ -235,7 +235,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST25;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST25;
         
         /// <summary>
         /// txtST26 control.
@@ -244,7 +244,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST26;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST26;
         
         /// <summary>
         /// txtST27 control.
@@ -253,7 +253,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST27;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST27;
         
         /// <summary>
         /// txtST28 control.
@@ -262,7 +262,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST28;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST28;
         
         /// <summary>
         /// txtST29 control.
@@ -271,7 +271,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST29;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST29;
         
         /// <summary>
         /// txtST30 control.
@@ -280,7 +280,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST30;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST30;
         
         /// <summary>
         /// txtST31 control.
@@ -289,7 +289,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST31;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST31;
         
         /// <summary>
         /// txtST32 control.
@@ -298,7 +298,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST32;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST32;
         
         /// <summary>
         /// txtST33 control.
@@ -307,7 +307,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST33;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST33;
         
         /// <summary>
         /// txtST34 control.
@@ -316,7 +316,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST34;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST34;
         
         /// <summary>
         /// txtST35 control.
@@ -325,7 +325,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST35;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST35;
         
         /// <summary>
         /// txtST36 control.
@@ -334,7 +334,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST36;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST36;
         
         /// <summary>
         /// txtST37 control.
@@ -343,7 +343,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST37;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST37;
         
         /// <summary>
         /// txtST38 control.
@@ -352,7 +352,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST38;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST38;
         
         /// <summary>
         /// txtST39 control.
@@ -361,7 +361,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST39;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST39;
         
         /// <summary>
         /// txtST40 control.
@@ -370,7 +370,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST40;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST40;
         
         /// <summary>
         /// txtST41 control.
@@ -379,7 +379,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST41;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST41;
         
         /// <summary>
         /// txtST42 control.
@@ -388,7 +388,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST42;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST42;
         
         /// <summary>
         /// txtST43 control.
@@ -397,7 +397,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST43;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST43;
         
         /// <summary>
         /// txtST44 control.
@@ -406,7 +406,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST44;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST44;
         
         /// <summary>
         /// txtST45 control.
@@ -415,7 +415,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST45;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST45;
         
         /// <summary>
         /// txtST46 control.
@@ -424,7 +424,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST46;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST46;
         
         /// <summary>
         /// txtST47 control.
@@ -433,7 +433,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST47;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST47;
         
         /// <summary>
         /// txtST48 control.
@@ -442,7 +442,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST48;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST48;
         
         /// <summary>
         /// txtST49 control.
@@ -451,7 +451,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST49;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST49;
         
         /// <summary>
         /// txtST50 control.
@@ -460,7 +460,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST50;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST50;
         
         /// <summary>
         /// txtST51 control.
@@ -469,7 +469,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST51;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST51;
         
         /// <summary>
         /// txtST52 control.
@@ -478,7 +478,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST52;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST52;
         
         /// <summary>
         /// txtST53 control.
@@ -487,7 +487,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST53;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST53;
         
         /// <summary>
         /// txtST54 control.
@@ -496,7 +496,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST54;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST54;
         
         /// <summary>
         /// txtST55 control.
@@ -505,7 +505,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtST55;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtST55;
         
         /// <summary>
         /// btnPrevious control.

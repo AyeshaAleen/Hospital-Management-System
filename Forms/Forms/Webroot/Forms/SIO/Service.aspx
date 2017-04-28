@@ -29,44 +29,44 @@
 
                         <tr>
                             <td>Front Counter Line</td>
-                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
-                            <td><asp:RadioButton GroupName="13" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="13" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="13" runat="server" /></td>
+                            <td><input type="text" id="txtService1" runat="server" CssClass="form-control"/></td>
+                            <td><input type="radio" id="radService1" name="13" runat="server" /></td>
+                            <td><input type="radio" id="radService2" name="13" runat="server" /></td>
+                            <td><input type="radio" id="radService3" name="13" runat="server" /></td>
                             <td>5</td>
                         </tr>
 
                         <tr>
                             <td>Front Counter Service</td>
-                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
-                            <td><asp:RadioButton GroupName="14" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="14" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="14" runat="server" /></td>
+                            <td><input type="text" id="txtService2" runat="server" CssClass="form-control"/></td>
+                            <td><input type="radio" id="radService4" name="14" runat="server" /></td>
+                            <td><input type="radio" id="radService5" name="14" runat="server" /></td>
+                            <td><input type="radio" id="radService6" name="14" runat="server" /></td>
                             <td>5</td>
                         </tr>
                         <tr>
                             <td>Drive-Thru Line</td>
-                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
-                            <td><asp:RadioButton GroupName="15" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="15" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="15" runat="server" /></td>
+                            <td><input type="text" id="txtService3" runat="server" CssClass="form-control"/></td>
+                            <td><input type="radio" id="radService7" name="15" runat="server" /></td>
+                            <td><input type="radio" id="radService8" name="15" runat="server" /></td>
+                            <td><input type="radio" id="radService9" name="15" runat="server" /></td>
                             <td>5</td>
                         </tr>
                         <tr>
                             <td>Drive-Thru Service</td>
-                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
-                            <td><asp:RadioButton GroupName="16" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="16" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="16" runat="server" /></td>
+                            <td><input type="text" id="txtService4" runat="server" CssClass="form-control"/></td>
+                            <td><input type="radio" id="radService10" name="16" runat="server" /></td>
+                            <td><input type="radio" id="radService11" name="16" runat="server" /></td>
+                            <td><input type="radio" id="radService12" name="16" runat="server" /></td>
                             <td>5</td>
                         </tr>
 
                         <tr>
                             <td>KVS</td>
-                            <td><asp:TextBox runat="server" CssClass="form-control"></asp:TextBox></td>
-                            <td><asp:RadioButton GroupName="17" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="17" runat="server" /></td>
-                            <td><asp:RadioButton GroupName="17" runat="server" /></td>
+                            <td><input type="text" id="txtService5" runat="server" CssClass="form-control"/></td>
+                            <td><input type="radio" id="radService13" name="17" runat="server" /></td>
+                            <td><input type="radio" id="radService14" name="17" runat="server" /></td>
+                            <td><input type="radio" id="radService15" name="17" runat="server" /></td>
                             <td>10</td>
                         </tr>
                         
@@ -76,11 +76,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="75" runat="server" /></td>
+                                <input type="radio" id="radService16" name="75" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="75" runat="server" /></td>
+                                <input type="radio" id="radService17" name="75" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="75" runat="server" /></td>
+                                <input type="radio" id="radService18" name="75" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -91,11 +91,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="30" runat="server" /></td>
+                                <input type="radio" id="radService19" name="30" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="30" runat="server" /></td>
+                                <input type="radio" id="radService20" name="30" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="30" runat="server" /></td>
+                                <input type="radio" id="radService21" name="30" runat="server" /></td>
 
                             <td>10</td>
                         </tr>
@@ -106,11 +106,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="31" runat="server" /></td>
+                                <input type="radio" id="radService22" name="31" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="31" runat="server" /></td>
+                                <input type="radio" id="radService23" name="31" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="31" runat="server" /></td>
+                                <input type="radio" id="radService24" name="31" runat="server" /></td>
 
                             <td>10</td>
                         </tr>
@@ -121,11 +121,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="32" runat="server" /></td>
+                                <input type="radio" id="radService25" name="32" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="32" runat="server" /></td>
+                                <input type="radio" id="radService26" name="32" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="32" runat="server" /></td>
+                                <input type="radio" id="radService27" name="32" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -136,11 +136,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="33" runat="server" /></td>
+                                <input type="radio" id="radService28" name="33" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="33" runat="server" /></td>
+                                <input type="radio" id="radService29" name="33" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="33" runat="server" /></td>
+                                <input type="radio" id="radService30" name="33" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -151,11 +151,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="34" runat="server" /></td>
+                                <input type="radio" id="radService31" name="34" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="34" runat="server" /></td>
+                                <input type="radio" id="radService32" name="34" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="34" runat="server" /></td>
+                                <input type="radio" id="radService33" name="34" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -166,11 +166,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="35" runat="server" /></td>
+                                <input type="radio" id="radService34" name="35" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="35" runat="server" /></td>
+                                <input type="radio" id="radService35" name="35" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="35" runat="server" /></td>
+                                <input type="radio" id="radService36" name="35" runat="server" /></td>
 
                             <td>5</td>
                         </tr>
@@ -183,11 +183,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="36" runat="server" /></td>
+                                <input type="radio" id="radService37" name="36" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="36" runat="server" /></td>
+                                <input type="radio" id="radService38" name="36" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="36" runat="server" /></td>
+                                <input type="radio" id="radService39" name="36" runat="server" /></td>
 
 
                             <td>5</td>
@@ -199,11 +199,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="101" runat="server" /></td>
+                                <input type="radio" id="radService40" name="101" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="101" runat="server" /></td>
+                                <input type="radio" id="radService41" name="101" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="101" runat="server" /></td>
+                                <input type="radio" id="radService42" name="101" runat="server" /></td>
                             <td>10</td>
                         </tr>
 
@@ -213,11 +213,11 @@
                             </td>
 
                             <td>
-                                <asp:RadioButton GroupName="102" runat="server" /></td>
+                                <input type="radio" id="radService43" name="102" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="102" runat="server" /></td>
+                                <input type="radio" id="radService44" name="102" runat="server" /></td>
                             <td>
-                                <asp:RadioButton GroupName="102" runat="server" /></td>
+                                <input type="radio" id="radService45" name="102" runat="server" /></td>
                             <td>10</td>
                         </tr>
 
@@ -228,7 +228,7 @@
                                 <strong>Service - Total</strong>
                             </td>
                             <td colspan="3">
-                                <asp:TextBox ID="txtST" class="form-control" runat="server"></asp:TextBox></td>
+                                <input type="text" id="txtService6" class="form-control" runat="server"/></td>
                             <td>
                                 <span class="form-control">100</span></td>
 

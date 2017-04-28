@@ -19,9 +19,14 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!IsPostBack)
             {
-                loaddata();
+                //loaddata();
             }
         }
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            loaddata();
+        }
+
 
         private void loaddata()
         {
@@ -37,7 +42,7 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            GeneralSIO.xml += "<SERVICETIME>" + xmlConversion(this, "") + "</SERVICETIME>";
+            GeneralSIO.xml += "<ServiceTime>" + xmlConversion(this, "") + "</ServiceTime>";
             Response.Redirect("Service.aspx");
         }
     }

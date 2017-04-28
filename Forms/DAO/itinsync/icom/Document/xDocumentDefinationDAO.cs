@@ -13,7 +13,7 @@ namespace DAO.itinsync.icom.document
 {
     public class xDocumentDefinationDAO : CRUDBase
     {
-        string TABLENAME = " document ";
+        string TABLENAME = " xdocumentdefinition ";
         public static xDocumentDefinationDAO getInstance(DBContext dbContext)
         {
             xDocumentDefinationDAO obj = new xDocumentDefinationDAO();
@@ -58,6 +58,12 @@ namespace DAO.itinsync.icom.document
             string sql = "select * From " + TABLENAME + "where xDocumentDefinationID = " + xDocumentDefinationID;
             return (xDocumentDefination)processSingleResult(sql);
         }
+        public xDocumentDefination findbyDocumentName(string DocumentName)
+        {
+            string sql = string.Format("select * From " + TABLENAME + "where name ='{0}'" , DocumentName);
+            return (xDocumentDefination)processSingleResult(sql);
+        }
+
         public List<xDocumentDefination> readAll()
         {
             string sql = "select * From " + TABLENAME;
