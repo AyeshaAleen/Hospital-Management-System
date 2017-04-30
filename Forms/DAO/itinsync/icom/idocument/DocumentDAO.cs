@@ -34,13 +34,7 @@ namespace DAO.itinsync.icom.idocument
 
             setPropertiesValue(document, dt, i, typeof(Douments.columns));
 
-            /*document.documentName = Convert.ToString(dt.Rows[i][Document.columns.documentName.ToString()]);
-            document.documentDefinitionID = Convert.ToInt32(dt.Rows[i][Document.columns.documentDefinitionID.ToString()]);
-            document.transDate = Convert.ToString(dt.Rows[i][Document.columns.transDate.ToString()]);
-            document.transTime = Convert.ToString(dt.Rows[i][Document.columns.transTime.ToString()]);
-            document.status = Convert.ToString(dt.Rows[i][Document.columns.data.ToString()]);
-            document.filePath = Convert.ToString(dt.Rows[i][Document.columns.filePath.ToString()]);
-            document.parentRef = Convert.ToString(dt.Rows[i][Document.columns.parentRef.ToString()]);*/
+           
             return document;
         }
         protected override string updateQuery(object o, string where)
@@ -82,11 +76,7 @@ namespace DAO.itinsync.icom.idocument
             string sql = "select * From " + TABLENAME;
             return wrap(processResults(sql));
         }
-        private List<Douments> languageLookup()
-        {
-            string READBYLOOKUP = "select * from " + TABLENAME + " where name ='" + LookupsConstant.LKUserLang + "' order by name";
-            return wrap(processResults(READBYLOOKUP));
-        }
+        
         private List<Douments> readWhere(string where)
         {
             if (where == null || where.Length == 0)

@@ -66,57 +66,68 @@ namespace Forms.itinsync.src.session
            // processDynamicContent(this);
 
         }
-        protected void processDynamicContent(Control parent, Douments documents)
+        protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
-            //Table parentTable = ((Table)(parent));
-            //foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
-            //{
-
-            //    foreach (XDocumentTable table in section.documentTable)
-            //    {
-
-            //        foreach (XDocumentTableTR tr in table.trs)
-            //        {
-            //            TableRow tabletr = new TableRow();
-            //            foreach (XDocumentTableTD td  in tr.tds)
-            //            {
-            //                foreach (XDocumentTableContent content in td.fields)
-            //                {
-            //                    TableCell tc = new TableCell();
-            //                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
-            //                    {
-            //                        TextBox txtBox = new TextBox();
-            //                        txtBox.ID = content.controlID;
-            //                        txtBox.CssClass = content.cssClass;
-            //                        txtBox.Attributes.Add("irequired", content.isRequired);
-            //                        txtBox.Attributes.Add("imask", content.mask);
-            //                        tc.Controls.Add(txtBox);
-
-            //                        tabletr.Cells.Add(tc);
-
-
-            //                    }
-            //                }
-            //            }
-
-            //            parentTable.Rows.Add(tabletr);
-            //        }
-
-            //    }
-            //}
-
-
             Control tableControl = parent.FindControl("tableDynamic");
-            Table table1 = ((Table)(tableControl));
+            Table parentTable = ((Table)(tableControl));
+            
+            foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
+            {
+                if (section.documentsectionid != sectionID)
+                    continue;
+
+                foreach (XDocumentTable table in section.documentTable)
+                {
+
+                    foreach (XDocumentTableTR tr in table.trs)
+                    {
+                        TableRow tabletr = new TableRow();
+                        foreach (XDocumentTableTD td in tr.tds)
+                        {
+                            foreach (XDocumentTableContent content in td.fields)
+                            {
+                                TableCell tc = new TableCell();
+                                if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
+                                {
+                                    TextBox txtBox = new TextBox();
+                                    txtBox.ID = content.controlID;
+                                    txtBox.CssClass = content.cssClass;
+                                    txtBox.Attributes.Add("irequired", content.isRequired);
+                                    txtBox.Attributes.Add("imask", content.mask);
+                                    tc.Controls.Add(txtBox);
+                                    tabletr.Cells.Add(tc);
+                                }
+                                else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
+                                {
+                                    HtmlInputRadioButton radio = new HtmlInputRadioButton();
+                                    radio.Name = content.controlName;
+                                    radio.ID = content.controlID;
+                                    radio.Attributes.Add("irequired", content.isRequired);
+                                    radio.Attributes.Add("imask", content.mask);
+                                    tc.Controls.Add(radio);
+                                    tabletr.Cells.Add(tc);
+                                }
+                            }
+                        }
+
+                        parentTable.Rows.Add(tabletr);
+                    }
+
+                }
+            }
 
 
-            TableRow tr = new TableRow();
-            TableCell tc = new TableCell();
+            //Control tableControl = parent.FindControl("tableDynamic");
+            //Table table1 = ((Table)(tableControl));
 
-            TextBox txtBox = new TextBox();
-            tc.Controls.Add(txtBox);
-            tr.Cells.Add(tc);
-            table1.Rows.Add(tr);
+
+            //TableRow tr = new TableRow();
+            //TableCell tc = new TableCell();
+
+            //TextBox txtBox = new TextBox();
+            //tc.Controls.Add(txtBox);
+            //tr.Cells.Add(tc);
+            //table1.Rows.Add(tr);
 
 
 

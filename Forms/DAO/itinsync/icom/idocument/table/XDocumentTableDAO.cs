@@ -1,0 +1,59 @@
+﻿using DAO.itinsync.icom.BaseAS.CRUDBase;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Domains.itinsync.interfaces.domain;
+using System.Data;
+using Domains.itinsync.icom.idocument.table;
+using DAO.itinsync.icom.BaseAS.dbcontext;
+
+namespace DAO.itinsync.icom.idocument.table
+{
+    public class XDocumentTableDAO : CRUDBase
+    {
+
+        string TABLENAME = " xdocumenttable ";
+
+        public static XDocumentTableDAO getInstance(DBContext dbContext)
+        {
+            XDocumentTableDAO obj = new XDocumentTableDAO();
+            obj.init(dbContext);
+            return obj;
+        }
+        protected override string createQuery(object o)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override IDomain setResult(DataTable dt, int i)
+        {
+            XDocumentTable table = new XDocumentTable();
+            table.documentTableID= Convert.ToInt32(dt.Rows[i][XDocumentTable.primaryKey.documentTableID.ToString()]);
+
+            setPropertiesValue(table, dt, i, typeof(XDocumentTable.columns));
+
+            return table;
+        }
+
+        protected override string updateQuery(object o, string where)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<XDocumentTable> readbySectionID(Int32 sectionID)
+        {
+            string sql = "select * From " + TABLENAME + " where documentsectionid = "+ sectionID;
+            return wrap(processResults(sql));
+        }
+
+        private List<XDocumentTable> wrap(List<IDomain> result)
+        {
+            List<XDocumentTable> list = new List<XDocumentTable>();
+            foreach (IDomain domain in result)
+                list.Add((XDocumentTable)domain);
+            return list;
+        }
+    }
+}

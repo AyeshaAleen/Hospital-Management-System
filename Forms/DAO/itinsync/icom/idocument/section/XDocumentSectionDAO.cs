@@ -15,7 +15,7 @@ namespace DAO.itinsync.icom.idocument.section
     {
 
 
-        string TABLENAME = " xdocumentcontent ";
+        string TABLENAME = " xdocumentsection ";
 
         public static XDocumentSectionDAO getInstance(DBContext dbContext)
         {

@@ -32,7 +32,18 @@ namespace Forms.Webroot.Forms.SIO
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             loaddata();
-            processDynamicContent(tableDynamic,getDocument());
+
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+            dto.document.documentName = "SIO";
+            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
+
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (DocumentDTO)response;
+                processDynamicContent(tableDynamic, dto.document,2);
+            }
+            
         }
 
         private Douments getDocument()
@@ -88,15 +99,26 @@ namespace Forms.Webroot.Forms.SIO
             td.fields.Add(content);
 
             XDocumentTableContent content2 = new XDocumentTableContent();
-            content2.tdID = 1;
+            content2.tdID = 2;
             content2.controlName = "dynamic1234";
-            content2.controlID = "dynamic1234";
-            content2.controlType = ApplicationCodes.FORMS_CONTROL_TAXTBOX;
+            content2.controlID = "dynamicY";
+            content2.controlType = ApplicationCodes.FORMS_CONTROL_RADIOBUTTON;
             content2.documentTableContentID = 1;
             content2.isRequired = "1";
-            content2.mask = "numaric";
-            content2.tdID = 1;
+           // content2.mask = "numaric";
+            content2.tdID = 2;
             td.fields.Add(content2);
+
+            XDocumentTableContent content3 = new XDocumentTableContent();
+            content3.tdID = 2;
+            content3.controlName = "dynamic1234";
+            content3.controlID = "dynamicN";
+            content3.controlType = ApplicationCodes.FORMS_CONTROL_RADIOBUTTON;
+            content3.documentTableContentID = 1;
+            content3.isRequired = "1";
+            // content2.mask = "numaric";
+            content3.tdID = 2;
+            td.fields.Add(content3);
 
             return documents;
         }
