@@ -1,10 +1,15 @@
 ﻿using Domains.itinsync.icom.annotation;
+using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.interfaces.domain;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Domain.itinsync.document
+namespace Domains.itinsync.icom.idocument
 {
-    public class Document : System.Attribute, IDomain
+    public class Douments : System.Attribute, IDomain
     {
         public enum columns
         { documentName, documentDefinitionID, transDate, transTime, status, data, filePath, parentRef, vendorid, type, extension }
@@ -28,5 +33,10 @@ namespace Domain.itinsync.document
         {
             this.transID = (Int32)transID;
         }
+
+
+
+        //*************Relational Mapping Objects*******************//////
+        public XDocumentDefination xdocumentDefinition{get;set;}
     }
 }

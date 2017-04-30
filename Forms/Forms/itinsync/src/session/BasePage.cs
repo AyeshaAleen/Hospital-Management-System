@@ -1,5 +1,12 @@
 ﻿using AjaxControlToolkit;
 using Domains.itinsync.icom.header;
+using Domains.itinsync.icom.idocument;
+using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument.table;
+using Domains.itinsync.icom.idocument.table.content;
+using Domains.itinsync.icom.idocument.table.td;
+using Domains.itinsync.icom.idocument.table.tr;
 using Domains.itinsync.icom.interfaces.response;
 using Domains.itinsync.icom.permission;
 using Domains.itinsync.icom.session.user;
@@ -15,6 +22,7 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.cache.global;
+using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.cache.permission;
 using Utils.itinsync.icom.cache.translation;
 using Utils.itinsync.icom.constant.application;
@@ -53,6 +61,64 @@ namespace Forms.itinsync.src.session
         protected void Page_SaveStateComplete(object sender, EventArgs e)
         {
             setIMessage(this);
+
+            //processDynamicContent
+           // processDynamicContent(this);
+
+        }
+        protected void processDynamicContent(Control parent, Douments documents)
+        {
+            //Table parentTable = ((Table)(parent));
+            //foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
+            //{
+
+            //    foreach (XDocumentTable table in section.documentTable)
+            //    {
+
+            //        foreach (XDocumentTableTR tr in table.trs)
+            //        {
+            //            TableRow tabletr = new TableRow();
+            //            foreach (XDocumentTableTD td  in tr.tds)
+            //            {
+            //                foreach (XDocumentTableContent content in td.fields)
+            //                {
+            //                    TableCell tc = new TableCell();
+            //                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
+            //                    {
+            //                        TextBox txtBox = new TextBox();
+            //                        txtBox.ID = content.controlID;
+            //                        txtBox.CssClass = content.cssClass;
+            //                        txtBox.Attributes.Add("irequired", content.isRequired);
+            //                        txtBox.Attributes.Add("imask", content.mask);
+            //                        tc.Controls.Add(txtBox);
+
+            //                        tabletr.Cells.Add(tc);
+
+
+            //                    }
+            //                }
+            //            }
+
+            //            parentTable.Rows.Add(tabletr);
+            //        }
+
+            //    }
+            //}
+
+
+            Control tableControl = parent.FindControl("tableDynamic");
+            Table table1 = ((Table)(tableControl));
+
+
+            TableRow tr = new TableRow();
+            TableCell tc = new TableCell();
+
+            TextBox txtBox = new TextBox();
+            tc.Controls.Add(txtBox);
+            tr.Cells.Add(tc);
+            table1.Rows.Add(tr);
+
+
 
         }
         public void setIMessage(Control parent)
@@ -177,11 +243,60 @@ namespace Forms.itinsync.src.session
                 XmlNode mynode = elemList.Item(0);
                 foreach (XmlNode childnode in mynode.ChildNodes)
                 {
-                    setControlValues(parent, childnode.Name, childnode.InnerText);
+                   // setControlValues(parent, childnode.Name, childnode.InnerText);
+
+                   findSetControl( parent.FindControl(childnode.Name), childnode.InnerText);
                 }
             }
         }
 
+        private void findSetControl(Control control,string value)
+        {
+            if (control == null)
+                return;
+
+            if (control.GetType() == typeof(TextBox) )
+            {
+                ((TextBox)control).Text = value;
+             
+            }
+
+            else if (control.GetType() == typeof(HtmlInputText) )
+            {
+                ((HtmlInputText)control).Value = value;
+               
+            }
+
+            else if (control.GetType() == typeof(HtmlInputText) )
+            {
+                ((DropDownList)control).SelectedValue = value;
+               
+            }
+
+            else if (control.GetType() == typeof(HtmlInputRadioButton) )
+            {
+                if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
+                    ((HtmlInputRadioButton)control).Checked = true;
+                else
+                    ((HtmlInputRadioButton)control).Checked = false;
+
+            }
+            else if (control.GetType() == typeof(HtmlSelect) )
+            {
+                ((HtmlSelect)control).Value = value;
+               
+            }
+            else if (control.GetType() == typeof(CheckBox) )
+            {
+                if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
+                    ((CheckBox)control).Checked = true;
+                else
+                    ((CheckBox)control).Checked = false;
+                
+            }
+        }
+
+        //never use this function as it has performance issue 
         public void setControlValues(Control parent, string inputName,string value)
         {
             foreach (Control control in parent.Controls)

@@ -3,14 +3,27 @@
 <asp:Content ID="cntServiceTimeHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="cntServiceTimeBody" ContentPlaceHolderID="FormMasterBody" runat="server">
-    <div class="row">
+    <div class="row" runat="server" id="processDynamicDiv"> 
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Service Time</b></h4>
 
                 <div id="iErrorPanel"></div>
 
-                <table data-toggle="table">
+
+                <div>
+
+                     <asp:Table ID="tableDynamic"  runat="server"  Font-Size="X-Large"  Width="550"  Font-Names="Palatino" BackColor="Orange" BorderColor="DarkRed" BorderWidth="2" ForeColor="Snow" CellPadding="5" CellSpacing="5">
+                       
+                      
+           
+                     
+                    </asp:Table>
+
+                </div>
+
+
+                <table data-toggle="table"  runat="server" id="dynamicContentID">
                     <thead>
                     <tr>
                         <th colspan="2" data-align="center">Drive-Thru Service Times  </th>
@@ -95,7 +108,7 @@
 
                     </tr>
 
-                    <tr>
+                    <tr>    
                         <td>
                             <input type="text" ID="txtST26" class="form-control" irequired="1" imask="numeric" runat="server" /></td>
                         <td>
@@ -184,7 +197,7 @@
                             <label>KVS Actual Avg</label>
                             <input type="text" ID="txtST55" class="form-control" runat="server" /></td>
                     </tr>
-</tbody>
+                   </tbody>
                 </table>
 
                 <div class="clearfix"></div>

@@ -12,6 +12,19 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string HALF_CSS_LAYOUT = "../itinsync/resources/css/layout/half/bootstrap.min.css";
         public static readonly string ONETHIRD_CSS_LAYOUT = "../itinsync/resources/css/layout/onethird/bootstrap.min.css";
 
+
+
+
+
+        ///***************ControlType constant***********///
+        public static readonly string FORMS_CONTROL_BUTTON= "0";
+        public static readonly string FORMS_CONTROL_CHECKBOX = "1";
+        public static readonly string FORMS_CONTROL_RADIOBUTTON = "2";
+        public static readonly string FORMS_CONTROL_TAXTBOX = "3";
+        public static readonly string FORMS_CONTROL_COMBObOX = "4";
+        public static readonly string FORMS_CONTROL_LABEL = "5";
+
+
         public static string CURRENT_CSS_LAYOUT = FULL_CSS_LAYOUT;
         
         public static readonly Int32 TRUE_INDICATOR = 1;

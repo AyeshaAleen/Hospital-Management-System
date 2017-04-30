@@ -5,8 +5,8 @@ using System;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Utils.itinsync.icom.constant.audit;
-using DAO.itinsync.icom.document;
 using Services.itinsync.icom.documents.dto;
+using DAO.itinsync.icom.idocument;
 
 
 //Created By Qundeel Ch

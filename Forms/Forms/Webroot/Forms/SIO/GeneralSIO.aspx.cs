@@ -45,7 +45,7 @@ namespace Forms.Webroot.Forms.SIO
                     setXMLSession(dto.document.data);
                     setSubjectID(dto.document.documentID);
 
-                    processXML(this, dto.document.data, "GeneralSIO");
+                    //processXML(this, dto.document.data, "GeneralSIO");
                 }
             }
         }

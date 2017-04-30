@@ -10,7 +10,8 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
-using DAO.itinsync.icom.document;
+using DAO.itinsync.icom.idocument;
+using DAO.itinsync.icom.idocument.definition;
 
 namespace Services.itinsync.icom.documents
 {
@@ -29,7 +30,7 @@ namespace Services.itinsync.icom.documents
                 else
                 {
                     dto.documentDefination.name = dto.document.documentName;
-                   dto.document.documentDefinitionID=xDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
+                   dto.document.documentDefinitionID=XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
 
                     DocumentDAO.getInstance(dbContext).create(dto.document);
                 }

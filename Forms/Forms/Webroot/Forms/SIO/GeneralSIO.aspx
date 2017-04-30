@@ -26,7 +26,8 @@
                                 <% Response.Write(trasnlation("Preshift.Maintenance.checklist.complete")); %>
                             </td>
                             <td>
-                                <input id="radGSIO1" type="radio" name="1" runat="server" irequired="1"  /></td>
+                               
+                                <input id="radGSIO1"  type="radio" name="1" runat="server" irequired="1"  /></td>
                             <td>
                                 <input id="radGSIO2" type="radio" name="1" runat="server" irequired="1" imask="" /></td>
                             <td>

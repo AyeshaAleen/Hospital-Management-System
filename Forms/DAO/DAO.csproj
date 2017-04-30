@@ -55,8 +55,10 @@
     <Compile Include="itinsync\icom\BaseAS\dbcontext\DBContext.cs" />
     <Compile Include="itinsync\icom\BaseAS\frame\FrameAS.cs" />
     <Compile Include="itinsync\icom\BusinessTranscation\BusinessTranscationDAO.cs" />
-    <Compile Include="itinsync\icom\Document\DocumentDAO.cs" />
-    <Compile Include="itinsync\icom\Document\xDocumentDefinationDAO.cs" />
+    <Compile Include="itinsync\icom\idocument\content\XDocumentContentDAO.cs" />
+    <Compile Include="itinsync\icom\idocument\definition\XDocumentDefinationDAO.cs" />
+    <Compile Include="itinsync\icom\idocument\DocumentDAO.cs" />
+    <Compile Include="itinsync\icom\idocument\section\XDocumentSectionDAO.cs" />
     <Compile Include="itinsync\icom\lookup\LookupDAO.cs" />
     <Compile Include="itinsync\icom\pages\PageNameDAO.cs" />
     <Compile Include="itinsync\icom\permission\PermissionDAO.cs" />
@@ -84,6 +86,7 @@
       <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
