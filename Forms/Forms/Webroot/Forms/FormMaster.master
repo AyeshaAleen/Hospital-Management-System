@@ -26,7 +26,7 @@
                             </li>
 
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i> <span> Pages </span> </a>
+                                <a href="../SIOTest/GeneralSIOTest.aspx" class="waves-effect"><i class="ti-pencil-alt"></i> <span> General SIO Test </span> </a>
                             </li>
 
                         </ul>

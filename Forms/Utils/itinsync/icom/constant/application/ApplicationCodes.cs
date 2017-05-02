@@ -13,7 +13,10 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string ONETHIRD_CSS_LAYOUT = "../itinsync/resources/css/layout/onethird/bootstrap.min.css";
 
 
-
+        ///***************Table TD constant***********///
+        public static readonly string FORMS_TABLE_TD_TYPE= "600";
+        public static readonly string FORMS_TABLE_HEADER_TYPE = "601";
+        public static readonly string FORMS_TABLE_FOOTER_TYPE = "602";
 
 
         ///***************ControlType constant***********///

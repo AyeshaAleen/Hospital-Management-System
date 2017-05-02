@@ -2203,3 +2203,10 @@ table tr td {
 .border-color-red {
     border: 1px solid red;
 }
+
+
+.radio-required {
+    /*-moz-box-shadow:0 0 2px 2px red;
+    box-shadow:0 0 2px 2px red;*/
+    outline: 2px dashed red !important;
+}

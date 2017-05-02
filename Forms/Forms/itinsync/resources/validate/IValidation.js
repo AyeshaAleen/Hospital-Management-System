@@ -604,7 +604,7 @@ IValidation.prototype.isFormValid = function (bShowMessage) {
             {
                 var sRadioName = inputObj.id.substring(12);
                 var arrBtnGrp = document.getElementsByName(sRadioName);
-                arrBtnGrp.className = "border-color-red form-control";
+                arrBtnGrp.className = "radio-required";
 
             }
             else

@@ -66,10 +66,22 @@ namespace Forms.itinsync.src.session
            // processDynamicContent(this);
 
         }
+        private void addLabel(TableCell tc, string trans)
+        {
+            if (string.IsNullOrEmpty(trans))
+                return;
+            else
+            {
+                Label lbl = new Label();
+                lbl.Text = TranslationManager.trans(trans);
+                tc.Controls.Add(lbl);
+            }
+        }
         protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
             Control tableControl = parent.FindControl("tableDynamic");
             Table parentTable = ((Table)(tableControl));
+
             
             foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
             {
@@ -82,31 +94,97 @@ namespace Forms.itinsync.src.session
                     foreach (XDocumentTableTR tr in table.trs)
                     {
                         TableRow tabletr = new TableRow();
+                        
+                        tabletr.CssClass = tr.cssClass;
+                        
                         foreach (XDocumentTableTD td in tr.tds)
                         {
                             foreach (XDocumentTableContent content in td.fields)
                             {
-                                TableCell tc = new TableCell();
-                                if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
+
+                                if (content.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
-                                    TextBox txtBox = new TextBox();
-                                    txtBox.ID = content.controlID;
-                                    txtBox.CssClass = content.cssClass;
-                                    txtBox.Attributes.Add("irequired", content.isRequired);
-                                    txtBox.Attributes.Add("imask", content.mask);
-                                    tc.Controls.Add(txtBox);
-                                    tabletr.Cells.Add(tc);
+                                    TableHeaderCell tableHeader = new TableHeaderCell();
+                                    
+                                    Label lbl = new Label();
+                                    lbl.ID = content.controlID;
+                                    lbl.CssClass = content.cssClass;
+                                    lbl.Text = TranslationManager.trans(content.translation);
+                                    tableHeader.Controls.Add(lbl);
+                                    tabletr.Cells.Add(tableHeader);
+
+                                    
                                 }
-                                else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
+                                else
                                 {
-                                    HtmlInputRadioButton radio = new HtmlInputRadioButton();
-                                    radio.Name = content.controlName;
-                                    radio.ID = content.controlID;
-                                    radio.Attributes.Add("irequired", content.isRequired);
-                                    radio.Attributes.Add("imask", content.mask);
-                                    tc.Controls.Add(radio);
-                                    tabletr.Cells.Add(tc);
+                                    TableCell tc = new TableCell();
+                                    tc.ColumnSpan = content.colspan;
+                                    tc.CssClass = content.cssClass;
+
+                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
+                                    {
+                                        Label lbl = new Label();
+                                        lbl.ID = content.controlID;
+                                        lbl.CssClass = content.cssClass;
+                                        lbl.Text = TranslationManager.trans(content.translation);
+                                        tc.Controls.Add(lbl);
+                                        tabletr.Cells.Add(tc);
+                                    }
+
+                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
+                                    {
+                                        addLabel(tc, content.translation);
+                                        TextBox txtBox = new TextBox();
+                                        txtBox.ID = content.controlID;
+                                        txtBox.CssClass = content.cssClass;
+                                        txtBox.Attributes.Add("irequired", content.isRequired);
+                                        txtBox.Attributes.Add("imask", content.mask);
+                                        tc.Controls.Add(txtBox);
+                                        tabletr.Cells.Add(tc);
+                                    }
+                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
+                                    {
+                                        addLabel(tc, content.translation);
+                                        HtmlInputRadioButton radio = new HtmlInputRadioButton();
+                                        radio.Name = content.controlName;
+                                        radio.ID = content.controlID;
+                                        radio.Attributes.Add("irequired", content.isRequired);
+                                        radio.Attributes.Add("imask", content.mask);
+
+                                        tc.Controls.Add(radio);
+                                        tabletr.Cells.Add(tc);
+                                    }
+
+                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_CHECKBOX)
+                                    {
+                                        addLabel(tc, content.translation);
+                                        HtmlInputCheckBox check = new HtmlInputCheckBox();
+                                        check.Name = content.controlName;
+                                        check.ID = content.controlID;
+                                        check.Attributes.Add("irequired", content.isRequired);
+                                        check.Attributes.Add("imask", content.mask);
+
+                                        tc.Controls.Add(check);
+                                        tabletr.Cells.Add(tc);
+                                    }
+                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_COMBObOX)
+                                    {
+                                        addLabel(tc, content.translation);
+                                        DropDownList ddl = new DropDownList();
+
+                                        ddl.ID = content.controlID;
+                                        ddl.DataValueField = "Code";
+                                        ddl.DataTextField = "Text";
+                                        ddl.Attributes.Add("irequired", content.isRequired);
+                                        ddl.Attributes.Add("imask", content.mask);
+                                        ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
+                                        ddl.DataBind();
+                                        tc.Controls.Add(ddl);
+                                        tabletr.Cells.Add(tc);
+                                    }
                                 }
+
+                                
                             }
                         }
 

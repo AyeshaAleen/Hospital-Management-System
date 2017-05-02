@@ -21,6 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr>
                             <td>
                                 <% Response.Write(trasnlation("Preshift.Maintenance.checklist.complete")); %>

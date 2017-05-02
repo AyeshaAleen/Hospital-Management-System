@@ -13,17 +13,16 @@
 
                 <div>
 
-                     <asp:Table ID="tableDynamic"  runat="server"  Font-Size="X-Large"  Width="550"  Font-Names="Palatino" BackColor="Orange" BorderColor="DarkRed" BorderWidth="2" ForeColor="Snow" CellPadding="5" CellSpacing="5">
+                     <asp:Table ID="tableDynamic" runat="server"  Font-Size="X-Large"  Width="550"  Font-Names="Palatino" BackColor="Orange" BorderColor="DarkRed" BorderWidth="2" ForeColor="Snow" CellPadding="5" CellSpacing="5">
                        
-                      
-           
-                     
                     </asp:Table>
 
                 </div>
 
 
-                <table data-toggle="table"  runat="server" id="dynamicContentID">
+                <table data-toggle="table" class="table-bordered"  data-search="true"
+                    data-sort-name="id" data-page-list="[4, 8, 12, 100]"
+                    data-page-size="4" data-pagination="true" runat="server" id="dynamicContentID">
                     <thead>
                     <tr>
                         <th colspan="2" data-align="center">Drive-Thru Service Times  </th>
@@ -43,6 +42,7 @@
                     <tbody>
                     <tr>
                         <td>
+                            
                             <input type="text" ID="txtST1" class="form-control" irequired="1" imask="numeric" runat="server" /></td>
                         <td>
                             <input type="text" ID="txtST2" class="form-control" irequired="1" imask="numeric" runat="server" /></td>
