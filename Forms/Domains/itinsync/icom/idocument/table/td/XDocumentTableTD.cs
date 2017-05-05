@@ -11,13 +11,15 @@ namespace Domains.itinsync.icom.idocument.table.td
     public class XDocumentTableTD : System.Attribute, IDomain
     {
         public enum columns
-        {  tdControlID, trID,cssClass, colSpan }
+        {  tdControlID, trID,cssClass, colSpan, tdType }
         public enum primaryKey { tdID }
         public Int32 tdID { get; set; }
         public string tdControlID { get; set; }
         public Int32 trID { get; set; }
         public string cssClass { get; set; }
         public string colSpan { get; set; }
+
+        public string tdType { get; set; }
         public object getKey() { return tdID; }
         public void setTransID(object transID)
         {

@@ -77,11 +77,11 @@ namespace Forms.itinsync.src.session
                 tc.Controls.Add(lbl);
             }
         }
+       
         protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
-            Control tableControl = parent.FindControl("tableDynamic");
+           Control tableControl = parent.FindControl("tableDynamic");
             Table parentTable = ((Table)(tableControl));
-
             
             foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
             {
@@ -94,21 +94,29 @@ namespace Forms.itinsync.src.session
                     foreach (XDocumentTableTR tr in table.trs)
                     {
                         TableRow tabletr = new TableRow();
-                        
+
                         tabletr.CssClass = tr.cssClass;
-                        
+                        tabletr.BorderWidth = 10;
+
+
                         foreach (XDocumentTableTD td in tr.tds)
                         {
+                        
                             foreach (XDocumentTableContent content in td.fields)
                             {
 
-                                if (content.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
+
+                                if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
                                     TableHeaderCell tableHeader = new TableHeaderCell();
                                     
                                     Label lbl = new Label();
                                     lbl.ID = content.controlID;
-                                    lbl.CssClass = content.cssClass;
+                                    //lbl.CssClass = content.cssClass;
+                                    tableHeader.HorizontalAlign = HorizontalAlign.Center;
+                                    tableHeader.VerticalAlign = VerticalAlign.Middle;
+                                    tableHeader.BackColor = System.Drawing.Color.WhiteSmoke;
+
                                     lbl.Text = TranslationManager.trans(content.translation);
                                     tableHeader.Controls.Add(lbl);
                                     tabletr.Cells.Add(tableHeader);
@@ -119,13 +127,15 @@ namespace Forms.itinsync.src.session
                                 {
                                     TableCell tc = new TableCell();
                                     tc.ColumnSpan = content.colspan;
-                                    tc.CssClass = content.cssClass;
-
+                                    //tc.CssClass = content.cssClass;
+                                    //tc.BorderStyle = BorderStyle.Solid;
+                                    tc.BorderWidth=10;
+                                    
                                     if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
                                     {
                                         Label lbl = new Label();
                                         lbl.ID = content.controlID;
-                                        lbl.CssClass = content.cssClass;
+                                        //lbl.CssClass = content.cssClass;
                                         lbl.Text = TranslationManager.trans(content.translation);
                                         tc.Controls.Add(lbl);
                                         tabletr.Cells.Add(tc);
@@ -147,6 +157,7 @@ namespace Forms.itinsync.src.session
                                         addLabel(tc, content.translation);
                                         HtmlInputRadioButton radio = new HtmlInputRadioButton();
                                         radio.Name = content.controlName;
+                                        //radio.Checked += new radiocheckedvent(your method);
                                         radio.ID = content.controlID;
                                         radio.Attributes.Add("irequired", content.isRequired);
                                         radio.Attributes.Add("imask", content.mask);

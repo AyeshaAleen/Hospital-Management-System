@@ -14,10 +14,17 @@
 
                 <div>
 
-                    <asp:Table ID="tableDynamic" runat="server" data-toggle="table" CellPadding="5" CellSpacing="5">
+
+                    <asp:Table ID="tableDynamic" runat="server" data-toggle="table" CssClass="table table-hover" BorderStyle="Dashed" BorderWidth="50">
                    
                     </asp:Table>
 
+
+
+
+                  <%--  <table data-toggle="table" runat="server">
+                    
+                </table>--%>
                 </div>
             </div>
         </div>

@@ -53,6 +53,7 @@ namespace Services.itinsync.icom.documents
                             foreach (XDocumentTableTD td in tr.tds)
                             {
                                 td.fields = XDocumentTableContentDAO.getInstance(dbContext).readbyTDID(td.tdID);
+                                
                             }
 
                         }
