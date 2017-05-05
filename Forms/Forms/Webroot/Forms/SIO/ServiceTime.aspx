@@ -13,14 +13,14 @@
 
                 <div>
 
-                     <asp:Table ID="tableDynamic" runat="server"  Font-Size="X-Large"  Width="550"  Font-Names="Palatino" BackColor="Orange" BorderColor="DarkRed" BorderWidth="2" ForeColor="Snow" CellPadding="5" CellSpacing="5">
-                       
-                    </asp:Table>
+                     <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
+                   
+                 </asp:Table>
 
                 </div>
 
 
-                <table data-toggle="table" class="table-bordered"  data-search="true"
+                <%--<table data-toggle="table" class="table-bordered"  data-search="true"
                     data-sort-name="id" data-page-list="[4, 8, 12, 100]"
                     data-page-size="4" data-pagination="true" runat="server" id="dynamicContentID">
                     <thead>
@@ -198,7 +198,7 @@
                             <input type="text" ID="txtST55" class="form-control" runat="server" /></td>
                     </tr>
                    </tbody>
-                </table>
+                </table>--%>
 
                 <div class="clearfix"></div>
 

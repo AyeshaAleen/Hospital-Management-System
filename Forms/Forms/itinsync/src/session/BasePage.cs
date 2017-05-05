@@ -119,7 +119,7 @@ namespace Forms.itinsync.src.session
                                 {
                                     TableCell tc = new TableCell();
                                     tc.ColumnSpan = content.colspan;
-                                    tc.CssClass = content.cssClass;
+                                    //tc.CssClass = content.cssClass;
 
                                     if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
                                     {

@@ -15,38 +15,40 @@ namespace Forms.Webroot.Forms.SIO
 {
     public partial class GeneralSIO : BasePage
     {
+        private static int section_id = 7;
+
         public static string xml = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 //loaddata();
             }
         }
-
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            loaddata();
-        }
 
-        private void loaddata()
-        {
+
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentName = "SIO";
+            dto.document.documentName = "SIOTest";
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
+
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                if (dto.document == null)
-                    return;
-                else
-                {
-                    setXMLSession(dto.document.data);
-                    setSubjectID(dto.document.documentID);
+                processDynamicContent(tableDynamic, dto.document, section_id);
+            }
 
-                    //processXML(this, dto.document.data, "GeneralSIO");
-                }
+        }
+
+
+
+        private void loaddata()
+        {
+            if (!string.IsNullOrEmpty(getXMLSession()))
+            {
+                processXML(validate, getXMLSession(), "ServiceTime");
             }
         }
 
