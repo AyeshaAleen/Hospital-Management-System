@@ -5,12 +5,17 @@
 
 <asp:Content ID="cntGeneralSIOBody" ContentPlaceHolderID="FormMasterBody" runat="server"> 
 
-    <div class="row" id="validate">
+    <div class="row" id="validate" runat="server">
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b><% Response.Write(trasnlation("General.SIO")); %></b></h4>
               
-                <table data-toggle="table">
+                <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
+                   
+                 </asp:Table>
+
+
+               <%-- <table data-toggle="table">
                     <thead>
                         <tr>
                             <th><% Response.Write(trasnlation("General.SIO")); %></th>
@@ -213,7 +218,7 @@
                            <td><span class="form-control">100</span></td>
                         </tr>
                     </tbody>
-                </table>
+                </table>--%>
                    
                   <div class="clearfix"></div>
                 <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"  OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>

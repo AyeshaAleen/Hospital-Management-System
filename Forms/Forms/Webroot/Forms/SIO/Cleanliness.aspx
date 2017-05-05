@@ -9,7 +9,13 @@
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Cleanliness</b></h4>
 
-                <table data-toggle="table">
+
+                 <asp:Table ID="tableCleanliness" runat="server">
+                       
+                 </asp:Table>
+
+
+                <%--<table data-toggle="table">
                     <thead>
                         <tr>
                             <th>Cleanliness</th>
@@ -195,7 +201,7 @@
 
                         </tr>
                     </tbody>
-                </table>
+                </table>--%>
 
                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
                 <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
