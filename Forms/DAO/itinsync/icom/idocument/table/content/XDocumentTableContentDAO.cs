@@ -41,6 +41,11 @@ namespace DAO.itinsync.icom.idocument.table.content
             throw new NotImplementedException();
         }
 
+        public XDocumentTableContent findByPrimaryKey(Int32 ID)
+        {
+            string sql = "select * From " + TABLENAME + " where documentTableContentID = " + ID;
+            return (XDocumentTableContent)processSingleResult(sql);
+        }
         public List<XDocumentTableContent> readbyTDID(Int32 tdID)
         {
             string sql = "select * From " + TABLENAME + " where tdID = " + tdID;

@@ -4,6 +4,7 @@ using Domains.itinsync.icom.idocument;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
+using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.tr;
@@ -28,6 +29,7 @@ using Utils.itinsync.icom.cache.translation;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Utils.itinsync.icom.date;
+using Utils.itinsync.icom.idoument.table.calculation;
 using Utils.itinsync.icom.xml;
 using static Forms.itinsync.src.session.Session;
 
@@ -152,6 +154,7 @@ namespace Forms.itinsync.src.session
                                         txtBox.CssClass = content.cssClass;
                                         txtBox.Attributes.Add("irequired", content.isRequired);
                                         txtBox.Attributes.Add("imask", content.mask);
+                                        txtBox.Text = content.defaultValue;
                                         tc.Controls.Add(txtBox);
                                         tabletr.Cells.Add(tc);
                                     }
@@ -164,7 +167,7 @@ namespace Forms.itinsync.src.session
                                         radio.ID = content.controlID;
                                         radio.Attributes.Add("irequired", content.isRequired);
                                         radio.Attributes.Add("imask", content.mask);
-
+                                        radio.Value = content.defaultValue;
                                         tc.Controls.Add(radio);
                                         tabletr.Cells.Add(tc);
                                     }
@@ -177,7 +180,7 @@ namespace Forms.itinsync.src.session
                                         check.ID = content.controlID;
                                         check.Attributes.Add("irequired", content.isRequired);
                                         check.Attributes.Add("imask", content.mask);
-
+                                        check.Value = content.defaultValue;
                                         tc.Controls.Add(check);
                                         tabletr.Cells.Add(tc);
                                     }
@@ -192,6 +195,7 @@ namespace Forms.itinsync.src.session
                                         ddl.Attributes.Add("irequired", content.isRequired);
                                         ddl.Attributes.Add("imask", content.mask);
                                         ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
+
                                         ddl.DataBind();
                                         tc.Controls.Add(ddl);
                                         tabletr.Cells.Add(tc);
@@ -209,21 +213,50 @@ namespace Forms.itinsync.src.session
             }
 
 
-            //Control tableControl = parent.FindControl("tableDynamic");
-            //Table table1 = ((Table)(tableControl));
 
 
-            //TableRow tr = new TableRow();
-            //TableCell tc = new TableCell();
+            performedCalculation(parent, documents, sectionID);
 
-            //TextBox txtBox = new TextBox();
-            //tc.Controls.Add(txtBox);
-            //tr.Cells.Add(tc);
-            //table1.Rows.Add(tr);
+        }
+        private void performedCalculation(Control parent, Douments documents, Int32 sectionID)
+        {
+            DocumentCalculationHelper hepler = new DocumentCalculationHelper();
+            foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
+            {
+                if (section.documentsectionid != sectionID)
+                    continue;
 
+                foreach (XDocumentTable table in section.documentTable)
+                {
+
+                    foreach (XDocumentTableTR tr in table.trs)
+                    {
+                        
+                        foreach (XDocumentTableTD td in tr.tds)
+                        {
+
+                            foreach (XDocumentTableContent content in td.fields)
+                            {
+
+
+                                foreach (XDocumentCalculation calculation in content.calculations)
+                                {
+                                    hepler.fieldCalculation(calculation, parent);
+                                }
+
+
+                            }
+                        }
+
+                        
+                    }
+
+                }
+            }
 
 
         }
+
         public void setIMessage(Control parent)
         {
             foreach (Control c in parent.Controls)

@@ -1,4 +1,5 @@
-﻿using Domains.itinsync.interfaces.domain;
+﻿using Domains.itinsync.icom.idocument.table.calculation;
+using Domains.itinsync.interfaces.domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,9 @@ namespace Domains.itinsync.icom.idocument.table.content
     public class XDocumentTableContent : System.Attribute, IDomain
 
     {
-        public enum columns { tdID, controlType, controlName, controlID, mask, isRequired, translation, cssClass, hight, width, sequence , lookupName, colspan }
+        public enum columns { tdID, controlType, controlName, controlID, mask, isRequired, translation, cssClass, hight, width,
+            sequence , lookupName, colspan, defaultValue
+        }
         public enum primaryKey { documentTableContentID }
         public Int32 documentTableContentID { get; set; }
         public Int32 tdID { get; set; }
@@ -28,6 +31,7 @@ namespace Domains.itinsync.icom.idocument.table.content
         public string sequence { get; set; }
         public string lookupName { get; set; }
         public string tdType { get; set; }
+        public string defaultValue { get; set; }
         
         public object getKey() { return documentTableContentID; }
 
@@ -35,5 +39,7 @@ namespace Domains.itinsync.icom.idocument.table.content
         {
 
         }
+        //*************Relational Mapping Objects*******************//////
+        public List<XDocumentCalculation> calculations = new List<XDocumentCalculation>();
     }
 }

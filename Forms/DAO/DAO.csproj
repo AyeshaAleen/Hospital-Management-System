@@ -59,6 +59,7 @@
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefinationDAO.cs" />
     <Compile Include="itinsync\icom\idocument\DocumentDAO.cs" />
     <Compile Include="itinsync\icom\idocument\section\XDocumentSectionDAO.cs" />
+    <Compile Include="itinsync\icom\idocument\table\calculation\XDocumentCalculationDAO.cs" />
     <Compile Include="itinsync\icom\idocument\table\content\XDocumentTableContentDAO.cs" />
     <Compile Include="itinsync\icom\idocument\table\td\XDocumentTableTDDAO.cs" />
     <Compile Include="itinsync\icom\idocument\table\tr\XDocumentTableTRDAO.cs" />

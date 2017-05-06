@@ -57,6 +57,8 @@
     <Compile Include="itinsync\icom\constant\task\TaskDefinitionConstant.cs" />
     <Compile Include="itinsync\icom\date\DateFunctions.cs" />
     <Compile Include="itinsync\icom\exceptions\ItinsyncException.cs" />
+    <Compile Include="itinsync\icom\idoument\table\calculation\DocumentCalculationHelper.cs" />
+    <Compile Include="itinsync\icom\idoument\table\DocumentTableHelper.cs" />
     <Compile Include="itinsync\icom\SecurityManager.cs" />
     <Compile Include="itinsync\icom\ServiceUtils.cs" />
     <Compile Include="itinsync\icom\Utils.cs" />

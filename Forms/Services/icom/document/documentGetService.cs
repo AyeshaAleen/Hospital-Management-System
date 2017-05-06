@@ -17,6 +17,9 @@ using Domains.itinsync.icom.idocument.table.tr;
 using DAO.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.td;
 using DAO.itinsync.icom.idocument.table.content;
+using Domains.itinsync.icom.idocument.table.content;
+using DAO.itinsync.icom.idocument.table.calculation;
+using Domains.itinsync.icom.idocument.table.calculation;
 
 
 //Created By Qundeel Ch
@@ -53,7 +56,19 @@ namespace Services.itinsync.icom.documents
                             foreach (XDocumentTableTD td in tr.tds)
                             {
                                 td.fields = XDocumentTableContentDAO.getInstance(dbContext).readbyTDID(td.tdID);
-                                
+
+                                foreach (XDocumentTableContent content in td.fields)
+                                {
+                                    content.calculations = XDocumentCalculationDAO.getInstance(dbContext).readbyContentID(content.documentTableContentID);
+
+                                    foreach (XDocumentCalculation calculation in content.calculations)
+                                    {
+                                        calculation.fieldContent = content;
+                                        calculation.resultContent = XDocumentTableContentDAO.getInstance(dbContext).findByPrimaryKey(calculation.resultContentID);
+                                    }
+                                }
+
+
                             }
 
                         }

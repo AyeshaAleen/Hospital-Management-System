@@ -223,7 +223,7 @@ IValidation.prototype.initValidationForInputFields = function (inputFields, idDi
         // Add the action handlers
         if ((inputType == 'RADIO') || (inputType == 'CHECKBOX'))
         {
-           // inputObj.addEventListener('change', removeManadatory);
+            inputObj.addEventListener('change', removeManadatoryRadioCheck);
         }
         else
         {
@@ -247,6 +247,14 @@ function removeManadatory()
         }
     
     
+}
+
+function removeManadatoryRadioCheck() {
+    var name = this.getAttribute('name');
+    var arrBtnGrp = document.getElementsByName(name);
+    for (var i = 0; i < arrBtnGrp.length; i++) {
+        arrBtnGrp[i].className = "";
+    }
 }
 
 IValidation.prototype.createButtonGroupHiddenField = function (inputObj) {
@@ -604,8 +612,10 @@ IValidation.prototype.isFormValid = function (bShowMessage) {
             {
                 var sRadioName = inputObj.id.substring(12);
                 var arrBtnGrp = document.getElementsByName(sRadioName);
-                arrBtnGrp.className = "radio-required";
-
+                //arrBtnGrp.className = "radio-required";
+                for (var irequiredcounter = 0; irequiredcounter < arrBtnGrp.length; irequiredcounter++) {
+                    arrBtnGrp[irequiredcounter].className = "radio-required";
+                }
             }
             else
                 inputObj.className = "border-color-red form-control";

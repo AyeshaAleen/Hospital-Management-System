@@ -27,6 +27,15 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string FORMS_CONTROL_COMBObOX = "4";
         public static readonly string FORMS_CONTROL_LABEL = "5";
 
+        public static readonly string FORMS_CALCULATION_PLUS= "PLUS";
+        public static readonly string FORMS_CALCULATION_MINUS= "MINUS";
+        public static readonly string FORMS_CALCULATION_MULTIPLY= "MULTIPLY";
+        public static readonly string FORMS_CALCULATION_DIVIDE= "DIVIDE";
+        public static readonly string FORMS_CONTROL_PERCENTAGE = "PERCENTAGE ";
+        public static readonly string FORMS_CONTROL_AVERAGE = "AVERAGE";
+
+        ///***************Math Operation constant***********///
+
 
         public static string CURRENT_CSS_LAYOUT = FULL_CSS_LAYOUT;
         
