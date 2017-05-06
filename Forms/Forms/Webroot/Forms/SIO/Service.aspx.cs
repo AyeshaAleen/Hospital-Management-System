@@ -15,6 +15,7 @@ namespace Forms.Webroot.Forms.SIO
 {
     public partial class Service : BasePage
     {
+        private static int section_id = 3;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,7 +26,19 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            loaddata();
+
+
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+            dto.document.documentName = "SIO";
+            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
+
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (DocumentDTO)response;
+                processDynamicContent(tableDynamic, dto.document, section_id);
+            }
+
         }
         private void loaddata()
         {

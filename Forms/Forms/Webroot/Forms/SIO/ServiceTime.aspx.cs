@@ -41,7 +41,7 @@ namespace Forms.Webroot.Forms.SIO
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                processDynamicContent(tableDynamic, dto.document,2);
+                //processDynamicContent(tableDynamic, dto.document, 2);
             }
             
         }

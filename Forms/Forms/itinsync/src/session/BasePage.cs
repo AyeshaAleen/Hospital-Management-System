@@ -116,7 +116,7 @@ namespace Forms.itinsync.src.session
                                     tableHeader.HorizontalAlign = HorizontalAlign.Center;
                                     tableHeader.VerticalAlign = VerticalAlign.Middle;
                                     tableHeader.BackColor = System.Drawing.Color.WhiteSmoke;
-
+                                    tableHeader.ColumnSpan = content.colspan;
                                     lbl.Text = TranslationManager.trans(content.translation);
                                     tableHeader.Controls.Add(lbl);
                                     tabletr.Cells.Add(tableHeader);
@@ -126,7 +126,10 @@ namespace Forms.itinsync.src.session
                                 else
                                 {
                                     TableCell tc = new TableCell();
-                                    tc.ColumnSpan = content.colspan;
+                                    if (!string.IsNullOrEmpty(content.colspan.ToString()))
+                                        tc.ColumnSpan = content.colspan;
+                                    else
+                                        tc.ColumnSpan = Convert.ToInt32(td.colSpan);
                                     //tc.CssClass = content.cssClass;
                                     //tc.BorderStyle = BorderStyle.Solid;
                                     tc.BorderWidth=10;

@@ -15,7 +15,7 @@ namespace Forms.Webroot.Forms.SIO
 {
     public partial class GeneralSIO : BasePage
     {
-        private static int section_id = 7;
+        private static int section_id = 1;
 
         public static string xml = "";
         protected void Page_Load(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace Forms.Webroot.Forms.SIO
 
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentName = "SIOTest";
+            dto.document.documentName = "SIO";
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
