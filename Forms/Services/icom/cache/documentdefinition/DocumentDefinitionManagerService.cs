@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO.itinsync.icom.idocument.definition;
+using DAO.itinsync.icom.document.documentdefinitionview;
 
 namespace Services.itinsync.icom.cache.task.taskdefinition
 {
@@ -17,7 +18,7 @@ namespace Services.itinsync.icom.cache.task.taskdefinition
             IResponseHandler responseHandler = new GenaricResponse();
 
 
-            XDocumentDefinationDAO.getInstance(dbContext).load();
+            DocumentContentViewDAO.getDefInstance(dbContext).load();
             return responseHandler;
         }
     }

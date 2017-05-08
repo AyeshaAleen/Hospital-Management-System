@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.document;
+using Domains.itinsync.interfaces.domain;
 
 namespace Utils.itinsync.icom.cache.global
 {
@@ -18,7 +20,7 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<string, PageName>                          PageCacheMap                = new Dictionary<string, PageName>();
         public static Dictionary<string, TaskDefinition>                    TaskDefinitionCacheMap      = new Dictionary<string, TaskDefinition>();
         public static List<Int32>                                           PageIDCacheMap              = new List<Int32>();
-        public static Dictionary<string, XDocumentDefination>   documentDefinition = new Dictionary<string, XDocumentDefination>();
+        public static Dictionary<string, IDomain>   documentDefinition = new Dictionary<string, IDomain>();
 
     }
 }

@@ -12,6 +12,7 @@ using Utils.itinsync.icom;
 using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Utils.itinsync.icom.cache.global;
+using DAO.itinsync.icom.document.documentdefinitionview;
 
 namespace DAO.itinsync.icom.idocument.definition
 {
@@ -55,8 +56,21 @@ namespace DAO.itinsync.icom.idocument.definition
         }
         public XDocumentDefination findbyPrimaryKey(int xDocumentDefinationID)
         {
-            string sql = "select * From " + TABLENAME + "where xDocumentDefinationID = " + xDocumentDefinationID;
-            return (XDocumentDefination)processSingleResult(sql);
+            if (GlobalStaticCache.documentDefinition.Count == 0)
+            {
+                new DocumentContentViewDAO().load();
+                return (XDocumentDefination)GlobalStaticCache.documentDefinition[xDocumentDefinationID.ToString()];
+            }
+
+
+            else
+            {
+                return (XDocumentDefination)GlobalStaticCache.documentDefinition[xDocumentDefinationID.ToString()];
+            }
+
+
+            //string sql = "select * From " + TABLENAME + "where xDocumentDefinationID = " + xDocumentDefinationID;
+            //return (XDocumentDefination)processSingleResult(sql);
         }
         public XDocumentDefination findbyDocumentName(string DocumentName)
         {

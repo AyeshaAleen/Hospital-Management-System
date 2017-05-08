@@ -8,6 +8,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAO.itinsync.icom.document.documentdefinitionview;
+using Utils.itinsync.icom.cache.global;
 
 namespace DAO.itinsync.icom.idocument.section
 {
@@ -40,6 +42,18 @@ namespace DAO.itinsync.icom.idocument.section
         }
         public List<XDocumentSection> readyByDocumentDefinitionID(Int32 documentDefinitionID)
         {
+            //if (GlobalStaticCache.documentDefinition.Count == 0)
+            //{
+            //    new DocumentContentViewDAO().load();
+            //    return GlobalStaticCache.documentDefinition[documentDefinitionID.ToString()].tolist();
+            //}
+
+
+            //else
+            //{
+            //    return GlobalStaticCache.documentDefinition[documentDefinitionID.ToString()].tolist();
+            //}
+
             string sql = "select * From " + TABLENAME + " where documentdefinitionid=" + documentDefinitionID;
             return wrap(processResults(sql));
         }

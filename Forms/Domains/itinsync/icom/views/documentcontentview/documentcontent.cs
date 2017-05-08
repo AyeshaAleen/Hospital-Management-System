@@ -1,5 +1,6 @@
 ﻿using Domains.itinsync.interfaces.domain;
 using System;
+using Domains.itinsync.icom.idocument;
 
 namespace Domains.itinsync.icom.document
 
@@ -27,6 +28,8 @@ namespace Domains.itinsync.icom.document
         public Int32 documentsectionid { get; set; }
         public Int32 documentdefinitionid { get; set; }
 
+
+
         public object getKey()
         {
             return documentTableContentID;
@@ -36,5 +39,7 @@ namespace Domains.itinsync.icom.document
         {
 
         }
+
+
     }
 }
