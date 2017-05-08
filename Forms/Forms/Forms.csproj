@@ -2901,6 +2901,7 @@
     <Content Include="itinsync\translations\lang_ud.properties" />
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
     <Content Include="Webroot\CommonMaster.js" />
+    <Content Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3359,6 +3360,13 @@
     </Compile>
     <Compile Include="Webroot\Forms\FormMaster.master.designer.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx.cs">
+      <DependentUpon>FormsManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx.designer.cs">
+      <DependentUpon>FormsManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>

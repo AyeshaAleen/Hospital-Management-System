@@ -12,7 +12,7 @@
               
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
                    
-                 </asp:Table>
+                </asp:Table>
 
 
                <%-- <table data-toggle="table">
