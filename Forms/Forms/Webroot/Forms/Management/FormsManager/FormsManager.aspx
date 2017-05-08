@@ -13,7 +13,7 @@
                         <label class="control-label">Document</label>
                         <select class="form-control select2"></select>
                     </div>
-                </div>
+                </div> 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Content</label>
