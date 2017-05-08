@@ -67,16 +67,6 @@ namespace DAO.itinsync.icom.document.documentdefinitionview
             string READ = string.Format("Select * from " + TABLENAME);
             return wrap(processResults(READ));
         }
-        public void load()
-        {
-            if (GlobalStaticCache.documentDefinition.Count == 0)
-            {
-                List<documentcontent> tasklist = readyAll();
-                foreach (documentcontent td in tasklist)
-                {
-                    GlobalStaticCache.documentDefinition.Add(td.controlName, td);
-                }
-            }
-        }
+        
     }
 }

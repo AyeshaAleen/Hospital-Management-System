@@ -14,6 +14,8 @@ namespace Utils.itinsync.icom.idoument.table
 
         public Label createLable(XDocumentTableContent content )
         {
+
+             
             Label lbl = new Label();
             lbl.ID = content.controlID;
             //lbl.CssClass = content.cssClass;

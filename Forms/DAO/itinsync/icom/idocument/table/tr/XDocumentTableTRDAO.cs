@@ -8,6 +8,10 @@ using Domains.itinsync.interfaces.domain;
 using System.Data;
 using Domains.itinsync.icom.idocument.table.tr;
 using DAO.itinsync.icom.BaseAS.dbcontext;
+using Domains.itinsync.icom.idocument.definition;
+using Utils.itinsync.icom.cache.global;
+using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument.table;
 
 namespace DAO.itinsync.icom.idocument.table.tr
 {
@@ -43,6 +47,20 @@ namespace DAO.itinsync.icom.idocument.table.tr
 
         public List<XDocumentTableTR> readbyTableID(Int32 tableID)
         {
+            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            {
+                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+                foreach (XDocumentSection section in documentDefinition.documentSections)
+                {
+                    foreach (XDocumentTable table in section.documentTable)
+                    {
+                        if (table.documentTableID == tableID)
+                            return table.trs;
+                    }
+                    
+                }
+            }
             string sql = "select * From " + TABLENAME + " where documentTableID = " + tableID;
             return wrap(processResults(sql));
         }

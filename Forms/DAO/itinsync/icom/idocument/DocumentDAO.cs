@@ -66,20 +66,9 @@ namespace DAO.itinsync.icom.idocument
         {
 
 
-            if (GlobalStaticCache.documentDefinition.Count == 0)
-            {
-                new DocumentContentViewDAO().load();
-                return (Douments)GlobalStaticCache.documentDefinition[documentName];
-            }
 
-
-            else 
-            {
-                return (Douments)GlobalStaticCache.documentDefinition[documentName];
-            }
-
-            //string sql = string.Format("select * From " + TABLENAME + "where documentName = '{0}'", documentName);
-            //return (Douments)processSingleResult(sql);
+            string sql = string.Format("select * From " + TABLENAME + "where documentName = '{0}'", documentName);
+            return (Douments)processSingleResult(sql);
         }
 
         public Douments readybyParentref(string OrderNo)

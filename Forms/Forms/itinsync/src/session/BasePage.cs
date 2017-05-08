@@ -142,6 +142,7 @@ namespace Forms.itinsync.src.session
                                         lbl.ID = content.controlID;
                                         //lbl.CssClass = content.cssClass;
                                         lbl.Text = TranslationManager.trans(content.translation);
+                                        lbl.Attributes.Add("points", content.points);
                                         tc.Controls.Add(lbl);
                                         tabletr.Cells.Add(tc);
                                     }
@@ -169,7 +170,9 @@ namespace Forms.itinsync.src.session
                                         radio.ID = content.controlID;
                                         radio.Attributes.Add("irequired", content.isRequired);
                                         radio.Attributes.Add("imask", content.mask);
+                                        radio.Attributes.Add("points", content.points);
                                         radio.Value = content.defaultValue;
+
                                         tc.Controls.Add(radio);
                                         tabletr.Cells.Add(tc);
                                     }
@@ -182,6 +185,7 @@ namespace Forms.itinsync.src.session
                                         check.ID = content.controlID;
                                         check.Attributes.Add("irequired", content.isRequired);
                                         check.Attributes.Add("imask", content.mask);
+                                        check.Attributes.Add("points", content.points);
                                         check.Value = content.defaultValue;
                                         tc.Controls.Add(check);
                                         tabletr.Cells.Add(tc);
@@ -196,6 +200,7 @@ namespace Forms.itinsync.src.session
                                         ddl.DataTextField = "Text";
                                         ddl.Attributes.Add("irequired", content.isRequired);
                                         ddl.Attributes.Add("imask", content.mask);
+                                        ddl.Attributes.Add("points", content.points);
                                         ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
 
                                         ddl.DataBind();

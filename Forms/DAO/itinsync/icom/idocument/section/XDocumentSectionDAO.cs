@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO.itinsync.icom.document.documentdefinitionview;
 using Utils.itinsync.icom.cache.global;
+using Domains.itinsync.icom.idocument.definition;
 
 namespace DAO.itinsync.icom.idocument.section
 {
@@ -42,6 +43,14 @@ namespace DAO.itinsync.icom.idocument.section
         }
         public List<XDocumentSection> readyByDocumentDefinitionID(Int32 documentDefinitionID)
         {
+            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            {
+                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+                if (documentDefinition.xDocumentDefinationID == documentDefinitionID)
+                    return documentDefinition.documentSections;
+            }
+            
             //if (GlobalStaticCache.documentDefinition.Count == 0)
             //{
             //    new DocumentContentViewDAO().load();

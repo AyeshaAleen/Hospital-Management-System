@@ -22,12 +22,14 @@ namespace DAO.itinsync.icom.BaseAS.CRUDBase
         private MySqlTransaction sqlTran;
         private Header header;
         private string TRANSID = "";
+        protected DBContext currentDBContext;
 
         protected abstract string createQuery(object o);
         protected abstract string updateQuery(object o, string where);
         protected abstract IDomain setResult(DataTable dt, int i);
         public void init(DBContext dbContext)
         {
+            currentDBContext = dbContext;
             if (dbContext.getConnection() == null)
                 throw new ItinsyncException();
             connection = dbContext.getConnection();
