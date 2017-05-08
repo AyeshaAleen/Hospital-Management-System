@@ -155,8 +155,10 @@ namespace Forms.itinsync.src.session
                                         txtBox.Attributes.Add("irequired", content.isRequired);
                                         txtBox.Attributes.Add("imask", content.mask);
                                         txtBox.Text = content.defaultValue;
+                                        txtBox.Attributes.Add("points", content.points);
                                         tc.Controls.Add(txtBox);
                                         tabletr.Cells.Add(tc);
+
                                     }
                                     else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
                                     {
