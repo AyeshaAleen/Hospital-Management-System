@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="itinsync\icom\cache\document\DocumentManager.cs" />
     <Compile Include="itinsync\icom\cache\global\GlobalStaticCache.cs" />
     <Compile Include="itinsync\icom\cache\lookup\LookupManager.cs" />
     <Compile Include="itinsync\icom\cache\pages\PageManager.cs" />
@@ -71,6 +72,7 @@
       <Name>Domains</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

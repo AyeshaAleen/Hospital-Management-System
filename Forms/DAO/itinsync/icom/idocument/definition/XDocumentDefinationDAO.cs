@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
+using Utils.itinsync.icom.cache.global;
 
 namespace DAO.itinsync.icom.idocument.definition
 {
@@ -86,6 +87,24 @@ namespace DAO.itinsync.icom.idocument.definition
             foreach (IDomain domain in result)
                 list.Add((XDocumentDefination)domain);
             return list;
+        }
+
+        public List<XDocumentDefination> readyAll()
+        {
+            string READ = string.Format("Select * from " + TABLENAME);
+            return wrap(processResults(READ));
+        }
+
+        public void load()
+        {
+            if (GlobalStaticCache.documentDefinition.Count == 0)
+            {
+                List<XDocumentDefination> documentlist = readyAll();
+                foreach (XDocumentDefination td in documentlist)
+                {
+                    GlobalStaticCache.documentDefinition.Add(td.name,td);
+                }
+            }
         }
     }
 }

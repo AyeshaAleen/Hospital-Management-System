@@ -12,7 +12,7 @@ namespace Domains.itinsync.icom.idocument.table.content
 
     {
         public enum columns { tdID, controlType, controlName, controlID, mask, isRequired, translation, cssClass, hight, width,
-            sequence , lookupName, colspan, defaultValue
+            sequence , lookupName, colspan, defaultValue, points
         }
         public enum primaryKey { documentTableContentID }
         public Int32 documentTableContentID { get; set; }
@@ -22,6 +22,7 @@ namespace Domains.itinsync.icom.idocument.table.content
         public string controlID { get; set; }
         public Int32 colspan { get; set; }
         public string mask { get; set; }
+        public string points { get; set; }
         public string isRequired { get; set; }
         public string translation { get; set; }
         public string cssClass { get; set; }

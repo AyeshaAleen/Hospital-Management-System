@@ -21,7 +21,7 @@ namespace Utils.itinsync.icom.idoument.table.calculation
             string fieldValue = getControlValue(fieldControl);
             string resultValue = getControlValue(resultontrol);
             // in case control doesnot exist then ignore calculation
-            if (fieldControl == null || resultontrol == null || fieldValue.Length==0 || resultValue.Length ==0)
+           if (fieldControl == null || resultontrol == null)
                 return;
 
 
@@ -70,30 +70,30 @@ namespace Utils.itinsync.icom.idoument.table.calculation
         {
             if ((c.GetType() == typeof(TextBox)))
             {
-                return ((TextBox)(c)).Text;
+                return ((TextBox)(c)).Attributes["points"];
                 
             }
 
             else if ((c.GetType() == typeof(HtmlInputText)))
             {
-                return ((HtmlInputText)(c)).Value;
+                return ((HtmlInputText)(c)).Attributes["points"];
 
             }
             else if ((c.GetType() == typeof(DropDownList)))
             {
 
-                return ((DropDownList)(c)).SelectedValue;
+                return ((DropDownList)(c)).Attributes["points"];
             }
             
             else if ((c.GetType() == typeof(HtmlInputRadioButton)))
             {
 
-                return ((HtmlInputRadioButton)(c)).Value;
+                return ((HtmlInputRadioButton)(c)).Attributes["points"];
             }
             else if ((c.GetType() == typeof(HtmlSelect)))
             {
 
-                return ((HtmlSelect)(c)).Value;
+                return ((HtmlSelect)(c)).Attributes["points"];
             }
             return "0";
         }      
