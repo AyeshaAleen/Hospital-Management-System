@@ -13,6 +13,7 @@ using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
 using Domains.itinsync.icom.idocument.table.tr;
+using Utils.itinsync.icom.cache.lookup;
 
 namespace DAO.itinsync.icom.idocument.table.td
 {
@@ -49,24 +50,40 @@ namespace DAO.itinsync.icom.idocument.table.td
 
         public List<XDocumentTableTD> readbyTRID(Int32 trID)
         {
-            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            XDocumentTableTR objdocumenttabletr = DocumentManager.getDocumentTablesTRID(trID);
+            if (objdocumenttabletr != null)
             {
-                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
-
-                foreach (XDocumentSection section in documentDefinition.documentSections)
+                XDocumentTable objdocumenttable = DocumentManager.getDocumentTableID(objdocumenttabletr.documentTableID);
+                if (objdocumenttable != null)
                 {
-                    foreach (XDocumentTable table in section.documentTable)
+                    XDocumentSection objdocumentsection = DocumentManager.getDocumentSectionID(objdocumenttable.documentsectionid);
+                    if (objdocumentsection != null)
                     {
-                        foreach (XDocumentTableTR tr in table.trs)
-                        {
-                            if (tr.trID == trID)
-                                return tr.tds;
-                        }
-                            
+                        List<XDocumentTableTD> objdocumenttabletd = DocumentManager.getDocumentTablesTDS(objdocumenttabletr.trID,objdocumenttable.documentTableID, objdocumenttable.documentsectionid, objdocumentsection.documentdefinitionid);
+                        if (objdocumenttabletd != null)
+                            return objdocumenttabletd;
                     }
-
                 }
             }
+
+            //foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            //{
+            //    XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+            //    foreach (XDocumentSection section in documentDefinition.documentSections)
+            //    {
+            //        foreach (XDocumentTable table in section.documentTable)
+            //        {
+            //            foreach (XDocumentTableTR tr in table.trs)
+            //            {
+            //                if (tr.trID == trID)
+            //                    return tr.tds;
+            //            }
+
+            //        }
+
+            //    }
+            //}
 
 
             string sql = "select * From " + TABLENAME + " where trID = " + trID;

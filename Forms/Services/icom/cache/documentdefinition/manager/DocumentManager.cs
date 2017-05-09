@@ -1,12 +1,8 @@
-﻿using Domains.itinsync.icom.lookup;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utils.itinsync.icom.cache.global;
-using Utils.itinsync.icom.constant.application;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
@@ -16,7 +12,7 @@ using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.tr;
 using Utils.itinsync.icom.cache.global;
 
-namespace Utils.itinsync.icom.cache.lookup
+namespace Services.icom.cache.documentdefinition.manager
 {
     public static class DocumentManager
     {
@@ -57,7 +53,7 @@ namespace Utils.itinsync.icom.cache.lookup
         }
 
 
-        public static List<XDocumentTable> getDocumentTables(Int32 documentSectionID, Int32 doumentDefinitionID)
+        public static List<XDocumentTable>getDocumentTables(Int32 documentSectionID, Int32 doumentDefinitionID)
         {
             foreach (XDocumentSection documentSection in getDocumentSections(doumentDefinitionID))
             {
@@ -66,7 +62,7 @@ namespace Utils.itinsync.icom.cache.lookup
             }
 
             return null;
-
+           
         }
         public static XDocumentTable getDocumentTableID(Int32 tableID)
         {
@@ -106,7 +102,7 @@ namespace Utils.itinsync.icom.cache.lookup
 
         public static List<XDocumentTableTD> getDocumentTablesTDS(Int32 trID, Int32 tableID, Int32 documentSectionID, Int32 doumentDefinitionID)
         {
-            foreach (XDocumentTableTR documenttableTR in getDocumentTablesTRS(tableID, documentSectionID, doumentDefinitionID))
+            foreach (XDocumentTableTR documenttableTR in getDocumentTablesTRS(tableID,documentSectionID, doumentDefinitionID))
             {
                 if (documenttableTR.trID == trID)
                     return documenttableTR.tds;
@@ -128,9 +124,9 @@ namespace Utils.itinsync.icom.cache.lookup
 
         }
 
-        public static List<XDocumentTableContent> getDocumentTablesContents(Int32 tdID, Int32 trID, Int32 tableID, Int32 documentSectionID, Int32 doumentDefinitionID)
+        public static List<XDocumentTableContent> getDocumentTablesContents(Int32 tdID,Int32 trID, Int32 tableID, Int32 documentSectionID, Int32 doumentDefinitionID)
         {
-            foreach (XDocumentTableTD documenttableTD in getDocumentTablesTDS(trID, tableID, documentSectionID, doumentDefinitionID))
+            foreach (XDocumentTableTD documenttableTD in getDocumentTablesTDS(trID,tableID, documentSectionID, doumentDefinitionID))
             {
                 if (documenttableTD.tdID == tdID)
                     return documenttableTD.fields;
@@ -152,9 +148,9 @@ namespace Utils.itinsync.icom.cache.lookup
 
         }
 
-        public static List<XDocumentCalculation> getDocumentTablesCalculations(Int32 contentID, Int32 tdID, Int32 trID, Int32 tableID, Int32 documentSectionID, Int32 doumentDefinitionID)
+        public static List<XDocumentCalculation> getDocumentTablesCalculations(Int32  contentID,Int32 tdID, Int32 trID, Int32 tableID, Int32 documentSectionID, Int32 doumentDefinitionID)
         {
-            foreach (XDocumentTableContent documentContent in getDocumentTablesContents(tdID, trID, tableID, documentSectionID, doumentDefinitionID))
+            foreach (XDocumentTableContent documentContent in getDocumentTablesContents(tdID,trID, tableID, documentSectionID, doumentDefinitionID))
             {
                 if (documentContent.documentTableContentID == contentID)
                     return documentContent.calculations;

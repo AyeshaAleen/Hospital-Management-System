@@ -144,11 +144,11 @@ namespace DAO.itinsync.icom.idocument.definition
 
                                 foreach (XDocumentTableContent content in td.fields)
                                 {
-                                    content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyContentID(content.documentTableContentID);
+                                    content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyResultantID(content.documentTableContentID);
 
                                     foreach (XDocumentCalculation calculation in content.calculations)
                                     {
-                                        calculation.fieldContent = content;
+                                        calculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.documentcontentID);
                                         calculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.resultContentID);
                                         GlobalStaticCache.documentCalculation.Add(calculation.xdocumentcalculationID, calculation);
                                     }

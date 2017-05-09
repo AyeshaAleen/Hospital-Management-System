@@ -12,6 +12,7 @@ using Utils.itinsync.icom.cache.global;
 using DAO.itinsync.icom.document.documentdefinitionview;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
+using Utils.itinsync.icom.cache.lookup;
 
 namespace DAO.itinsync.icom.idocument.table
 {
@@ -48,27 +49,29 @@ namespace DAO.itinsync.icom.idocument.table
 
         public List<XDocumentTable> readbySectionID(Int32 sectionID)
         {
-            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            XDocumentSection objdocumentsection = DocumentManager.getDocumentSectionID(sectionID);
+            if (objdocumentsection != null)
             {
-                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
-
-                foreach (XDocumentSection section in documentDefinition.documentSections)
-                {
-                    if (section.documentsectionid == sectionID)
-                        return section.documentTable;
-                }
+                List<XDocumentTable> objdocumenttable = DocumentManager.getDocumentTables(objdocumentsection.documentsectionid, objdocumentsection.documentdefinitionid);
+                if (objdocumenttable != null)
+                    return objdocumenttable;
             }
-            //if (GlobalStaticCache.documentDefinition.Count == 0)
-            //{
-            //    new DocumentContentViewDAO().load();
-            //    return GlobalStaticCache.documentDefinition[sectionID.ToString()].tolist();
-            //}
+                
 
 
-            //else
+
+
+            //foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
             //{
-            //    return GlobalStaticCache.documentDefinition[sectionID.ToString()].tolist();
+            //    XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+            //    foreach (XDocumentSection section in documentDefinition.documentSections)
+            //    {
+            //        if (section.documentsectionid == sectionID)
+            //            return section.documentTable;
+            //    }
             //}
+            
 
             string sql = "select * From " + TABLENAME + " where documentsectionid = " + sectionID;
             return wrap(processResults(sql));

@@ -40,7 +40,11 @@ namespace DAO.itinsync.icom.idocument.table.calculation
         {
             throw new NotImplementedException();
         }
-
+        public List<XDocumentCalculation> readbyResultantID(Int32 resultantID)
+        {
+            string sql = "select * From " + TABLENAME + " where resultContentID = " + resultantID;
+            return wrap(processResults(sql));
+        }
         public List<XDocumentCalculation> readbyContentID(Int32 ContentID)
         {
             string sql = "select * From " + TABLENAME + " where documentcontentID = " + ContentID;

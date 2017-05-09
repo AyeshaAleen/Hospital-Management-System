@@ -244,12 +244,9 @@ namespace Forms.itinsync.src.session
 
                             foreach (XDocumentTableContent content in td.fields)
                             {
+                                hepler.fieldCalculation(content, parent);
 
-
-                                foreach (XDocumentCalculation calculation in content.calculations)
-                                {
-                                    hepler.fieldCalculation(calculation, parent);
-                                }
+                              
 
 
                             }

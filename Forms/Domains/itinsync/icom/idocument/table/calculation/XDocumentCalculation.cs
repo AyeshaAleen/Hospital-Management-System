@@ -26,6 +26,7 @@ namespace Domains.itinsync.icom.idocument.table.calculation
 
         //**************non DB fields**************///
         public XDocumentTableContent resultContent { get; set; }
+        public List<XDocumentTableContent> resultOperationalContent = new List<XDocumentTableContent>();
         public XDocumentTableContent fieldContent { get; set; }
     }
 }
