@@ -213,6 +213,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Account\Web.config" />
+    <Content Include="itinsync\resources\calculation\IFormsCalculator.js" />
     <Content Include="itinsync\resources\css\bootstrap.min.css" />
     <Content Include="itinsync\resources\css\components.css" />
     <Content Include="itinsync\resources\css\core.css" />

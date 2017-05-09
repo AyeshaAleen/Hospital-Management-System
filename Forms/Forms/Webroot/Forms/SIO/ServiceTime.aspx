@@ -41,7 +41,7 @@
                     <tr>
                         <td>
                             
-                            <input type="text" ID="txtST1" class="form-control" irequired="1" imask="numeric" runat="server" /></td>
+                            <input type="text" ID="txtST1"   class="form-control" irequired="1" imask="numeric" runat="server" /></td>
                         <td>
                             <input type="text" ID="txtST2" class="form-control" irequired="1" imask="numeric" runat="server" /></td>
                         <td>

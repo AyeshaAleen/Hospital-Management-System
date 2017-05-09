@@ -42,5 +42,7 @@ namespace Domains.itinsync.icom.idocument.table.content
         }
         //*************Relational Mapping Objects*******************//////
         public List<XDocumentCalculation> calculations = new List<XDocumentCalculation>();
+
+        public List<XDocumentCalculation> fieldcalculations =new List<XDocumentCalculation>();
     }
 }

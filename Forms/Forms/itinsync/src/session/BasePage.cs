@@ -106,7 +106,7 @@ namespace Forms.itinsync.src.session
                         
                             foreach (XDocumentTableContent content in td.fields)
                             {
-
+                                List<XDocumentCalculation> calculations= content.fieldcalculations;
 
                                 if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
@@ -155,8 +155,17 @@ namespace Forms.itinsync.src.session
                                         txtBox.CssClass = content.cssClass;
                                         txtBox.Attributes.Add("irequired", content.isRequired);
                                         txtBox.Attributes.Add("imask", content.mask);
-                                        txtBox.Text = content.defaultValue;
                                         txtBox.Attributes.Add("points", content.points);
+                                        if (calculations.Count > 0)
+                                        {
+                                            txtBox.Attributes.Add("onchange", "calculation();");
+                                            txtBox.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
+                                            txtBox.Attributes.Add("operation", calculations[0].operation);
+
+                                        }
+                                        txtBox.Text = content.defaultValue;
+                                        
+                                        
                                         tc.Controls.Add(txtBox);
                                         tabletr.Cells.Add(tc);
 
@@ -171,6 +180,12 @@ namespace Forms.itinsync.src.session
                                         radio.Attributes.Add("irequired", content.isRequired);
                                         radio.Attributes.Add("imask", content.mask);
                                         radio.Attributes.Add("points", content.points);
+                                        if (calculations.Count > 0)
+                                        {
+                                            radio.Attributes.Add("onchange", "calculation();");
+                                            radio.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
+                                            radio.Attributes.Add("operation", calculations[0].operation);
+                                        }
                                         radio.Value = content.defaultValue;
 
                                         tc.Controls.Add(radio);
@@ -186,6 +201,13 @@ namespace Forms.itinsync.src.session
                                         check.Attributes.Add("irequired", content.isRequired);
                                         check.Attributes.Add("imask", content.mask);
                                         check.Attributes.Add("points", content.points);
+                                        if (calculations.Count > 0)
+                                        {
+                                            check.Attributes.Add("onchange", "calculation();");
+                                            check.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
+                                            check.Attributes.Add("operation", calculations[0].operation);
+                                        }
+                                            
                                         check.Value = content.defaultValue;
                                         tc.Controls.Add(check);
                                         tabletr.Cells.Add(tc);
@@ -194,13 +216,19 @@ namespace Forms.itinsync.src.session
                                     {
                                         addLabel(tc, content.translation);
                                         DropDownList ddl = new DropDownList();
-
                                         ddl.ID = content.controlID;
                                         ddl.DataValueField = "Code";
                                         ddl.DataTextField = "Text";
                                         ddl.Attributes.Add("irequired", content.isRequired);
                                         ddl.Attributes.Add("imask", content.mask);
                                         ddl.Attributes.Add("points", content.points);
+                                        if (calculations.Count > 0)
+                                        {
+                                            ddl.Attributes.Add("onchange", "calculation();");
+                                            ddl.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
+                                            ddl.Attributes.Add("operation", calculations[0].operation);
+                                        }
+                                        
                                         ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
 
                                         ddl.DataBind();
@@ -244,7 +272,7 @@ namespace Forms.itinsync.src.session
 
                             foreach (XDocumentTableContent content in td.fields)
                             {
-                                hepler.fieldCalculation(content, parent);
+                               // hepler.fieldCalculation(content, parent);
 
                               
 
