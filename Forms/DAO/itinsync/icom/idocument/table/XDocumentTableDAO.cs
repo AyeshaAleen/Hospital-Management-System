@@ -48,6 +48,7 @@ namespace DAO.itinsync.icom.idocument.table
         }
 
         public List<XDocumentTable> readbySectionID(Int32 sectionID)
+
         {
             XDocumentSection objdocumentsection = DocumentManager.getDocumentSectionID(sectionID);
             if (objdocumentsection != null)
