@@ -8,6 +8,10 @@ using Domains.itinsync.interfaces.domain;
 using System.Data;
 using Domains.itinsync.icom.idocument.table;
 using DAO.itinsync.icom.BaseAS.dbcontext;
+using Utils.itinsync.icom.cache.global;
+using DAO.itinsync.icom.document.documentdefinitionview;
+using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.section;
 
 namespace DAO.itinsync.icom.idocument.table
 {
@@ -44,7 +48,29 @@ namespace DAO.itinsync.icom.idocument.table
 
         public List<XDocumentTable> readbySectionID(Int32 sectionID)
         {
-            string sql = "select * From " + TABLENAME + " where documentsectionid = "+ sectionID;
+            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            {
+                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+                foreach (XDocumentSection section in documentDefinition.documentSections)
+                {
+                    if (section.documentsectionid == sectionID)
+                        return section.documentTable;
+                }
+            }
+            //if (GlobalStaticCache.documentDefinition.Count == 0)
+            //{
+            //    new DocumentContentViewDAO().load();
+            //    return GlobalStaticCache.documentDefinition[sectionID.ToString()].tolist();
+            //}
+
+
+            //else
+            //{
+            //    return GlobalStaticCache.documentDefinition[sectionID.ToString()].tolist();
+            //}
+
+            string sql = "select * From " + TABLENAME + " where documentsectionid = " + sectionID;
             return wrap(processResults(sql));
         }
 

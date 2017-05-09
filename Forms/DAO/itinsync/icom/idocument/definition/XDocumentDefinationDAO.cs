@@ -12,6 +12,20 @@ using Utils.itinsync.icom;
 using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Utils.itinsync.icom.cache.global;
+using DAO.itinsync.icom.document.documentdefinitionview;
+using Domains.itinsync.icom.idocument.section;
+using DAO.itinsync.icom.idocument.table;
+using Domains.itinsync.icom.idocument.table;
+using Domains.itinsync.icom.idocument.table.tr;
+using DAO.itinsync.icom.idocument.table.tr;
+using DAO.itinsync.icom.idocument.table.td;
+using DAO.itinsync.icom.idocument.table.content;
+using Domains.itinsync.icom.idocument.table.td;
+using Domains.itinsync.icom.idocument.table.content;
+using DAO.itinsync.icom.idocument.table.calculation;
+using Domains.itinsync.icom.idocument.table.calculation;
+using DAO.itinsync.icom.idocument.section;
+using System.Collections;
 
 namespace DAO.itinsync.icom.idocument.definition
 {
@@ -53,13 +67,31 @@ namespace DAO.itinsync.icom.idocument.definition
             }
             return "";
         }
-        public XDocumentDefination findbyPrimaryKey(int xDocumentDefinationID)
+        public XDocumentDefination findbyPrimaryKey(Int32 xDocumentDefinationID)
         {
-            string sql = "select * From " + TABLENAME + "where xDocumentDefinationID = " + xDocumentDefinationID;
-            return (XDocumentDefination)processSingleResult(sql);
+
+            if (GlobalStaticCache.documentDefinition.ContainsKey(xDocumentDefinationID))
+                return GlobalStaticCache.documentDefinition[xDocumentDefinationID];
+            else
+            {
+               load();
+               return GlobalStaticCache.documentDefinition[xDocumentDefinationID];
+            }
         }
         public XDocumentDefination findbyDocumentName(string DocumentName)
         {
+
+            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            {
+                XDocumentDefination documentDefinition= GlobalStaticCache.documentDefinition[entry];
+
+                if (documentDefinition.name == DocumentName)
+                    return documentDefinition;
+            }
+
+            // if not found them reload complete definitions
+            load();
+              
             string sql = string.Format("select * From " + TABLENAME + "where name ='{0}'", DocumentName);
             return (XDocumentDefination)processSingleResult(sql);
         }
@@ -69,11 +101,7 @@ namespace DAO.itinsync.icom.idocument.definition
             string sql = "select * From " + TABLENAME;
             return wrap(processResults(sql));
         }
-        private List<XDocumentDefination> languageLookup()
-        {
-            string READBYLOOKUP = "select * from " + TABLENAME + " where name ='" + LookupsConstant.LKUserLang + "' order by name";
-            return wrap(processResults(READBYLOOKUP));
-        }
+       
         private List<XDocumentDefination> readWhere(string where)
         {
             if (where == null || where.Length == 0)
@@ -89,22 +117,58 @@ namespace DAO.itinsync.icom.idocument.definition
             return list;
         }
 
-        public List<XDocumentDefination> readyAll()
-        {
-            string READ = string.Format("Select * from " + TABLENAME);
-            return wrap(processResults(READ));
-        }
+       
 
         public void load()
         {
-            if (GlobalStaticCache.documentDefinition.Count == 0)
+            List<XDocumentDefination> documentsDefinitions = readAll();
+            foreach (XDocumentDefination documentDefinition in documentsDefinitions)
             {
-                List<XDocumentDefination> documentlist = readyAll();
-                foreach (XDocumentDefination td in documentlist)
+                documentDefinition.documentSections = XDocumentSectionDAO.getInstance(currentDBContext).readyByDocumentDefinitionID(documentDefinition.xDocumentDefinationID);
+
+                foreach (XDocumentSection section in documentDefinition.documentSections)
                 {
-                    GlobalStaticCache.documentDefinition.Add(td.name,td);
+                    section.documentTable = XDocumentTableDAO.getInstance(currentDBContext).readbySectionID(section.documentsectionid);
+
+                    foreach (XDocumentTable table in section.documentTable)
+                    {
+                        table.trs = XDocumentTableTRDAO.getInstance(currentDBContext).readbyTableID(table.documentTableID);
+
+                        foreach (XDocumentTableTR tr in table.trs)
+                        {
+                            tr.tds = XDocumentTableTDDAO.getInstance(currentDBContext).readbyTRID(tr.trID);
+
+                            foreach (XDocumentTableTD td in tr.tds)
+                            {
+                                td.fields = XDocumentTableContentDAO.getInstance(currentDBContext).readbyTDID(td.tdID);
+
+                                foreach (XDocumentTableContent content in td.fields)
+                                {
+                                    content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyContentID(content.documentTableContentID);
+
+                                    foreach (XDocumentCalculation calculation in content.calculations)
+                                    {
+                                        calculation.fieldContent = content;
+                                        calculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.resultContentID);
+                                        GlobalStaticCache.documentCalculation.Add(calculation.xdocumentcalculationID, calculation);
+                                    }
+                                    GlobalStaticCache.documentContent.Add(content.documentTableContentID, content);
+
+                                }
+                                GlobalStaticCache.documentTablesTD.Add(td.tdID, td);
+                               
+                            }
+                            GlobalStaticCache.documentTablesTR.Add(tr.trID, tr);
+                        }
+                        GlobalStaticCache.documentTables.Add(table.documentTableID, table);
+                    }
+                    GlobalStaticCache.documentSection.Add(section.documentsectionid, section);
                 }
+
+                GlobalStaticCache.documentDefinition.Add(documentDefinition.xDocumentDefinationID, documentDefinition);
+
             }
         }
+
     }
 }

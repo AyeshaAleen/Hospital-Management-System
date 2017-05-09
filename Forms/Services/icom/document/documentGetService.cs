@@ -36,47 +36,10 @@ namespace Services.itinsync.icom.documents
             {
                 dto = (DocumentDTO)o;
 
-
                 dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
                 dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);
-                dto.document.xdocumentDefinition.documentSections =XDocumentSectionDAO.getInstance(dbContext).readyByDocumentDefinitionID(dto.document.documentDefinitionID);
-
-                foreach (XDocumentSection section in dto.document.xdocumentDefinition.documentSections )
-                {
-                    section.documentTable = XDocumentTableDAO.getInstance(dbContext).readbySectionID(section.documentsectionid);
-
-                    foreach (XDocumentTable table in section.documentTable)
-                    {
-                        table.trs = XDocumentTableTRDAO.getInstance(dbContext).readbyTableID(table.documentTableID);
-
-                        foreach (XDocumentTableTR tr in table.trs)
-                        {
-                            tr.tds = XDocumentTableTDDAO.getInstance(dbContext).readbyTRID(tr.trID);
-
-                            foreach (XDocumentTableTD td in tr.tds)
-                            {
-                                td.fields = XDocumentTableContentDAO.getInstance(dbContext).readbyTDID(td.tdID);
-
-                                foreach (XDocumentTableContent content in td.fields)
-                                {
-                                    content.calculations = XDocumentCalculationDAO.getInstance(dbContext).readbyContentID(content.documentTableContentID);
-
-                                    foreach (XDocumentCalculation calculation in content.calculations)
-                                    {
-                                        calculation.fieldContent = content;
-                                        calculation.resultContent = XDocumentTableContentDAO.getInstance(dbContext).findByPrimaryKey(calculation.resultContentID);
-                                    }
-                                }
-
-
-                            }
-
-                        }
-                    }
-
-                }
-
-
+               
+                
 
             }
             catch (Exception ex)
