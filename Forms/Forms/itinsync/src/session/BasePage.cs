@@ -864,10 +864,10 @@ namespace Forms.itinsync.src.session
 
         public Int32 getLastVisitedURLCode()
         {
-            if (((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK)).Count == 0)
-                return 0;
-            else if (((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK)).Count == 1)
-                return ((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK))[0];
+            //if (((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK)).Count == 0)
+            //    return 0;
+            //else if (((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK)).Count == 1)
+            //    return ((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK))[0];
 
             return ((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK))[((List<Int32>)Sessions.getSession().Get(SessionKey.PAGEVISTSTACK)).Count - 1];
 

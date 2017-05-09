@@ -27,8 +27,6 @@ namespace Forms.Webroot.Forms.SIO
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-
-
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
             dto.document.documentName = "SIO";

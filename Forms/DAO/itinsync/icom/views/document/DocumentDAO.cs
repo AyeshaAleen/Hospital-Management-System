@@ -34,47 +34,19 @@ namespace DAO.itinsync.icom.document
         {
             throw new NotImplementedException();
         }
-        private List<LookUp> languageLookUp()
-        {
-            List<LookUp> lkList = new List<LookUp>();
-            DataTable dt = FillDataTable("select * from " + TABLENAME + " where name ='" + LookupsConstant.LKUserLang + "' order by name");
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                LookUp lk = new LookUp();
-                lk.text = Convert.ToString(dt.Rows[i][LookUp.columns.text.ToString()]);
-                lk.code = Convert.ToString(dt.Rows[i][LookUp.columns.code.ToString()]);
-                lkList.Add(lk);
-            }
-            return lkList;
-        }
-        public void load()
-        {            
-            List<documentcontent> lkList = languageLookUp();
-            foreach (documentcontent lk in lkList)
-            {
-                Dictionary<string, Hashtable> cacheMap = new Dictionary<string, Hashtable>();
-                DataTable dt = FillDataTable("select * from " + TABLENAME + " order by name");
-                string currentLookUpID = "";
-                Hashtable hashtable = new Hashtable();
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    if (i == 0)
-                        currentLookUpID = Convert.ToString(dt.Rows[i][documentcontent.columns.documentTableContentID.ToString()]);
-                    if (currentLookUpID == Convert.ToString(dt.Rows[i][documentcontent.columns.documentTableContentID.ToString()]))
-                    {
-                        hashtable[Convert.ToString(dt.Rows[i][documentcontent.columns.documentTableContentID.ToString()])] = Convert.ToString(dt.Rows[i][lk.documentTableContentID]);
-                    }
-                    else if (currentLookUpID != Convert.ToString(dt.Rows[i][documentcontent.columns.documentTableContentID.ToString()]))
-                    {
-                        cacheMap.Add(currentLookUpID, hashtable);
-                        hashtable = new Hashtable();
-                        currentLookUpID = Convert.ToString(dt.Rows[i][documentcontent.columns.documentTableContentID.ToString()]);
-                        hashtable[Convert.ToString(dt.Rows[i][documentcontent.columns.documentTableContentID.ToString()])] = Convert.ToString(dt.Rows[i][lk.documentTableContentID]);
-                    }
-                }
-                cacheMap.Add(currentLookUpID, hashtable);
-                GlobalStaticCache.LKcacheMap.Add(lk.documentTableContentID, cacheMap);
-            }
-        }
+        //private List<LookUp> languageLookUp()
+        //{
+        //    List<LookUp> lkList = new List<LookUp>();
+        //    DataTable dt = FillDataTable("select * from " + TABLENAME + " where name ='" + LookupsConstant.LKUserLang + "' order by name");
+        //    for (int i = 0; i < dt.Rows.Count; i++)
+        //    {
+        //        LookUp lk = new LookUp();
+        //        lk.text = Convert.ToString(dt.Rows[i][LookUp.columns.text.ToString()]);
+        //        lk.code = Convert.ToString(dt.Rows[i][LookUp.columns.code.ToString()]);
+        //        lkList.Add(lk);
+        //    }
+        //    return lkList;
+        //}
+       
     }
 }
