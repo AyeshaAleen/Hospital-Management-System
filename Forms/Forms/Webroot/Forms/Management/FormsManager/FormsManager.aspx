@@ -13,9 +13,10 @@
 
 
                 <div class="row">
+
                     <div id="redips-drag">
                         <!-- left container -->
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <h3 class="text-center">Select Controls</h3>
                             <table id="table1" class="table table-bordered">
                                 <tr>
@@ -66,47 +67,46 @@
                                         </div>
                                     </td>
                                 </tr>
-                               <%-- <tr>
+                                <!-- <tr>
                                     <td class="redips-trash">Trash</td>
-                                </tr>--%>
+                                </tr>-->
                             </table>
                         </div>
 
                         <!-- right container -->
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <h3 class="text-center">Drop Zone</h3>
                             <table id="table2" class="table table-responsive">
-                                
+                            </table>
+
+                            <table>
                                 <tr>
-                                    <td id="td1" style="width:50%"></td>
-                                    <td id="td2"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td3"></td>
-                                    <td id="td4"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td5"></td>
-                                    <td id="td6"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td7"></td>
-                                    <td id="td8"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td9"></td>
-                                    <td id="td10"></td>
+                                    <td colspan="2">
+                                        <button onclick="myFunction()">Try it</button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div class="text-left" id="message" />
+                                        <div class="col-lg-6">
+                                            <h5>No. of Rows</h5>
+
+                                            <input id="tblrows" type="text" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h5>No. of Columns</h5>
+
+                                            <input id="tblcolumn" type="text" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <button onclick="createTable();">Create Table</button>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                         <div class="clearfix"></div>
                         <!-- display block content -->
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>

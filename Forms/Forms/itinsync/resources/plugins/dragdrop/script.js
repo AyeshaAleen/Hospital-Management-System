@@ -10,80 +10,106 @@ var redips = {};
 
 // redips initialization
 redips.init = function () {
-	var num = 0,			// number of successfully placed elements
+    var num = 0,			// number of successfully placed elements
 		rd = REDIPS.drag;	// reference to the REDIPS.drag lib
-	// initialization
-	rd.init();
-	// set hover color
-	rd.hover.colorTd = '#9BB3DA';
-	// call initially showContent
-	redips.showContent();
-	// on each drop refresh content
-	rd.event.dropped = function () {
-		redips.showContent();
-	};
-	// call showContent() after DIV element is deleted
-	rd.event.deleted = function () {
-		redips.showContent();
-	};
+    // initialization
+    rd.init();
+    // set hover color
+    rd.hover.colorTd = '#9BB3DA';
+    // call initially showContent
+    redips.showContent();
+    // on each drop refresh content
+    rd.event.dropped = function () {
+        redips.showContent();
+        $('#con-close-modal').modal('show');
+    };
+    // call showContent() after DIV element is deleted
+    rd.event.deleted = function () {
+        redips.showContent();
+    };
 };
 
 
 // show TD content
 redips.showContent = function () {
-	// get content of TD cells in right table
-	var td1 = redips.getContent('td1'),
-		td2 = redips.getContent('td2'),
-		td3 = redips.getContent('td3'),
-		td4 = redips.getContent('td4'),
-		td5 = redips.getContent('td5'),
-		td6 = redips.getContent('td6'),
-		td7 = redips.getContent('td7'),
-		td8 = redips.getContent('td8'),
-		td9 = redips.getContent('td9'),
-		td10 = redips.getContent('td10'),
-		// set reference to the message DIV (below tables)
-		message = document.getElementById('message');
-	// show block content
-	message.innerHTML = 'td1 = ' + td1 + '<br>' +
-						'td2 = ' + td2 + '<br>' +
-						'td3 = ' + td3 + '<br>' +
-						'td4 = ' + td4 + '<br>' +
-						'td5 = ' + td5 + '<br>' +
-						'td6 = ' + td6 + '<br>' +
-						'td7 = ' + td7 + '<br>' +
-						'td8 = ' + td8 + '<br>' +
-						'td9 = ' + td9 + '<br>' +
-						'td10 = ' + td10;
+    // get content of TD cells in right table
+    //var td1 = redips.getContent('td1'),
+    //		td2 = redips.getContent('td2'),
+    //		td3 = redips.getContent('td3'),
+    //		td4 = redips.getContent('td4'),
+    //		td5 = redips.getContent('td5'),
+    //		td6 = redips.getContent('td6'),
+    //		td7 = redips.getContent('td7'),
+    //		td8 = redips.getContent('td8'),
+    //		td9 = redips.getContent('td9'),
+    //		td10 = redips.getContent('td10'),
+    //		// set reference to the message DIV (below tables)
+    //		message = document.getElementById('message');
+    //	// show block content
+    //	message.innerHTML = 'td1 = ' + td1 + '<br>' +
+    //						'td2 = ' + td2 + '<br>' +
+    //						'td3 = ' + td3 + '<br>' +
+    //						'td4 = ' + td4 + '<br>' +
+    //						'td5 = ' + td5 + '<br>' +
+    //						'td6 = ' + td6 + '<br>' +
+    //						'td7 = ' + td7 + '<br>' +
+    //						'td8 = ' + td8 + '<br>' +
+    //						'td9 = ' + td9 + '<br>' +
+    //						'td10 = ' + td10;
 };
 
 
 // get content (DIV elements in TD)
 redips.getContent = function (id) {
-	var td = document.getElementById(id),
+    var td = document.getElementById(id),
 		content = '',
 		cn, i;
-	// TD can contain many DIV elements
-	for (i = 0; i < td.childNodes.length; i++) {
-		// set reference to the child node
-		cn = td.childNodes[i];
-		// childNode should be DIV with containing "drag" class name
-		if (cn.nodeName === 'DIV' && cn.className.indexOf('drag') > -1) { // and yes, it should be uppercase
-			// append DIV id to the result string
-			content += cn.id + '_';
-		}
-	}
-	// cut last '_' from string
-	content = content.substring(0, content.length - 1);
-	// return result
-	return content;
+    // TD can contain many DIV elements
+    for (i = 0; i < td.childNodes.length; i++) {
+        // set reference to the child node
+        cn = td.childNodes[i];
+        // childNode should be DIV with containing "drag" class name
+        if (cn.nodeName === 'DIV' && cn.className.indexOf('drag') > -1) { // and yes, it should be uppercase
+            // append DIV id to the result string
+            content += cn.id + '_';
+        }
+    }
+    // cut last '_' from string
+    content = content.substring(0, content.length - 1);
+    // return result
+    return content;
 };
 
 
 // add onload event listener
 if (window.addEventListener) {
-	window.addEventListener('load', redips.init, false);
+    window.addEventListener('load', redips.init, false);
 }
 else if (window.attachEvent) {
-	window.attachEvent('onload', redips.init);
+    window.attachEvent('onload', redips.init);
 }
+function createTable() {
+    var table = document.getElementById("table2");
+    var noOfRows = document.getElementById("tblrows").value;
+    var noOfColumn = document.getElementById("tblcolumn").value;
+    var counter = 0;
+
+
+
+    for (var row = 0; row < noOfRows; row++) {
+        var tr = table.insertRow(row);
+        tr.setAttribute("id", "tr" + counter);
+        for (var col = 0; col < noOfColumn; col++) {
+            tr.insertCell(col);
+
+
+
+
+        }
+
+    }
+
+
+
+}
+
