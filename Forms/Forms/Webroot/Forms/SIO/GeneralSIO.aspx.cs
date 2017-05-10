@@ -10,6 +10,8 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.date;
+using System.Data;
+using System.Web.UI.WebControls;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -40,6 +42,29 @@ namespace Forms.Webroot.Forms.SIO
 
         }
 
+        private void save_data()
+        {
+            Control parent= tableDynamic;
+            Control tableControl = parent.FindControl("tableDynamic");
+            Table parentTable = ((Table)(tableControl));
+
+
+            for (int i = 0; i < parentTable.Rows.Count; i++)
+            {
+                for (int j = 0; j < tableDynamic.Rows[i].Cells.Count; j++)
+                {
+
+
+                    string cellValue = tableDynamic.Rows[i].Cells[j].Text;
+
+                }
+                    }
+
+                  
+          
+
+
+        }
 
 
         private void loaddata()
@@ -52,6 +77,7 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
+            save_data();
             xml = "<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>";
          
             Response.Redirect("ServiceTime.aspx");

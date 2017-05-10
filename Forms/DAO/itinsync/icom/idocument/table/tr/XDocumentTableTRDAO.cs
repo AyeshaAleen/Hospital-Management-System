@@ -12,6 +12,7 @@ using Domains.itinsync.icom.idocument.definition;
 using Utils.itinsync.icom.cache.global;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
+using Utils.itinsync.icom.cache.lookup;
 
 namespace DAO.itinsync.icom.idocument.table.tr
 {
@@ -47,20 +48,32 @@ namespace DAO.itinsync.icom.idocument.table.tr
 
         public List<XDocumentTableTR> readbyTableID(Int32 tableID)
         {
-            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
-            {
-                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
 
-                foreach (XDocumentSection section in documentDefinition.documentSections)
+            XDocumentTable objdocumenttable = DocumentManager.getDocumentTableID(tableID);
+            if (objdocumenttable != null)
+            {
+                XDocumentSection objdocumentsection = DocumentManager.getDocumentSectionID(objdocumenttable.documentsectionid);
+                if (objdocumentsection != null)
                 {
-                    foreach (XDocumentTable table in section.documentTable)
-                    {
-                        if (table.documentTableID == tableID)
-                            return table.trs;
-                    }
-                    
+                    List<XDocumentTableTR> objdocumenttabletr = DocumentManager.getDocumentTablesTRS(objdocumenttable.documentTableID, objdocumenttable.documentsectionid, objdocumentsection.documentdefinitionid);
+                    if (objdocumenttabletr != null)
+                        return objdocumenttabletr;
                 }
             }
+            //foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            //{
+            //    XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+            //    foreach (XDocumentSection section in documentDefinition.documentSections)
+            //    {
+            //        foreach (XDocumentTable table in section.documentTable)
+            //        {
+            //            if (table.documentTableID == tableID)
+            //                return table.trs;
+            //        }
+
+            //    }
+            //}
             string sql = "select * From " + TABLENAME + " where documentTableID = " + tableID;
             return wrap(processResults(sql));
         }

@@ -14,6 +14,7 @@ using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
 using Domains.itinsync.icom.idocument.table.tr;
 using Domains.itinsync.icom.idocument.table.td;
+using Utils.itinsync.icom.cache.lookup;
 
 namespace DAO.itinsync.icom.idocument.table.content
 {
@@ -47,9 +48,13 @@ namespace DAO.itinsync.icom.idocument.table.content
             throw new NotImplementedException();
         }
 
+
+        
         public XDocumentTableContent findByPrimaryKey(Int32 ID)
         {
-
+            if (DocumentManager.getDocumentTablesContentID(ID) != null)
+                return DocumentManager.getDocumentTablesContentID(ID);
+            /*
             foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
             {
                 XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
@@ -77,7 +82,7 @@ namespace DAO.itinsync.icom.idocument.table.content
                 }
             }
 
-
+            */
             string sql = "select * From " + TABLENAME + " where documentTableContentID = " + ID;
             return (XDocumentTableContent)processSingleResult(sql);
         }

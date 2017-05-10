@@ -144,13 +144,21 @@ namespace DAO.itinsync.icom.idocument.definition
 
                                 foreach (XDocumentTableContent content in td.fields)
                                 {
-                                    content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyContentID(content.documentTableContentID);
+                                    content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyResultantID(content.documentTableContentID);
+                                    content.fieldcalculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyContentID(content.documentTableContentID);
 
                                     foreach (XDocumentCalculation calculation in content.calculations)
                                     {
-                                        calculation.fieldContent = content;
+                                        calculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.documentcontentID);
                                         calculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.resultContentID);
                                         GlobalStaticCache.documentCalculation.Add(calculation.xdocumentcalculationID, calculation);
+                                    }
+
+                                    foreach (XDocumentCalculation fieldcalculation in content.fieldcalculations)
+                                    {
+                                        fieldcalculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.documentcontentID);
+                                        fieldcalculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.resultContentID);
+                                       
                                     }
                                     GlobalStaticCache.documentContent.Add(content.documentTableContentID, content);
 

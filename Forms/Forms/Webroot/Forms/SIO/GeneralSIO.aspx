@@ -221,7 +221,9 @@
                 </table>--%>
                    
                   <div class="clearfix"></div>
-                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"  OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
+                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"   OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
+
+
            <div class="clearfix"></div>
             </div>
         </div>
