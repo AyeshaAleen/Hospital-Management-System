@@ -8,17 +8,11 @@
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Service Time</b></h4>
 
-                <div id="iErrorPanel"></div>
+                <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
+                   
+                </asp:Table>
 
-
-                <div>
-
-                  
-
-                </div>
-
-
-                <table data-toggle="table" class="table-bordered"  data-search="true"
+               <%-- <table data-toggle="table" class="table-bordered"  data-search="true"
                     data-sort-name="id" data-page-list="[4, 8, 12, 100]"
                     data-page-size="4" data-pagination="true" runat="server" id="dynamicContentID">
                     <thead>
@@ -196,7 +190,7 @@
                             <input type="text" ID="txtST55" class="form-control" runat="server" /></td>
                     </tr>
                    </tbody>
-                </table>
+                </table>--%>
 
                 <div class="clearfix"></div>
 
