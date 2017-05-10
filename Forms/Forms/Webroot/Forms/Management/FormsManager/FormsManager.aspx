@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Forms Manager" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
+﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostBack="true" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
 <asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="FormMasterHead" runat="server">
     <link href="../../../../itinsync/resources/plugins/dragdrop/style.css" rel="stylesheet" />
@@ -6,7 +6,9 @@
     <script src="../../../../itinsync/resources/plugins/dragdrop/script.js"></script>
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+    
     <div class="row" id="validate" runat="server">
+
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
@@ -98,7 +100,10 @@
                                             <input id="tblcolumn" type="text" class="form-control">
                                         </div>
                                         <div class="col-lg-6">
-                                            <button onclick="createTable();">Create Table</button>
+                                           
+                                            <button  onclick="return createTR();">Create tr</button>
+                                             <button  onclick="return createTD();">Create td</button>
+                                            <button  onclick="return getTableHTML();">html</button>
                                         </div>
                                     </td>
                                 </tr>

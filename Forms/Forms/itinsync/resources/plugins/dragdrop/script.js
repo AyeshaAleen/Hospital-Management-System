@@ -88,28 +88,6 @@ if (window.addEventListener) {
 else if (window.attachEvent) {
     window.attachEvent('onload', redips.init);
 }
-function createTable() {
-    var table = document.getElementById("table2");
-    var noOfRows = document.getElementById("tblrows").value;
-    var noOfColumn = document.getElementById("tblcolumn").value;
-    var counter = 0;
 
 
-
-    for (var row = 0; row < noOfRows; row++) {
-        var tr = table.insertRow(row);
-        tr.setAttribute("id", "tr" + counter);
-        for (var col = 0; col < noOfColumn; col++) {
-            tr.insertCell(col);
-
-
-
-
-        }
-
-    }
-
-
-
-}
 
