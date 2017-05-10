@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Forms Manager" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
 <asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+    <link href="../../../../itinsync/resources/plugins/dragdrop/style.css" rel="stylesheet" />
+    <script src="../../../../itinsync/resources/plugins/dragdrop/redips-drag-min.js"></script>
+    <script src="../../../../itinsync/resources/plugins/dragdrop/script.js"></script>
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
     <div class="row" id="validate" runat="server">
@@ -8,12 +11,114 @@
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
 
+
+                <div class="row">
+                    <div id="redips-drag">
+                        <!-- left container -->
+                        <div class="col-md-3">
+                            <h3 class="text-center">Select Controls</h3>
+                            <table id="table1" class="table table-bordered">
+                                <tr>
+                                    <td class="redips-single">
+                                        <h5>Label Control</h5>
+                                        <div id="a" class="redips-drag redips-clone orange">
+                                            <label class="control-label">Label</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="redips-single">
+                                        <h5>Text Box</h5>
+                                        <div id="b" class="redips-drag redips-clone orange">
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="redips-single">
+                                        <h5>Select Box</h5>
+                                        <div id="c" class="redips-drag redips-clone orange">
+                                            <select class="form-control select2"></select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="redips-single">
+                                        <h5>Radio Botton</h5>
+                                        <div id="d" class="redips-drag redips-clone orange">
+                                            <input type="radio" class="radio" value="RadioButton">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="redips-single">
+                                        <h5>CheckBox</h5>
+                                        <div id="e" class="redips-drag redips-clone orange">
+                                            <input type="checkbox" class="checkbox" value="CheckBox">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="redips-single">
+                                        <h5>File Upload</h5>
+                                        <div id="f" class="redips-drag redips-clone orange">
+                                            <input type="file">
+                                        </div>
+                                    </td>
+                                </tr>
+                               <%-- <tr>
+                                    <td class="redips-trash">Trash</td>
+                                </tr>--%>
+                            </table>
+                        </div>
+
+                        <!-- right container -->
+                        <div class="col-md-9">
+                            <h3 class="text-center">Drop Zone</h3>
+                            <table id="table2" class="table table-responsive">
+                                
+                                <tr>
+                                    <td id="td1" style="width:50%"></td>
+                                    <td id="td2"></td>
+                                </tr>
+                                <tr>
+                                    <td id="td3"></td>
+                                    <td id="td4"></td>
+                                </tr>
+                                <tr>
+                                    <td id="td5"></td>
+                                    <td id="td6"></td>
+                                </tr>
+                                <tr>
+                                    <td id="td7"></td>
+                                    <td id="td8"></td>
+                                </tr>
+                                <tr>
+                                    <td id="td9"></td>
+                                    <td id="td10"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="text-left" id="message" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- display block content -->
+                        
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Document</label>
                         <select class="form-control select2"></select>
                     </div>
-                </div> 
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Content</label>
