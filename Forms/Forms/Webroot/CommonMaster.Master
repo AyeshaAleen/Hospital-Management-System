@@ -300,7 +300,8 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/custom.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormsCalculator.js") %>"></script>
-
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/table/DynamicTable.js") %>"></script>
+    
 
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-sweetalert/sweet-alert.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.sweet-alert.init.js") %>"></script>

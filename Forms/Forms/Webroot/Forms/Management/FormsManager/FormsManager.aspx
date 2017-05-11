@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Forms Manager" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
+﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostBack="true" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
 <asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="FormMasterHead" runat="server">
     <link href="../../../../itinsync/resources/plugins/dragdrop/style.css" rel="stylesheet" />
@@ -6,16 +6,19 @@
     <script src="../../../../itinsync/resources/plugins/dragdrop/script.js"></script>
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+    
     <div class="row" id="validate" runat="server">
+
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
 
 
                 <div class="row">
+
                     <div id="redips-drag">
                         <!-- left container -->
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <h3 class="text-center">Select Controls</h3>
                             <table id="table1" class="table table-bordered">
                                 <tr>
@@ -66,47 +69,49 @@
                                         </div>
                                     </td>
                                 </tr>
-                               <%-- <tr>
+                                <!-- <tr>
                                     <td class="redips-trash">Trash</td>
-                                </tr>--%>
+                                </tr>-->
                             </table>
                         </div>
 
                         <!-- right container -->
-                        <div class="col-md-9">
+                        <div class="col-md-8">
                             <h3 class="text-center">Drop Zone</h3>
                             <table id="table2" class="table table-responsive">
-                                
+                            </table>
+
+                            <table>
                                 <tr>
-                                    <td id="td1" style="width:50%"></td>
-                                    <td id="td2"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td3"></td>
-                                    <td id="td4"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td5"></td>
-                                    <td id="td6"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td7"></td>
-                                    <td id="td8"></td>
-                                </tr>
-                                <tr>
-                                    <td id="td9"></td>
-                                    <td id="td10"></td>
+                                    <td colspan="2">
+                                        <button onclick="myFunction()">Try it</button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div class="text-left" id="message" />
+                                        <div class="col-lg-6">
+                                            <h5>No. of Rows</h5>
+
+                                            <input id="tblrows" type="text" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h5>No. of Columns</h5>
+
+                                            <input id="tblcolumn" type="text" class="form-control">
+                                        </div>
+                                        <div class="col-lg-6">
+                                           
+                                            <button  onclick="return createTR();">Create tr</button>
+                                             <button  onclick="return createTD();">Create td</button>
+                                            <button  onclick="return getTableHTML();">html</button>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
                         </div>
                         <div class="clearfix"></div>
                         <!-- display block content -->
-                        
+
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>

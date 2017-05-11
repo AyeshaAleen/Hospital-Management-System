@@ -21,12 +21,13 @@ body {
 
 /* tables */
 div#redips-drag table {
-	background-color:#eee;
+	
 	border-collapse: collapse;
 }
+
 	/* table cells */
 	div#redips-drag td {
-		border: 1px solid white;
+		border: 1px solid #000;
 		text-align: center;
 		padding: 0px;
 	}

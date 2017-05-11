@@ -223,6 +223,7 @@
     <Content Include="itinsync\resources\css\signature-pad.css" />
     <Content Include="itinsync\resources\css\typicons.css" />
     <Content Include="itinsync\resources\css\variables.css" />
+    <Content Include="itinsync\resources\dynamic\table\DynamicTable.js" />
     <Content Include="itinsync\resources\fonts\fontawesome-webfont.svg" />
     <Content Include="itinsync\resources\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="itinsync\resources\fonts\ionicons.svg" />
@@ -3183,7 +3184,9 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
