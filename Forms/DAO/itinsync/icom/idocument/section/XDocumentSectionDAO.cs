@@ -30,7 +30,7 @@ namespace DAO.itinsync.icom.idocument.section
 
         protected override string createQuery(object o)
         {
-            throw new NotImplementedException();
+            return "INSERT INTO " + TABLENAME + preparedCreateQuery(o, typeof(XDocumentSection.columns));
         }
 
         protected override IDomain setResult(DataTable dt, int i)
