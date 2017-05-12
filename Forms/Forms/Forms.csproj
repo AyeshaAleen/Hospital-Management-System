@@ -3170,6 +3170,9 @@
     <Content Include="itinsync\resources\plugins\dragdrop\config.php" />
     <Content Include="itinsync\resources\plugins\dragdrop\db_field.php" />
     <Content Include="itinsync\resources\plugins\dragdrop\db_save.php" />
+    <Content Include="config.php" />
+    <Content Include="db_field.php" />
+    <Content Include="db_save.php" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3225,6 +3228,9 @@
     <Content Include="Webroot\Forms\Management\FormsManager\config.php" />
     <Content Include="Webroot\Forms\Management\FormsManager\db_field.php" />
     <Content Include="Webroot\Forms\Management\FormsManager\db_save.php" />
+    <Content Include="Webroot\config.php" />
+    <Content Include="Webroot\db_field.php" />
+    <Content Include="Webroot\db_save.php" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
