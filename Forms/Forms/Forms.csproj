@@ -2370,7 +2370,24 @@
     <Content Include="itinsync\resources\plugins\datatables\scroller.bootstrap.min.css" />
     <Content Include="itinsync\resources\plugins\datatables\vfs_fonts.js" />
     <Content Include="itinsync\resources\plugins\doc-ready\doc-ready.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\app_reference.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\calculation.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\category.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\contact.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\date_picker.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\duration.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\google_map.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\image.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\link.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\money.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\number.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\progress_slider.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\question.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\text.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\unknown.html" />
+    <Content Include="itinsync\resources\plugins\dragdrop\component\video_sharing.html" />
     <Content Include="itinsync\resources\plugins\dragdrop\redips-drag-min.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\redips-table-min.js" />
     <Content Include="itinsync\resources\plugins\dragdrop\script.js" />
     <Content Include="itinsync\resources\plugins\dragdrop\style.css" />
     <Content Include="itinsync\resources\plugins\dropzone\basic.css" />
@@ -3150,6 +3167,9 @@
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons-wind.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.scss" />
+    <Content Include="itinsync\resources\plugins\dragdrop\config.php" />
+    <Content Include="itinsync\resources\plugins\dragdrop\db_field.php" />
+    <Content Include="itinsync\resources\plugins\dragdrop\db_save.php" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3202,6 +3222,9 @@
     <Content Include="Webroot\test.aspx" />
     <Content Include="Webroot\testMaster.master" />
     <Content Include="Webroot\Forms\FormMaster.master" />
+    <Content Include="Webroot\Forms\Management\FormsManager\config.php" />
+    <Content Include="Webroot\Forms\Management\FormsManager\db_field.php" />
+    <Content Include="Webroot\Forms\Management\FormsManager\db_save.php" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">

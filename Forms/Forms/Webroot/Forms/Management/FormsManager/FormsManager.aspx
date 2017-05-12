@@ -1,12 +1,13 @@
-﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostBack="true" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
+﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
 <asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="FormMasterHead" runat="server">
     <link href="../../../../itinsync/resources/plugins/dragdrop/style.css" rel="stylesheet" />
     <script src="../../../../itinsync/resources/plugins/dragdrop/redips-drag-min.js"></script>
+    <script src="../../../../itinsync/resources/plugins/dragdrop/redips-table-min.js"></script>
     <script src="../../../../itinsync/resources/plugins/dragdrop/script.js"></script>
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
-    
+
     <div class="row" id="validate" runat="server">
 
         <div class="col-sm-12">
@@ -16,7 +17,173 @@
 
                 <div class="row">
 
+
                     <div id="redips-drag">
+                        <!-- left container -->
+                        <div id="left">
+                            <div class="instructions">
+                                <strong>Building blocks</strong>
+                                <br />
+                                Drag blocks to the right to build your application.
+                            </div>
+                            <table id="tblComponents">
+                                <colgroup>
+                                    <col width="150" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="te1">
+                                                <input type="password" class="form-control" id="input-password-1"
+                                                    placeholder="Password">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="co1">
+
+                                                <input id="555" type="radio" onclick="testID(this)">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ca1">Category</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="da1">Date picker</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="li1">Link</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="im1">Image</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="vs1">Video sharing</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="go1">Google Map</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="qu1">Question</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="nu1">Number</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="mo1">Money</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="du1">Duration</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ps1">Progress slider</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ca2">Calculation</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ap1">App reference</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- left container -->
+
+                        <!-- right container -->
+                        <div id="right">
+                            <!-- toolbox -->
+                            <table id="tblToolbox">
+                                <tbody>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <input type="button" value="Merge" class="button mButton" onclick="redips.merge()" title="Merge marked cells horizontally" />
+                                        </td>
+                                        <td class="redips-mark">
+                                            <input type="button" value="Split" class="button mButton" onclick="redips.split()" title="Split marked cells horizontally" />
+                                        </td>
+
+                                        <!--<td class="redips-mark">
+								<input type="button" value="Split H" class="button" onclick="redips.split('h')" title="Split marked table cell horizontally"/>
+								<input type="button" value="Split V" class="button" onclick="redips.split('v')" title="Split marked table cell vertically"/>
+							</td>
+							<td class="redips-mark">
+								<input type="button" value="Row +" class="button" onclick="redips.row('insert')" title="Add table row"/>
+								<input type="button" value="Row -" class="button" onclick="redips.row('delete')" title="Delete table row"/>
+							</td>
+							<td class="redips-mark">
+								<input type="button" value="Col +" class="button" onclick="redips.column('insert')" title="Add table column"/>
+								<input type="button" value="Col -" class="button" onclick="redips.column('delete')" title="Delete table column"/>
+							</td>
+							<td class="trash">Trash</td>-->
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- main table -->
+                            <table id="tblEditor">
+                                <colgroup>
+                                    <col width="150" />
+                                    <col width="150" />
+                                    <col width="150" />
+                                    <col width="150" />
+                                    <col width="50" />
+                                </colgroup>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <!-- table cells should be ignored for REDIPS.table lib -->
+                                        <td class="redips-mark ignore">
+                                            <div>
+                                                <span onclick="redips.rowDelete(this)" class="rowTool">x</span>
+                                                /
+									<span onclick="redips.rowInsert(this)" class="rowTool">r+</span>
+                                                /
+									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- save button -->
+                            <input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>
+                            <!-- demo message (needed to display JSON message) -->
+                            <div id="message" />
+                        </div>
+                        <!-- right container -->
+                    </div>
+
+
+                    <%--<div id="redips-drag">
                         <!-- left container -->
                         <div class="col-md-4">
                             <h3 class="text-center">Select Controls</h3>
@@ -100,10 +267,10 @@
                                             <input id="tblcolumn" type="text" class="form-control">
                                         </div>
                                         <div class="col-lg-6">
-                                           
-                                            <button  onclick="return createTR();">Create tr</button>
-                                             <button  onclick="return createTD();">Create td</button>
-                                            <button  onclick="return getTableHTML();">html</button>
+
+                                            <button onclick="return createTR();">Create tr</button>
+                                            <button onclick="return createTD();">Create td</button>
+                                            <button onclick="return getTableHTML();">html</button>
                                         </div>
                                     </td>
                                 </tr>
@@ -113,7 +280,7 @@
                         <!-- display block content -->
 
                         <div class="clearfix"></div>
-                    </div>
+                    </div>--%>
                     <div class="clearfix"></div>
                 </div>
 
@@ -150,11 +317,6 @@
                         </tbody>
                     </table>
 
-                </div>
-
-                <div class="clearfix"></div>
-                <div class="col-md-12 form-group">
-                    <a class="btn btn-inverse waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add Row</a>
                 </div>
                 <div class="clearfix"></div>
 
