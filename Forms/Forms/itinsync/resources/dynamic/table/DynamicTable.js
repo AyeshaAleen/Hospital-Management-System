@@ -4,12 +4,12 @@ var trCount = 0;
 var currentRow;
 var currentColumn;
 
-createTable("table2");
+//createTable("table2");
 function createTable(tableID)
 {
     
     this.dynamicTable = document.getElementById(tableID);
-
+    return;
     if (dynamicTable.getAttribute("tdCount"))
         tdCount = dynamicTable.getAttribute("tdCount");
 
