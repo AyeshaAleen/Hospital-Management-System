@@ -30,6 +30,8 @@ function createTR()
     trCount++;
     dynamicTable.setAttribute("trCount", trCount);
 
+    createTD();
+
     return false;
 }
 
@@ -101,7 +103,10 @@ function deleteCloumn(columnID) {
 function getTableHTML()
 {
     alert(dynamicTable.outerHTML);
-    return falsel;
+
+    //document.getElementById("hidddenhtml").value = dynamicTable.outerHTML;
+    //alert(document.getElementById("hidddenhtml").value);
+    return false;
 }
 
 function tdClick(event)
@@ -109,3 +114,19 @@ function tdClick(event)
   
     RowCreateTD(this.id);
 }
+//****************************8//
+
+function processTableContent(redips)
+{
+    var rows = dynamicTable.rows;
+
+    for (var count = 0; count < rows.length; count++)
+    {
+        for (var cellCount = 0; cellCount < rows[count].length; cellCount++)
+        {
+            var currentCell = rows[count].cells[cellCount];
+
+            var content = redips.getContent(currentCell.getAttribute("id"));
+        }
+    }
+};

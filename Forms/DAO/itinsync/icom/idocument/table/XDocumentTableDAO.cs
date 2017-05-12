@@ -29,7 +29,7 @@ namespace DAO.itinsync.icom.idocument.table
         }
         protected override string createQuery(object o)
         {
-            throw new NotImplementedException();
+            return "INSERT INTO " + TABLENAME + preparedCreateQuery(o, typeof(XDocumentTable.columns));
         }
 
         protected override IDomain setResult(DataTable dt, int i)

@@ -104,6 +104,11 @@
                                             <button  onclick="return createTR();">Create tr</button>
                                              <button  onclick="return createTD();">Create td</button>
                                             <button  onclick="return getTableHTML();">html</button>
+
+                                            <asp:Button ID="savedocument" runat="server" Text="Save html" OnClick="savedocument_Click" />
+                                              <%--<button  onclick="getTableHTML();">html</button>--%>
+                                            <input type="hidden" id="hidddenhtml" runat="server" />
+
                                         </div>
                                     </td>
                                 </tr>

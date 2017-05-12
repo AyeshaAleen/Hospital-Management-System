@@ -19,9 +19,11 @@ redips.init = function () {
     // call initially showContent
     redips.showContent();
     // on each drop refresh content
-    rd.event.dropped = function () {
-        redips.showContent();
-        $('#con-close-modal').modal('show');
+    rd.event.dropped = function ()
+    {
+        redips.processTableContent(redips);
+        //redips.showContent();
+       // $('#con-close-modal').modal('show');
     };
     // call showContent() after DIV element is deleted
     rd.event.deleted = function () {
@@ -32,7 +34,9 @@ redips.init = function () {
 
 // show TD content
 redips.showContent = function () {
-    // get content of TD cells in right table
+     //get content of TD cells in right table
+
+   
     //var td1 = redips.getContent('td1'),
     //		td2 = redips.getContent('td2'),
     //		td3 = redips.getContent('td3'),
@@ -57,7 +61,19 @@ redips.showContent = function () {
     //						'td9 = ' + td9 + '<br>' +
     //						'td10 = ' + td10;
 };
+redips.processTableContent = function (redips) {
 
+
+    var rows = dynamicTable.rows;
+
+    for (var count = 0; count < rows.length; count++) {
+        for (var cellCount = 0; cellCount < rows[count].length; cellCount++) {
+            var currentCell = rows[count].cells[cellCount];
+
+            var content = redips.getContent(currentCell.getAttribute("id"));
+        }
+    }
+};
 
 // get content (DIV elements in TD)
 redips.getContent = function (id) {
