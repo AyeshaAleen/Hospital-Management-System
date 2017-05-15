@@ -2373,6 +2373,10 @@
     <Content Include="itinsync\resources\plugins\datatables\scroller.bootstrap.min.css" />
     <Content Include="itinsync\resources\plugins\datatables\vfs_fonts.js" />
     <Content Include="itinsync\resources\plugins\doc-ready\doc-ready.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\redips-drag-min.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\redips-table-min.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\script.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\style.css" />
     <Content Include="itinsync\resources\plugins\dropzone\basic.css" />
     <Content Include="itinsync\resources\plugins\dropzone\dropzone-amd-module.js" />
     <Content Include="itinsync\resources\plugins\dropzone\dropzone.css" />

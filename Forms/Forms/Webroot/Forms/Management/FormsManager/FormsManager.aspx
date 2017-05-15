@@ -176,6 +176,8 @@
                             </table>
                             <!-- save button -->
                             <input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>
+
+                            <asp:Button ID="savedocument" runat="server" Text="Button" onclick="savedocument_Click"/>
                             <!-- demo message (needed to display JSON message) -->
                             <div id="message" />
                         </div>

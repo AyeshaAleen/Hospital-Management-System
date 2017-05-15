@@ -31,17 +31,16 @@ namespace Services.itinsync.icom.tablecontent
                 dto.documentDefination.name = dto.document.documentName;
                 dto.document.documentDefinitionID = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
 
-                //if (dto.document.documentID > 0)
-                //{
-                //    DocumentDAO.getInstance(dbContext).update(dto.document, "");
-                //}
+               
+                    DocumentDAO.getInstance(dbContext).create(dto.document);
+                
 
 
                 #region Create Table
 
                 if (dto.documentTable != null)
                 {
-                    dto.documentTable.documentsectionid = dto.documentSection.documentsectionid;
+                   // dto.documentTable.documentsectionid = dto.documentSection.documentsectionid;
                     dto.documentTable.documentTableID = XDocumentTableDAO.getInstance(dbContext).create(dto.documentTable);
                 }
 
