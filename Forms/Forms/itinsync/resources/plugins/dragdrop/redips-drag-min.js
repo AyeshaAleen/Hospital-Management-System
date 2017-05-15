@@ -1,10 +1,4 @@
-/*
-Copyright (c) 2008-2017, www.redips.net All rights reserved.
-Code licensed under the BSD License: http://www.redips.net/license/
-http://www.redips.net/javascript/drag-and-drop-table-content/
-Version 5.2.4
-Apr 16, 2017.
-*/
+
 var REDIPS = REDIPS || {};
 REDIPS.drag = function () {
     var s, A, M, Da, Sa, Ta, fa, ga, ma, Ea, Fa, W, na, Ga, $, oa, aa, Ha, B, w, N, pa, qa, ra, Ia, sa, Ja, H, t, Ka, Ua, ta, La, ha, ia, ua, Va, Wa, Ma, Na, va, wa, xa, ja, Oa, Xa, ba, Ya, p = null,

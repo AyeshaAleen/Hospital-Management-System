@@ -15,8 +15,8 @@ redips.configuration = function () {
 	redips.components = 'tblComponents';// left table id (table containing components)
 	redips.tableEditor = 'tblEditor';	// right table id (table editor)
 	redips.tableEditorDivs = document.getElementById(redips.tableEditor).getElementsByTagName('DIV');	// live collection of DIV elements inside table editor
-	redips.ajaxField = 'db_field.php';	// get component details (via AJAX)
-	redips.ajaxSave = 'db_save.php';	// save page (via AJAX)
+    redips.ajaxField = '../../../../Webroot/Forms/Management/FormsManager/db_field.php';	// get component details (via AJAX)
+    redips.ajaxSave = '../../../../Webroot/Forms/Management/FormsManager/db_save.php';	// save page (via AJAX)
 	redips.cDetails = 'cDetails';		// component detail class name (it should be the same as is in CSS file)
 	redips.markedColor = '#A9C2EA';		// marked cells background color
 	// layout (HTML code) for component placed to the table editor 

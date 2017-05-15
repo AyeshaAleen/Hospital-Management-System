@@ -204,7 +204,7 @@
                             </li>
                             <li class="dropdown top-menu-item-xs">
                                 <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="../itinsync/resources/images/agsquare.png" alt="user-img" class="img-circle">
+                                    <%--<img src="../itinsync/resources/images/agsquare.png" alt="user-img" class="img-circle">--%>
                                 </a>
                                
                                 <ul class="dropdown-menu">
@@ -251,7 +251,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.nicescroll.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.scrollTo.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/signature_pad.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>
+   <%--<script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>--%>
 
     <!-- Bootstrap Pickers  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/moment/moment.js") %>"></script>
