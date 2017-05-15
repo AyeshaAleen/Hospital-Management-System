@@ -15,8 +15,8 @@ redips.configuration = function () {
 	redips.components = 'tblComponents';// left table id (table containing components)
 	redips.tableEditor = 'tblEditor';	// right table id (table editor)
 	redips.tableEditorDivs = document.getElementById(redips.tableEditor).getElementsByTagName('DIV');	// live collection of DIV elements inside table editor
-	redips.ajaxField = 'db_field.php';	// get component details (via AJAX)
-	redips.ajaxSave = 'db_save.php';	// save page (via AJAX)
+	redips.ajaxField = 'db_field.php';//'db_field.php';	// get component details (via AJAX)
+	redips.ajaxSave = 'db_save.php';//'db_save.php';	// save page (via AJAX)
 	redips.cDetails = 'cDetails';		// component detail class name (it should be the same as is in CSS file)
 	redips.markedColor = '#A9C2EA';		// marked cells background color
 	// layout (HTML code) for component placed to the table editor 
@@ -52,7 +52,7 @@ redips.init = function () {
 			div = redips.tableEditorDivs[i];
 			// if DIV element contains class name of component details then hide
 			if (div.className.indexOf(redips.cDetails) > -1) {
-			$('#con-close-modal').modal('show');
+			//$('#con-close-modal').modal('show');
 				redips.details(div, 'hide');
 			}
 		}
@@ -71,7 +71,7 @@ redips.init = function () {
 		var st,		// source table
 			id;		// DIV id
 		// deselect target cell id needed
-		$('#con-close-modal').modal('show');
+		//$('#con-close-modal').modal('show');
 		rt.mark(false, targetCell);
 		// define source table
 		st = rd.findParent('TABLE', rd.td.source);
@@ -82,7 +82,9 @@ redips.init = function () {
 //			rd.obj.style.borderColor = 'white';
 			// send AJAX request (input parameter is field id)
 			// div property is reference to the object where AJAX output will be displayed (inside dropped DIV element) 
-			rd.ajaxCall(redips.ajaxField + '?id=' + id, redips.handler1, {div: rd.obj});
+			rd.ajaxCall(redips.ajaxField + '?id=' + id, redips.handler1, { div: rd.obj });
+
+
 		}
 	};
 };
