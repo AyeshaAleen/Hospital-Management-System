@@ -226,6 +226,12 @@
     <Content Include="itinsync\resources\css\signature-pad.css" />
     <Content Include="itinsync\resources\css\typicons.css" />
     <Content Include="itinsync\resources\css\variables.css" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\header.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\redips-drag-min.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\redips-drag-source.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\redips-table-min.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\script.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\style.css" />
     <Content Include="itinsync\resources\dynamic\table\DynamicTable.js" />
     <Content Include="itinsync\resources\fonts\fontawesome-webfont.svg" />
     <Content Include="itinsync\resources\fonts\glyphicons-halflings-regular.svg" />
@@ -3449,7 +3455,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="itinsync\resources\dynamic\dragdrop\" />
     <Folder Include="itinsync\resources\plugins\jstree\themes\default\" />
     <Folder Include="itinsync\setting\" />
   </ItemGroup>

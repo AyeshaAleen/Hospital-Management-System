@@ -1,10 +1,13 @@
 ﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
 <asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="FormMasterHead" runat="server">
-    <link href="../../../../itinsync/resources/plugins/dragdrop/style.css" rel="stylesheet" />
-    <script src="../../../../itinsync/resources/plugins/dragdrop/redips-drag-min.js"></script>
-    <script src="../../../../itinsync/resources/plugins/dragdrop/redips-table-min.js"></script>
-    <script src="../../../../itinsync/resources/plugins/dragdrop/script.js"></script>
+    <link href="../../../../itinsync/resources/dynamic/dragdrop/style.css" rel="stylesheet" />
+    <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-drag-min.js"></script>
+    <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-table-min.js"></script>
+    <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
+    <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
+    <script src="../../../../itinsync/resources/dynamic/dragdrop/header.js"></script>
+    <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-drag-source"></script>
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
 
