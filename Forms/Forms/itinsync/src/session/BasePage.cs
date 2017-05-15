@@ -893,6 +893,7 @@ namespace Forms.itinsync.src.session
         }
 
         public Int32 getLastVisitedURLCode()
+
         {
             if (Sessions.getSession().Get(SessionKey.PAGEVISTSTACK) != null)
             {
