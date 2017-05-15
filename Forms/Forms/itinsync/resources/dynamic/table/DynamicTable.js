@@ -5,20 +5,20 @@ var currentRow;
 var currentColumn;
 
 //createTable("table2");
-//function createTable(tableID)
-//{
+function createTable(tableID)
+{
     
-//    this.dynamicTable = document.getElementById(tableID);
+    this.dynamicTable = document.getElementById(tableID);
+    return;
+    if (dynamicTable.getAttribute("tdCount"))
+        tdCount = dynamicTable.getAttribute("tdCount");
 
-//    if (dynamicTable.getAttribute("tdCount"))
-//        tdCount = dynamicTable.getAttribute("tdCount");
-
-//        createTR();
-//        createTD();
+        createTR();
+        createTD();
     
   
-//    return false;
-//}
+    return false;
+}
 ///////////////*****************TABLE TRS***************/////////////////
 function createTR()
 {
