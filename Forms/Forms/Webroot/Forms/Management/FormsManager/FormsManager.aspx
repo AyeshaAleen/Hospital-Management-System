@@ -5,9 +5,10 @@
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-drag-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-table-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
-    <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
-    <script src="../../../../itinsync/resources/dynamic/dragdrop/header.js"></script>
-    <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-drag-source"></script>
+    <style>
+    table#tblEditor td{width:150px}
+    </style>
+
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
 
@@ -34,22 +35,7 @@
                                     <col width="150" />
                                 </colgroup>
                                 <tbody>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="te1">
-                                                <input type="password" class="form-control" id="input-password-1"
-                                                    placeholder="Password">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="co1">
-
-                                                <input id="555" type="radio" onclick="testID(this)">
-                                            </div>
-                                        </td>
-                                    </tr>
+                                   
                                     <tr>
                                         <td class="redips-mark">
                                             <div class="redips-drag redips-clone" id="ca1">Category</div>
@@ -152,35 +138,35 @@
                             </table>
                             <!-- main table -->
                             <table id="tblEditor">
-                                <colgroup>
-                                    <col width="150" />
-                                    <col width="150" />
-                                    <col width="150" />
-                                    <col width="150" />
-                                    <col width="50" />
-                                </colgroup>
+                                
                                 <tbody>
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <!-- table cells should be ignored for REDIPS.table lib -->
-                                        <td class="redips-mark ignore">
-                                            <div>
-                                                <span onclick="redips.rowDelete(this)" class="rowTool">x</span>
-                                                /
-									<span onclick="redips.rowInsert(this)" class="rowTool">r+</span>
-                                                /
-									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
-                                            </div>
-                                        </td>
+                                       
                                     </tr>
                                 </tbody>
+                            </table>
+
+                            <table>
+                                <tr>
+                                     <td class="redips-mark ignore">
+                                            
+                                                <span onclick="redips.rowDelete(this)" class="rowTool">Delete Row</span>
+                                                |
+									<span onclick="redips.rowInsert(this)" class="rowTool">Add Row </span>
+                                               |
+									<span onclick="redips.colInsert(this)" class="rowTool">Add Column</span>
+                                           
+                                        </td>
+                                </tr>
                             </table>
                             <!-- save button -->
                             <input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>
 
-                            <asp:Button ID="savedocument" runat="server" Text="Button" onclick="savedocument_Click"/>
+                            <asp:Button ID="savedocument" runat="server" Text="Button" onclick="savedocument_Click" OnClientClick="getTableContent()"/>
                             <!-- demo message (needed to display JSON message) -->
                             <div id="message" />
                         </div>
@@ -375,6 +361,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
                                 <button type="button" class="btn btn-info waves-effect waves-light">Save</button>
+                                <input type="text" hidden="hidden" id="tableOuterHtml" runat="server" />
                             </div>
                         </div>
                     </div>
@@ -384,4 +371,20 @@
     </div>
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<script>
+    function getTableContent() {
+        var outerHTML = document.getElementById("tblEditor").outerHTML;
+        outerHTML = decodehtml(outerHTML)
+        document.getElementById('CommonMasterBody_FormMasterBody_tableOuterHtml').value = outerHTML;//document.getElementById("tblEditor").outerHTML;
+
+    }
+    function decodehtml(outerHTML) {
+        return outerHTML.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;');
+
+    }
+</script>
 </asp:Content>

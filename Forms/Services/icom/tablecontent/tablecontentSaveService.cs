@@ -72,12 +72,15 @@ namespace Services.itinsync.icom.tablecontent
 
                                 #region Create Table TD Content
 
-                                if (dto.documentTableContentlist != null && dto.documentTableContentlist.Count > 0)
+                                if (dto.documentTableContentlist != null)
                                 {
-                                    foreach (XDocumentTableContent obj_DocumentTableContent in dto.documentTableContentlist)
+                                    if (dto.documentTableContentlist.Count > 0)
                                     {
-                                        obj_DocumentTableContent.tdID = dto.documentTableTD.tdID;
-                                        dto.documentTableContent.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(obj_DocumentTableContent);
+                                        foreach (XDocumentTableContent obj_DocumentTableContent in dto.documentTableContentlist)
+                                        {
+                                            obj_DocumentTableContent.tdID = dto.documentTableTD.tdID;
+                                            dto.documentTableContent.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(obj_DocumentTableContent);
+                                        }
                                     }
                                 }
 
@@ -94,15 +97,7 @@ namespace Services.itinsync.icom.tablecontent
 
 
 
-                if (dto.document.documentID > 0)
-                {
-                    DocumentDAO.getInstance(dbContext).update(dto.document, "");
-                }
-                else
-                {
-
-                    DocumentDAO.getInstance(dbContext).create(dto.document);
-                }
+                
             }
             catch (Exception ex)
             {

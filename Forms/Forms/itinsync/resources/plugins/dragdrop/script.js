@@ -15,8 +15,8 @@ redips.configuration = function () {
 	redips.components = 'tblComponents';// left table id (table containing components)
 	redips.tableEditor = 'tblEditor';	// right table id (table editor)
 	redips.tableEditorDivs = document.getElementById(redips.tableEditor).getElementsByTagName('DIV');	// live collection of DIV elements inside table editor
-    redips.ajaxField = '../../../../Webroot/Forms/Management/FormsManager/db_field.php';	// get component details (via AJAX)
-    redips.ajaxSave = '../../../../Webroot/Forms/Management/FormsManager/db_save.php';	// save page (via AJAX)
+    redips.ajaxField = 'http://abngroup.ae/test/db_field.php';// '../../../php/db_field.php';//'forms.itinsync.com/php/db_field.php'	// get component details (via AJAX)
+    redips.ajaxSave = 'http://abngroup.ae/test/db_save.php';//'../../../php/db_save.php';	// save page (via AJAX)
 	redips.cDetails = 'cDetails';		// component detail class name (it should be the same as is in CSS file)
 	redips.markedColor = '#A9C2EA';		// marked cells background color
 	// layout (HTML code) for component placed to the table editor 
@@ -82,6 +82,7 @@ redips.init = function () {
 //			rd.obj.style.borderColor = 'white';
 			// send AJAX request (input parameter is field id)
 			// div property is reference to the object where AJAX output will be displayed (inside dropped DIV element) 
+            debugger;
 			rd.ajaxCall(redips.ajaxField + '?id=' + id, redips.handler1, {div: rd.obj});
 		}
 	};

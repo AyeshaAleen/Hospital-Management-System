@@ -29,5 +29,14 @@ namespace Forms.Webroot.Forms.Management.FormsManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button savedocument;
+        
+        /// <summary>
+        /// tableOuterHtml control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tableOuterHtml;
     }
 }
