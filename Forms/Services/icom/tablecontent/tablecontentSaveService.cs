@@ -16,6 +16,7 @@ using Domains.itinsync.icom.idocument.table.content;
 using DAO.itinsync.icom.idocument.table.tr;
 using DAO.itinsync.icom.idocument.table.td;
 using DAO.itinsync.icom.idocument.table.content;
+using Domains.itinsync.icom.idocument.definition;
 
 namespace Services.itinsync.icom.tablecontent
 {
@@ -28,19 +29,18 @@ namespace Services.itinsync.icom.tablecontent
             {
                 dto = (tablecontentDTO)o;
 
-                dto.documentDefination.name = dto.document.documentName;
-                dto.document.documentDefinitionID = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
-
-               
-                    DocumentDAO.getInstance(dbContext).create(dto.document);
                 
+                XDocumentDefination documentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.documentdefinitionName);
 
+                #region check is document exist
+
+                #endregion
+                
 
                 #region Create Table
 
                 if (dto.documentTable != null)
                 {
-                   // dto.documentTable.documentsectionid = dto.documentSection.documentsectionid;
                     dto.documentTable.documentTableID = XDocumentTableDAO.getInstance(dbContext).create(dto.documentTable);
                 }
 
@@ -48,38 +48,38 @@ namespace Services.itinsync.icom.tablecontent
 
                 #region Create Other Data
 
-                if (dto.documentTableTRlist != null && dto.documentTableTRlist.Count > 0)
+                if (dto.documentTable.trs != null && dto.documentTable.trs.Count > 0)
                 {
-                    foreach (XDocumentTableTR obj_DocumentTableTR in dto.documentTableTRlist)
+                    foreach (XDocumentTableTR tr in dto.documentTable.trs)
                     {
                         #region Create Table TR
 
-                        obj_DocumentTableTR.documentTableID = dto.documentTable.documentTableID;
-                        dto.documentTableTR.trID = XDocumentTableTRDAO.getInstance(dbContext).create(obj_DocumentTableTR);
+                        tr.documentTableID = dto.documentTable.documentTableID;
+                        tr.trID = XDocumentTableTRDAO.getInstance(dbContext).create(tr);
 
                         #endregion
 
-                        if (dto.documentTableTDlist != null && dto.documentTableTDlist.Count > 0)
+                        if (tr.tds != null && tr.tds.Count > 0)
                         {
-                            foreach (XDocumentTableTD obj_DocumentTableTD in dto.documentTableTDlist)
+                            foreach (XDocumentTableTD td in tr.tds)
                             {
                                 #region Create Table TD
 
-                                obj_DocumentTableTD.trID = dto.documentTableTR.trID;
-                                dto.documentTableTD.tdID = XDocumentTableTDDAO.getInstance(dbContext).create(obj_DocumentTableTD);
+                                td.trID = tr.trID;
+                                td.tdID = XDocumentTableTDDAO.getInstance(dbContext).create(td);
 
                                 #endregion
 
                                 #region Create Table TD Content
 
-                                if (dto.documentTableContentlist != null)
+                                if (td.fields != null)
                                 {
-                                    if (dto.documentTableContentlist.Count > 0)
+                                    if (td.fields.Count > 0)
                                     {
-                                        foreach (XDocumentTableContent obj_DocumentTableContent in dto.documentTableContentlist)
+                                        foreach (XDocumentTableContent field in td.fields)
                                         {
-                                            obj_DocumentTableContent.tdID = dto.documentTableTD.tdID;
-                                            dto.documentTableContent.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(obj_DocumentTableContent);
+                                            field.tdID = td.tdID;
+                                            field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
                                         }
                                     }
                                 }
