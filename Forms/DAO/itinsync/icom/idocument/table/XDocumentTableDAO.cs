@@ -13,6 +13,8 @@ using DAO.itinsync.icom.document.documentdefinitionview;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
 using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom.exceptions;
+using Utils.itinsync.icom;
 
 namespace DAO.itinsync.icom.idocument.table
 {
@@ -44,8 +46,33 @@ namespace DAO.itinsync.icom.idocument.table
 
         protected override string updateQuery(object o, string where)
         {
-            throw new NotImplementedException();
+            List<XDocumentTable> results = new List<XDocumentTable>();
+            if (where.Length > 0)
+                results = readWhere(where);
+            else
+                results.Add(findbyPrimaryKey(((XDocumentTable)o).documentTableID));
+            foreach (XDocumentTable lk in results)
+            {
+                string whereClause = " update " + TABLENAME + " set ";
+                whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(XDocumentTable.columns));
+                if (whereClause.Contains("="))//update on the base of primary key column
+                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentTable.primaryKey.documentTableID.ToString(), lk.documentTableID)));
+            }
+            return "";
         }
+        private List<XDocumentTable> readWhere(string where)
+        {
+            if (where == null || where.Length == 0)
+                throw new ItinsyncException(new Exception());
+            string SQL = string.Format("Select * from " + TABLENAME + where);
+            return wrap(processResults(SQL));
+        }
+        public XDocumentTable findbyPrimaryKey(int documentTableID)
+        {
+            string sql = "select * From " + TABLENAME + "where documentTableID = " + documentTableID;
+            return (XDocumentTable)processSingleResult(sql);
+        }
+
 
         public List<XDocumentTable> readbySectionID(Int32 sectionID)
 

@@ -5,20 +5,16 @@
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-drag-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-table-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
-    <style>
-    table#tblEditor td{width:150px}
-    </style>
-
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
 
     <div class="row" id="validate" runat="server">
-
+          
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
 
-
+               
                 <div class="row">
 
 
@@ -35,72 +31,44 @@
                                     <col width="150" />
                                 </colgroup>
                                 <tbody>
-                                   
+                                    
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca1">Category</div>
+                                            <div class="redips-drag redips-clone" id="ca1">label</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="da1">Date picker</div>
+                                            <div class="redips-drag redips-clone" id="da1">Heading</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="li1">Link</div>
+                                            <div class="redips-drag redips-clone" id="tx1">TextBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="im1">Image</div>
+                                            <div class="redips-drag redips-clone" id="ch1">CheckBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="vs1">Video sharing</div>
+                                            <div class="redips-drag redips-clone" id="rs1">Radio Single</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="go1">Google Map</div>
+                                            <div class="redips-drag redips-clone" id="rg1">Radio Group</div>
                                         </td>
                                     </tr>
+
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="qu1">Question</div>
+                                            <div class="redips-drag redips-clone" id="ta1">TextArea</div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="nu1">Number</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="mo1">Money</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="du1">Duration</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ps1">Progress slider</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca2">Calculation</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ap1">App reference</div>
-                                        </td>
-                                    </tr>
+                                 
                                 </tbody>
                             </table>
                         </div>
@@ -137,31 +105,31 @@
                                 </tbody>
                             </table>
                             <!-- main table -->
-                            <table id="tblEditor">
-                                
+                            <table id="tblEditor" >
+                                <colgroup>
+                                    <col width="150" />
+                                    <col width="150" />
+                                    <col width="150" />
+                               
+                                    <col width="50" />
+                                </colgroup>
                                 <tbody>
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <!-- table cells should be ignored for REDIPS.table lib -->
                                        
+                                        <td id="cellcontrol" class="redips-mark ignore" last="true">
+                                            <div>
+                                                <span onclick="redips.rowDelete(this)" class="rowTool">x</span>
+                                                /
+									<span onclick="redips.rowInsert(this)" class="rowTool">r+</span>
+                                                /
+									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
-                            </table>
-
-                            <table>
-                                <tr>
-                                     <td class="redips-mark ignore">
-                                            
-                                                <span onclick="redips.rowDelete(this)" class="rowTool">Delete Row</span>
-                                                |
-									<span onclick="redips.rowInsert(this)" class="rowTool">Add Row </span>
-                                               |
-									<span onclick="redips.colInsert(this)" class="rowTool">Add Column</span>
-                                           
-                                        </td>
-                                </tr>
                             </table>
                             <!-- save button -->
                             <input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>
@@ -309,6 +277,9 @@
                     </table>
 
                 </div>
+                 
+                
+
                 <div class="clearfix"></div>
 
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -374,10 +345,23 @@
 <script>
     function getTableContent() {
         var outerHTML = document.getElementById("tblEditor").outerHTML;
-        outerHTML = decodehtml(outerHTML)
+        outerHTML = decodehtml(outerHTML);
         document.getElementById('CommonMasterBody_FormMasterBody_tableOuterHtml').value = outerHTML;//document.getElementById("tblEditor").outerHTML;
-
+       
     }
+    $(document).ready(function () {
+    var parenttbl = document.getElementById("cellcontrol");
+    var outer = parenttbl.outerHTML;
+    outer = decodehtml(outer);
+    document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_FormMasterBody_tableOuterHtml").value;
+    var theTbl = document.getElementById('tblEditor');
+    $('#tblEditor tr').each(function () {
+        var newel = document.createElement('td');
+        $(this).append(parenttbl);
+    });
+    });
+
+
     function decodehtml(outerHTML) {
         return outerHTML.replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
@@ -386,5 +370,7 @@
             .replace(/'/g, '&apos;');
 
     }
+
+
 </script>
 </asp:Content>

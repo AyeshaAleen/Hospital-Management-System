@@ -2,20 +2,36 @@
 
 <asp:Content ID="cntFormMasterHead" ContentPlaceHolderID="CommonMasterhead" runat="server">
     <asp:ContentPlaceHolder ID="FormMasterHead" runat="server">
-
-                        </asp:ContentPlaceHolder>
+    </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="cntFormMasterBody" ContentPlaceHolderID="CommonMasterBody" runat="server">
-     <!-- ========== Left Sidebar Start ========== -->
+     
+    <!-- ========== Left Sidebar Start ========== -->
+
 
             <div class="left side-menu">
                 <div class="sidebar-inner slimscrollleft">
                     <!--- Divider -->
                     <div id="sidebar-menu">
                         <ul>
+                             <li>
+                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
+                            </li>
 
-                            <li class="has_sub">
+                             <li>
+                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
+                            </li>
+
+                             <li>
+                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
+                            </li>
+
+                             <li>
+                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
+                            </li>
+
+                           <%-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="#">Dashboard 1</a></li>
@@ -23,11 +39,8 @@
                                     <li><a href="#">Dashboard 3</a></li>
                                     <li><a href="#">Dashboard 4</a></li>
                                 </ul>
-                            </li>
+                            </li>--%>
 
-                            <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-pencil-alt"></i> <span> General SIO Test </span> </a>
-                            </li>
 
                         </ul>
                         <div class="clearfix"></div>

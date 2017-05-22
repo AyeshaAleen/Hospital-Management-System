@@ -13,6 +13,8 @@ using Utils.itinsync.icom.cache.global;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
 using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom;
+using Utils.itinsync.icom.exceptions;
 
 namespace DAO.itinsync.icom.idocument.table.tr
 {
@@ -43,7 +45,31 @@ namespace DAO.itinsync.icom.idocument.table.tr
 
         protected override string updateQuery(object o, string where)
         {
-            throw new NotImplementedException();
+            List<XDocumentTableTR> results = new List<XDocumentTableTR>();
+            if (where.Length > 0)
+                results = readWhere(where);
+            else
+                results.Add(findbyPrimaryKey(((XDocumentTableTR)o).documentTableID));
+            foreach (XDocumentTableTR lk in results)
+            {
+                string whereClause = " update " + TABLENAME + " set ";
+                whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(XDocumentTableTR.columns));
+                if (whereClause.Contains("="))//update on the base of primary key column
+                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentTableTR.primaryKey.trID.ToString(), lk.trID)));
+            }
+            return "";
+        }
+        private List<XDocumentTableTR> readWhere(string where)
+        {
+            if (where == null || where.Length == 0)
+                throw new ItinsyncException(new Exception());
+            string SQL = string.Format("Select * from " + TABLENAME + where);
+            return wrap(processResults(SQL));
+        }
+        public XDocumentTableTR findbyPrimaryKey(int trID)
+        {
+            string sql = "select * From " + TABLENAME + "where trID = " + trID;
+            return (XDocumentTableTR)processSingleResult(sql);
         }
 
         public List<XDocumentTableTR> readbyTableID(Int32 tableID)

@@ -12,34 +12,18 @@ using Domains.itinsync.icom.idocument.table.tr;
 using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
+using System;
 
 namespace Services.itinsync.icom.tablecontent.dto
 {
     public class tablecontentDTO : IRequestHandler, IResponseHandler
     {
         public string READBY { get; set; }
-
-        public string UPDATEBY { get; set; }
-        public XDocumentDefination documentDefination = new XDocumentDefination();
-        public Douments document = new Douments();
-        public XDocumentSection documentSection = new XDocumentSection();
+        public string documentdefinitionName { get; set; }
+        
         public XDocumentTable documentTable = new XDocumentTable();
-        public List<XDocumentTableTR> documentTableTRlist = new List<XDocumentTableTR>();
-        public XDocumentTableTR documentTableTR = new XDocumentTableTR();
+        
 
-        public List<XDocumentTableTD> documentTableTDlist = new List<XDocumentTableTD>();
-        public XDocumentTableTD documentTableTD = new XDocumentTableTD();
-
-        public List<XDocumentTableContent> documentTableContentlist = new List<XDocumentTableContent>();
-        public XDocumentTableContent documentTableContent = new XDocumentTableContent();
-
-        public List<XDocumentCalculation> documentTableCalculationlist = new List<XDocumentCalculation>();
-
-        public documentcontent documentcontentview = new documentcontent();
-
-
-
-        public List<Douments> documentList = new List<Douments>();
         public ErrorBlock errorBlock = new ErrorBlock();
         public Header header = new Header();
         public ErrorBlock getErrorBlock() { return errorBlock; }
