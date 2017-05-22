@@ -49,6 +49,8 @@
     <Compile Include="icom\cache\pages\PageManagerService.cs" />
     <Compile Include="icom\cache\permission\PermissionsService.cs" />
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />
+    <Compile Include="icom\document\documentSectionGetService.cs" />
+    <Compile Include="icom\document\documentDefinitionGetService.cs" />
     <Compile Include="icom\document\DTO\documentDTO.cs" />
     <Compile Include="icom\document\documentSaveService.cs" />
     <Compile Include="icom\document\documentGetService.cs" />

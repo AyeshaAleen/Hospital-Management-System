@@ -16,7 +16,7 @@
                     <div id="sidebar-menu">
                         <ul>
                              <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
+                                <a href="../Management/AddForm.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
                             </li>
 
                              <li>
