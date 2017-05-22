@@ -29,6 +29,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
     public partial class FormsManager : BasePage
     {
         private static int section_id = 8;
+        private static int DDID = 1003;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,7 +42,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentDefinitionID = 1003;
+            dto.document.documentDefinitionID = DDID;
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
@@ -65,7 +66,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             source = XMLUtils.DecodeXML(source);
 
             tablecontentDTO dto = new tablecontentDTO();
-            dto.documentdefinitionName = "SIO";
+            dto.documentdefinitionID = DDID;
             dto.documentTable = HtmlParse(source,section_id);
             dto.documentTable.documentsectionid = section_id;
 
