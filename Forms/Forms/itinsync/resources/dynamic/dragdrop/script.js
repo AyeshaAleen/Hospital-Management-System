@@ -43,6 +43,7 @@ redips.init = function () {
     rd.dropMode = 'single';
     // event handler invoked on click on DIV element
     rd.event.clicked = function () {
+        debugger;
         var div,	// DIV element reference
             i;		// loop variable
         // loop goes through all DIV elements inside table editor
@@ -56,7 +57,7 @@ redips.init = function () {
             }
 
         }
-        document.getElementById("tblEditor").addEventListener("click", detailWindow);
+       // document.getElementById("tblEditor").addEventListener("click", detailWindow);
     };
     // bootstrap model open on any field click 
     function detailWindow() {
@@ -99,6 +100,7 @@ redips.init = function () {
 // callback method is called with XHR and obj object (obj is just passed from ajaxCall to this callback function)
 // error handling is wrapped inside callback function
 redips.handler1 = function (xhr, obj) {
+    debugger;
     // prepare title and layout local variables
     var title,
         layout;
@@ -117,6 +119,21 @@ redips.handler1 = function (xhr, obj) {
     }
 };
 
+function deleteColumn(id)
+{
+    debugger;
+    var deletedID = document.getElementById(id);
+    redips.divDelete(deletedID)
+}
+
+function fieldClick(event)
+{
+    debugger;
+    document.getElementById(event.id).remove();
+   // id.removeChild();
+    //redips.divDelete(id);
+    //detailWindow();
+}
 
 // delete DIV element from table editor
 redips.divDelete = function (el) {
