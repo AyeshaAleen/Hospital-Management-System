@@ -2921,6 +2921,7 @@
     <Content Include="itinsync\translations\lang_sp.properties" />
     <Content Include="itinsync\translations\lang_ud.properties" />
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
+    <Content Include="Webroot\admin\AdminDashboard.aspx" />
     <Content Include="Webroot\CommonMaster.js" />
     <Content Include="Webroot\Forms\Dashboard\UserDashboard.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
@@ -3223,6 +3224,7 @@
     <Content Include="Webroot\testMaster.master" />
     <Content Include="Webroot\Forms\FormMaster.master" />
     <Content Include="Webroot\Forms\Dashboard\DashboardMaster.master" />
+    <Content Include="Webroot\admin\AdminMaster.master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -3374,6 +3376,20 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminMaster.master.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminMaster.master.designer.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
     </Compile>
     <Compile Include="Webroot\CommonMaster.Master.cs">
       <DependentUpon>CommonMaster.Master</DependentUpon>

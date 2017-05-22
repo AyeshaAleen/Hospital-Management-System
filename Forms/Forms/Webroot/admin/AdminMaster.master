@@ -1,13 +1,11 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Webroot/CommonMaster.Master" AutoEventWireup="true" CodeBehind="FormMaster.master.cs" Inherits="Forms.Webroot.Forms.FormMaster" %>
-
-<asp:Content ID="cntFormMasterHead" ContentPlaceHolderID="CommonMasterhead" runat="server">
-    <asp:ContentPlaceHolder ID="FormMasterHead" runat="server">
+﻿<%@ Master Language="C#" MasterPageFile="~/Webroot/CommonMaster.Master" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="Forms.Webroot.admin.AdminMaster" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="CommonMasterhead" runat="server">
+    <asp:ContentPlaceHolder ID="AdminMasterHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonMasterBody" runat="server">
 
-<asp:Content ID="cntFormMasterBody" ContentPlaceHolderID="CommonMasterBody" runat="server">
-     
-    <!-- ========== Left Sidebar Start ========== -->
+     <!-- ========== Left Sidebar Start ========== -->
 
 
             <div class="left side-menu side-menu-sm">
@@ -16,19 +14,7 @@
                     <div id="sidebar-menu">
                         <ul>
                              <li>
-                                <a href="../Management/AddForm.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
-                            </li>
-
-                             <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
-                            </li>
-
-                             <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
-                            </li>
-
-                             <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
+                                <a href="AdminDashboard.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add Section</span> </a>
                             </li>
 
                            <%-- <li class="has_sub">
@@ -82,7 +68,7 @@
 										<a href="#">Itinsync</a>
 									</li>
 									<li>
-										<a href="#">Forms</a>
+										<a href="#">Admin</a>
 									</li>
 									<li class="active">
 										<%: Page.Title %>
@@ -91,7 +77,7 @@
 							</div>
 						</div>
 						
-                        <asp:ContentPlaceHolder ID="FormMasterBody" runat="server">
+                        <asp:ContentPlaceHolder ID="AdminMasterBody" runat="server">
 
                         </asp:ContentPlaceHolder>
 
@@ -104,9 +90,9 @@
             <!-- End Right content here -->
             <!-- ============================================================== -->
 
-</asp:Content>
 
-<asp:Content ID="cntFormMasterFoot" ContentPlaceHolderID="CommonMasterFooter" runat="server">
-    <asp:ContentPlaceHolder ID="FormMasterFoot" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="CommonMasterFooter" runat="server">
+    <asp:ContentPlaceHolder ID="AdminMasterFoot" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>

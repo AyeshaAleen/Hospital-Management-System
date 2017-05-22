@@ -30,6 +30,13 @@ body {
 	filter: alpha(opacity=90);
 }
 
+
+.redips-mark .redips-drag {
+    text-align:left !important;
+}
+.redips-mark .redips-drag i:first-child{
+    padding-left:10px
+}
 /* drag container*/
 #redips-drag {
 	margin: 20px auto;
