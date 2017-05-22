@@ -2922,6 +2922,7 @@
     <Content Include="itinsync\translations\lang_ud.properties" />
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
     <Content Include="Webroot\CommonMaster.js" />
+    <Content Include="Webroot\Forms\Dashboard\UserDashboard.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
@@ -3219,6 +3220,7 @@
     <Content Include="Webroot\test.aspx" />
     <Content Include="Webroot\testMaster.master" />
     <Content Include="Webroot\Forms\FormMaster.master" />
+    <Content Include="Webroot\Forms\Dashboard\DashboardMaster.master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -3377,6 +3379,20 @@
     </Compile>
     <Compile Include="Webroot\CommonMaster.Master.designer.cs">
       <DependentUpon>CommonMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\DashboardMaster.master.cs">
+      <DependentUpon>DashboardMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\DashboardMaster.master.designer.cs">
+      <DependentUpon>DashboardMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\UserDashboard.aspx.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\UserDashboard.aspx.designer.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\FormMaster.master.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
