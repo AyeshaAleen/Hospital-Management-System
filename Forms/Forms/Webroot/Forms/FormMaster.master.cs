@@ -13,9 +13,15 @@ namespace Forms.Webroot.Forms
         BasePage bp = new BasePage();
         protected void Page_Load(object sender, EventArgs e)
         {
+            loadPageCache();
+
+
+        }
+        private void loadPageCache()
+        {
 
         }
 
-       
+
     }
 }

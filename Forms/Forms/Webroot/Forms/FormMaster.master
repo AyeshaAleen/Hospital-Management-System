@@ -16,11 +16,11 @@
                     <div id="sidebar-menu">
                         <ul>
                              <li>
-                                <a href="../Management/AddForm.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
+                                <a href="#" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
                             </li>
 
                              <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
+                                <a href="../Management/AddDocuments.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
                             </li>
 
                              <li>
@@ -78,15 +78,16 @@
 
 								<h4 class="page-title"><%: Page.Title %></h4>
 								<ol class="breadcrumb">
-									<li>
-										<a href="#">Itinsync</a>
-									</li>
-									<li>
-										<a href="#">Forms</a>
-									</li>
-									<li class="active">
-										<%: Page.Title %>
-									</li>
+                                     <asp:Repeater ID="tblBreadCrumb" runat="server">
+                                        <ItemTemplate>
+                                            
+                                        <li>
+                                              <a href="<asp:Label runat='server' ID='tblDocName' Text='<%# Eval("url") %>' />">
+                                                    <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' /></a>
+                                            </li>
+									
+									 </ItemTemplate>
+                        </asp:Repeater>
 								</ol>
 							</div>
 						</div>

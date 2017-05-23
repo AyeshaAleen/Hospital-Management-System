@@ -13,7 +13,7 @@ using Utils.itinsync.icom.constant.page;
 
 namespace Forms.Webroot.Forms.Management
 {
-    public partial class AddForm : BasePage
+    public partial class AddDocuments : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,6 +48,11 @@ namespace Forms.Webroot.Forms.Management
         {
             setSubjectID(Convert.ToString(e.CommandArgument));
             Response.Redirect(PageConstant.PAGE_DocumentSection);
+        }
+
+        protected void btnSaveDocument_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

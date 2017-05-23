@@ -13,8 +13,11 @@
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
                    
                 </asp:Table>
+               
+                   
 
 
+              
                <%-- <table data-toggle="table">
                     <thead>
                         <tr>
