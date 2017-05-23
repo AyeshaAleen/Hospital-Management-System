@@ -60,9 +60,7 @@ redips.init = function () {
        // document.getElementById("tblEditor").addEventListener("click", detailWindow);
     };
     // bootstrap model open on any field click 
-    function detailWindow() {
-        $('#con-close-modal').modal('show');
-    }
+  
     // event handler invoked before DIV element is dropped to the table cell
     rd.event.droppedBefore = function (targetCell) {
 
@@ -119,18 +117,19 @@ redips.handler1 = function (xhr, obj) {
     }
 };
 
-function deleteColumn(id)
-{
-    debugger;
-    var deletedID = document.getElementById(id);
-    redips.divDelete(deletedID)
+function deleteColumn() {
+    var id = document.getElementById("RequiredFieldID");
+    document.getElementById(id).remove();
+    $('#con-close-modal').modal('hide');
 }
 
-function fieldClick(event)
-{
-    debugger;
-    document.getElementById(event.id).remove();
-   // id.removeChild();
+function fieldClick(event) {
+    document.getElementById("RequiredFieldID").value = event.id
+
+
+
+    $('#con-close-modal').modal('show');
+    // id.removeChild();
     //redips.divDelete(id);
     //detailWindow();
 }
