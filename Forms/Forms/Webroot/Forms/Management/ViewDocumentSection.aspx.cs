@@ -53,5 +53,10 @@ namespace Forms.Webroot.Forms.Management
             setSubjectID(Convert.ToString(e.CommandArgument));
             Response.Redirect("UnAuthorisePage.aspx");
         }
+
+        protected void btnSaveSection_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

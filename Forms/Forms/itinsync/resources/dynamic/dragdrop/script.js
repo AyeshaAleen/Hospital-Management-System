@@ -43,7 +43,7 @@ redips.init = function () {
     rd.dropMode = 'single';
     // event handler invoked on click on DIV element
     rd.event.clicked = function () {
-        debugger;
+        //debugger;
         var div,	// DIV element reference
             i;		// loop variable
         // loop goes through all DIV elements inside table editor
@@ -59,7 +59,6 @@ redips.init = function () {
         }
        // document.getElementById("tblEditor").addEventListener("click", detailWindow);
     };
-    // bootstrap model open on any field click 
   
     // event handler invoked before DIV element is dropped to the table cell
     rd.event.droppedBefore = function (targetCell) {
@@ -83,6 +82,8 @@ redips.init = function () {
         if (redips.components === st.id) {
             // define id of dropped DIV element (only first three characters because cloned element will have addition in id)
             id = rd.obj.id.substring(0, 3);
+
+           
             //			rd.obj.style.borderColor = 'white';
             // send AJAX request (input parameter is field id)
             // div property is reference to the object where AJAX output will be displayed (inside dropped DIV element) 
@@ -91,6 +92,7 @@ redips.init = function () {
         }
 
     };
+   
 };
 
 
@@ -118,15 +120,32 @@ redips.handler1 = function (xhr, obj) {
 };
 
 function deleteColumn() {
+    debugger;
     var id = document.getElementById("RequiredFieldID");
     document.getElementById(id).remove();
     $('#con-close-modal').modal('hide');
 }
 
 function fieldClick(event) {
+
     document.getElementById("RequiredFieldID").value = event.id
 
+   
 
+    $('#con-close-modal').modal('show');
+    // id.removeChild();
+    //redips.divDelete(id);
+    //detailWindow();
+}
+
+function fieldleave(event) {
+
+    event.id = "dynamic_" + event.type;
+    alert(event.type);
+
+    document.getElementById("RequiredFieldID").value = event.id
+
+   
 
     $('#con-close-modal').modal('show');
     // id.removeChild();

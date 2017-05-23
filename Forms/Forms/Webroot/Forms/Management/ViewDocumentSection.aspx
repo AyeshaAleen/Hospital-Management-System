@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add New Form" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ViewDocumentSection.aspx.cs" Inherits="Forms.Webroot.Forms.Management.ViewDocumentSection" %>
+﻿<%@ Page Title="Forms Sections Management" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ViewDocumentSection.aspx.cs" Inherits="Forms.Webroot.Forms.Management.ViewDocumentSection" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
@@ -7,9 +7,10 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card-box">
-                <h4 class="m-t-0 header-title"><b>Forms</b></h4>
+                <h4 class="m-t-0 header-title"><b>Form Sections</b></h4>
 
-
+                <a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Document</a>
+                <div class="clearfix"></div>
                 <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
                     data-page-list="[10, 20, 50, 100]"
                     data-page-size="10" data-pagination="true">
@@ -43,6 +44,33 @@
                 </table>
             </div>
         </div>
+
+        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Add new Document</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-1" class="control-label">Form Name</label>
+                                    <input type="text" class="form-control" required id="field-1" placeholder="Form Name">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                        <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-info waves-effect waves-light"></asp:Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal -->
     </div>
 
 
