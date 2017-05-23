@@ -20,7 +20,7 @@
                             </li>
 
                              <li>
-                                <a href="../Management/AddDocuments.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
+                                <a href="../Management/AddForms.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
                             </li>
 
                              <li>
@@ -78,7 +78,7 @@
 
 								<h4 class="page-title"><%: Page.Title %></h4>
 								<ol class="breadcrumb">
-                                     <asp:Repeater ID="tblBreadCrumb" runat="server">
+                                   <%--  <asp:Repeater ID="tblBreadCrumb" runat="server">
                                         <ItemTemplate>
                                             
                                         <li>
@@ -87,7 +87,7 @@
                                             </li>
 									
 									 </ItemTemplate>
-                        </asp:Repeater>
+                        </asp:Repeater>--%>
 								</ol>
 							</div>
 						</div>

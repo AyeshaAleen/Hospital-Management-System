@@ -46,6 +46,7 @@
     <Compile Include="icom\cache\documentdefinition\manager\DocumentManager.cs" />
     <Compile Include="icom\cache\lookup\LookupManagerService.cs" />
     <Compile Include="icom\cache\lookup\trans\LookupTranslationCacheService.cs" />
+    <Compile Include="icom\cache\pages\dto\pageDTO.cs" />
     <Compile Include="icom\cache\pages\PageManagerService.cs" />
     <Compile Include="icom\cache\permission\PermissionsService.cs" />
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />

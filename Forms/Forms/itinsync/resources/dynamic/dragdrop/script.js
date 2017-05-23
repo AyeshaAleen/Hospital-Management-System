@@ -20,7 +20,7 @@ redips.configuration = function () {
     redips.cDetails = 'cDetails';		// component detail class name (it should be the same as is in CSS file)
     redips.markedColor = '#A9C2EA';		// marked cells background color
     // layout (HTML code) for component placed to the table editor 
-    redips.component = '<div class="redips-nolayout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
+    redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
 };
 
 
@@ -111,7 +111,28 @@ redips.handler1 = function (xhr, obj) {
         layout = redips.component.split('|');
         // set layout and title inside dropped DIV element
         //obj.div.innerHTML = layout[0] + title + layout[1] + xhr.responseText + layout[2];
+
+       
         obj.div.innerHTML = xhr.responseText;
+
+    
+        
+
+        var eleminput = obj.div.getElementsByTagName("input");
+        var elemlabel = obj.div.getElementsByTagName("label");
+        var elemtextarea = obj.div.getElementsByTagName("textarea");
+        var elemheading = obj.div.getElementsByTagName("h3");
+    
+        
+        if (elemlabel != null)
+            fieldset(eleminput);
+        if (elemlabel != null)
+            fieldset(elemlabel);
+        if (elemtextarea != null)
+            fieldset(elemtextarea);
+        if (elemheading != null)
+            fieldset(elemheading);
+       
     }
     // otherwise display error inside DIV element
     else {
@@ -136,6 +157,10 @@ function fieldClick(event) {
     // id.removeChild();
     //redips.divDelete(id);
     //detailWindow();
+}
+
+function fieldset(event) {
+    event[0].id = "dynamic_" + event[0].type;
 }
 
 function fieldleave(event) {

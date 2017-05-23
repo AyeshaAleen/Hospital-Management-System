@@ -9,6 +9,7 @@ using Forms.itinsync.src.session;
 using Services.itinsync.icom.documents;
 using Services.itinsync.icom.documents.dto;
 using Utils.itinsync.icom.constant.application;
+using Utils.itinsync.icom.constant.page;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -34,7 +35,7 @@ namespace Forms.Webroot.Forms.Management
                     if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
                     {
                         dto = (DocumentDTO)response;
-                        tblDocument.DataSource = dto.documentDefinationlist;
+                        tblDocument.DataSource = dto.documentDefination.documentSections;
                         tblDocument.DataBind();
                     }
                     else
@@ -51,7 +52,7 @@ namespace Forms.Webroot.Forms.Management
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
         {
             setSubjectID(Convert.ToString(e.CommandArgument));
-            Response.Redirect("UnAuthorisePage.aspx");
+            Response.Redirect(PageConstant.PAGE_DocumentSectiondynamicForm);
         }
 
         protected void btnSaveSection_Click(object sender, EventArgs e)

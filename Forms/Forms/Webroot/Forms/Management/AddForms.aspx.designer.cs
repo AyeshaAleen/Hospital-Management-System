@@ -10,7 +10,7 @@
 namespace Forms.Webroot.Forms.Management {
     
     
-    public partial class AddDocuments {
+    public partial class AddForms {
         
         /// <summary>
         /// tblDocument control.

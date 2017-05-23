@@ -34,11 +34,11 @@
                                     
                                     <tr>
                                         <td class="redips-mark">
-                                           <%-- <div  id="ca1">--%>
-                                                <input class="redips-drag redips-clone" id="ca1" type="text" />
+                                       
+                                            <div class="redips-drag redips-clone" id="ca1">
                                                 <i class="glyphicon glyphicon-text-width"></i> label text
 
-                                            <%--</div>--%>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>

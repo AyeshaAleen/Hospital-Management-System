@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Form Management" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddDocuments.aspx.cs" Inherits="Forms.Webroot.Forms.Management.AddDocuments" %>
+﻿<%@ Page Title="Form Management" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddForms.aspx.cs" Inherits="Forms.Webroot.Forms.Management.AddForms" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
@@ -9,7 +9,7 @@
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Forms</b></h4>
 
-                <a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Document</a>
+                <a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Forms</a>
 
                 <div class="clearfix"></div>
                 <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
@@ -65,7 +65,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                        <asp:Button Text="Save" runat="server" ID="btnSaveDocument" OnClick="btnSaveDocument_Click" class="btn btn-info waves-effect waves-light"></asp:Button>
+                        <asp:Button Text="Save" runat="server" ID="btnSaveDocument" OnClick="btnSaveDocument_Click1" class="btn btn-info waves-effect waves-light"></asp:Button>
                     </div>
                 </div>
             </div>
