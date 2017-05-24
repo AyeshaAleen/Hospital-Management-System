@@ -1,0 +1,75 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Webroot/CommonMaster.Master" AutoEventWireup="true" CodeBehind="DynamicFormMaster.master.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.DynamicFormMaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="CommonMasterhead" runat="server">
+    <style>
+        .footer {
+            left:0px
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="DynamicFormMasterHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="CommonMasterBody" runat="server">
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <%-- <div class="center"  style="position:absolute; left:25%; right:25%; z-index:1">
+                                    <div class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                         <% Response.Write(trasnlation("Success.Text")); %>
+                                    </div>
+
+                                    <div class="alert alert-danger fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertFailure" runat="server">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    </div>
+                                </div>--%>
+                        <div class="btn-group pull-right m-t-15">
+                            <button type="button" class="btn btn-inverse waves-effect waves-light"><span class="m-l-5"><i class="fa fa-backward"></i></span>Back </button>
+
+                        </div>
+
+                        <h4 class="page-title"><%: Page.Title %></h4>
+                        <ol class="breadcrumb">
+                            <asp:Repeater ID="tblBreadCrumb" runat="server">
+                                <ItemTemplate>
+
+                                    <li>
+                                        <a href="<asp:Label runat='server' ID='tblDocNames' Text='<%# Eval("url") %>' />">
+                                            <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' /></a>
+                                    </li>
+
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ol>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="DynamicFormMasterBody" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+            <!-- container -->
+
+        </div>
+        <!-- content -->
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="CommonMasterFooter" runat="server">
+    
+    <asp:ContentPlaceHolder ID="DynamicFormMasterFooter" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

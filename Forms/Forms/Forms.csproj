@@ -2926,7 +2926,7 @@
     <Content Include="Webroot\Forms\Dashboard\UserDashboard.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
     <Content Include="Webroot\Forms\Management\AddDocuments.aspx" />
-    <Content Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx" />
+    <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3225,6 +3225,7 @@
     <Content Include="Webroot\Forms\FormMaster.master" />
     <Content Include="Webroot\Forms\Dashboard\DashboardMaster.master" />
     <Content Include="Webroot\admin\AdminMaster.master" />
+    <Content Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -3419,6 +3420,13 @@
     <Compile Include="Webroot\Forms\FormMaster.master.designer.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master.cs">
+      <DependentUpon>DynamicFormMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master.designer.cs">
+      <DependentUpon>DynamicFormMaster.master</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\Forms\Management\ViewDocumentSection.aspx.cs">
       <DependentUpon>ViewDocumentSection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3433,12 +3441,12 @@
     <Compile Include="Webroot\Forms\Management\AddDocuments.aspx.designer.cs">
       <DependentUpon>AddDocuments.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx.cs">
-      <DependentUpon>FormsManager.aspx</DependentUpon>
+    <Compile Include="Webroot\Forms\Management\FormsManager\FormManager.aspx.cs">
+      <DependentUpon>FormManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx.designer.cs">
-      <DependentUpon>FormsManager.aspx</DependentUpon>
+    <Compile Include="Webroot\Forms\Management\FormsManager\FormManager.aspx.designer.cs">
+      <DependentUpon>FormManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>

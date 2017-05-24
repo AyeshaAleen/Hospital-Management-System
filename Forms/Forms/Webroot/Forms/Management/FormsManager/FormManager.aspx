@@ -1,95 +1,81 @@
-﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="FormsManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
+﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Webroot/Forms/Management/FormsManager/DynamicFormMaster.master" AutoEventWireup="true" CodeBehind="FormManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
-<asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="DynamicFormMasterHead" runat="server">
     <link href="../../../../itinsync/resources/dynamic/dragdrop/style.css" rel="stylesheet" />
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-drag-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-table-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
 </asp:Content>
-<asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="DynamicFormMasterBody" runat="server">
 
     <div class="row" id="validate" runat="server">
-          
+
         <div class="col-sm-12">
             <div class="card-box">
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
-
-               
                 <div class="row">
-
-
                     <div id="redips-drag">
                         <!-- left container -->
-                        <div id="left">
+                        <div id="left" class="col-md-2 col-sm-4 col-xs-5">
                             <div class="instructions">
                                 <strong>Building blocks</strong>
                                 <br />
                                 Drag blocks to the right to build your application.
                             </div>
                             <table id="tblComponents">
-                                <colgroup>
-                                    <col width="150" />
-                                </colgroup>
                                 <tbody>
-                                    
-                                    <tr>
-                                        <td class="redips-mark">
-                                           <%-- <div  id="ca1">--%>
-                                                <input class="redips-drag redips-clone" id="ca1" type="text" />
-                                                <i class="glyphicon glyphicon-text-width"></i> label text
-
-                                            <%--</div>--%>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="da1"><i class="glyphicon glyphicon-header"></i> Heading</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i> TextBox</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i> CheckBox</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i> Radio Single</div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rg1"><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i> RadioGroup</div>
-                                        </td>
-                                    </tr>
 
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i> TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
                                         </td>
                                     </tr>
-                                 
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="da1"><i class="glyphicon glyphicon-header"></i>Heading</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>CheckBox</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Single</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="rg1"><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>RadioGroup</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                         <!-- left container -->
 
                         <!-- right container -->
-                        <div id="right">
+                        <div id="right" class="table-responsive col-md-10 col-sm-8 col-xs-6" style="overflow-x: scroll">
                             <!-- toolbox -->
                             <table id="tblToolbox">
                                 <tbody>
                                     <tr>
                                         <td class="redips-mark">
-                                            <input type="button" value="Merge" class="button mButton" onclick="redips.merge()" title="Merge marked cells horizontally" />
+                                            <input type="button" value="Merge" class="btn btn-primary" onclick="redips.merge()" title="Merge marked cells horizontally" />
+                                            <input type="button" value="Split" class="btn btn-primary" onclick="redips.split()" title="Split marked cells horizontally" />
                                         </td>
-                                        <td class="redips-mark">
-                                            <input type="button" value="Split" class="button mButton" onclick="redips.split()" title="Split marked cells horizontally" />
-                                        </td>
+
 
                                         <!--<td class="redips-mark">
 								<input type="button" value="Split H" class="button" onclick="redips.split('h')" title="Split marked table cell horizontally"/>
@@ -109,20 +95,14 @@
                                 </tbody>
                             </table>
                             <!-- main table -->
-                            <table id="tblEditor" >
-                                <colgroup>
-                                    <col width="150" />
-                                    <col width="150" />
-                                    <col width="150" />
-                               
-                                    <col width="50" />
-                                </colgroup>
+                            <table id="tblEditor">
+
                                 <tbody>
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                       
+
                                         <td id="cellcontrol" class="redips-mark ignore" last="true">
                                             <div>
                                                 <span onclick="redips.rowDelete(this)" class="rowTool">x</span>
@@ -136,9 +116,9 @@
                                 </tbody>
                             </table>
                             <!-- save button -->
-                            <input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>
+                            <%--<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>--%>
 
-                            <asp:Button ID="savedocument" runat="server" Text="Button" onclick="savedocument_Click" OnClientClick="getTableContent()"/>
+                            <asp:Button ID="savedocument" CssClass="btn btn-primary" runat="server" Text="Button" OnClick="savedocument_Click" OnClientClick="getTableContent()" />
                             <!-- demo message (needed to display JSON message) -->
                             <div id="message" />
                         </div>
@@ -248,7 +228,7 @@
                 </div>
 
 
-                <div class="col-md-6">
+               <%-- <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Document</label>
                         <select class="form-control select2"></select>
@@ -280,9 +260,9 @@
                         </tbody>
                     </table>
 
-                </div>
-                 
-                
+                </div>--%>
+
+
 
                 <div class="clearfix"></div>
 
@@ -348,36 +328,36 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
-<script>
-    function getTableContent() {
-        var outerHTML = document.getElementById("tblEditor").outerHTML;
-        outerHTML = decodehtml(outerHTML);
-        document.getElementById('CommonMasterBody_FormMasterBody_tableOuterHtml').value = outerHTML;//document.getElementById("tblEditor").outerHTML;
-       
-    }
-    $(document).ready(function () {
-    var parenttbl = document.getElementById("cellcontrol");
-    var outer = parenttbl.outerHTML;
-    outer = decodehtml(outer);
-    document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_FormMasterBody_tableOuterHtml").value;
-    var theTbl = document.getElementById('tblEditor');
-    $('#tblEditor tr').each(function () {
-        var newel = document.createElement('td');
-        $(this).append(parenttbl);
-    });
-    });
+<asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
+    <script>
+        function getTableContent() {
+            var outerHTML = document.getElementById("tblEditor").outerHTML;
+            outerHTML = decodehtml(outerHTML);
+            document.getElementById('CommonMasterBody_FormMasterBody_tableOuterHtml').value = outerHTML;//document.getElementById("tblEditor").outerHTML;
+
+        }
+        $(document).ready(function () {
+            var parenttbl = document.getElementById("cellcontrol");
+            var outer = parenttbl.outerHTML;
+            outer = decodehtml(outer);
+            document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_FormMasterBody_tableOuterHtml").value;
+            var theTbl = document.getElementById('tblEditor');
+            $('#tblEditor tr').each(function () {
+                var newel = document.createElement('td');
+                $(this).append(parenttbl);
+            });
+        });
 
 
-    function decodehtml(outerHTML) {
-        return outerHTML.replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&apos;');
+        function decodehtml(outerHTML) {
+            return outerHTML.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&apos;');
 
-    }
+        }
 
 
-</script>
+    </script>
 </asp:Content>

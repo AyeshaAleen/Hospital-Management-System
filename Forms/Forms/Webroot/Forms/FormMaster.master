@@ -82,7 +82,7 @@
                                         <ItemTemplate>
                                             
                                         <li>
-                                              <a href="<asp:Label runat='server' ID='tblDocName' Text='<%# Eval("url") %>' />">
+                                              <a href="<asp:Label runat='server' ID='tblDocNames' Text='<%# Eval("url") %>' />">
                                                     <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' /></a>
                                             </li>
 									
