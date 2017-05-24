@@ -2924,8 +2924,8 @@
     <Content Include="Webroot\admin\AdminDashboard.aspx" />
     <Content Include="Webroot\CommonMaster.js" />
     <Content Include="Webroot\Forms\Dashboard\UserDashboard.aspx" />
+    <Content Include="Webroot\Forms\Management\AddForms.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
-    <Content Include="Webroot\Forms\Management\AddDocuments.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
@@ -3420,6 +3420,13 @@
     <Compile Include="Webroot\Forms\FormMaster.master.designer.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\Forms\Management\AddForms.aspx.cs">
+      <DependentUpon>AddForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\AddForms.aspx.designer.cs">
+      <DependentUpon>AddForms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master.cs">
       <DependentUpon>DynamicFormMaster.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3433,13 +3440,6 @@
     </Compile>
     <Compile Include="Webroot\Forms\Management\ViewDocumentSection.aspx.designer.cs">
       <DependentUpon>ViewDocumentSection.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Webroot\Forms\Management\AddDocuments.aspx.cs">
-      <DependentUpon>AddDocuments.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webroot\Forms\Management\AddDocuments.aspx.designer.cs">
-      <DependentUpon>AddDocuments.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\Management\FormsManager\FormManager.aspx.cs">
       <DependentUpon>FormManager.aspx</DependentUpon>

@@ -1376,11 +1376,11 @@ body.fixed-left .side-menu.left {
   color: #5fbeaa !important;
 }
 #sidebar-menu > ul > li > a {
-  color: #bedeeb;
+  color: #fff;
   display: block;
   font-weight:bold;
   padding: 10px 15px;
-  border-left: 3px solid #ffffff;
+  
 }
 #sidebar-menu > ul > li > a:hover {
   color: #fff;
@@ -1757,10 +1757,10 @@ body.fixed-left .side-menu.left {
 .app-search .form-control:focus {
   border: none;
   font-size: 13px;
-  color: #ffffff;
+  color: #666;
   padding-left: 20px;
   padding-right: 40px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 1);
   box-shadow: none;
   border-radius: 30px;
   height: 30px;

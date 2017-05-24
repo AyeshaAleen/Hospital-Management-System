@@ -20,7 +20,11 @@ redips.configuration = function () {
     redips.cDetails = 'cDetails';		// component detail class name (it should be the same as is in CSS file)
     redips.markedColor = '#A9C2EA';		// marked cells background color
     // layout (HTML code) for component placed to the table editor 
-    redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
+    //redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
+
+    redips.component = '<span class="hLeft" onclick="redips.details(this)">+</span>|<span class="hRight" onclick="redips.divDelete(this)">x</span>';
+
+ 
 };
 
 
@@ -57,9 +61,9 @@ redips.init = function () {
             }
 
         }
-       // document.getElementById("tblEditor").addEventListener("click", detailWindow);
+        // document.getElementById("tblEditor").addEventListener("click", detailWindow);
     };
-  
+
     // event handler invoked before DIV element is dropped to the table cell
     rd.event.droppedBefore = function (targetCell) {
 
@@ -83,7 +87,7 @@ redips.init = function () {
             // define id of dropped DIV element (only first three characters because cloned element will have addition in id)
             id = rd.obj.id.substring(0, 3);
 
-           
+
             //			rd.obj.style.borderColor = 'white';
             // send AJAX request (input parameter is field id)
             // div property is reference to the object where AJAX output will be displayed (inside dropped DIV element) 
@@ -92,7 +96,7 @@ redips.init = function () {
         }
 
     };
-   
+
 };
 
 
@@ -110,29 +114,30 @@ redips.handler1 = function (xhr, obj) {
         title = obj.div.innerHTML;
         layout = redips.component.split('|');
         // set layout and title inside dropped DIV element
-        //obj.div.innerHTML = layout[0] + title + layout[1] + xhr.responseText + layout[2];
+        obj.div.innerHTML = layout[0] + xhr.responseText + layout[1];
 
-       
-        obj.div.innerHTML = xhr.responseText;
+        //obj.div.innerHTML = layout[0] + layout[1] + xhr.responseText + layout[2];
 
-    
-        
+        //obj.div.innerHTML = xhr.responseText;
 
-        var eleminput = obj.div.getElementsByTagName("input");
-        var elemlabel = obj.div.getElementsByTagName("label");
-        var elemtextarea = obj.div.getElementsByTagName("textarea");
-        var elemheading = obj.div.getElementsByTagName("h3");
-    
-        
-        if (elemlabel != null)
-            fieldset(eleminput);
-        if (elemlabel != null)
-            fieldset(elemlabel);
-        if (elemtextarea != null)
-            fieldset(elemtextarea);
-        if (elemheading != null)
-            fieldset(elemheading);
-       
+
+
+
+        //var eleminput = obj.div.getElementsByTagName("input");
+        //var elemlabel = obj.div.getElementsByTagName("label");
+        //var elemtextarea = obj.div.getElementsByTagName("textarea");
+        //var elemheading = obj.div.getElementsByTagName("h3");
+
+
+        //if (elemlabel != null)
+        //    fieldset(eleminput);
+        //if (elemlabel != null)
+        //    fieldset(elemlabel);
+        //if (elemtextarea != null)
+        //    fieldset(elemtextarea);
+        //if (elemheading != null)
+        //    fieldset(elemheading);
+
     }
     // otherwise display error inside DIV element
     else {
@@ -151,7 +156,7 @@ function fieldClick(event) {
 
     document.getElementById("RequiredFieldID").value = event.id
 
-   
+
 
     $('#con-close-modal').modal('show');
     // id.removeChild();
@@ -160,6 +165,8 @@ function fieldClick(event) {
 }
 
 function fieldset(event) {
+    debugger;
+   
     event[0].id = "dynamic_" + event[0].type;
 }
 
@@ -170,7 +177,7 @@ function fieldleave(event) {
 
     document.getElementById("RequiredFieldID").value = event.id
 
-   
+
 
     $('#con-close-modal').modal('show');
     // id.removeChild();
@@ -180,6 +187,7 @@ function fieldleave(event) {
 
 // delete DIV element from table editor
 redips.divDelete = function (el) {
+    debugger;
     var div = REDIPS.drag.findParent('DIV', el),	// set reference to the DIV element
         rcell = el.parentNode.cells[1],				// set reference to the right cell of DIV element header
         name = rcell.innerText || rcell.textContent;// set name in a cross-browser manner
@@ -195,9 +203,11 @@ redips.divDelete = function (el) {
 
 // method shows/hides details of DIV elements sent as input parameter 
 redips.details = function (el, type) {
+    debugger;
     var divDrag = REDIPS.drag.findParent('DIV', el),	// find parent DIV element
         tbl = divDrag.childNodes[0],	// first child node is table
         div = divDrag.childNodes[1],	// second child node is hidden DIV (with containing component details)
+    // test = tbl.rows,
         td = tbl.rows[0].cells[0];		// set reference of the first cell in table header
     // show component details
     if (type === undefined || type === 'show') {

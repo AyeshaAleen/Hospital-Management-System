@@ -72,7 +72,7 @@
                                     </div>
                                 </div>--%>
                                 <div class="btn-group pull-right m-t-15">
-                                    <button type="button" class="btn btn-inverse waves-effect waves-light"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </button>
+                                    <button type="button" class="btn btn-inverse waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </button>
                                     
                                 </div>
 
