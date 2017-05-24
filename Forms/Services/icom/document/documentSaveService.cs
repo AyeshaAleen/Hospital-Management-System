@@ -30,9 +30,9 @@ namespace Services.itinsync.icom.documents
                 else
                 {
                     dto.documentDefination.name = dto.document.documentName;
-                   dto.document.documentDefinitionID=XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
+                    dto.document.documentDefinitionID = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
 
-                    DocumentDAO.getInstance(dbContext).create(dto.document);
+                    dto.document.documentID = DocumentDAO.getInstance(dbContext).create(dto.document);
                 }
             }
             catch (Exception ex)

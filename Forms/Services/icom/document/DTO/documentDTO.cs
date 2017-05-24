@@ -6,6 +6,7 @@ using Domains.itinsync.icom.error;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument;
 using Domains.itinsync.icom.document;
+using Domains.itinsync.icom.idocument.section;
 
 namespace Services.itinsync.icom.documents.dto
 {
@@ -17,6 +18,7 @@ namespace Services.itinsync.icom.documents.dto
         public XDocumentDefination documentDefination = new XDocumentDefination();
         public Douments document = new Douments();
 
+        public List<XDocumentSection> documentSection = new List<XDocumentSection>();
 
         public documentcontent documentcontentview = new documentcontent();
 
