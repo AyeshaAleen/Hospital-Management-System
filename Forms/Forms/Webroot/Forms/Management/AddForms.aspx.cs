@@ -13,7 +13,7 @@ using Utils.itinsync.icom.constant.page;
 
 namespace Forms.Webroot.Forms.Management
 {
-    public partial class AddDocuments : BasePage
+    public partial class AddForms : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,6 +51,11 @@ namespace Forms.Webroot.Forms.Management
         }
 
         protected void btnSaveDocument_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSaveDocument_Click1(object sender, EventArgs e)
         {
 
         }

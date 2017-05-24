@@ -31,7 +31,7 @@
 
                                     <td style="text-align: center;">
                                         <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
-                                            CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xDocumentDefinationID") ) %>'
+                                            CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
                                             CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
                                         </asp:LinkButton>
                                     </td>
