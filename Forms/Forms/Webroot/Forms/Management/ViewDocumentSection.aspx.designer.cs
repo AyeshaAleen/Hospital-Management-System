@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Forms.Management.FormsManager {
+namespace Forms.Webroot.Forms.Management {
     
     
-    public partial class FormsManager {
+    public partial class ViewDocumentSection {
         
         /// <summary>
-        /// validate control.
+        /// tblDocument control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validate;
+        protected global::System.Web.UI.WebControls.Repeater tblDocument;
+        
+        /// <summary>
+        /// btnSaveSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveSection;
     }
 }

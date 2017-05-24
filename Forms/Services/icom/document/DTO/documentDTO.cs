@@ -16,6 +16,8 @@ namespace Services.itinsync.icom.documents.dto
 
         public string UPDATEBY { get; set; }
         public XDocumentDefination documentDefination = new XDocumentDefination();
+        public List<XDocumentDefination> documentDefinationlist = new List<XDocumentDefination>();
+
         public Douments document = new Douments();
 
         public List<XDocumentSection> documentSection = new List<XDocumentSection>();

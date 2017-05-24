@@ -36,7 +36,7 @@ namespace Services.itinsync.icom.documents
             {
                 dto = (DocumentDTO)o;
 
-                dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
+                //dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
                 dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);
                
                 

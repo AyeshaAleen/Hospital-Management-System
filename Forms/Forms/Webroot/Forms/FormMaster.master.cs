@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Domains.itinsync.icom.interfaces.response;
+using Services.itinsync.icom.cache.pages;
+using Utils.itinsync.icom.cache.global;
 
 namespace Forms.Webroot.Forms
 {
@@ -13,9 +16,20 @@ namespace Forms.Webroot.Forms
         BasePage bp = new BasePage();
         protected void Page_Load(object sender, EventArgs e)
         {
+            loadPageCache();
+
 
         }
+        private void loadPageCache()
+        {
 
-       
+            //if (GlobalStaticCache.PageCacheMap.ContainsKey(doumentDefinitionID))
+            //    return GlobalStaticCache.documentDefinition[doumentDefinitionID];
+
+
+            //IResponseHandler response = new PageManagerService().executeAsPrimary();
+        }
+
+
     }
 }

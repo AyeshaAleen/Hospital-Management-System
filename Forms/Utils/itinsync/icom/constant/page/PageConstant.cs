@@ -21,6 +21,12 @@ namespace Utils.itinsync.icom.constant.page
 
         public static string PAGE_SIO = "/Webroot/Forms/SIO/GeneralSIO";
 
+        public static string PAGE_DocumentSection = "/Webroot/Forms/Management/ViewDocumentSection";
+
+        public static string PAGE_DocumentSectiondynamicForm = "/Webroot/Forms/Management/FormsManager/FormsManager";
+
+        public static string PAGE_USER_DASHBOARD = "/Webroot/Forms/Dashboard/UserDashboard";
+
         public static string PAGE_MANAGE_USER_CITIES = "ManageUserCities.aspx";
         public static string PAGE_MANAGE_USER = "ManageUser.aspx";
 

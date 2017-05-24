@@ -40,5 +40,18 @@ namespace Utils.itinsync.icom.xml
         {
             return appendTag(key, Convert.ToString(value));
         }
+
+        public static string EncodeXML(string xml)
+        {
+           // string xml = xml;
+           return xml.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
+
+        }
+        public static string DecodeXML(string xml)
+        {
+            // string xml = xml;
+            return xml.Replace("&amp;", "&").Replace("&lt;", "<").Replace("&gt;", ">").Replace("&quot;", "\"").Replace("&apos;", "'");
+
+        }
     }
 }

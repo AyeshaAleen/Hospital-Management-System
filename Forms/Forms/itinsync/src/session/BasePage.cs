@@ -32,6 +32,8 @@ using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.idoument.table.calculation;
 using Utils.itinsync.icom.xml;
 using static Forms.itinsync.src.session.Session;
+using HtmlAgilityPack;
+using System.IO;
 
 namespace Forms.itinsync.src.session
 {
@@ -52,7 +54,7 @@ namespace Forms.itinsync.src.session
                 Sessions.getSession().Set(SessionKey.DICTONARYKEY, new Dictionary<string, string>());
 
 
-                Response.Redirect(PageConstant.PAGE_SIO);
+                Response.Redirect(PageConstant.PAGE_USER_DASHBOARD);
 
             }
             else
@@ -79,11 +81,9 @@ namespace Forms.itinsync.src.session
                 tc.Controls.Add(lbl);
             }
         }
-       
-        protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
+
+        protected Table processDynamicContent(Table parentTable, Douments documents, Int32 sectionID)
         {
-           Control tableControl = parent.FindControl("tableDynamic");
-            Table parentTable = ((Table)(tableControl));
             
             foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
             {
@@ -103,15 +103,15 @@ namespace Forms.itinsync.src.session
 
                         foreach (XDocumentTableTD td in tr.tds)
                         {
-                        
+
                             foreach (XDocumentTableContent content in td.fields)
                             {
-                                List<XDocumentCalculation> calculations= content.fieldcalculations;
+                                List<XDocumentCalculation> calculations = content.fieldcalculations;
 
                                 if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
                                     TableHeaderCell tableHeader = new TableHeaderCell();
-                                    
+
                                     Label lbl = new Label();
                                     lbl.ID = content.controlID;
                                     //lbl.CssClass = content.cssClass;
@@ -123,7 +123,7 @@ namespace Forms.itinsync.src.session
                                     tableHeader.Controls.Add(lbl);
                                     tabletr.Cells.Add(tableHeader);
 
-                                    
+
                                 }
                                 else
                                 {
@@ -134,8 +134,8 @@ namespace Forms.itinsync.src.session
                                         tc.ColumnSpan = Convert.ToInt32(td.colSpan);
                                     //tc.CssClass = content.cssClass;
                                     //tc.BorderStyle = BorderStyle.Solid;
-                                    tc.BorderWidth=10;
-                                    
+                                    tc.BorderWidth = 10;
+
                                     if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
                                     {
                                         Label lbl = new Label();
@@ -164,8 +164,8 @@ namespace Forms.itinsync.src.session
 
                                         }
                                         txtBox.Text = content.defaultValue;
-                                        
-                                        
+
+
                                         tc.Controls.Add(txtBox);
                                         tabletr.Cells.Add(tc);
 
@@ -207,7 +207,7 @@ namespace Forms.itinsync.src.session
                                             check.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
                                             check.Attributes.Add("operation", calculations[0].operation);
                                         }
-                                            
+
                                         check.Value = content.defaultValue;
                                         tc.Controls.Add(check);
                                         tabletr.Cells.Add(tc);
@@ -228,7 +228,7 @@ namespace Forms.itinsync.src.session
                                             ddl.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
                                             ddl.Attributes.Add("operation", calculations[0].operation);
                                         }
-                                        
+
                                         ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
 
                                         ddl.DataBind();
@@ -237,7 +237,7 @@ namespace Forms.itinsync.src.session
                                     }
                                 }
 
-                                
+
                             }
                         }
 
@@ -250,7 +250,14 @@ namespace Forms.itinsync.src.session
 
 
 
-            performedCalculation(parent, documents, sectionID);
+            return parentTable;
+        }
+        protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
+        {
+
+            Control tableControl = parent.FindControl("tableDynamic");
+            Table parentTable = ((Table)(tableControl));
+            processDynamicContent(parentTable, documents, sectionID);
 
         }
         private void performedCalculation(Control parent, Douments documents, Int32 sectionID)
@@ -893,6 +900,7 @@ namespace Forms.itinsync.src.session
         }
 
         public Int32 getLastVisitedURLCode()
+
         {
             if (Sessions.getSession().Get(SessionKey.PAGEVISTSTACK) != null)
             {
@@ -938,6 +946,130 @@ namespace Forms.itinsync.src.session
         public string getXMLSession()
         {
             return Convert.ToString(Sessions.getSession().Get(SessionKey.XML));
+        }
+
+        public XDocumentTable HtmlParse(string html,int section_id)
+        {
+            #region add Load Html
+            object[] emptyStringArray = new object[0];
+
+            HtmlDocument resultat = new HtmlDocument();
+            resultat.LoadHtml(html);
+
+            #endregion
+
+            XDocumentTable documentTable = new XDocumentTable();
+
+            #region add Table dto values
+
+
+            HtmlNode table = resultat.DocumentNode.Descendants("table").SingleOrDefault();
+
+            if (table != null)
+            {
+                documentTable.documentsectionid = section_id;
+            }
+
+            #endregion
+
+            #region add Table Row dto values
+
+            List<HtmlNode> rowcount = table.Descendants("tr").ToList();
+
+
+            foreach (HtmlNode Rownode in rowcount)
+            {
+
+                XDocumentTableTR tableTR = new XDocumentTableTR();
+
+
+                tableTR.cssClass = "table-border";
+
+
+                #endregion
+
+                #region add Table Column dto values
+                if (Rownode.HasChildNodes)
+                {
+                    documentTable.trs.Add(tableTR);
+
+
+
+                    foreach (HtmlNode colnode in Rownode.Descendants("td"))
+                    {
+                        if (colnode.HasChildNodes && !(colnode.GetAttributeValue("last", false)))
+                        {
+                            XDocumentTableTD tableTD = new XDocumentTableTD();
+
+
+                            tableTD.tdType = "600";
+                            tableTD.cssClass = colnode.GetAttributeValue("Class", "");
+                            tableTR.tds.Add(tableTD);
+
+                            #endregion
+
+                            #region add Table Column Content dto values
+
+
+
+
+                            foreach (var fieldnode in colnode.ChildNodes)
+                            {
+                                if (!string.IsNullOrWhiteSpace(fieldnode.OuterHtml))
+                                {
+                                    string type = fieldnode.FirstChild.GetAttributeValue("type", string.Empty);
+
+
+                                    if (!string.IsNullOrEmpty(type))
+                                    {
+                                        XDocumentTableContent tableContent = new XDocumentTableContent();
+
+
+                                        if (type == "checkbox")
+                                        {
+                                            tableContent.controlType = "1";
+                                        }
+                                        if (type == "radio")
+                                        {
+                                            tableContent.controlType = "2";
+                                        }
+                                        if (type == "text")
+                                        {
+                                            tableContent.controlType = "3";
+                                        }
+                                        //if (type=="select")
+                                        //{
+                                        //    dto.documentTableContent.controlType = "4";
+                                        //}
+                                        //if (fieldnode.FirstChild.GetType() == typeof(Label))
+                                        //{
+                                        //    dto.documentTableContent.controlType = "5";
+                                        //}
+
+                                        tableContent.controlName = fieldnode.GetAttributeValue("name", "");
+                                        tableContent.controlID = fieldnode.GetAttributeValue("id", "") + section_id + "formname";
+                                        tableContent.isRequired = fieldnode.GetAttributeValue("irequired", "1");
+                                        tableContent.mask = fieldnode.GetAttributeValue("imask", "");
+                                        tableContent.cssClass = fieldnode.GetAttributeValue("Class", "");
+                                        tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
+
+                                        //dto.documentTableContentlist.Add(dto.documentTableContent);
+
+                                        tableTD.fields.Add(tableContent);
+                                    }
+                                }
+
+                            }
+                            #endregion
+                        }
+                        //}
+                    }
+                }
+            }
+
+
+            return documentTable;
+
         }
     }
 }

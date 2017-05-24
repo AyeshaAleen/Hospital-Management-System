@@ -15,6 +15,8 @@ using Domains.itinsync.icom.idocument.table;
 using Domains.itinsync.icom.idocument.table.tr;
 using Domains.itinsync.icom.idocument.table.td;
 using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom;
+using Utils.itinsync.icom.exceptions;
 
 namespace DAO.itinsync.icom.idocument.table.content
 {
@@ -30,7 +32,7 @@ namespace DAO.itinsync.icom.idocument.table.content
         }
         protected override string createQuery(object o)
         {
-            throw new NotImplementedException();
+            return "INSERT INTO " + TABLENAME + preparedCreateQuery(o, typeof(XDocumentTableContent.columns));
         }
 
         protected override IDomain setResult(DataTable dt, int i)
@@ -45,11 +47,35 @@ namespace DAO.itinsync.icom.idocument.table.content
 
         protected override string updateQuery(object o, string where)
         {
-            throw new NotImplementedException();
+            List<XDocumentTableContent> results = new List<XDocumentTableContent>();
+            if (where.Length > 0)
+                results = readWhere(where);
+            else
+                results.Add(findbyPrimaryKey(((XDocumentTableContent)o).tdID));
+            foreach (XDocumentTableContent lk in results)
+            {
+                string whereClause = " update " + TABLENAME + " set ";
+                whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(XDocumentTableContent.columns));
+                if (whereClause.Contains("="))//update on the base of primary key column
+                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentTableContent.primaryKey.documentTableContentID.ToString(), lk.documentTableContentID)));
+            }
+            return "";
+        }
+        private List<XDocumentTableContent> readWhere(string where)
+        {
+            if (where == null || where.Length == 0)
+                throw new ItinsyncException(new Exception());
+            string SQL = string.Format("Select * from " + TABLENAME + where);
+            return wrap(processResults(SQL));
+        }
+        public XDocumentTableContent findbyPrimaryKey(int documentTableContentID)
+        {
+            string sql = "select * From " + TABLENAME + "where documentTableContentID = " + documentTableContentID;
+            return (XDocumentTableContent)processSingleResult(sql);
         }
 
 
-        
+
         public XDocumentTableContent findByPrimaryKey(Int32 ID)
         {
             if (DocumentManager.getDocumentTablesContentID(ID) != null)

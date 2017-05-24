@@ -19,7 +19,7 @@
 
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-table/css/bootstrap-table.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/css/ladda-themeless.min.css" ) %>" rel="stylesheet" />
-    
+
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/timepicker/bootstrap-timepicker.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/clockpicker/css/bootstrap-clockpicker.min.css" ) %>" rel="stylesheet" />
@@ -33,6 +33,9 @@
     <link href="<%= ResolveClientUrl("~/itinsync/resources/css/pages.css") %>" rel="stylesheet" type="text/css" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/css/responsive.css"  ) %>" rel="stylesheet" type="text/css" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/css/signature-pad.css"  ) %>" rel="stylesheet" type="text/css" />
+
+    <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/css/custombox.css"  ) %>" rel="stylesheet" type="text/css" />
+
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,16 +54,16 @@
 
         <!-- Top Bar Start -->
         <div class="topbar">
-            <div class="center" style="position:absolute; left:40%; right:20%; top:5%; z-index:1">
-                                    <div style="background:#fff" class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                         <% Response.Write(trasnlation("Success.Text")); %>
-                                    </div>
+            <div class="center" style="position: absolute; left: 40%; right: 20%; top: 5%; z-index: 1">
+                <div style="background: #fff" class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <% Response.Write(trasnlation("Success.Text")); %>
+                </div>
 
-                                    <div style="background:#fff" class="alert alert-danger fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertFailure" runat="server">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    </div>
-                                </div>
+                <div style="background: #fff" class="alert alert-danger fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertFailure" runat="server">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                </div>
+            </div>
             <!-- LOGO -->
             <div class="topbar-left">
                 <div class="text-center">
@@ -83,21 +86,21 @@
                             </button>
                             <span class="clearfix"></span>
                         </div>
-                        
+                         
                         <form role="search" class="navbar-left app-search pull-left hidden-xs">
                             <input type="text" placeholder="Search..." class="form-control">
-                            <a href=""><i class="fa fa-search"></i></a>
-                            
+                            <a href="#"><i class="fa fa-search"></i></a>
+
                         </form>
 
 
                         <ul class="nav navbar-nav navbar-right pull-right">
                             <li class="dropdown top-menu-item-xs">
                                 <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                    <i class="icon-bell"></i><span class="badge badge-xs badge-danger">3</span>
+                                    Activity<span class="badge badge-xs badge-danger">3</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-lg">
-                                    <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Notification</li>
+                                    <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Activity</li>
                                     <li class="list-group slimscroll-noti notification-list">
                                         <!-- list item-->
                                         <a href="javascript:void(0);" class="list-group-item">
@@ -191,22 +194,22 @@
                                     </li>
                                     <li>
                                         <a href="javascript:void(0);" class="list-group-item text-right">
-                                            <small class="font-600">See all notifications</small>
+                                            <small class="font-600">See all Activities</small>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="hidden-xs">
-                                <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="icon-size-fullscreen"></i></a>
+                                <a href="#" class="right-bar-toggle waves-effect waves-light">Desktop</a>
                             </li>
                             <li class="hidden-xs">
-                                <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="icon-settings"></i></a>
+                                <a href="#" id="btn-fullscreen" class="waves-effect waves-light"><i class="icon-size-fullscreen"></i></a>
                             </li>
                             <li class="dropdown top-menu-item-xs">
-                                <a href="" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                    <img src="../itinsync/resources/images/agsquare.png" alt="user-img" class="img-circle">
+                                <a href="#" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
+                                    <img src="<%= ResolveClientUrl("~/itinsync/resources/images/agsquare.png")%>" alt="user-img" class="img-circle">
                                 </a>
-                               
+
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-10 text-custom"></i>Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-10 text-custom"></i>Settings</a></li>
@@ -221,19 +224,19 @@
                 </div>
             </div>
         </div>
-        <form id="forms" class="form-horizontal"  runat="server" role="form">
+        <form id="forms" class="form-horizontal" runat="server" role="form">
 
             <div id="formValidate">
 
-            <asp:ContentPlaceHolder ID="CommonMasterBody" runat="server">
-            </asp:ContentPlaceHolder>
-                </div>
+                <asp:ContentPlaceHolder ID="CommonMasterBody" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </form>
 
         <footer class="footer">
             &copy; <%: DateTime.Now.Year %>. <a href="#">Itinsync Forms</a>
         </footer>
-        
+
     </div>
 
     <script>
@@ -251,7 +254,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.nicescroll.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.scrollTo.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/signature_pad.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>
+    <%--<script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>--%>
 
     <!-- Bootstrap Pickers  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/moment/moment.js") %>"></script>
@@ -260,7 +263,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/clockpicker/js/bootstrap-clockpicker.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") %>"></script>
 
-     <!-- Forms  -->
+    <!-- Forms  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/switchery/js/switchery.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/multiselect/js/jquery.multi-select.js") %>"></script>
@@ -276,10 +279,10 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/countries.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/autocomplete.js") %>"></script>
 
-     <!-- Advance Forms  -->
+    <!-- Advance Forms  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.form-advanced.init.js") %>"></script>
-    
-     <!-- Bootstrap DataTable  -->
+
+    <!-- Bootstrap DataTable  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-table/js/bootstrap-table.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.bs-table.js") %>"></script>
 
@@ -287,7 +290,7 @@
     <!-- Bootstrap Notification  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/notifyjs/js/notify.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/notifications/notify-metro.js") %>"></script>
- 
+
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.core.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.app.js") %>"></script>
 
@@ -301,10 +304,16 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormsCalculator.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/table/DynamicTable.js") %>"></script>
-    
+
 
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-sweetalert/sweet-alert.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.sweet-alert.init.js") %>"></script>
+
+
+    <!-- Modal-Effect -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/custombox.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/legacy.min.js") %>"></script>
+
 
     <asp:ContentPlaceHolder ID="CommonMasterFooter" runat="server">
     </asp:ContentPlaceHolder>

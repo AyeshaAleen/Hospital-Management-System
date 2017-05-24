@@ -47,6 +47,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ARS\ARS\ARS\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.7.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.7\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -87,6 +93,9 @@
     <Reference Include="MySql.Web, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ARS\ARS\ARS\bin\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfMetamorphosis, Version=6.8.4.10, Culture=neutral, PublicKeyToken=f77041e5caa5fc2f, processorArchitecture=MSIL">
+      <HintPath>..\packages\sautinsoft.pdfmetamorphosis.6.8.10.4\lib\net45\PdfMetamorphosis.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -223,6 +232,12 @@
     <Content Include="itinsync\resources\css\signature-pad.css" />
     <Content Include="itinsync\resources\css\typicons.css" />
     <Content Include="itinsync\resources\css\variables.css" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\header.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\redips-drag-min.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\redips-drag-source.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\redips-table-min.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\script.js" />
+    <Content Include="itinsync\resources\dynamic\dragdrop\style.css" />
     <Content Include="itinsync\resources\dynamic\table\DynamicTable.js" />
     <Content Include="itinsync\resources\fonts\fontawesome-webfont.svg" />
     <Content Include="itinsync\resources\fonts\glyphicons-halflings-regular.svg" />
@@ -2371,6 +2386,7 @@
     <Content Include="itinsync\resources\plugins\datatables\vfs_fonts.js" />
     <Content Include="itinsync\resources\plugins\doc-ready\doc-ready.js" />
     <Content Include="itinsync\resources\plugins\dragdrop\redips-drag-min.js" />
+    <Content Include="itinsync\resources\plugins\dragdrop\redips-table-min.js" />
     <Content Include="itinsync\resources\plugins\dragdrop\script.js" />
     <Content Include="itinsync\resources\plugins\dragdrop\style.css" />
     <Content Include="itinsync\resources\plugins\dropzone\basic.css" />
@@ -2905,8 +2921,12 @@
     <Content Include="itinsync\translations\lang_sp.properties" />
     <Content Include="itinsync\translations\lang_ud.properties" />
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
+    <Content Include="Webroot\admin\AdminDashboard.aspx" />
     <Content Include="Webroot\CommonMaster.js" />
-    <Content Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx" />
+    <Content Include="Webroot\Forms\Dashboard\UserDashboard.aspx" />
+    <Content Include="Webroot\Forms\Management\AddForms.aspx" />
+    <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
+    <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3150,6 +3170,7 @@
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons-wind.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.scss" />
+    <None Include="Properties\PublishProfiles\Forms.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -3202,6 +3223,9 @@
     <Content Include="Webroot\test.aspx" />
     <Content Include="Webroot\testMaster.master" />
     <Content Include="Webroot\Forms\FormMaster.master" />
+    <Content Include="Webroot\Forms\Dashboard\DashboardMaster.master" />
+    <Content Include="Webroot\admin\AdminMaster.master" />
+    <Content Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -3354,12 +3378,40 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminMaster.master.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\admin\AdminMaster.master.designer.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\CommonMaster.Master.cs">
       <DependentUpon>CommonMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\CommonMaster.Master.designer.cs">
       <DependentUpon>CommonMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\DashboardMaster.master.cs">
+      <DependentUpon>DashboardMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\DashboardMaster.master.designer.cs">
+      <DependentUpon>DashboardMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\UserDashboard.aspx.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Dashboard\UserDashboard.aspx.designer.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\FormMaster.master.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
@@ -3368,12 +3420,33 @@
     <Compile Include="Webroot\Forms\FormMaster.master.designer.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
     </Compile>
-    <Compile Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx.cs">
-      <DependentUpon>FormsManager.aspx</DependentUpon>
+    <Compile Include="Webroot\Forms\Management\AddForms.aspx.cs">
+      <DependentUpon>AddForms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webroot\Forms\Management\FormsManager\FormsManager.aspx.designer.cs">
-      <DependentUpon>FormsManager.aspx</DependentUpon>
+    <Compile Include="Webroot\Forms\Management\AddForms.aspx.designer.cs">
+      <DependentUpon>AddForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master.cs">
+      <DependentUpon>DynamicFormMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master.designer.cs">
+      <DependentUpon>DynamicFormMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\ViewDocumentSection.aspx.cs">
+      <DependentUpon>ViewDocumentSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\ViewDocumentSection.aspx.designer.cs">
+      <DependentUpon>ViewDocumentSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\FormManager.aspx.cs">
+      <DependentUpon>FormManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Management\FormsManager\FormManager.aspx.designer.cs">
+      <DependentUpon>FormManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>
