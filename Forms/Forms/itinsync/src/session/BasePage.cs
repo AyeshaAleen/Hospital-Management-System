@@ -354,6 +354,9 @@ namespace Forms.itinsync.src.session
 
         public string xmlConversion(Control parent, string outPut)
         {
+            Control tableControl = parent.FindControl("tableDynamic");
+            Table parentTable = ((Table)(tableControl));
+
             foreach (Control c in parent.Controls)
             {
                 if ((c.GetType() == typeof(TextBox)))

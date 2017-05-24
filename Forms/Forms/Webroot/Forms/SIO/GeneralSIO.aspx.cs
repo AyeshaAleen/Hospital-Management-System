@@ -31,7 +31,7 @@ namespace Forms.Webroot.Forms.SIO
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentName = "SIO";
+            dto.document.documentDefinitionID = 1001;
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)

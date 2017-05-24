@@ -22,7 +22,7 @@ redips.configuration = function () {
     // layout (HTML code) for component placed to the table editor 
     //redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
 
-    redips.component = '<span class="hLeft" onclick="redips.details(this)">+</span>|<span class="hRight" onclick="redips.divDelete(this)">x</span>';
+    redips.component = '<span class="hLeft" onclick="redips.details(this)">+</span>|<span class="hRight" onclick="redips.deleteColumn(this)">x</span>';
 
  
 };
@@ -123,20 +123,20 @@ redips.handler1 = function (xhr, obj) {
 
 
 
-        //var eleminput = obj.div.getElementsByTagName("input");
-        //var elemlabel = obj.div.getElementsByTagName("label");
-        //var elemtextarea = obj.div.getElementsByTagName("textarea");
-        //var elemheading = obj.div.getElementsByTagName("h3");
+        var eleminput = obj.div.getElementsByTagName("input");
+        var elemlabel = obj.div.getElementsByTagName("label");
+        var elemtextarea = obj.div.getElementsByTagName("textarea");
+        var elemheading = obj.div.getElementsByTagName("h3");
 
 
-        //if (elemlabel != null)
-        //    fieldset(eleminput);
-        //if (elemlabel != null)
-        //    fieldset(elemlabel);
-        //if (elemtextarea != null)
-        //    fieldset(elemtextarea);
-        //if (elemheading != null)
-        //    fieldset(elemheading);
+        if (elemlabel != null)
+            fieldset(eleminput);
+        if (elemlabel != null)
+            fieldset(elemlabel);
+        if (elemtextarea != null)
+            fieldset(elemtextarea);
+        if (elemheading != null)
+            fieldset(elemheading);
 
     }
     // otherwise display error inside DIV element
@@ -145,11 +145,11 @@ redips.handler1 = function (xhr, obj) {
     }
 };
 
-function deleteColumn() {
+function deleteColumn(event) {
     debugger;
     var id = document.getElementById("RequiredFieldID");
     document.getElementById(id).remove();
-    $('#con-close-modal').modal('hide');
+    //$('#con-close-modal').modal('hide');
 }
 
 function fieldClick(event) {
