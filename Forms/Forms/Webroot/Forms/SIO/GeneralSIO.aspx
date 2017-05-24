@@ -1,4 +1,5 @@
-﻿<%@ Page Title="General SIO" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="GeneralSIO.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.GeneralSIO" %>
+﻿<%@ Page Title="General SIO" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" validateRequest="false" AutoEventWireup="true" 
+    CodeBehind="GeneralSIO.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.GeneralSIO" %>
 
 <asp:Content ID="cntGeneralSIOHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
@@ -13,12 +14,9 @@
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
                    
                 </asp:Table>
-               
-                   
 
 
-              
-               <%-- <table data-toggle="table">
+                <%--<table data-toggle="table">
                     <thead>
                         <tr>
                             <th><% Response.Write(trasnlation("General.SIO")); %></th>
@@ -219,13 +217,35 @@
                             <td colspan="3">
                                 <asp:TextBox ID="txtSIOTotal" class="form-control" runat="server"></asp:TextBox></td>
                            <td><span class="form-control">100</span></td>
+                            <%--<td>
+                                <asp:DropDownList ID="DropDownList1" runat="server">
+                                    <asp:ListItem>Male</asp:ListItem>
+                                    <asp:ListItem>Female</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                                    <asp:ListItem>Male</asp:ListItem>
+                                    <asp:ListItem>Female</asp:ListItem>
+                                </asp:CheckBoxList>
+                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                                <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+                                    <asp:ListItem>Male</asp:ListItem>
+                                    <asp:ListItem>Female</asp:ListItem>
+                                </asp:RadioButtonList>
+                            </td>
                         </tr>
                     </tbody>
                 </table>--%>
                    
                   <div class="clearfix"></div>
-                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"   OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
-                <button onclick="javascript:demoFromHTML();">PDF</button>
+                <asp:Button ID="btnNext" runat="server" Text="Next"   OnClientClick="return validate();" OnClick="btnNext_Click" 
+                    CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
+                <asp:HiddenField ID="Tages" runat="server" Value="" />
+                <%--<asp:CheckBoxList ID="CheckBoxList1" runat="server">
+                                    <asp:ListItem>Male</asp:ListItem>
+                                    <asp:ListItem>Female</asp:ListItem>
+                                </asp:CheckBoxList>--%>
+                <%--<asp:TextBox ID="Tages" runat="server" Visible="true"></asp:TextBox>--%>
+                <%--OnClick="btnNext_Click" OnClientClick="return GenerateTags();" return validate() --%> 
 
            <div class="clearfix"></div>
             </div>
@@ -236,49 +256,68 @@
 
 <asp:Content ID="cntGeneralSIOFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
-function demoFromHTML() {
+        //function IsValid()
+        //{
+        //    var tble = document.getElementById("CommonMasterBody_FormMasterBody_tableDynamic");
+        //    var Value = GenerateTags(tble);
+        //    document.getElementById("CommonMasterBody_FormMasterBody_Tages").value = Value;
+            
+        //    if (Value == "")
+        //        return false;
+        //    else
+        //        return true;
+        //}
 
-    var pdf = new jsPDF('p', 'pt', 'letter');
+        //function GenerateTags() {
+        //    if (validate()) {
+        //        var Tags = "";
+        //        var table = document.getElementById("CommonMasterBody_FormMasterBody_tableDynamic");
+        //        document.getElementById("CommonMasterBody_FormMasterBody_Tages").value = "";
+        //        var rows = table.getElementsByTagName("tr");
 
-        alert("hello");
-    // source can be HTML-formatted string, or a reference
-    // to an actual DOM element from which the text will be scraped.
-    source = $('#validate')[0];
+        //        for (var i = 0; i < rows.length; i++) {
+        //            // for (var j = 0; j < rows[i].getElementsByTagName("td").length; j++) {
 
-    // we support special element handlers. Register them with jQuery-style 
-    // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
-    // There is no support for any other type of selectors 
-    // (class, of compound) at this time.
-    specialElementHandlers = {
-        // element with id of "bypass" - jQuery style selector
-        '#bypassme': function (element, renderer) {
-            // true = "handled elsewhere, bypass text extraction"
-            return true
-        }
-    };
-    margins = {
-        top: 80,
-        bottom: 60,
-        left: 10,
-        width: 700
-    };
-    // all coords and widths are in jsPDF instance's declared units
-    // 'inches' in this case
-    pdf.fromHTML(
-    source, // HTML string or DOM elem ref.
-    margins.left, // x coord
-    margins.top, { // y coord
-        'width': margins.width, // max width of content on PDF
-        'elementHandlers': specialElementHandlers
-    },
+        //            // var cel = rows[i].getElementsByTagName("td")[j];
+        //            var TagID = "", TagText = "";
 
-    function (dispose) {
-        // dispose: object with X, Y of the last line add to the PDF 
-        //          this allow the insertion of new lines after html
-        pdf.save('Test.pdf');
-    }, margins);
-}
-
-
+        //            let inputs = rows[i].getElementsByTagName('input');
+        //            let spans = rows[i].getElementsByTagName('span');
+        //            let selects = rows[i].getElementsByTagName('select');
+        //            //let tables = rows[i].getElementsByTagName('table');
+        //            for (let input of inputs) {
+        //            //TagID = input.id.split('_').length > 0 ? input.id.split('_')[input.id.split('_').length - 1] : input.id;
+        //                TagID = input.id.split('_')[2];
+        //                if (input.type == "radio")
+        //                    TagText = input.checked ? "1" : "0";
+        //                if (input.type == "checkbox")
+        //                    TagText = input.checked ? "1" : "0";
+        //                if (input.type == "text")
+        //                    TagText = input.value;
+        //                Tags += "<" + TagID + ">" + TagText + "</" + TagID + ">";
+        //            }
+        //            for (let span of spans) {
+        //                TagID = span.id.split('_')[2];
+        //                TagText = span.innerHTML;
+        //                Tags += "<" + TagID + ">" + TagText + "</" + TagID + ">";
+        //            }
+        //            for (let select of selects) {
+        //                TagID = select.id.split('_')[2];
+        //                let Options = select.getElementsByTagName('option');
+        //                for(let Option of Options)
+        //                {
+        //                    TagText = "";
+        //                    TagText += "<option>" + Option.value + "</option>";
+        //                }
+        //                Tags += "<" + TagID + ">" + TagText + "</" + TagID + ">";
+        //            }
+        //        }
+        //        document.getElementById("CommonMasterBody_FormMasterBody_Tages").value = Tags;
+        //        return true;
+        //    }
+        //    else {
+        //        return false;
+        //    }
+        //}
     </script>
 </asp:Content>

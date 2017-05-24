@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Basic Info" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="BasicInfo.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.BasicInfo" %>
+﻿<%@ Page Title="Basic Info" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" validateRequest="false" AutoEventWireup="true" 
+    CodeBehind="BasicInfo.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.BasicInfo" %>
 
 <asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
@@ -6,7 +7,13 @@
     <div class="row" id="validate">
         <div class="col-sm-12">
             <div class="card-box">
-                <h2 class="text-center m-t-0">Shift Performance Verification Tool</h2>
+                <h4 class="m-t-0 header-title"><b>Basic Info</b></h4>
+
+                 <asp:Table ID="tableDynamic" runat="server">
+                       
+                 </asp:Table>
+
+                <%--<h2 class="text-center m-t-0">Shift Performance Verification Tool</h2>
                 <h4 class="m-t-0 header-title text-center">Used for Verification of SIO Principles. Passing Score is 80% in all areas</h4>
 
 
@@ -140,7 +147,7 @@
                         </asp:CheckBoxList>
                     </p>
 
-                </div>
+                </div>--%>
 
                 <div class="col-md-12">
 
@@ -195,7 +202,8 @@
 
                 <div class="col-md-12 m-t-40">
                     <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return IsValid();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                <asp:HiddenField ID="Tages" runat="server" Value="" />
                 </div>
 
                 <div class="clearfix"></div>
@@ -204,5 +212,16 @@
     </div>
 </asp:Content>
 <asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
-    
+    <script>
+        function IsValid() {
+            var tble = document.getElementById("CommonMasterBody_FormMasterBody_tableDynamic");
+            var Value = GenerateTags(tble);
+            document.getElementById("CommonMasterBody_FormMasterBody_Tages").value = Value;
+
+            if (Value == "")
+                return false;
+            else
+                return true;
+        }
+    </script>
 </asp:Content>
