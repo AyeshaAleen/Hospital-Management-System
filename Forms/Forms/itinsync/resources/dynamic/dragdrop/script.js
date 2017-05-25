@@ -22,7 +22,7 @@ redips.configuration = function () {
     // layout (HTML code) for component placed to the table editor 
     //redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
 
-    redips.component = '<span class="hLeft" onclick="redips.details(this)">+</span>|<span class="hRight" onclick="redips.deleteColumn(this)">x</span>';
+    redips.component = '<span class="hLeft" onclick="AddDetail(this)">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
 
  
 };
@@ -116,6 +116,7 @@ redips.handler1 = function (xhr, obj) {
         // set layout and title inside dropped DIV element
         obj.div.innerHTML = layout[0] + xhr.responseText + layout[1];
 
+
         //obj.div.innerHTML = layout[0] + layout[1] + xhr.responseText + layout[2];
 
         //obj.div.innerHTML = xhr.responseText;
@@ -127,15 +128,14 @@ redips.handler1 = function (xhr, obj) {
         var elemlabel = obj.div.getElementsByTagName("label");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
         var elemheading = obj.div.getElementsByTagName("h3");
-
-
-        if (elemlabel != null)
+        
+        if (eleminput.length >0)
             fieldset(eleminput);
-        if (elemlabel != null)
+        if (elemlabel.length > 0)
             fieldset(elemlabel);
-        if (elemtextarea != null)
+        if (elemtextarea.length > 0)
             fieldset(elemtextarea);
-        if (elemheading != null)
+        if (elemheading.length > 0)
             fieldset(elemheading);
 
     }
@@ -147,10 +147,30 @@ redips.handler1 = function (xhr, obj) {
 
 function deleteColumn(event) {
     debugger;
+    
+    var test = $(event).prev();
+    alert(test[0].id);
     var id = document.getElementById("RequiredFieldID");
+    alert(id);
     document.getElementById(id).remove();
     //$('#con-close-modal').modal('hide');
 }
+
+function AddDetail(event) {
+    debugger;
+   
+    var test = $(event).next();
+    alert(test[0].id);
+
+    document.getElementById("FieldDetailDiv").style.display = '';
+
+
+    //var test = event.id;
+    //var id = document.getElementById("RequiredFieldID");
+    //document.getElementById(id).remove();
+    //$('#con-close-modal').modal('hide');
+}
+
 
 function fieldClick(event) {
 

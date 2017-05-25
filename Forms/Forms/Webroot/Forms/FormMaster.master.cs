@@ -17,7 +17,7 @@ namespace Forms.Webroot.Forms
         protected void Page_Load(object sender, EventArgs e)
         {
             loadPageCache();
-
+            //string test = getLastURL();
 
         }
         private void loadPageCache()

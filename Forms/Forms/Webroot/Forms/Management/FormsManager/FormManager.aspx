@@ -16,6 +16,7 @@
                 <div class="row">
                     <div id="redips-drag">
                         <!-- left container -->
+                     
                         <div id="left" class="col-md-2 col-sm-4 col-xs-5">
                             <div class="instructions">
                                 <strong>Building blocks</strong>
@@ -265,6 +266,40 @@
 
 
                 <div class="clearfix"></div>
+
+                   <div class="FieldDetail col-md-4" id="FieldDetailDiv" style="display:none;">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Field Name</label>
+                                           <input type="text" id="txtname" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">is Required</label>
+                                           <input type="checkbox" id="chkrequired"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">is Mask</label>
+                                           <input type="checkbox" id="chkmask"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">css Class</label>
+                                           <input type="text" id="txtcssclass" class="form-control"/>
+                                        </div>
+                                    </div>
+                                 
+                                    
+                         
+                                </div>
+
+
+
 
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
