@@ -13,6 +13,7 @@ using Utils.itinsync.icom.date;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.IO;
+using Utils.itinsync.icom.xml;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -26,6 +27,15 @@ namespace Forms.Webroot.Forms.SIO
         {
             
                 this.CreateControl();
+
+
+            string xml = @"<SIO><GeneralSIO><GSIORadioYes1>True</GSIORadioYes1><GSIORadioNo1>False</GSIORadioNo1><GSIORadioN_A1>False</GSIORadioN_A1><GSIORadioYes2>True</GSIORadioYes2><GSIORadioNo2>False</GSIORadioNo2><GSIORadioN_A2>False</GSIORadioN_A2><GSIORadioYes3>True</GSIORadioYes3><GSIORadioNo3>False</GSIORadioNo3><GSIORadioN_A3>False</GSIORadioN_A3><GSIORadioYes4>True</GSIORadioYes4><GSIORadioNo4>False</GSIORadioNo4><GSIORadioN_A4>False</GSIORadioN_A4><GSIORadioYes5>True</GSIORadioYes5><GSIORadioNo5>False</GSIORadioNo5><GSIORadioN_A5>False</GSIORadioN_A5><GSIORadioYes6>True</GSIORadioYes6><GSIORadioNo6>False</GSIORadioNo6><GSIORadioN_A6>False</GSIORadioN_A6><GSIORadioYes7>True</GSIORadioYes7><GSIORadioNo7>False</GSIORadioNo7><GSIORadioN_A7>False</GSIORadioN_A7><GSIORadioYes8>True</GSIORadioYes8><GSIORadioNo8>False</GSIORadioNo8><GSIORadioN_A8>False</GSIORadioN_A8><GSIORadioYes9>True</GSIORadioYes9><GSIORadioNo9>False</GSIORadioNo9><GSIORadioN_A9>False</GSIORadioN_A9><GSIORadioYes10>True</GSIORadioYes10><GSIORadioNo10>False</GSIORadioNo10><GSIORadioN_A10>False</GSIORadioN_A10><GSIORadioYes11>True</GSIORadioYes11><GSIORadioNo11>False</GSIORadioNo11><GSIORadioN_A11>False</GSIORadioN_A11><GSIORadioYes12>True</GSIORadioYes12><GSIORadioNo12>False</GSIORadioNo12><GSIORadioN_A12>False</GSIORadioN_A12><GSIORadioYes13>True</GSIORadioYes13><GSIORadioNo13>False</GSIORadioNo13><GSIORadioN_A13>False</GSIORadioN_A13><txtTotal>1.4861111111111114</txtTotal><txtResult></txtResult></GeneralSIO></SIO>";
+            XMLParser xmlparser = new XMLParser(xml);
+            xml = xmlparser.getTagXML("/SIO/GeneralSIO", "GeneralSIO");
+            xmlparser.Load(xml);
+            
+            string tag = xmlparser.getTagValue("/GeneralSIO/GSIORadioNo1");
+          
         }
       
         protected void Page_LoadComplete(object sender, EventArgs e)
