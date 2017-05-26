@@ -9,13 +9,14 @@
         <div class="col-sm-12">
             <div class="card-box">
            
-              
-              
+              <h4 class="m-t-0 header-title"><b>General SIO</b></h4>
+            
+                  <asp:Panel ID="PagePanel" runat="server">
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
                    
                 </asp:Table>
              
-                   
+                   </asp:Panel>
 
 
               

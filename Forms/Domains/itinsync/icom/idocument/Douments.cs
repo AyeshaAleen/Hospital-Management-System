@@ -12,7 +12,7 @@ namespace Domains.itinsync.icom.idocument
     public class Douments : System.Attribute, IDomain
     {
         public enum columns
-        { documentName, documentDefinitionID, transDate, transTime, status, data, filePath, type, extension }
+        { documentName, documentDefinitionID, transDate, transTime, status, data, filePath, type, extension, storeid , Userid }
         public enum primaryKey { documentID }
         public Int32 documentID { get; set; }
         public string documentName { get; set; }
@@ -25,6 +25,8 @@ namespace Domains.itinsync.icom.idocument
         public string filePath { get; set; }
         public string parentRef { get; set; }
         public Int32 vendorid { get; set; }
+        public Int32 storeid { get; set; }
+        public Int32 Userid { get; set; }
         public Int32 transID { get; set; }
         public string type { get; set; }
         public string extension { get; set; }

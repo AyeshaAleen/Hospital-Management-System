@@ -61,6 +61,14 @@ namespace DAO.itinsync.icom.idocument
             string sql = "select * From " + TABLENAME + "where documentID = " + documentID;
             return (Douments)processSingleResult(sql);
         }
+        public Douments readybyDocumentDefinitionID(Int32 documentDefinitionID,Int32 storeid)
+        {
+
+
+
+            string sql = string.Format("select * From " + TABLENAME + "where documentDefinitionID = {0} and storeid={1}", documentDefinitionID, storeid);
+            return (Douments)processSingleResult(sql);
+        }
 
         public Douments readybyDocumentName(string documentName)
         {

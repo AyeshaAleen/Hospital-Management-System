@@ -196,6 +196,7 @@
 
                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
                 <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                
                 <div class="clearfix"></div>
             
             </div>

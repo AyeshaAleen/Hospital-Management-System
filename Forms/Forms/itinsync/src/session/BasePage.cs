@@ -258,13 +258,14 @@ namespace Forms.itinsync.src.session
             //this.Controls.Add(parentTable);
             return parentTable;
         }
-        protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
+        protected Table processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
 
             Control tableControl = parent.FindControl("tableDynamic");
             Table parentTable = ((Table)(tableControl));
-            processDynamicContent(parentTable, documents, sectionID);
+            parentTable= processDynamicContent(parentTable, documents, sectionID);
 
+            return parentTable;
         }
         private void performedCalculation(Control parent, Douments documents, Int32 sectionID)
         {
@@ -362,7 +363,8 @@ namespace Forms.itinsync.src.session
 
         public string xmlConversion(Control parent, string outPut)
         {
-           
+
+           // Table table = parent.Controls.OfType<Table>().SingleOrDefault();
 
             foreach (Control c in parent.Controls)
             {
