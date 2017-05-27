@@ -104,19 +104,19 @@ namespace Forms.Webroot.Forms.SIO
             // Remove root ending tag for updation
             xml = xml.Replace("</" + rootPageName + ">", "");
 
-            TotalSecs = dto.documentSection.Count;
+            TotalSecs = dto.documentSectionlist.Count;
             CompleteSecs = 0;
 
-            flowID = Convert.ToInt16((dto.documentSection.FirstOrDefault(x => x.documentdefinitionid == documentDefID && x.name.Trim() == SecPageName).flow));
-            documentSecID = Convert.ToInt16((dto.documentSection.FirstOrDefault(x => x.documentdefinitionid == documentDefID && x.name.Trim()
+            flowID = Convert.ToInt16((dto.documentSectionlist.FirstOrDefault(x => x.documentdefinitionid == documentDefID && x.name.Trim() == SecPageName).flow));
+            documentSecID = Convert.ToInt16((dto.documentSectionlist.FirstOrDefault(x => x.documentdefinitionid == documentDefID && x.name.Trim()
             == SecPageName).documentsectionid));
 
-            prevPageURL = (flowID > 1) ? dto.documentSection.FirstOrDefault(x => x.flow == (flowID - 1).ToString()).name.Trim() : SecPageName;
+            prevPageURL = (flowID > 1) ? dto.documentSectionlist.FirstOrDefault(x => x.flow == (flowID - 1).ToString()).name.Trim() : SecPageName;
 
-            nextPageURL = dto.documentSection.FirstOrDefault(x => x.flow == (flowID + 1).ToString()).name.Trim();
+            nextPageURL = dto.documentSectionlist.FirstOrDefault(x => x.flow == (flowID + 1).ToString()).name.Trim();
             nextPageURL = (nextPageURL.Length > 0) ? nextPageURL : SecPageName;
 
-            foreach (XDocumentSection dSec in dto.documentSection) CompleteSecs = (xml.Contains("<" + dSec.name.Trim() + ">")) ? CompleteSecs + 1 : CompleteSecs;
+            foreach (XDocumentSection dSec in dto.documentSectionlist) CompleteSecs = (xml.Contains("<" + dSec.name.Trim() + ">")) ? CompleteSecs + 1 : CompleteSecs;
 
             decimal Perc = Math.Round(Convert.ToDecimal(CompleteSecs) / Convert.ToDecimal(TotalSecs) * 100);
 

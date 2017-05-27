@@ -17,6 +17,8 @@ namespace Domains.itinsync.icom.idocument.definition
         public String rdlcPath { get; set; }
         public String dataTable { get; set; }
         public String parameters { get; set; }
+
+        public string QMode { get; set; }
         public object getKey() { return xDocumentDefinationID; }
 
         public void setTransID(object transID)

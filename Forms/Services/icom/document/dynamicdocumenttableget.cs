@@ -38,7 +38,7 @@ namespace Services.itinsync.icom.documents
 
                 dto.document = DocumentDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentID);
 
-                dto.documentSection = XDocumentSectionDAO.getInstance(dbContext).readyByDocumentDefinitionID(dto.document.documentDefinitionID);
+                dto.documentSectionlist = XDocumentSectionDAO.getInstance(dbContext).readyByDocumentDefinitionID(dto.document.documentDefinitionID);
             }
             catch (Exception ex)
             {

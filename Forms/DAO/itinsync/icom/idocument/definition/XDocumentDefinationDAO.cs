@@ -26,6 +26,7 @@ using DAO.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.idocument.section;
 using System.Collections;
+using Utils.itinsync.icom.cache.lookup;
 
 namespace DAO.itinsync.icom.idocument.definition
 {
@@ -69,14 +70,11 @@ namespace DAO.itinsync.icom.idocument.definition
         }
         public XDocumentDefination findbyPrimaryKey(Int32 xDocumentDefinationID)
         {
+            if (DocumentManager.getDocumentDefinition(xDocumentDefinationID) != null)
+                return DocumentManager.getDocumentDefinition(xDocumentDefinationID);
 
-            if (GlobalStaticCache.documentDefinition.ContainsKey(xDocumentDefinationID))
-                return GlobalStaticCache.documentDefinition[xDocumentDefinationID];
-            else
-            {
-               load();
-               return GlobalStaticCache.documentDefinition[xDocumentDefinationID];
-            }
+            string sql = "select * From " + TABLENAME + " where xDocumentDefinationID = " + xDocumentDefinationID;
+            return (XDocumentDefination)processSingleResult(sql);
         }
         public XDocumentDefination findbyDocumentName(string DocumentName)
         {
@@ -160,20 +158,39 @@ namespace DAO.itinsync.icom.idocument.definition
                                         fieldcalculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.resultContentID);
                                        
                                     }
-                                    GlobalStaticCache.documentContent.Add(content.documentTableContentID, content);
+
+                                    if (GlobalStaticCache.documentContent.ContainsKey(content.documentTableContentID)==false)
+                                    {
+                                        GlobalStaticCache.documentContent.Add(content.documentTableContentID, content);
+                                    }
 
                                 }
-                                GlobalStaticCache.documentTablesTD.Add(td.tdID, td);
+
+                                if (GlobalStaticCache.documentTablesTD.ContainsKey(td.tdID) == false)
+                                {
+                                    GlobalStaticCache.documentTablesTD.Add(td.tdID, td);
+                                }
                                
                             }
-                            GlobalStaticCache.documentTablesTR.Add(tr.trID, tr);
+                            if (GlobalStaticCache.documentTablesTR.ContainsKey(tr.trID) == false)
+                            {
+                                GlobalStaticCache.documentTablesTR.Add(tr.trID, tr);
+                            }
                         }
-                        GlobalStaticCache.documentTables.Add(table.documentTableID, table);
+                        if (GlobalStaticCache.documentTables.ContainsKey(table.documentTableID) == false)
+                        {
+                            GlobalStaticCache.documentTables.Add(table.documentTableID, table);
+                        }
                     }
-                    GlobalStaticCache.documentSection.Add(section.documentsectionid, section);
+                    if (GlobalStaticCache.documentSection.ContainsKey(section.documentsectionid) == false)
+                    {
+                        GlobalStaticCache.documentSection.Add(section.documentsectionid, section);
+                    }
                 }
-
-                GlobalStaticCache.documentDefinition.Add(documentDefinition.xDocumentDefinationID, documentDefinition);
+                if (GlobalStaticCache.documentDefinition.ContainsKey(documentDefinition.xDocumentDefinationID) == false)
+                {
+                    GlobalStaticCache.documentDefinition.Add(documentDefinition.xDocumentDefinationID, documentDefinition);
+                }
 
             }
         }

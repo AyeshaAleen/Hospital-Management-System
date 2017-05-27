@@ -15,7 +15,7 @@ using DAO.itinsync.icom.idocument.definition;
 
 namespace Services.itinsync.icom.documents
 {
-    public class documentSaveService : FrameAS
+    public class documentDefinitionSaveService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -25,14 +25,11 @@ namespace Services.itinsync.icom.documents
                 dto = (DocumentDTO)o;
                 if (dto.documentDefination.xDocumentDefinationID > 0)
                 {
-                    DocumentDAO.getInstance(dbContext).update(dto.documentDefination, "");
+                    XDocumentDefinationDAO.getInstance(dbContext).update(dto.documentDefination, "");
                 }
                 else
                 {
-                    //dto.documentDefination.name = dto.document.documentName;
-                    //dto.document.documentDefinitionID = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
-
-                     DocumentDAO.getInstance(dbContext).create(dto.documentDefination);
+                    XDocumentDefinationDAO.getInstance(dbContext).create(dto.documentDefination);
                 }
 
 

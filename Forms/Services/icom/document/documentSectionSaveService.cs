@@ -11,11 +11,11 @@ using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 using DAO.itinsync.icom.idocument;
-using DAO.itinsync.icom.idocument.definition;
+using DAO.itinsync.icom.idocument.section;
 
 namespace Services.itinsync.icom.documents
 {
-    public class documentSaveService : FrameAS
+    public class documentSectionSaveService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -23,16 +23,14 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentDefination.xDocumentDefinationID > 0)
+                if (dto.documentSection.documentsectionid > 0)
                 {
-                    DocumentDAO.getInstance(dbContext).update(dto.documentDefination, "");
+                    
+                    XDocumentSectionDAO.getInstance(dbContext).update(dto.documentSection, "");
                 }
                 else
                 {
-                    //dto.documentDefination.name = dto.document.documentName;
-                    //dto.document.documentDefinitionID = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.document.documentName).xDocumentDefinationID;
-
-                     DocumentDAO.getInstance(dbContext).create(dto.documentDefination);
+                    XDocumentSectionDAO.getInstance(dbContext).create(dto.documentSection);
                 }
 
 

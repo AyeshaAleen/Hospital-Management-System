@@ -20,11 +20,12 @@ namespace Services.itinsync.icom.documents.dto
 
         public Douments document = new Douments();
 
-        public List<XDocumentSection> documentSection = new List<XDocumentSection>();
+        public List<XDocumentSection> documentSectionlist = new List<XDocumentSection>();
+        public XDocumentSection documentSection = new XDocumentSection();
 
         public documentcontent documentcontentview = new documentcontent();
 
-
+        public List<>
 
         public List<Douments> documentList = new List<Douments>();
         public ErrorBlock errorBlock = new ErrorBlock();
