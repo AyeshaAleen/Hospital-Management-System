@@ -46,8 +46,12 @@ namespace Forms.Webroot.Forms.Management
 
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
         {
+            
             setSubjectID(Convert.ToString(e.CommandArgument));
-            Response.Redirect(PageConstant.PAGE_DocumentSection);
+
+            //popupmodal.Style.Value = "display:block";
+
+           // Response.Redirect(PageConstant.PAGE_DocumentSection);
         }
         
         int DDID = 0;

@@ -63,6 +63,7 @@
     <Compile Include="itinsync\icom\SecurityManager.cs" />
     <Compile Include="itinsync\icom\ServiceUtils.cs" />
     <Compile Include="itinsync\icom\Utils.cs" />
+    <Compile Include="itinsync\icom\xml\XMLParser.cs" />
     <Compile Include="itinsync\icom\xml\XMLUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

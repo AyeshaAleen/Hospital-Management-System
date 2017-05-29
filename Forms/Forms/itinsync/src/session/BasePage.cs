@@ -155,6 +155,8 @@ namespace Forms.itinsync.src.session
                                         txtBox.CssClass = content.cssClass;
                                         txtBox.Attributes.Add("irequired", content.isRequired);
                                         txtBox.Attributes.Add("imask", content.mask);
+                                      
+
                                         txtBox.Attributes.Add("points", content.points);
                                         if (calculations.Count > 0)
                                         {
@@ -180,6 +182,8 @@ namespace Forms.itinsync.src.session
                                         radio.Attributes.Add("irequired", content.isRequired);
                                         radio.Attributes.Add("imask", content.mask);
                                         radio.Attributes.Add("points", content.points);
+                                       
+
                                         if (calculations.Count > 0)
                                         {
                                             radio.Attributes.Add("onchange", "calculation();");
@@ -201,6 +205,7 @@ namespace Forms.itinsync.src.session
                                         check.Attributes.Add("irequired", content.isRequired);
                                         check.Attributes.Add("imask", content.mask);
                                         check.Attributes.Add("points", content.points);
+                                        
                                         if (calculations.Count > 0)
                                         {
                                             check.Attributes.Add("onchange", "calculation();");
@@ -242,6 +247,7 @@ namespace Forms.itinsync.src.session
                         }
 
                         parentTable.Rows.Add(tabletr);
+                        
                     }
 
                 }
@@ -249,16 +255,17 @@ namespace Forms.itinsync.src.session
 
 
 
-
+            //this.Controls.Add(parentTable);
             return parentTable;
         }
-        protected void processDynamicContent(Control parent, Douments documents,Int32 sectionID)
+        protected Table processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
 
             Control tableControl = parent.FindControl("tableDynamic");
             Table parentTable = ((Table)(tableControl));
-            processDynamicContent(parentTable, documents, sectionID);
+            parentTable= processDynamicContent(parentTable, documents, sectionID);
 
+            return parentTable;
         }
         private void performedCalculation(Control parent, Douments documents, Int32 sectionID)
         {
@@ -352,10 +359,12 @@ namespace Forms.itinsync.src.session
 
         }
 
+       
+
         public string xmlConversion(Control parent, string outPut)
         {
-            Control tableControl = parent.FindControl("tableDynamic");
-            Table parentTable = ((Table)(tableControl));
+
+           // Table table = parent.Controls.OfType<Table>().SingleOrDefault();
 
             foreach (Control c in parent.Controls)
             {

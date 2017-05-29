@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Quality" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" validateRequest="false" AutoEventWireup="true" 
-    CodeBehind="Quality.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Quality" %>
+﻿<%@ Page Title="Quality" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="Quality.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Quality" %>
 
 <asp:Content ID="cntQualityHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
@@ -195,23 +194,10 @@
                 </table>--%>
 
                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
-                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" OnClientClick="return IsValid();" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
-                <asp:HiddenField ID="Tages" runat="server" Value="" />
+                <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
             </div>
         </div>
     </div>
 </asp:Content>
 <asp:Content ID="cntQualityFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
-     <script>
-        function IsValid() {
-            var tble = document.getElementById("CommonMasterBody_FormMasterBody_tableDynamic");
-            var Value = GenerateTags(tble);
-            document.getElementById("CommonMasterBody_FormMasterBody_Tages").value = Value;
-
-            if (Value == "")
-                return false;
-            else
-                return true;
-        }
-    </script>
 </asp:Content>

@@ -77,7 +77,9 @@
                                 </div>
 
 								<h4 class="page-title"><%: Page.Title %></h4>
-								<ol class="breadcrumb">
+								<ol class="breadcrumb" id="breadcrumblist">
+                                     
+
                                    <%--  <asp:Repeater ID="tblBreadCrumb" runat="server">
                                         <ItemTemplate>
                                             
