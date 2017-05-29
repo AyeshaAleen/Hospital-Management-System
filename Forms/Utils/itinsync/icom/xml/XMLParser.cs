@@ -18,7 +18,11 @@ namespace Utils.itinsync.icom.xml
         public void Load(string xml)
         {
             xmlDoc.LoadXml(xml);
+
+            
         }
+
+
 
         //SIO
         public XmlNodeList getXmlNodeList(string node)

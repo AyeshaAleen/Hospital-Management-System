@@ -22,7 +22,7 @@ redips.configuration = function () {
     // layout (HTML code) for component placed to the table editor 
     //redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
 
-    redips.component = '<span class="hLeft" onclick="AddDetail(this)">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+    redips.component = '<button type="button" onclick="AddDetail(this)" id="bulk_actions_btn"class="btn btn-default has-spinner-two"data - toggle="popover"data - placement="bottom" data- original - title=""data - content="Click any question mark icon to get help and tips with specific tasks"aria - describedby="popover335446" > Apply</button >| <span class="hRight" onclick="deleteColumn(this)">x</span>';
 
  
 };
@@ -129,14 +129,14 @@ redips.handler1 = function (xhr, obj) {
         var elemtextarea = obj.div.getElementsByTagName("textarea");
         var elemheading = obj.div.getElementsByTagName("h3");
         
-        if (eleminput.length >0)
-            fieldset(eleminput);
+        if (eleminput.length > 0)
+            fieldset(eleminput, obj.div.id);
         if (elemlabel.length > 0)
-            fieldset(elemlabel);
+            fieldset(elemlabel, obj.div.id);
         if (elemtextarea.length > 0)
-            fieldset(elemtextarea);
+            fieldset(elemtextarea, obj.div.id);
         if (elemheading.length > 0)
-            fieldset(elemheading);
+            fieldset(elemheading, obj.div.id);
 
     }
     // otherwise display error inside DIV element
@@ -147,22 +147,25 @@ redips.handler1 = function (xhr, obj) {
 
 function deleteColumn(event) {
     debugger;
-    
-    var test = $(event).prev();
-    alert(test[0].id);
-    var id = document.getElementById("RequiredFieldID");
-    alert(id);
-    document.getElementById(id).remove();
-    //$('#con-close-modal').modal('hide');
+    var divelement = $(event).parent();
+   document.getElementById(divelement[0].id).remove();
 }
 
 function AddDetail(event) {
     debugger;
    
-    var test = $(event).next();
-    alert(test[0].id);
+    if ($(event).prop('popShown') == undefined) {
+        $(event).prop('popShown', true).popover('show');
+    }
 
-    document.getElementById("FieldDetailDiv").style.display = '';
+
+    //var test = $(event).next();
+    //alert(test[0].id);
+
+
+    //$('[data-toggle="popover"]').popover(); 
+
+    //document.getElementById("FieldDetailDiv").style.display = '';
 
 
     //var test = event.id;
@@ -184,10 +187,10 @@ function fieldClick(event) {
     //detailWindow();
 }
 
-function fieldset(event) {
+function fieldset(event,divid) {
     debugger;
    
-    event[0].id = "dynamic_" + event[0].type;
+    event[0].id = "dynamic_" + event[0].type + divid;
 }
 
 function fieldleave(event) {

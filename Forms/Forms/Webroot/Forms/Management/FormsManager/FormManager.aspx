@@ -267,7 +267,16 @@
 
                 <div class="clearfix"></div>
 
-                   <div class="FieldDetail col-md-4" id="FieldDetailDiv" style="display:none;">
+                
+             <button onclick="getpopover()" type="button" id="bulk_actions_btns"
+        class="btn btn-default has-spinner-two"
+        data-toggle="popover"
+        data-placement="bottom" data-original-title=""
+        data-content="Click any question mark icon to get help and tips with specific tasks"
+        aria-describedby="popover335446"> Apply
+</button>
+
+                   <div class="FieldDetail col-md-4" id="FieldDetailDiv" style="display:none;" data-toggle="tooltip" data-placement="right">
 
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -371,16 +380,24 @@
             document.getElementById('CommonMasterBody_FormMasterBody_tableOuterHtml').value = outerHTML;//document.getElementById("tblEditor").outerHTML;
 
         }
+        function getpopover()
+        {
+debugger;
+
+            if ($(this).prop('popShown') == undefined) {
+                $(this).prop('popShown', true).popover('show');
+            }
+        }
         $(document).ready(function () {
-            var parenttbl = document.getElementById("cellcontrol");
-            var outer = parenttbl.outerHTML;
-            outer = decodehtml(outer);
-            document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_FormMasterBody_tableOuterHtml").value;
-            var theTbl = document.getElementById('tblEditor');
-            $('#tblEditor tr').each(function () {
-                var newel = document.createElement('td');
-                $(this).append(parenttbl);
-            });
+            //var parenttbl = document.getElementById("cellcontrol");
+            //var outer = parenttbl.outerHTML;
+            //outer = decodehtml(outer);
+            //document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_FormMasterBody_tableOuterHtml").value;
+            //var theTbl = document.getElementById('tblEditor');
+            //$('#tblEditor tr').each(function () {
+            //    var newel = document.createElement('td');
+            //    $(this).append(parenttbl);
+            //});
         });
 
 
