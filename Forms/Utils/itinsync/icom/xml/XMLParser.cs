@@ -11,18 +11,18 @@ namespace Utils.itinsync.icom.xml
    public class XMLParser
     {
         private XmlDocument xmlDoc = new XmlDocument();
+        private string rootTag = "";
         public XMLParser(string xml)
         {
             xmlDoc.LoadXml(xml);
+            rootTag = xmlDoc
+                .DocumentElement.Name;
         }
         public void Load(string xml)
         {
             xmlDoc.LoadXml(xml);
-
-            
+            rootTag = xmlDoc.OwnerDocument.DocumentElement.Name;
         }
-
-
 
         //SIO
         public XmlNodeList getXmlNodeList(string node)
@@ -44,8 +44,6 @@ namespace Utils.itinsync.icom.xml
                     foreach (XmlNode node in nodeList)
                     {
                         return node.InnerText;
-                        
-                       
                     }
                 
             
@@ -79,11 +77,11 @@ namespace Utils.itinsync.icom.xml
             return "";
         }
 
-        public string getTagXML(string xPath,string tag)
+        public string getTagXML(string tag)
         {
             
 
-            XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes(xPath);
+            XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes("/"+rootTag+"/"+ tag);
 
             foreach (XmlNode node in nodeList)
             {
@@ -94,7 +92,22 @@ namespace Utils.itinsync.icom.xml
             return "";
         }
 
-       
+
+        public string setTagXML(string tag,string value)
+        {
+            XmlNode node = xmlDoc.SelectSingleNode("/"+ rootTag+"/"+ tag);
+
+            if (node.Name == tag)
+            {
+                node.InnerXml = value;
+            }
+
+            return "";
+        }
+
+
+
+
 
     }
 }
