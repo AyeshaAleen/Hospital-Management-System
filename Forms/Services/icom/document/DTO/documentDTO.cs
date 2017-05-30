@@ -25,7 +25,7 @@ namespace Services.itinsync.icom.documents.dto
 
         public documentcontent documentcontentview = new documentcontent();
 
-        public List<>
+       
 
         public List<Douments> documentList = new List<Douments>();
         public ErrorBlock errorBlock = new ErrorBlock();
