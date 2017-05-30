@@ -9,6 +9,10 @@ namespace Utils.itinsync.icom.constant.lookup
     public static  class LookupsConstant
     {
         public static readonly string LKContactMethod = "LKContactMethod";
+        public static readonly string LKControlType = "LKControlType";
+
+        public static readonly string LKMask = "LKMask";
+
         public static readonly string LKRank = "LKRank";
         public static readonly string LKVendorStatus = "LKVendorStatus";
         public static readonly string LKVendorRole = "LKVendorRole";

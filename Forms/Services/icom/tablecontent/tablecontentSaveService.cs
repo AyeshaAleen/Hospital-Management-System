@@ -30,7 +30,7 @@ namespace Services.itinsync.icom.tablecontent
                 dto = (tablecontentDTO)o;
 
                 
-                XDocumentDefination documentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.documentdefinitionName);
+               // XDocumentDefination documentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.documentdefinitionName);
 
                 #region check is document exist
 

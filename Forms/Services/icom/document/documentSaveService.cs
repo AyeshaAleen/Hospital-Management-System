@@ -30,9 +30,7 @@ namespace Services.itinsync.icom.documents
                 if (dto.document.documentID > 0)
                 {
 
-                    string Data = DocumentDAO.getInstance(dbContext).readybyDocumentDefinitionID(dto.document.documentDefinitionID,dto.document.storeid).data;
-                    SetDocumentData(Data);
-
+                   
                     DocumentDAO.getInstance(dbContext).update(dto.document, "");
                 }
                 else

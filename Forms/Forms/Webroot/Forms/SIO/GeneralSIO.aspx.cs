@@ -14,6 +14,7 @@ using System.Data;
 using System.Web.UI.WebControls;
 using System.IO;
 using Utils.itinsync.icom.xml;
+using System.Xml;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -21,26 +22,13 @@ namespace Forms.Webroot.Forms.SIO
     {
         private static int section_id = 1;
         private static int documentDefinitionID = 1001;
-
+        private static string dbxml = "";
         public static string xml = "";
-        
+        public static int documentid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+           
                 this.CreateControl();
-
-
-            string xml = @"<SIO><GeneralSIO><GSIORadioYes1>True</GSIORadioYes1><GSIORadioNo1>False</GSIORadioNo1><GSIORadioN_A1>False</GSIORadioN_A1><GSIORadioYes2>True</GSIORadioYes2><GSIORadioNo2>False</GSIORadioNo2><GSIORadioN_A2>False</GSIORadioN_A2><GSIORadioYes3>True</GSIORadioYes3><GSIORadioNo3>False</GSIORadioNo3><GSIORadioN_A3>False</GSIORadioN_A3><GSIORadioYes4>True</GSIORadioYes4><GSIORadioNo4>False</GSIORadioNo4><GSIORadioN_A4>False</GSIORadioN_A4><GSIORadioYes5>True</GSIORadioYes5><GSIORadioNo5>False</GSIORadioNo5><GSIORadioN_A5>False</GSIORadioN_A5><GSIORadioYes6>True</GSIORadioYes6><GSIORadioNo6>False</GSIORadioNo6><GSIORadioN_A6>False</GSIORadioN_A6><GSIORadioYes7>True</GSIORadioYes7><GSIORadioNo7>False</GSIORadioNo7><GSIORadioN_A7>False</GSIORadioN_A7><GSIORadioYes8>True</GSIORadioYes8><GSIORadioNo8>False</GSIORadioNo8><GSIORadioN_A8>False</GSIORadioN_A8><GSIORadioYes9>True</GSIORadioYes9><GSIORadioNo9>False</GSIORadioNo9><GSIORadioN_A9>False</GSIORadioN_A9><GSIORadioYes10>True</GSIORadioYes10><GSIORadioNo10>False</GSIORadioNo10><GSIORadioN_A10>False</GSIORadioN_A10><GSIORadioYes11>True</GSIORadioYes11><GSIORadioNo11>False</GSIORadioNo11><GSIORadioN_A11>False</GSIORadioN_A11><GSIORadioYes12>True</GSIORadioYes12><GSIORadioNo12>False</GSIORadioNo12><GSIORadioN_A12>False</GSIORadioN_A12><GSIORadioYes13>True</GSIORadioYes13><GSIORadioNo13>False</GSIORadioNo13><GSIORadioN_A13>False</GSIORadioN_A13><txtTotal>1.4861111111111114</txtTotal><txtResult></txtResult></GeneralSIO></SIO>";
-            XMLParser xmlparser = new XMLParser(xml);
-            xml = xmlparser.getTagXML( "GeneralSIO");
-
-            string invalue = @"<GSIORadioYes1>True</GSIORadioYes1><GSIORadioNo1>False</GSIORadioNo1>";
-
-            xmlparser.setTagXML("GeneralSIO", invalue); 
-
-            xml = xmlparser.getTagXML("GeneralSIO");
-
-
 
         }
       
@@ -54,12 +42,16 @@ namespace Forms.Webroot.Forms.SIO
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
             dto.document.documentDefinitionID = 1001;
+            dto.document.storeid = 1;
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
+                dbxml = dto.document.data;
+                documentid = dto.document.documentID;
                 Table obj_Table = processDynamicContent(tableDynamic, dto.document, section_id);
+                PagePanel.Controls.Add(obj_Table);
             }
         }
 
@@ -74,7 +66,8 @@ namespace Forms.Webroot.Forms.SIO
             dto.document.Userid = getHeader().userID;
             dto.document.storeid = 1;
 
-            dto.document.documentID = 51;
+            
+            dto.document.documentID = documentid;
 
             IResponseHandler response = new documentSaveService().executeAsPrimary(dto);
             //if(response.getErrorBlock().ErrorCode==ApplicationCodes.ERROR_NO)
@@ -88,8 +81,25 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
+           // Table table=(Table)PagePanel.FindControl("tableDynamic");
 
             xml = "<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>" + "</SIO>";
+
+            string db_xml = dbxml;
+            XMLParser xmlparser = new XMLParser(db_xml);
+            db_xml = xmlparser.getTagXML("GeneralSIO");
+
+
+            XMLParser xmlparser_In = new XMLParser(xml);
+           
+
+            string invalue = xmlparser_In.getTagXML("GeneralSIO");
+
+            
+
+            xmlparser.setTagXML("GeneralSIO", invalue.ToString());
+
+            xml = xmlparser.getRootTagXML("GeneralSIO");
 
             save_data();
          

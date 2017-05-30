@@ -7,7 +7,7 @@ namespace domains.itinsync.businesstransaction
     public class BusinessTranscation : System.Attribute, IDomain
     {
         public enum columns
-        { transID, transDate, transTime, userID, pageNo, previousPageNo }
+        {  transDate, transTime, userID, pageNo, previousPageNo }
         public enum primaryKey { transID }
         public Int32 transID { get; set; }
         public string transDate { get; set; }

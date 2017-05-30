@@ -22,9 +22,10 @@ redips.configuration = function () {
     // layout (HTML code) for component placed to the table editor 
     //redips.component = '<div class="redips-layout cHeader"><span class="hLeft" onclick="redips.details(this)">+</span><span class="hTitle">|</span><span class="hRight" onclick="redips.divDelete(this)">x</span>' + '<div class="' + redips.cDetails + '">|</div>';
 
-    redips.component = '<button type="button" onclick="AddDetail(this)" id="bulk_actions_btn"class="btn btn-default has-spinner-two"data - toggle="popover"data - placement="bottom" data- original - title=""data - content="Click any question mark icon to get help and tips with specific tasks"aria - describedby="popover335446" > Apply</button >| <span class="hRight" onclick="deleteColumn(this)">x</span>';
+  //  redips.component = "<a href=\"#\" data-toggle=\"popover\" onclick=\"AddDetail()\" title=\"Popover Header\" data-content=\"Some content inside the popover\">Toggle popover</a>";
+        //< button onclick=\"getpopover(this)\" type=\"button\" id=\"bulk_actions_btnsss\" class=\"btn btn-default has-spinner-two\" data-toggle=\"popover\" data-placement=\"bottom\" data-original-title=\"\" data-content=\"wwwwwwwwwwClick any question mark icon to get help and tips with specific tasks\" aria-describedby=\"popover335446789\"> Apply</button>| <span class=\"hRight\" onclick=\"deleteColumn(this)\">x</span>";
 
- 
+    redips.component = '<span class="hLeft" onclick="AddDetail()">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
 };
 
 
@@ -113,30 +114,38 @@ redips.handler1 = function (xhr, obj) {
         // prepare title and layout
         title = obj.div.innerHTML;
         layout = redips.component.split('|');
+
+      
         // set layout and title inside dropped DIV element
-        obj.div.innerHTML = layout[0] + xhr.responseText + layout[1];
+        obj.div.innerHTML = xhr.responseText + layout[1];
 
 
         //obj.div.innerHTML = layout[0] + layout[1] + xhr.responseText + layout[2];
 
         //obj.div.innerHTML = xhr.responseText;
 
-
+       
 
 
         var eleminput = obj.div.getElementsByTagName("input");
         var elemlabel = obj.div.getElementsByTagName("label");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
         var elemheading = obj.div.getElementsByTagName("h3");
-        
+        var controlID = "";
         if (eleminput.length > 0)
-            fieldset(eleminput, obj.div.id);
+            controlID = fieldset(eleminput, obj.div.id);
         if (elemlabel.length > 0)
-            fieldset(elemlabel, obj.div.id);
+            controlID=   fieldset(elemlabel, obj.div.id);
         if (elemtextarea.length > 0)
-            fieldset(elemtextarea, obj.div.id);
+            controlID = fieldset(elemtextarea, obj.div.id);
         if (elemheading.length > 0)
-            fieldset(elemheading, obj.div.id);
+            controlID= fieldset(elemheading, obj.div.id);
+
+        var popupHTML = layout[0];
+        var params = "AddDetail('" + controlID + "')";
+        popupHTML = popupHTML.replace("AddDetail()", params);
+
+        obj.div.innerHTML = popupHTML + obj.div.innerHTML;
 
     }
     // otherwise display error inside DIV element
@@ -145,43 +154,40 @@ redips.handler1 = function (xhr, obj) {
     }
 };
 
-function deleteColumn(event) {
+function deleteColumn(elem) {
     debugger;
-    var divelement = $(event).parent();
-   document.getElementById(divelement[0].id).remove();
+    alert("hello");
+    var divelement = $(elem).parent();
+
+    alert(divelement);
+    document.getElementsByTagName(divelement[0]).remove();
 }
 
-function AddDetail(event) {
+function AddDetail(id) {
     debugger;
-   
-    if ($(event).prop('popShown') == undefined) {
-        $(event).prop('popShown', true).popover('show');
-    }
+    document.getElementById("ControlName").value = id;
+    document.getElementById("ControlID").value = id;
 
-
-    //var test = $(event).next();
-    //alert(test[0].id);
-
-
-    //$('[data-toggle="popover"]').popover(); 
-
-    //document.getElementById("FieldDetailDiv").style.display = '';
-
-
-    //var test = event.id;
-    //var id = document.getElementById("RequiredFieldID");
-    //document.getElementById(id).remove();
-    //$('#con-close-modal').modal('hide');
+    $('#con-close-modal').modal('show');
 }
+function SetDetail() {
+    debugger;
 
+    var id = document.getElementById("ControlName").value;
+    document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
+    document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
+    document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
+    
+    document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
+    document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
+    document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
+    $('#con-close-modal').modal('hide');
+}
 
 function fieldClick(event) {
 
-    document.getElementById("RequiredFieldID").value = event.id
-
-
-
-    $('#con-close-modal').modal('show');
+    //document.getElementById("RequiredFieldID").value = event.id
+    //$('#con-close-modal').modal('show');
     // id.removeChild();
     //redips.divDelete(id);
     //detailWindow();
@@ -191,22 +197,11 @@ function fieldset(event,divid) {
     debugger;
    
     event[0].id = "dynamic_" + event[0].type + divid;
+
+    return "dynamic_" + event[0].type + divid;
 }
 
-function fieldleave(event) {
 
-    event.id = "dynamic_" + event.type;
-    alert(event.type);
-
-    document.getElementById("RequiredFieldID").value = event.id
-
-
-
-    $('#con-close-modal').modal('show');
-    // id.removeChild();
-    //redips.divDelete(id);
-    //detailWindow();
-}
 
 // delete DIV element from table editor
 redips.divDelete = function (el) {

@@ -106,10 +106,10 @@
 
                                         <td id="cellcontrol" class="redips-mark ignore" last="true">
                                             <div>
-                                                <span onclick="redips.rowDelete(this)" class="rowTool">x</span>
-                                                /
-									<span onclick="redips.rowInsert(this)" class="rowTool">r+</span>
-                                                /
+                                                <span onclick="redips.rowDelete(this)" class="rowTool">x/</span>
+                                              
+									<span onclick="redips.rowInsert(this)" class="rowTool">r+/</span>
+                                                
 									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
@@ -119,7 +119,7 @@
                             <!-- save button -->
                             <%--<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>--%>
 
-                            <asp:Button ID="savedocument" CssClass="btn btn-primary" runat="server" Text="Button" OnClick="savedocument_Click" OnClientClick="getTableContent()" />
+                            <asp:Button ID="savedocument" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="savedocument_Click" OnClientClick="getTableContent()" />
                             <!-- demo message (needed to display JSON message) -->
                             <div id="message" />
                         </div>
@@ -127,187 +127,19 @@
                     </div>
 
 
-                    <%--<div id="redips-drag">
-                        <!-- left container -->
-                        <div class="col-md-4">
-                            <h3 class="text-center">Select Controls</h3>
-                            <table id="table1" class="table table-bordered">
-                                <tr>
-                                    <td class="redips-single">
-                                        <h5>Label Control</h5>
-                                        <div id="a" class="redips-drag redips-clone orange">
-                                            <label class="control-label">Label</label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="redips-single">
-                                        <h5>Text Box</h5>
-                                        <div id="b" class="redips-drag redips-clone orange">
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="redips-single">
-                                        <h5>Select Box</h5>
-                                        <div id="c" class="redips-drag redips-clone orange">
-                                            <select class="form-control select2"></select>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="redips-single">
-                                        <h5>Radio Botton</h5>
-                                        <div id="d" class="redips-drag redips-clone orange">
-                                            <input type="radio" class="radio" value="RadioButton">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="redips-single">
-                                        <h5>CheckBox</h5>
-                                        <div id="e" class="redips-drag redips-clone orange">
-                                            <input type="checkbox" class="checkbox" value="CheckBox">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="redips-single">
-                                        <h5>File Upload</h5>
-                                        <div id="f" class="redips-drag redips-clone orange">
-                                            <input type="file">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- <tr>
-                                    <td class="redips-trash">Trash</td>
-                                </tr>-->
-                            </table>
-                        </div>
-
-                        <!-- right container -->
-                        <div class="col-md-8">
-                            <h3 class="text-center">Drop Zone</h3>
-                            <table id="table2" class="table table-responsive">
-                            </table>
-
-                            <table>
-                                <tr>
-                                    <td colspan="2">
-                                        <button onclick="myFunction()">Try it</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <div class="col-lg-6">
-                                            <h5>No. of Rows</h5>
-
-                                            <input id="tblrows" type="text" class="form-control">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h5>No. of Columns</h5>
-
-                                            <input id="tblcolumn" type="text" class="form-control">
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            <button onclick="return createTR();">Create tr</button>
-                                            <button onclick="return createTD();">Create td</button>
-                                            <button onclick="return getTableHTML();">html</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="clearfix"></div>
-                        <!-- display block content -->
-
-                        <div class="clearfix"></div>
-                    </div>--%>
+            
                     <div class="clearfix"></div>
                 </div>
 
 
-               <%-- <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Document</label>
-                        <select class="form-control select2"></select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">Content</label>
-                        <select class="form-control select2"></select>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-
-
-                <!-- /.modal -->
-                <div class="col-md-12 form-group">
-                    <table data-toggle="table">
-                        <thead>
-                            <tr>
-                                <th data-align="center">Table Header</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h6>Table Content</h6>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>--%>
+           
 
 
 
                 <div class="clearfix"></div>
 
-                
-             <button onclick="getpopover()" type="button" id="bulk_actions_btns"
-        class="btn btn-default has-spinner-two"
-        data-toggle="popover"
-        data-placement="bottom" data-original-title=""
-        data-content="Click any question mark icon to get help and tips with specific tasks"
-        aria-describedby="popover335446"> Apply
-</button>
-
-                   <div class="FieldDetail col-md-4" id="FieldDetailDiv" style="display:none;" data-toggle="tooltip" data-placement="right">
-
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">Field Name</label>
-                                           <input type="text" id="txtname" class="form-control"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">is Required</label>
-                                           <input type="checkbox" id="chkrequired"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">is Mask</label>
-                                           <input type="checkbox" id="chkmask"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">css Class</label>
-                                           <input type="text" id="txtcssclass" class="form-control"/>
-                                        </div>
-                                    </div>
-                                 
-                                    
-                         
-                                </div>
-
-
+         
+             
 
 
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -315,54 +147,58 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Add New Row</h4>
-                                <button value="Delete" onclick="deleteColumn()">Delete</button>
+                                <h4 class="modal-title">Add Field Detail</h4>
+                                <button value="Delete" class="btn btn-info" onclick="deleteColumn()">Delete</button>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Label</label>
-                                            <select class="form-control"></select>
+                                            <label class="control-label">Control Name</label>
+                                           <input type="text" id="ControlName" readonly class="form-control"/>                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Label</label>
-                                            <select class="form-control"></select>
+                                            <label class="control-label">Control ID</label>
+                                           <input type="text" id="ControlID" readonly class="form-control"/>                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Label</label>
-                                            <select class="form-control"></select>
+                                            <label class="control-label">Mask</label>
+                                           <asp:DropDownList ID="ddlMask" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Css Class</label>
+                                            <input type="text" id="cssClass" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Label</label>
-                                            <select class="form-control"></select>
+                                            <label class="control-label">Lookup Name</label>
+                                           <asp:DropDownList ID="ddlLookupName" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                </asp:DropDownList>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label">Label</label>
-                                            <select class="form-control"></select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label">Label</label>
-                                            <select class="form-control"></select>
+                                            
+                                            <input type="checkbox" id="isRequired"  style="margin-top:37px"/> isRequired
+                                           
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light">Save</button>
-                                <input type="text" hidden="hidden" id="tableOuterHtml" runat="server" />
+                                <button type="button" class="btn btn-info waves-effect waves-light" onclick="SetDetail()">Set Detail</button>
+                                <input type="text" hidden="hidden"  id="tableOuterHtml" runat="server" />
                                 <input type="text" hidden="hidden" id="RequiredFieldID" />
                             </div>
                         </div>
@@ -375,31 +211,13 @@
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>
         function getTableContent() {
+            debugger;
             var outerHTML = document.getElementById("tblEditor").outerHTML;
             outerHTML = decodehtml(outerHTML);
-            document.getElementById('CommonMasterBody_FormMasterBody_tableOuterHtml').value = outerHTML;//document.getElementById("tblEditor").outerHTML;
-
+            document.getElementById('CommonMasterBody_DynamicFormMasterBody_tableOuterHtml').value = outerHTML;
+          
+           
         }
-        function getpopover()
-        {
-debugger;
-
-            if ($(this).prop('popShown') == undefined) {
-                $(this).prop('popShown', true).popover('show');
-            }
-        }
-        $(document).ready(function () {
-            //var parenttbl = document.getElementById("cellcontrol");
-            //var outer = parenttbl.outerHTML;
-            //outer = decodehtml(outer);
-            //document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_FormMasterBody_tableOuterHtml").value;
-            //var theTbl = document.getElementById('tblEditor');
-            //$('#tblEditor tr').each(function () {
-            //    var newel = document.createElement('td');
-            //    $(this).append(parenttbl);
-            //});
-        });
-
 
         function decodehtml(outerHTML) {
             return outerHTML.replace(/&/g, '&amp;')
@@ -409,6 +227,29 @@ debugger;
                 .replace(/'/g, '&apos;');
 
         }
+       
+        $(document).ready(function () {
+
+            debugger;
+           
+            var parenttbl = document.getElementById("cellcontrol");
+            alert(parenttbl);
+            var outer = parenttbl.outerHTML;
+            outer = decodehtml(outer);
+            document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
+            var theTbl = document.getElementById('tblEditor');
+            $('#tblEditor tr').each(function () {
+                var newel = document.createElement('td');
+                $(this).append(parenttbl);
+
+                $(this).find('input, select, textarea').each(function () {
+
+                });
+            });
+        });
+
+
+      
 
 
         

@@ -36,6 +36,9 @@ namespace Utils.itinsync.icom.xml
             return xmlDoc.SelectSingleNode(node);
         }
 
+     
+
+
         public string getTagValue(string tagName)
         {
             XmlNodeList nodeList=  xmlDoc.DocumentElement.SelectNodes(tagName);
@@ -92,13 +95,31 @@ namespace Utils.itinsync.icom.xml
             return "";
         }
 
+        public string getRootTagXML(string tag)
+        {
 
-        public string setTagXML(string tag,string value)
+
+            XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes("/" + rootTag + "/" + tag);
+
+            foreach (XmlNode node in nodeList)
+            {
+
+                return "<" + rootTag + ">" + node.InnerXml + "</" + rootTag + ">";
+            }
+
+            return "";
+        }
+
+
+        public string setTagXML(string tag, string value)
         {
             XmlNode node = xmlDoc.SelectSingleNode("/"+ rootTag+"/"+ tag);
 
+            
+
             if (node.Name == tag)
             {
+                node.InnerXml = node.OuterXml;
                 node.InnerXml = value;
             }
 
