@@ -50,6 +50,8 @@
     <Compile Include="icom\cache\permission\PermissionsService.cs" />
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />
     <Compile Include="icom\document\documentDefinitionGetService.cs" />
+    <Compile Include="icom\document\documentSectionSaveService.cs" />
+    <Compile Include="icom\document\documentDefinitionSaveService.cs" />
     <Compile Include="icom\document\documentSectionGetService.cs" />
     <Compile Include="icom\document\dynamicdocumenttableget.cs" />
     <Compile Include="icom\document\DTO\documentDTO.cs" />

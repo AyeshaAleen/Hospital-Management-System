@@ -17,7 +17,7 @@ namespace Forms.Webroot.Forms.Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 LoadForm();
             }
@@ -29,16 +29,16 @@ namespace Forms.Webroot.Forms.Management
                 DocumentDTO dto = new DocumentDTO();
                 dto.header = getHeader();
                 IResponseHandler response = new documentDefinitionGetService().executeAsPrimary(dto);
-                if(response.getErrorBlock().ErrorCode==ApplicationCodes.ERROR_NO)
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
                 {
                     dto = (DocumentDTO)response;
                     tblDocument.DataSource = dto.documentDefinationlist;
                     tblDocument.DataBind();
                 }
                 else
-                showErrorMessage(response);
+                    showErrorMessage(response);
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
@@ -53,15 +53,31 @@ namespace Forms.Webroot.Forms.Management
 
            // Response.Redirect(PageConstant.PAGE_DocumentSection);
         }
-
+        
+        int DDID = 0;
         protected void btnSaveDocument_Click(object sender, EventArgs e)
         {
-
+            if (ClickedId.Value.Length > 0)
+                for (int i = 0; i < tblDocument.Controls.Count; i++)
+                    if ((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).ClientID == ClickedId.Value)
+                    {
+                        DDID = Convert.ToInt32((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).CommandArgument);
+                        break;
+                    }
+            DbOperation();
+            LoadForm();
         }
-
-        protected void btnSaveDocument_Click1(object sender, EventArgs e)
+        DocumentDTO dto;
+        IResponseHandler DbOperation()
         {
+            dto = new DocumentDTO();
+            dto.header = getHeader();
+            //if (documentID > 0) dto.header = getHeader(); else getHeader();
+            dto.documentDefination.xDocumentDefinationID = DDID;
+            dto.documentDefination.name = field.Value;
 
+            IResponseHandler response = new documentDefinitionSaveService().executeAsPrimary(dto);
+            return response;
         }
     }
 }

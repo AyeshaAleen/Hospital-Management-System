@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="cntFormMasterBody" ContentPlaceHolderID="CommonMasterBody" runat="server">
-     
+    
     <!-- ========== Left Sidebar Start ========== -->
 
 
@@ -111,6 +111,7 @@
 
 <asp:Content ID="cntFormMasterFoot" ContentPlaceHolderID="CommonMasterFooter" runat="server">
     <asp:ContentPlaceHolder ID="FormMasterFoot" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     </asp:ContentPlaceHolder>
     <script>
         //function GenerateTags(control) {
