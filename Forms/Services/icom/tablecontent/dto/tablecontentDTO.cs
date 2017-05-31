@@ -23,8 +23,11 @@ namespace Services.itinsync.icom.tablecontent.dto
 
         public int documentdefinitionID { get; set; }
 
+        public int sectionnID { get; set; }
+
         public XDocumentTable documentTable = new XDocumentTable();
-        
+
+        public List<XDocumentTable> documentTablelist = new List<XDocumentTable>();
 
         public ErrorBlock errorBlock = new ErrorBlock();
         public Header header = new Header();

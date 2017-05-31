@@ -279,7 +279,7 @@ namespace Forms.itinsync.src.session
 
                 foreach (XDocumentTable table in section.documentTable)
                 {
-                    parentTable.Attributes.Add("name", table.documentTableID.ToString());
+                   
                     foreach (XDocumentTableTR tr in table.trs)
                     {
                         TableRow tabletr = new TableRow();
@@ -1209,7 +1209,7 @@ namespace Forms.itinsync.src.session
             if (table != null)
             {
                 documentTable.documentsectionid = section_id;
-               documentTable.documentTableID= Convert.ToInt32(table.GetAttributeValue("name", ""));
+               
             }
 
             #endregion

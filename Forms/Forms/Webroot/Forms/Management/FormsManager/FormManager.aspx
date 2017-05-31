@@ -231,21 +231,24 @@
         $(document).ready(function () {
 
             debugger;
-           
-            var parenttbl = document.getElementById("cellcontrol");
-            alert(parenttbl);
-            var outer = parenttbl.outerHTML;
-            outer = decodehtml(outer);
+
+        //    var parenttbl = document.getElementById("cellcontrol");
+        //    var outer = parenttbl.outerHTML;
+        //    outer = decodehtml(outer);
+
+            if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "")
+            { 
             document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
-            var theTbl = document.getElementById('tblEditor');
-            $('#tblEditor tr').each(function () {
-                var newel = document.createElement('td');
-                $(this).append(parenttbl);
+        //    var theTbl = document.getElementById('tblEditor');
+        //    $('#tblEditor tr').each(function () {
+        //        var newel = document.createElement('td');
+        //        $(this).append(parenttbl);
 
-                $(this).find('input, select, textarea').each(function () {
+        //        $(this).find('input, select, textarea').each(function () {
 
-                });
-            });
+        //        });
+        //    });
+        }
         });
 
 

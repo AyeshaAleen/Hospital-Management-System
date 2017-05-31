@@ -61,13 +61,15 @@ namespace Forms.Webroot.Forms.Management.FormsManager
                 Table table = new Table();
                 processDynamicContentform(table, dto.document, section_id);
 
-                
-              
-                StringWriter sw = new StringWriter();
-                table.RenderControl(new HtmlTextWriter(sw));
+                if (table.Rows.Count > 0)
+                {
+                    StringWriter sw = new StringWriter();
+                    table.RenderControl(new HtmlTextWriter(sw));
 
-                string html = sw.ToString();
-                tableOuterHtml.Value = html;
+                    string html = sw.ToString();
+                    if (html != null)
+                        tableOuterHtml.Value = html;
+                }
             }
 
         }
@@ -80,20 +82,32 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             source = XMLUtils.DecodeXML(source);
 
             tablecontentDTO dto = new tablecontentDTO();
-            dto.documentdefinitionID = DDID;
-            dto.documentTable = HtmlParse(source, section_id);
-            dto.documentTable.documentsectionid = section_id;
+            dto.sectionnID = section_id;
 
-            IResponseHandler response = new tablecontentSaveService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            //Delete existing record if any
+            IResponseHandler responseDelete = new tablecontentDeleteService().executeAsPrimary(dto);
+            if (responseDelete.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                showSuccessMessage(response);
-            }
-            else
-            {
-                showErrorMessage(response);
-            }
+                dto = new tablecontentDTO();
 
+                dto.documentdefinitionID = DDID;
+                dto.documentTable = HtmlParse(source, section_id);
+                dto.documentTable.documentsectionid = section_id;
+
+
+
+
+
+                IResponseHandler response = new tablecontentSaveService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    showSuccessMessage(response);
+                }
+                else
+                {
+                    showErrorMessage(response);
+                }
+            }
         }
 
     }

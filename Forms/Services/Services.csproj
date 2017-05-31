@@ -58,6 +58,7 @@
     <Compile Include="icom\document\documentSaveService.cs" />
     <Compile Include="icom\document\documentGetService.cs" />
     <Compile Include="icom\tablecontent\dto\tablecontentDTO.cs" />
+    <Compile Include="icom\tablecontent\tablecontentDeleteService .cs" />
     <Compile Include="icom\tablecontent\tablecontentSaveService.cs" />
     <Compile Include="icom\useraccounts\DTO\UserAccountsDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserInformationInDTO.cs" />

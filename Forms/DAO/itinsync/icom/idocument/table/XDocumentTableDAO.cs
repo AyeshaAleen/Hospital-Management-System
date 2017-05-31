@@ -105,6 +105,9 @@ namespace DAO.itinsync.icom.idocument.table
             return wrap(processResults(sql));
         }
 
+
+ 
+
         private List<XDocumentTable> wrap(List<IDomain> result)
         {
             List<XDocumentTable> list = new List<XDocumentTable>();
@@ -112,5 +115,13 @@ namespace DAO.itinsync.icom.idocument.table
                 list.Add((XDocumentTable)domain);
             return list;
         }
+
+
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where documentTableID = {0}", ID);
+            return delete(delSQL);
+        }
+
     }
 }
