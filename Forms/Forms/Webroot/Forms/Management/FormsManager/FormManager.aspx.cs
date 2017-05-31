@@ -58,18 +58,18 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                Table table = new Table();
-                processDynamicContentform(table, dto.document, section_id);
+                //HtmlTable table = new HtmlTable();
+                //processDynamicContentform(table, dto.document, section_id);
 
-                if (table.Rows.Count > 0)
-                {
-                    StringWriter sw = new StringWriter();
-                    table.RenderControl(new HtmlTextWriter(sw));
+                //if (table.Rows.Count > 0)
+                //{
+                //    StringWriter sw = new StringWriter();
+                //    table.RenderControl(new HtmlTextWriter(sw));
 
-                    string html = sw.ToString();
-                    if (html != null)
-                        tableOuterHtml.Value = html;
-                }
+                //    string html = sw.ToString();
+                //    if (html != null)
+                //        tableOuterHtml.Value = html;
+                //}
             }
 
         }

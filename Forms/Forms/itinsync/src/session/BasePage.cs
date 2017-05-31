@@ -82,6 +82,18 @@ namespace Forms.itinsync.src.session
             }
         }
 
+        private void addLabel(HtmlTableCell tc, string trans)
+        {
+            if (string.IsNullOrEmpty(trans))
+                return;
+            else
+            {
+                Label lbl = new Label();
+                lbl.Text = TranslationManager.trans(trans);
+                tc.Controls.Add(lbl);
+            }
+        }
+
         protected Table processDynamicContent(Table parentTable, Douments documents, Int32 sectionID)
         {
             
@@ -260,7 +272,7 @@ namespace Forms.itinsync.src.session
         }
 
 
-        protected Table processDynamicContentform(Table parentTable, Douments documents, Int32 sectionID)
+        protected  HtmlTable processDynamicContentform(HtmlTable parentTable, Douments documents, Int32 sectionID)
         {
             string id = "";
             HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
@@ -270,7 +282,7 @@ namespace Forms.itinsync.src.session
             createDiv.Style.Add("width", "158px");
 
 
-         
+
 
             foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
             {
@@ -279,14 +291,14 @@ namespace Forms.itinsync.src.session
 
                 foreach (XDocumentTable table in section.documentTable)
                 {
-                   
+
                     foreach (XDocumentTableTR tr in table.trs)
                     {
-                        TableRow tabletr = new TableRow();
+                        HtmlTableRow tabletr = new HtmlTableRow();
 
-                        tabletr.CssClass = tr.cssClass;
-                        tabletr.BorderWidth = 10;
-                        tabletr.ID = tr.trID.ToString();
+                        tabletr.Style.Add("class", tr.cssClass);
+                        //tabletr.BorderWidth = 10;
+                        tabletr.Style.Add("border-width", "10");
 
                         foreach (XDocumentTableTD td in tr.tds)
                         {
@@ -297,32 +309,32 @@ namespace Forms.itinsync.src.session
 
                                 if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
-                                    TableHeaderCell tableHeader = new TableHeaderCell();
+                                    //HtmlTableCell tableHeader = new HtmlTableCell();
 
-                                    Label lbl = new Label();
-                                    lbl.ID = content.controlID;
-                                    //lbl.CssClass = content.cssClass;
-                                    tableHeader.HorizontalAlign = HorizontalAlign.Center;
-                                    tableHeader.VerticalAlign = VerticalAlign.Middle;
-                                    tableHeader.BackColor = System.Drawing.Color.WhiteSmoke;
-                                    tableHeader.ColumnSpan = content.colspan;
-                                    lbl.Text = TranslationManager.trans(content.translation);
-                                    tableHeader.Controls.Add(lbl);
-                                    tabletr.Cells.Add(tableHeader);
+                                    //Label lbl = new Label();
+                                    //lbl.ID = content.controlID;
+                                    ////lbl.CssClass = content.cssClass;
+                                    //tableHeader.HorizontalAlign = HorizontalAlign.Center;
+                                    //tableHeader.VerticalAlign = VerticalAlign.Middle;
+                                    //tableHeader.BackColor = System.Drawing.Color.WhiteSmoke;
+                                    //tableHeader.ColumnSpan = content.colspan;
+                                    //lbl.Text = TranslationManager.trans(content.translation);
+                                    //tableHeader.Controls.Add(lbl);
+                                    //tabletr.Cells.Add(tableHeader);
 
 
                                 }
                                 else
                                 {
-                                    TableCell tc = new TableCell();
+                                    HtmlTableCell tc = new HtmlTableCell();
                                     if (!string.IsNullOrEmpty(content.colspan.ToString()))
-                                        tc.ColumnSpan = content.colspan;
+                                        tc.ColSpan = content.colspan;
                                     else
-                                        tc.ColumnSpan = Convert.ToInt32(td.colSpan);
+                                        tc.ColSpan = Convert.ToInt32(td.colSpan);
                                     //tc.CssClass = content.cssClass;
                                     //tc.BorderStyle = BorderStyle.Solid;
-                                    tc.BorderWidth = 10;
-                                    tc.ID = td.tdID.ToString();
+                                    //tc.BorderWidth = 10;
+
                                     if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
                                     {
                                         Label lbl = new Label();
@@ -330,40 +342,18 @@ namespace Forms.itinsync.src.session
                                         //lbl.CssClass = content.cssClass;
                                         lbl.Text = TranslationManager.trans(content.translation);
                                         lbl.Attributes.Add("points", content.points);
-
-                                        AddDetailSpan(createDiv, content.controlID);
-                                        createDiv.Controls.Add(lbl);
-                                        spanRemoveDetail(createDiv, content.controlID);
-
-                                        tc.Controls.Add(createDiv);
+                                        tc.Controls.Add(lbl);
                                         tabletr.Cells.Add(tc);
                                     }
 
                                     if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
                                     {
-                                        addLabel(tc, content.translation);
-                                        TextBox txtBox = new TextBox();
-                                        txtBox.ID = content.controlID;
-                                        txtBox.CssClass = content.cssClass;
-                                        txtBox.Attributes.Add("irequired", content.isRequired);
-                                        txtBox.Attributes.Add("imask", content.mask);
+                                        
 
+                                        tc.Controls.Add(new LiteralControl("<div style='color: gray; height: 20px; width: 300px;'>"+
+                                            "<input type='text'>"+
+                                            "</div>"));
 
-                                        txtBox.Attributes.Add("points", content.points);
-                                        if (calculations.Count > 0)
-                                        {
-                                            txtBox.Attributes.Add("onchange", "calculation();");
-                                            txtBox.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            txtBox.Attributes.Add("operation", calculations[0].operation);
-
-                                        }
-                                        txtBox.Text = content.defaultValue;
-
-                                        AddDetailSpan(createDiv, content.controlID);
-                                        createDiv.Controls.Add(txtBox);
-                                        spanRemoveDetail(createDiv, content.controlID);
-
-                                        tc.Controls.Add(createDiv);
                                         tabletr.Cells.Add(tc);
 
                                     }
@@ -387,11 +377,7 @@ namespace Forms.itinsync.src.session
                                         }
                                         radio.Value = content.defaultValue;
 
-                                        AddDetailSpan(createDiv, content.controlID);
-                                        createDiv.Controls.Add(radio);
-                                        spanRemoveDetail(createDiv, content.controlID);
-
-                                        tc.Controls.Add(createDiv);
+                                        tc.Controls.Add(radio);
                                         tabletr.Cells.Add(tc);
                                     }
 
@@ -413,42 +399,14 @@ namespace Forms.itinsync.src.session
                                         }
 
                                         check.Value = content.defaultValue;
-
-                                        AddDetailSpan(createDiv, content.controlID);
-                                        createDiv.Controls.Add(check);
-                                        spanRemoveDetail(createDiv, content.controlID);
-
-
-                                        tc.Controls.Add(createDiv);
+                                        tc.Controls.Add(check);
                                         tabletr.Cells.Add(tc);
                                     }
                                     else if (content.controlType == ApplicationCodes.FORMS_CONTROL_COMBObOX)
                                     {
-                                        addLabel(tc, content.translation);
-                                        DropDownList ddl = new DropDownList();
-                                        ddl.ID = content.controlID;
-                                        ddl.DataValueField = "Code";
-                                        ddl.DataTextField = "Text";
-                                        ddl.Attributes.Add("irequired", content.isRequired);
-                                        ddl.Attributes.Add("imask", content.mask);
-                                        ddl.Attributes.Add("points", content.points);
-                                        if (calculations.Count > 0)
-                                        {
-                                            ddl.Attributes.Add("onchange", "calculation();");
-                                            ddl.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            ddl.Attributes.Add("operation", calculations[0].operation);
-                                        }
-
-                                        ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
-
-                                        ddl.DataBind();
-
-                                        AddDetailSpan(createDiv, content.controlID);
-                                        createDiv.Controls.Add(ddl);
-                                        spanRemoveDetail(createDiv, content.controlID);
-
-                                        tc.Controls.Add(createDiv);
-                                        tabletr.Cells.Add(tc);
+                                        
+                                        //tc.Controls.Add(ddl);
+                                        //tabletr.Cells.Add(tc);
                                     }
                                 }
 

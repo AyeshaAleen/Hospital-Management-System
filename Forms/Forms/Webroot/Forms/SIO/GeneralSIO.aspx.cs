@@ -18,6 +18,7 @@ using System.Xml;
 
 namespace Forms.Webroot.Forms.SIO
 {
+    [Serializable()]
     public partial class GeneralSIO : BasePage
     {
         private static int section_id = 1;
@@ -27,7 +28,7 @@ namespace Forms.Webroot.Forms.SIO
         public static int documentid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+           if(!IsPostBack)
                 this.CreateControl();
 
         }
@@ -37,6 +38,20 @@ namespace Forms.Webroot.Forms.SIO
            // CreateControl();
 
         }
+        
+        protected override object SaveViewState()
+        {
+            object[] newViewState = new object[2];
+
+            ////CreateControl();
+
+            Table tbl = (Table)PagePanel.FindControl("tableDynamic");
+
+            newViewState[0] = tbl;
+            newViewState[1] = base.SaveViewState();
+            return newViewState;
+        }
+
         private void CreateControl()
         {
             DocumentDTO dto = new DocumentDTO();
@@ -52,6 +67,10 @@ namespace Forms.Webroot.Forms.SIO
                 documentid = dto.document.documentID;
                 Table obj_Table = processDynamicContent(tableDynamic, dto.document, section_id);
                 PagePanel.Controls.Add(obj_Table);
+
+                obj_Table.EnableViewState = true;
+                ViewState["obj_Table"] = true;
+
             }
         }
 
@@ -81,7 +100,7 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-           // Table table=(Table)PagePanel.FindControl("tableDynamic");
+            Table table = (Table)ViewState["obj_Table"];
 
             xml = "<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>" + "</SIO>";
 
