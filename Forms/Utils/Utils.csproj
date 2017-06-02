@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="evohtmltopdf">
+      <HintPath>itinsync\icom\dll\evohtmltopdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -63,6 +66,7 @@
     <Compile Include="itinsync\icom\SecurityManager.cs" />
     <Compile Include="itinsync\icom\ServiceUtils.cs" />
     <Compile Include="itinsync\icom\Utils.cs" />
+    <Compile Include="itinsync\icom\xml\evo\EVOConverter.cs" />
     <Compile Include="itinsync\icom\xml\XMLParser.cs" />
     <Compile Include="itinsync\icom\xml\XMLUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,7 +77,9 @@
       <Name>Domains</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="itinsync\icom\dll\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

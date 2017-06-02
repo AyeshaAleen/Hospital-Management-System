@@ -82,6 +82,18 @@ namespace Forms.itinsync.src.session
             }
         }
 
+        private void addLabel(HtmlTableCell tc, string trans)
+        {
+            if (string.IsNullOrEmpty(trans))
+                return;
+            else
+            {
+                Label lbl = new Label();
+                lbl.Text = TranslationManager.trans(trans);
+                tc.Controls.Add(lbl);
+            }
+        }
+
         protected Table processDynamicContent(Table parentTable, Douments documents, Int32 sectionID)
         {
             
@@ -99,7 +111,7 @@ namespace Forms.itinsync.src.session
 
                         tabletr.CssClass = tr.cssClass;
                         tabletr.BorderWidth = 10;
-
+                        
 
                         foreach (XDocumentTableTD td in tr.tds)
                         {
@@ -135,7 +147,7 @@ namespace Forms.itinsync.src.session
                                     //tc.CssClass = content.cssClass;
                                     //tc.BorderStyle = BorderStyle.Solid;
                                     tc.BorderWidth = 10;
-
+                                    
                                     if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
                                     {
                                         Label lbl = new Label();
@@ -258,6 +270,182 @@ namespace Forms.itinsync.src.session
             //this.Controls.Add(parentTable);
             return parentTable;
         }
+
+
+        protected  HtmlTable processDynamicContentform(HtmlTable parentTable, Douments documents, Int32 sectionID)
+        {
+            string id = "";
+            HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
+            //createDiv.ID = "createDiv";
+            createDiv.Attributes.Add("class", "redips-drag");
+            createDiv.Style.Add("cursor", "move");
+            createDiv.Style.Add("width", "158px");
+
+
+
+
+            foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
+            {
+                if (section.documentsectionid != sectionID)
+                    continue;
+
+                foreach (XDocumentTable table in section.documentTable)
+                {
+
+                    foreach (XDocumentTableTR tr in table.trs)
+                    {
+                        HtmlTableRow tabletr = new HtmlTableRow();
+
+                        tabletr.Style.Add("class", tr.cssClass);
+                        //tabletr.BorderWidth = 10;
+                        tabletr.Style.Add("border-width", "10");
+
+                        foreach (XDocumentTableTD td in tr.tds)
+                        {
+
+                            foreach (XDocumentTableContent content in td.fields)
+                            {
+                                List<XDocumentCalculation> calculations = content.fieldcalculations;
+
+                                if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
+                                {
+                                    //HtmlTableCell tableHeader = new HtmlTableCell();
+
+                                    //Label lbl = new Label();
+                                    //lbl.ID = content.controlID;
+                                    ////lbl.CssClass = content.cssClass;
+                                    //tableHeader.HorizontalAlign = HorizontalAlign.Center;
+                                    //tableHeader.VerticalAlign = VerticalAlign.Middle;
+                                    //tableHeader.BackColor = System.Drawing.Color.WhiteSmoke;
+                                    //tableHeader.ColumnSpan = content.colspan;
+                                    //lbl.Text = TranslationManager.trans(content.translation);
+                                    //tableHeader.Controls.Add(lbl);
+                                    //tabletr.Cells.Add(tableHeader);
+
+
+                                }
+                                else
+                                {
+                                    HtmlTableCell tc = new HtmlTableCell();
+                                    if (!string.IsNullOrEmpty(content.colspan.ToString()))
+                                        tc.ColSpan = content.colspan;
+                                    else
+                                        tc.ColSpan = Convert.ToInt32(td.colSpan);
+                                    //tc.CssClass = content.cssClass;
+                                    //tc.BorderStyle = BorderStyle.Solid;
+                                    //tc.BorderWidth = 10;
+
+                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
+                                    {
+                                        Label lbl = new Label();
+                                        lbl.ID = content.controlID;
+                                        //lbl.CssClass = content.cssClass;
+                                        lbl.Text = TranslationManager.trans(content.translation);
+                                        lbl.Attributes.Add("points", content.points);
+                                        tc.Controls.Add(lbl);
+                                        tabletr.Cells.Add(tc);
+                                    }
+
+                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
+                                    {
+                                        
+
+                                        tc.Controls.Add(new LiteralControl("<div style='color: gray; height: 20px; width: 300px;'>"+
+                                            "<input type='text'>"+
+                                            "</div>"));
+
+                                        tabletr.Cells.Add(tc);
+
+                                    }
+                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
+                                    {
+                                        addLabel(tc, content.translation);
+                                        HtmlInputRadioButton radio = new HtmlInputRadioButton();
+                                        radio.Name = content.controlName;
+                                        //radio.Checked += new radiocheckedvent(your method);
+                                        radio.ID = content.controlID;
+                                        radio.Attributes.Add("irequired", content.isRequired);
+                                        radio.Attributes.Add("imask", content.mask);
+                                        radio.Attributes.Add("points", content.points);
+
+
+                                        if (calculations.Count > 0)
+                                        {
+                                            radio.Attributes.Add("onchange", "calculation();");
+                                            radio.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
+                                            radio.Attributes.Add("operation", calculations[0].operation);
+                                        }
+                                        radio.Value = content.defaultValue;
+
+                                        tc.Controls.Add(radio);
+                                        tabletr.Cells.Add(tc);
+                                    }
+
+                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_CHECKBOX)
+                                    {
+                                        addLabel(tc, content.translation);
+                                        HtmlInputCheckBox check = new HtmlInputCheckBox();
+                                        check.Name = content.controlName;
+                                        check.ID = content.controlID;
+                                        check.Attributes.Add("irequired", content.isRequired);
+                                        check.Attributes.Add("imask", content.mask);
+                                        check.Attributes.Add("points", content.points);
+
+                                        if (calculations.Count > 0)
+                                        {
+                                            check.Attributes.Add("onchange", "calculation();");
+                                            check.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
+                                            check.Attributes.Add("operation", calculations[0].operation);
+                                        }
+
+                                        check.Value = content.defaultValue;
+                                        tc.Controls.Add(check);
+                                        tabletr.Cells.Add(tc);
+                                    }
+                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_COMBObOX)
+                                    {
+                                        
+                                        //tc.Controls.Add(ddl);
+                                        //tabletr.Cells.Add(tc);
+                                    }
+                                }
+
+
+                            }
+                        }
+
+                        parentTable.Rows.Add(tabletr);
+
+                    }
+
+                }
+            }
+
+
+
+            //this.Controls.Add(parentTable);
+            return parentTable;
+        }
+
+
+        private void AddDetailSpan(HtmlGenericControl createDiv, string controlID)
+        {
+            HtmlGenericControl spanAddDetail = new HtmlGenericControl("span");
+            spanAddDetail.Attributes.Add("class", "hLeft");
+            spanAddDetail.Attributes.Add("onclick", "AddDetail('" + controlID + "')");
+            spanAddDetail.InnerHtml = "+";
+            createDiv.Controls.Add(spanAddDetail);
+        }
+
+        private void spanRemoveDetail(HtmlGenericControl createDiv, string controlID)
+        {
+            HtmlGenericControl spanRemoveDetail = new HtmlGenericControl("span");
+            spanRemoveDetail.Attributes.Add("class", "hRight");
+            spanRemoveDetail.Attributes.Add("onclick", "deleteColumn('"+ controlID + "')");
+            spanRemoveDetail.InnerHtml = "x";
+            createDiv.Controls.Add(spanRemoveDetail);
+        }
+
         protected Table processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
 
@@ -963,8 +1151,7 @@ namespace Forms.itinsync.src.session
         public XDocumentTable HtmlParse(string html,int section_id)
         {
             #region add Load Html
-            object[] emptyStringArray = new object[0];
-
+          
             HtmlDocument resultat = new HtmlDocument();
             resultat.LoadHtml(html);
 
@@ -980,6 +1167,7 @@ namespace Forms.itinsync.src.session
             if (table != null)
             {
                 documentTable.documentsectionid = section_id;
+               
             }
 
             #endregion
@@ -996,7 +1184,7 @@ namespace Forms.itinsync.src.session
 
 
                 tableTR.cssClass = "table-border";
-
+                //tableTR.id
 
                 #endregion
 
@@ -1029,7 +1217,8 @@ namespace Forms.itinsync.src.session
                             {
                                 if (!string.IsNullOrWhiteSpace(fieldnode.OuterHtml))
                                 {
-                                    string type = fieldnode.FirstChild.GetAttributeValue("type", string.Empty);
+                                   
+                                    string type = fieldnode.ChildNodes[1].GetAttributeValue("type", string.Empty);
 
 
                                     if (!string.IsNullOrEmpty(type))
@@ -1058,13 +1247,15 @@ namespace Forms.itinsync.src.session
                                         //    dto.documentTableContent.controlType = "5";
                                         //}
 
-                                        tableContent.controlName = fieldnode.GetAttributeValue("name", "");
-                                        tableContent.controlID = fieldnode.GetAttributeValue("id", "") + section_id + "formname";
-                                        tableContent.isRequired = fieldnode.GetAttributeValue("irequired", "1");
-                                        tableContent.mask = fieldnode.GetAttributeValue("imask", "");
-                                        tableContent.cssClass = fieldnode.GetAttributeValue("Class", "");
-                                        tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
+                                        tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
+                                        tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
+                                        tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
+                                        tableContent.mask = fieldnode.ChildNodes[1].GetAttributeValue("imask", "");
+                                        tableContent.cssClass = fieldnode.ChildNodes[1].GetAttributeValue("Class", "");
+                                        tableContent.lookupName= fieldnode.ChildNodes[1].GetAttributeValue("LookupName", "");
 
+                                        tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
+                                       
                                         //dto.documentTableContentlist.Add(dto.documentTableContent);
 
                                         tableTD.fields.Add(tableContent);

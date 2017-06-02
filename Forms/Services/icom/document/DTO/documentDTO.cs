@@ -7,7 +7,6 @@ using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument;
 using Domains.itinsync.icom.document;
 using Domains.itinsync.icom.idocument.section;
-using Domains.itinsync.icom.idocument.page;
 
 namespace Services.itinsync.icom.documents.dto
 {
@@ -26,7 +25,7 @@ namespace Services.itinsync.icom.documents.dto
 
         public documentcontent documentcontentview = new documentcontent();
 
-        public List<pagename> pagenamelist = new List<pagename>();
+       
 
         public List<Douments> documentList = new List<Douments>();
         public ErrorBlock errorBlock = new ErrorBlock();

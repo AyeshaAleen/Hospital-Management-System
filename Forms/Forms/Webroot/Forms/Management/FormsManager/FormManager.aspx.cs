@@ -20,7 +20,9 @@ using Services.itinsync.icom.documents;
 using Services.itinsync.icom.documents.dto;
 using Services.itinsync.icom.tablecontent;
 using Services.itinsync.icom.tablecontent.dto;
+using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.application;
+using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.xml;
 
@@ -35,8 +37,16 @@ namespace Forms.Webroot.Forms.Management.FormsManager
         {
             if (!IsPostBack)
             {
-                //loaddata();
+                loadDeopDown();
             }
+        }
+        private void loadDeopDown()
+        {
+            ddlLookupName.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKControlType, getHeader().lang);
+            ddlLookupName.DataBind();
+
+            ddlMask.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKMask, getHeader().lang);
+            ddlMask.DataBind();
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
@@ -48,38 +58,56 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                Table table = new Table();
-                processDynamicContent(table, dto.document, section_id);
+                HtmlTable table = new HtmlTable();
+                processDynamicContentform(table, dto.document, section_id);
 
-              
-                StringWriter sw = new StringWriter();
-                table.RenderControl(new HtmlTextWriter(sw));
+                //if (table.Rows.Count > 0)
+                //{
+                //    StringWriter sw = new StringWriter();
+                //    table.RenderControl(new HtmlTextWriter(sw));
 
-                string html = sw.ToString();
-                tableOuterHtml.Value = html;
+                //    string html = sw.ToString();
+                //    if (html != null)
+                //        tableOuterHtml.Value = html;
+                //}
             }
 
         }
+    
         protected void savedocument_Click(object sender, EventArgs e)
         {
+
+
             string source = tableOuterHtml.Value;
             source = XMLUtils.DecodeXML(source);
 
             tablecontentDTO dto = new tablecontentDTO();
-            dto.documentdefinitionID = DDID;
-            dto.documentTable = HtmlParse(source,section_id);
-            dto.documentTable.documentsectionid = section_id;
+            dto.sectionnID = section_id;
 
-            IResponseHandler response = new tablecontentSaveService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            //Delete existing record if any
+            IResponseHandler responseDelete = new tablecontentDeleteService().executeAsPrimary(dto);
+            if (responseDelete.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                showSuccessMessage(response);
-            }
-            else
-            {
-                showErrorMessage(response);
-            }
+                dto = new tablecontentDTO();
 
+                dto.documentdefinitionID = DDID;
+                dto.documentTable = HtmlParse(source, section_id);
+                dto.documentTable.documentsectionid = section_id;
+
+
+
+
+
+                IResponseHandler response = new tablecontentSaveService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    showSuccessMessage(response);
+                }
+                else
+                {
+                    showErrorMessage(response);
+                }
+            }
         }
 
     }

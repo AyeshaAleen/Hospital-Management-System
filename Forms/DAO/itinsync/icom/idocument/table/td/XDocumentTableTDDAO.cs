@@ -123,5 +123,13 @@ namespace DAO.itinsync.icom.idocument.table.td
                 list.Add((XDocumentTableTD)domain);
             return list;
         }
+
+
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where tdID = {0}", ID);
+            return delete(delSQL);
+        }
+
     }
 }

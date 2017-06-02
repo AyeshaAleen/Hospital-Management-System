@@ -1,4 +1,5 @@
-﻿using Forms.itinsync.src.session;
+﻿
+using Forms.itinsync.src.session;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utils.itinsync.icom.xml.evo;
 
 namespace Forms
 {
@@ -15,7 +17,24 @@ namespace Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+
+            byte[] pdfbyte =  new EVOConverter().getPDF("<html>hello<p></p></html>", "");
+
+            // Set response content type
+            Response.AddHeader("Content-Type", "application/pdf");
+
+            // Instruct the browser to open the PDF file as an attachment or inline
+            Response.AddHeader("Content-Disposition", String.Format("{0}; filename=Getting_Started.pdf; size={1}",
+            "attachment", pdfbyte.Length.ToString()));
+
+            // Write the PDF document buffer to HTTP response
+            Response.BinaryWrite(pdfbyte);
+
+            // End the HTTP response and stop the current page processing
+            Response.End();
+
+
+
         }
     }
 }
