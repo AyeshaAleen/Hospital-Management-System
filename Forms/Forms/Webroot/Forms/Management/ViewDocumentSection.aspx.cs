@@ -17,32 +17,43 @@ namespace Forms.Webroot.Forms.Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LoadForm();
             if (!IsPostBack)
             {
-                LoadForm();
+                LoadDDown();
             }
         }
 
         void LoadDDown()
         {
-            DropDownList1.Items.Add("Male");
-            DropDownList1.Items.Add("Female");
+            dto = new DocumentDTO();
+            dto.header = getHeader();
+            IResponseHandler response = new tablenameGetService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (DocumentDTO)response;
+                DropDownList1.DataSource = dto.pagenamelist;
+                DropDownList1.DataBind();
+            }
         }
+        DocumentDTO dto;
         private void LoadForm()
         {
             try
             {
                 if (!string.IsNullOrEmpty(getSubjectID()))
                 {
-                    DocumentDTO dto = new DocumentDTO();
+                    dto = new DocumentDTO();
                     dto.header = getHeader();
                     dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(getSubjectID());
                     IResponseHandler response = new documentSectionGetService().executeAsPrimary(dto);
                     if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
                     {
                         dto = (DocumentDTO)response;
+                        tblDocument.DataSource = null;
                         tblDocument.DataSource = dto.documentDefination.documentSections;
                         tblDocument.DataBind();
+                        setSubjectID(dto.documentDefination.xDocumentDefinationID);
                     }
                     else
                         showErrorMessage(response);
@@ -58,34 +69,33 @@ namespace Forms.Webroot.Forms.Management
             setSubjectID(Convert.ToString(e.CommandArgument));
             Response.Redirect(PageConstant.PAGE_DocumentSectiondynamicForm);
         }
-        int DSID = 0;
+
         protected void btnSaveSection_Click(object sender, EventArgs e)
         {
+            DocumentDTO dtoIn = new DocumentDTO();
+            dtoIn.header = getHeader();
+
+            dtoIn.documentSection.name = field.Value;
+            dtoIn.documentSection.pageID = Convert.ToInt32(DropDownList1.SelectedValue); // ok
+            dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
+            dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
+
             if (ClickedId.Value.Length > 0)
                 for (int i = 0; i < tblDocument.Controls.Count; i++)
                     if ((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).ClientID == ClickedId.Value)
                     {
-                        DSID = Convert.ToInt32((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).CommandArgument);
+                        dtoIn.documentSection.documentsectionid = Convert.ToInt32((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).CommandArgument);
+
+                        dtoIn.documentSection.pageID = dto.documentDefination.documentSections.FirstOrDefault(x => x.documentsectionid
+                        == dtoIn.documentSection.documentsectionid).pageID;
+
+                        dtoIn.documentSection.flow = dto.documentDefination.documentSections.FirstOrDefault(x => x.documentsectionid
+                        == dtoIn.documentSection.documentsectionid).flow;
                         break;
                     }
-            DbOperation();
+
+            IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dtoIn);
             LoadForm();
-        }
-        DocumentDTO dto;
-        IResponseHandler DbOperation()
-        {
-            dto = new DocumentDTO();
-            dto.header = getHeader();
-            //if (documentID > 0) dto.header = getHeader(); else getHeader();
-
-            dto.documentSection.documentsectionid = DSID;
-            dto.documentSection.name = field.Value;
-            dto.documentSection.pageID = 0;
-            dto.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
-            dto.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
-
-            IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dto);
-            return response;
         }
     }
 }

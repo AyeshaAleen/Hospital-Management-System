@@ -15,6 +15,7 @@ using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument.page;
 
 namespace Utils.itinsync.icom.cache.global
 {
@@ -34,5 +35,6 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<Int32, XDocumentCalculation>               documentCalculation         = new Dictionary<Int32, XDocumentCalculation>();
         public static Dictionary<Int32, XDocumentSection>                   documentSection             = new Dictionary<Int32, XDocumentSection>();
 
+        public static Dictionary<Int32, pagename> pageName = new Dictionary<Int32, pagename>();
     }
 }

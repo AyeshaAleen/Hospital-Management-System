@@ -13,7 +13,7 @@
                 <%--<a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Document</a>--%>
 
                 <asp:Button runat="server" ID="btnAdd"  Text="Add New Document" data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this);"
-                    CssClass="btn btn-primary waves-effect waves-light pull-right"
+                    CssClass="btn btn-primary waves-effect waves-light pull-right" 
                      />
 
                 <asp:HiddenField ID="ClickedId" runat="server"/>
@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <label for="field-1" class="control-label">Form Name</label>
                                     <input type="text" class="form-control" required id="field" runat="server" placeholder="Form Name">
-                                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
                                 </div>
                             </div>
 
@@ -95,13 +95,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
         function Clicked(btn) {
-            <%--document.getElementById('<%=field.ClientID%>').value = "";
+            document.getElementById('<%=field.ClientID%>').value = "";
             document.getElementById('<%=ClickedId.ClientID%>').value = "";
+            document.getElementById('<%=DropDownList1.ClientID%>').style.display = 'inherit';
 
             if (btn.id.includes("btnEditDocument")) {
                 document.getElementById('<%=field.ClientID%>').value = document.getElementById(btn.id.replace("btnEditDocument", "tblDocName")).innerHTML;
                 document.getElementById('<%=ClickedId.ClientID%>').value = btn.id;
-            }--%>
+                document.getElementById('<%=DropDownList1.ClientID%>').style.display = 'none';
+            }
         }
     </script>
 </asp:Content>

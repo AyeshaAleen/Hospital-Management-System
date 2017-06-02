@@ -54,6 +54,7 @@
     <Compile Include="itinsync\icom\idocument\content\XDocumentContent.cs" />
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefination.cs" />
     <Compile Include="itinsync\icom\idocument\Douments.cs" />
+    <Compile Include="itinsync\icom\idocument\page\pagename.cs" />
     <Compile Include="itinsync\icom\idocument\section\XDocumentSection.cs" />
     <Compile Include="itinsync\icom\idocument\table\calculation\XDocumentCalculation.cs" />
     <Compile Include="itinsync\icom\idocument\table\content\XDocumentTableContent.cs" />

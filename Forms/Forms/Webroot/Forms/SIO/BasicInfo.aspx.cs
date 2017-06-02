@@ -54,7 +54,7 @@ namespace Forms.Webroot.Forms.SIO
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                processDynamicContent(tableDynamic, dto.document, documentSecID);
+              //  processDynamicContent(tableDynamic, dto.document, documentSecID);
             }
         }
         //private void loaddata()
@@ -152,10 +152,10 @@ namespace Forms.Webroot.Forms.SIO
                 string Tag = "<" + SecPageName + ">" + "</" + SecPageName + ">"; // Start and End Tags
 
                 // If Start and End Tags existing, then it will place html between them
-                if (xml.Contains(Tag)) xml = xml.Replace(Tag, "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">");
+               // if (xml.Contains(Tag)) xml = xml.Replace(Tag, "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">");
 
                 // If Start and End Tags not existing, then it will concatenate html with tags
-                else xml += "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">";
+              //  else xml += "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">";
 
                 xml += "</" + rootPageName + ">";
                 Session["documentID"] = documentID;

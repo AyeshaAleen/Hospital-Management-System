@@ -14,6 +14,7 @@ using System.Data;
 using System.Web.UI.WebControls;
 using System.IO;
 using Domains.itinsync.icom.idocument.section;
+using EvoPdf.HtmlToPdfClient;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -139,10 +140,10 @@ namespace Forms.Webroot.Forms.SIO
                 string Tag = "<" + SecPageName + ">" + "</" + SecPageName + ">"; // Start and End Tags
 
                 // If Start and End Tags existing, then it will place html between them
-                if (xml.Contains(Tag)) xml = xml.Replace(Tag, "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">");
+             //   if (xml.Contains(Tag)) xml = xml.Replace(Tag, "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">");
 
                 // If Start and End Tags not existing, then it will concatenate html with tags
-                else xml += "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">";
+            //    else xml += "<" + SecPageName + ">" + Tages.Value + "</" + SecPageName + ">";
 
                 xml += "</" + rootPageName + ">";
                 Session["documentID"] = documentID;
@@ -158,7 +159,8 @@ namespace Forms.Webroot.Forms.SIO
         }
         protected void btnNext_Click(object sender, EventArgs e)
         {
-           // FinalizeXml();
+            // FinalizeXml();
+            HtmlToPdfConverter obj = new HtmlToPdfConverter();
         }
 
         protected void btnPending_Click(object sender, EventArgs e)

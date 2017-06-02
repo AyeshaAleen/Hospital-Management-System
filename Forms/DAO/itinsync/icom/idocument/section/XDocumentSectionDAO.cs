@@ -2,6 +2,7 @@
 using DAO.itinsync.icom.BaseAS.dbcontext;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.interfaces.domain;
+using Utils.itinsync.icom.exceptions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,7 @@ using DAO.itinsync.icom.document.documentdefinitionview;
 using Utils.itinsync.icom.cache.global;
 using Domains.itinsync.icom.idocument.definition;
 using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom;
 
 namespace DAO.itinsync.icom.idocument.section
 {
@@ -64,7 +66,34 @@ namespace DAO.itinsync.icom.idocument.section
         }
         protected override string updateQuery(object o, string where)
         {
-            throw new NotImplementedException();
+            List<XDocumentSection> results = new List<XDocumentSection>();
+            if (where.Length > 0)
+                results = readWhere(where);
+            else
+                results.Add(findbyPrimaryKey(((XDocumentSection)o).documentsectionid));
+            foreach (XDocumentSection lk in results)
+            {
+                string whereClause = " update " + TABLENAME + " set ";
+                whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(XDocumentSection.columns));
+                if (whereClause.Contains("="))//update on the base of primary key column
+                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentSection.primaryKey.documentsectionid.ToString(), lk.documentsectionid)));
+            }
+            return "";
+        }
+        private List<XDocumentSection> readWhere(string where)
+        {
+            if (where == null || where.Length == 0)
+                throw new ItinsyncException(new Exception());
+            string SQL = string.Format("Select * from " + TABLENAME + where);
+            return wrap(processResults(SQL));
+        }
+        public XDocumentSection findbyPrimaryKey(Int32 xDocumentSectionID)
+        {
+            if (DocumentManager.getDocumentSection(xDocumentSectionID) != null)
+                return DocumentManager.getDocumentSection(xDocumentSectionID);
+
+            string sql = "select * From " + TABLENAME + " where xDocumentSectionID = " + xDocumentSectionID;
+            return (XDocumentSection)processSingleResult(sql);
         }
 
         private List<XDocumentSection> wrap(List<IDomain> result)

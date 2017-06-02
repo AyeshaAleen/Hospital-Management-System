@@ -51,7 +51,7 @@ namespace Forms.Webroot.Forms.Management
 
             //popupmodal.Style.Value = "display:block";
 
-           // Response.Redirect(PageConstant.PAGE_DocumentSection);
+            Response.Redirect(PageConstant.PAGE_DocumentSection);
         }
         
         int DDID = 0;
