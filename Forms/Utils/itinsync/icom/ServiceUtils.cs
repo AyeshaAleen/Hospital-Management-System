@@ -1,10 +1,21 @@
-﻿using System;
+﻿using Domains.itinsync.icom.idocument;
+using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument.table;
+using Domains.itinsync.icom.idocument.table.content;
+using Domains.itinsync.icom.idocument.table.td;
+using Domains.itinsync.icom.idocument.table.tr;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
+using Utils.itinsync.icom.constant.application;
 
 namespace Utils.itinsync.icom
 {
@@ -291,5 +302,8 @@ namespace Utils.itinsync.icom
         {
             return whereCaluse + " " + value + " ,";
         }
+
+
+       
     }
 }

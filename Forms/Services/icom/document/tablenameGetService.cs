@@ -6,21 +6,7 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Utils.itinsync.icom.constant.audit;
 using Services.itinsync.icom.documents.dto;
-using DAO.itinsync.icom.idocument;
-using DAO.itinsync.icom.idocument.definition;
-using DAO.itinsync.icom.idocument.section;
-using Domains.itinsync.icom.idocument.section;
-using DAO.itinsync.icom.idocument.table;
-using Domains.itinsync.icom.idocument.table;
-using DAO.itinsync.icom.idocument.table.tr;
-using Domains.itinsync.icom.idocument.table.tr;
-using DAO.itinsync.icom.idocument.table.td;
-using Domains.itinsync.icom.idocument.table.td;
-using DAO.itinsync.icom.idocument.table.content;
-using Domains.itinsync.icom.idocument.table.content;
-using DAO.itinsync.icom.idocument.table.calculation;
-using Domains.itinsync.icom.idocument.table.calculation;
-using DAO.itinsync.icom.idocument.page;
+
 
 //Created By Qundeel Ch
 
@@ -35,7 +21,7 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-                dto.pagenamelist = pagenameDAO.getInstance(dbContext).readAll();
+               // dto.pagenamelist = pagenameDAO.getInstance(dbContext).readAll();
                 //dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
                 //dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);
                

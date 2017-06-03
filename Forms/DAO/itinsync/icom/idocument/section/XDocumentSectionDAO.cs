@@ -14,6 +14,7 @@ using Utils.itinsync.icom.cache.global;
 using Domains.itinsync.icom.idocument.definition;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom;
+using Utils.itinsync.icom.cache.document;
 
 namespace DAO.itinsync.icom.idocument.section
 {

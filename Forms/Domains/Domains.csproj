@@ -54,13 +54,13 @@
     <Compile Include="itinsync\icom\idocument\content\XDocumentContent.cs" />
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefination.cs" />
     <Compile Include="itinsync\icom\idocument\Douments.cs" />
-    <Compile Include="itinsync\icom\idocument\page\pagename.cs" />
     <Compile Include="itinsync\icom\idocument\section\XDocumentSection.cs" />
     <Compile Include="itinsync\icom\idocument\table\calculation\XDocumentCalculation.cs" />
     <Compile Include="itinsync\icom\idocument\table\content\XDocumentTableContent.cs" />
     <Compile Include="itinsync\icom\idocument\table\td\XDocumentTableTD.cs" />
     <Compile Include="itinsync\icom\idocument\table\tr\XDocumentTableTR.cs" />
     <Compile Include="itinsync\icom\idocument\table\XDocumentTable.cs" />
+    <Compile Include="itinsync\icom\interfaces\document\IDocument.cs" />
     <Compile Include="itinsync\icom\interfaces\interfacerequestresponse.cs" />
     <Compile Include="itinsync\icom\interfaces\interfaces.cs" />
     <Compile Include="itinsync\icom\interfaces\request\IRequestHandler.cs" />

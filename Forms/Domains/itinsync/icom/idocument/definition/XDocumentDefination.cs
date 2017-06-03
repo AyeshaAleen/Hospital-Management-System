@@ -1,4 +1,5 @@
 ﻿using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.interfaces.domain;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domains.itinsync.icom.idocument.definition
 {
-    public class XDocumentDefination : System.Attribute, IDomain
+    public class XDocumentDefination : System.Attribute, IDomain, IDocument
     {
         public enum columns { name, rdlcPath, dataTable, parameters }
         public enum primaryKey { xDocumentDefinationID }

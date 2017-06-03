@@ -23,7 +23,7 @@ namespace Utils.itinsync.icom.constant.page
 
         public static string PAGE_DocumentSection = "/Webroot/Forms/Management/ViewDocumentSection";
 
-        public static string PAGE_DocumentSectiondynamicForm = "/Webroot/Forms/Management/FormsManager/FormsManager";
+        public static string PAGE_DocumentSectiondynamicForm = "/Webroot/Forms/Management/FormsManager/FormManager";
 
         public static string PAGE_USER_DASHBOARD = "/Webroot/Forms/Dashboard/UserDashboard";
 

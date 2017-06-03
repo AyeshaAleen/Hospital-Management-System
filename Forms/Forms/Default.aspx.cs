@@ -21,17 +21,17 @@ namespace Forms
             byte[] pdfbyte =  new EVOConverter().getPDF("<html>hello<p></p></html>", "");
 
             // Set response content type
-            Response.AddHeader("Content-Type", "application/pdf");
+           // Response.AddHeader("Content-Type", "application/pdf");
 
             // Instruct the browser to open the PDF file as an attachment or inline
-            Response.AddHeader("Content-Disposition", String.Format("{0}; filename=Getting_Started.pdf; size={1}",
-            "attachment", pdfbyte.Length.ToString()));
+           // Response.AddHeader("Content-Disposition", String.Format("{0}; filename=Getting_Started.pdf; size={1}",
+           // "attachment", pdfbyte.Length.ToString()));
 
             // Write the PDF document buffer to HTTP response
-            Response.BinaryWrite(pdfbyte);
+          //  Response.BinaryWrite(pdfbyte);
 
             // End the HTTP response and stop the current page processing
-            Response.End();
+           // Response.End();
 
 
 

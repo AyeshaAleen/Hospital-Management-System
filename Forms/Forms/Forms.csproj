@@ -47,9 +47,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\ARS\ARS\ARS\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="EvoHtmlToPdfClient_NetCore">
-      <HintPath>..\..\..\..\..\EvoHtmlToPdf-NetCore-v7.2\EvoHtmlToPdfClient_NetCore.dll</HintPath>
-    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>

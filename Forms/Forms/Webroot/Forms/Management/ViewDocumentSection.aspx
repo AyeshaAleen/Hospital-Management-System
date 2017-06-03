@@ -74,7 +74,7 @@
                                 <div class="form-group">
                                     <label for="field-1" class="control-label">Form Name</label>
                                     <input type="text" class="form-control" required id="field" runat="server" placeholder="Form Name">
-                                    <asp:DropDownList ID="DropDownList1" runat="server" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlsectionPagesName" runat="server" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
                                 </div>
                             </div>
 
@@ -97,12 +97,12 @@
         function Clicked(btn) {
             document.getElementById('<%=field.ClientID%>').value = "";
             document.getElementById('<%=ClickedId.ClientID%>').value = "";
-            document.getElementById('<%=DropDownList1.ClientID%>').style.display = 'inherit';
+            document.getElementById('<%=ddlsectionPagesName.ClientID%>').style.display = 'inherit';
 
             if (btn.id.includes("btnEditDocument")) {
                 document.getElementById('<%=field.ClientID%>').value = document.getElementById(btn.id.replace("btnEditDocument", "tblDocName")).innerHTML;
                 document.getElementById('<%=ClickedId.ClientID%>').value = btn.id;
-                document.getElementById('<%=DropDownList1.ClientID%>').style.display = 'none';
+                document.getElementById('<%=ddlsectionPagesName.ClientID%>').style.display = 'none';
             }
         }
     </script>

@@ -25,13 +25,14 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.xml;
+using Utils.itinsync.icom;
+using Utils.itinsync.icom.html;
 
 namespace Forms.Webroot.Forms.Management.FormsManager
 {
     public partial class FormsManager : BasePage
     {
-        private static int section_id = 8;
-        private static int DDID = 1003;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,27 +51,8 @@ namespace Forms.Webroot.Forms.Management.FormsManager
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document.documentDefinitionID = DDID;
-            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
-
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (DocumentDTO)response;
-                HtmlTable table = new HtmlTable();
-                processDynamicContentform(table, dto.document, section_id);
-
-                //if (table.Rows.Count > 0)
-                //{
-                //    StringWriter sw = new StringWriter();
-                //    table.RenderControl(new HtmlTextWriter(sw));
-
-                //    string html = sw.ToString();
-                //    if (html != null)
-                //        tableOuterHtml.Value = html;
-                //}
-            }
+            
+            tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()),getHeader().lang);
 
         }
     
@@ -82,7 +64,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             source = XMLUtils.DecodeXML(source);
 
             tablecontentDTO dto = new tablecontentDTO();
-            dto.sectionnID = section_id;
+            dto.sectionnID = Convert.ToInt32(getSubjectID());
 
             //Delete existing record if any
             IResponseHandler responseDelete = new tablecontentDeleteService().executeAsPrimary(dto);
@@ -90,9 +72,9 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             {
                 dto = new tablecontentDTO();
 
-                dto.documentdefinitionID = DDID;
-                dto.documentTable = HtmlParse(source, section_id);
-                dto.documentTable.documentsectionid = section_id;
+                dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+                dto.documentTable =HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()));
+                dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
 
 
 

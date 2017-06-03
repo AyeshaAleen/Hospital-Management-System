@@ -177,6 +177,11 @@ function SetDetail() {
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
+    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
+    document.getElementById(id).setAttribute("points", document.getElementById("points").value);
+    document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
+    
+    
     
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
