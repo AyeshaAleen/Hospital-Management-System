@@ -164,7 +164,8 @@ namespace Utils.itinsync.icom.html
                     continue;
 
                 HtmlTable htmltable = new HtmlTable();
-               
+                htmltable.Attributes.Add("class", "table table-bordered table-responsive");
+                
 
                 foreach (XDocumentTable table in section.documentTable)
                 {

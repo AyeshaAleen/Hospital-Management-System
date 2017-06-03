@@ -96,7 +96,7 @@
                                 </tbody>
                             </table>
                             <!-- main table -->
-                            <table id="tblEditor">
+                            <table id="tblEditor" class="table table-bordered table-responsive">
 
                                 <tbody>
                                     <tr>

@@ -45,7 +45,7 @@ namespace Utils.itinsync.icom.controls
             {
                 Label lbl = new Label();
                 lbl.Text = TranslationManager.trans(content.translation);
-               
+                
 
                 return lbl;
             }

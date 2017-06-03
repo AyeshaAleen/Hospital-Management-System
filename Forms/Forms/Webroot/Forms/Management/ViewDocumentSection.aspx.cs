@@ -24,7 +24,6 @@ namespace Forms.Webroot.Forms.Management
             
         }
 
-        DocumentDTO dto;
         private void doLoad()
         {
             ddlsectionPagesName.DataSource = PageManager.getPages();
