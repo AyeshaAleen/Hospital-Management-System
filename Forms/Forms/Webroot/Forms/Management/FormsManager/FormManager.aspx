@@ -169,7 +169,7 @@
                                      <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Translation</label>
-                                           <input type="text" id="translation" readonly class="form-control"/>                                            
+                                           <input type="text" id="translation" class="form-control"/>                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">

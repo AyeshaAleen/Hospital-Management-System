@@ -156,6 +156,7 @@ redips.handler1 = function (xhr, obj) {
 
 function deleteColumn(elem) {
     debugger;
+    alert(elem);
     alert("hello");
     var divelement = $(elem).parent().remove();
 
@@ -182,7 +183,13 @@ function AddDetail(id) {
 function SetDetail() {
     debugger;
 
+
     var id = document.getElementById("ControlName").value;
+   
+
+    
+
+    
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
@@ -195,6 +202,10 @@ function SetDetail() {
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
     document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
+
+
+    if (document.getElementById(id).getAttribute("type") == "label")
+        document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
     $('#con-close-modal').modal('hide');
 }
 
@@ -209,10 +220,20 @@ function fieldClick(event) {
 
 function fieldset(event,divid) {
     debugger;
-   
-    event[0].id = "dynamic_" + event[0].type + divid;
+ 
+    if (event[0].getAttribute("type") == "label")
+    {
+        event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
+        return "dynamic_" + event[0].getAttribute("type") + divid;
+    }
+        
 
-    return "dynamic_" + event[0].type + divid;
+    else
+    {
+        event[0].id = "dynamic_" + event[0].event[0].type + divid;
+        return "dynamic_" + event[0].type + divid;
+    }
+   
 }
 
 
