@@ -22,10 +22,16 @@ namespace Utils.itinsync.icom.constant.application
         ///***************ControlType constant***********///
         public static readonly string FORMS_CONTROL_BUTTON= "0";
         public static readonly string FORMS_CONTROL_CHECKBOX = "1";
+
+        
         public static readonly string FORMS_CONTROL_RADIOBUTTON = "2";
         public static readonly string FORMS_CONTROL_TAXTBOX = "3";
         public static readonly string FORMS_CONTROL_COMBObOX = "4";
         public static readonly string FORMS_CONTROL_LABEL = "5";
+
+        public static readonly string FORMS_CONTROL_TEXTAREA = "6";
+  
+
 
         public static readonly string FORMS_CALCULATION_PLUS= "PLUS";
         public static readonly string FORMS_CALCULATION_MINUS= "MINUS";

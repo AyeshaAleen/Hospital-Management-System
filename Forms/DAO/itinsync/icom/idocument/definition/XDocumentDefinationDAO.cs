@@ -27,6 +27,7 @@ using Domains.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.idocument.section;
 using System.Collections;
 using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom.cache.document;
 
 namespace DAO.itinsync.icom.idocument.definition
 {

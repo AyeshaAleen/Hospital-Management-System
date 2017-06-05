@@ -32,6 +32,9 @@ namespace Forms.itinsync.src.session
             /// </summary>
             SUBJECTID,
 
+            SECTIONID,
+            BREADCRUMB,
+
             /// <summary>
             /// TDRS
             /// </summary>

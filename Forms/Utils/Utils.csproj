@@ -30,11 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\ARS\ARS\ARS\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="evohtmltopdf">
       <HintPath>itinsync\icom\dll\evohtmltopdf.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>itinsync\icom\dll\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,8 +66,10 @@
     <Compile Include="itinsync\icom\constant\lookup\LookupTransConstant.cs" />
     <Compile Include="itinsync\icom\constant\page\PageConstant.cs" />
     <Compile Include="itinsync\icom\constant\task\TaskDefinitionConstant.cs" />
+    <Compile Include="itinsync\icom\controls\ControlsHelper.cs" />
     <Compile Include="itinsync\icom\date\DateFunctions.cs" />
     <Compile Include="itinsync\icom\exceptions\ItinsyncException.cs" />
+    <Compile Include="itinsync\icom\html\HTMLUtils.cs" />
     <Compile Include="itinsync\icom\idoument\table\calculation\DocumentCalculationHelper.cs" />
     <Compile Include="itinsync\icom\idoument\table\DocumentTableHelper.cs" />
     <Compile Include="itinsync\icom\SecurityManager.cs" />

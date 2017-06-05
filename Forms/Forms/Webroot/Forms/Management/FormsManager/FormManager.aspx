@@ -31,11 +31,11 @@
                                             <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                  <%--  <tr>
                                         <td class="redips-mark">
                                             <div class="redips-drag redips-clone" id="da1"><i class="glyphicon glyphicon-header"></i>Heading</div>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
                                             <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
@@ -51,11 +51,11 @@
                                             <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Single</div>
                                         </td>
                                     </tr>
-                                    <tr>
+                               <%--     <tr>
                                         <td class="redips-mark">
                                             <div class="redips-drag redips-clone" id="rg1"><i class="glyphicon glyphicon-ok-circle"></i><i class="glyphicon glyphicon-ok-circle"></i>RadioGroup</div>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
                                             <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
@@ -91,12 +91,13 @@
 								<input type="button" value="Col -" class="button" onclick="redips.column('delete')" title="Delete table column"/>
 							</td>
 							<td class="trash">Trash</td>-->
-
+                                        <%--<a href="../ViewDocumentSection.aspx">../ViewDocumentSection.aspx</a>
+                                        <a href=<%ResolveClientUrl(""); %>>Manage Section</a>--%>
                                     </tr>
                                 </tbody>
                             </table>
                             <!-- main table -->
-                            <table id="tblEditor">
+                            <table id="tblEditor" class="table table-bordered table-responsive">
 
                                 <tbody>
                                     <tr>
@@ -165,11 +166,17 @@
                                            <input type="text" id="ControlID" readonly class="form-control"/>                                            
                                         </div>
                                     </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Translation</label>
+                                           <input type="text" id="translation" readonly class="form-control"/>                                            
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Mask</label>
                                            <asp:DropDownList ID="ddlMask" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                </asp:DropDownList>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                    
@@ -179,11 +186,23 @@
                                             <input type="text" id="cssClass" class="form-control" />
                                         </div>
                                     </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">points</label>
+                                            <input type="text" id="points" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Default Value</label>
+                                            <input type="text" id="defaultValue" class="form-control" />
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Lookup Name</label>
                                            <asp:DropDownList ID="ddlLookupName" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                </asp:DropDownList>
+                                     </asp:DropDownList>
                                         </div>
                                     </div>
                                      <div class="col-md-6">
@@ -239,15 +258,13 @@
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "")
             { 
             document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
-        //    var theTbl = document.getElementById('tblEditor');
-        //    $('#tblEditor tr').each(function () {
-        //        var newel = document.createElement('td');
-        //        $(this).append(parenttbl);
+            var theTbl = document.getElementById('tblEditor');
+            //$('#tblEditor tr').each(function () {
+            //    var newel = document.createElement('td');
+            //    $(this).append(parenttbl);
 
-        //        $(this).find('input, select, textarea').each(function () {
-
-        //        });
-        //    });
+               
+            //});
         }
         });
 

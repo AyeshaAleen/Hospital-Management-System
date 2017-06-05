@@ -33,24 +33,20 @@ namespace Forms.Webroot.Forms.SIO
 
         }
       
-        protected void Page_LoadComplete(object sender, EventArgs e)
-        {
-           // CreateControl();
-
-        }
+     
         
-        protected override object SaveViewState()
-        {
-            object[] newViewState = new object[2];
+        //protected override object SaveViewState()
+        //{
+        //    object[] newViewState = new object[2];
 
-            ////CreateControl();
+        //    ////CreateControl();
 
-            Table tbl = (Table)PagePanel.FindControl("tableDynamic");
+        //    Table tbl = (Table)PagePanel.FindControl("tableDynamic");
 
-            newViewState[0] = tbl;
-            newViewState[1] = base.SaveViewState();
-            return newViewState;
-        }
+        //    newViewState[0] = tbl;
+        //    newViewState[1] = base.SaveViewState();
+        //    return newViewState;
+        //}
 
         private void CreateControl()
         {

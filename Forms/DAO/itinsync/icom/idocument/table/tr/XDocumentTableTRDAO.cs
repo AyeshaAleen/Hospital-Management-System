@@ -8,13 +8,13 @@ using Domains.itinsync.interfaces.domain;
 using System.Data;
 using Domains.itinsync.icom.idocument.table.tr;
 using DAO.itinsync.icom.BaseAS.dbcontext;
-using Domains.itinsync.icom.idocument.definition;
-using Utils.itinsync.icom.cache.global;
+
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.table;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.exceptions;
+using Utils.itinsync.icom.cache.document;
 
 namespace DAO.itinsync.icom.idocument.table.tr
 {

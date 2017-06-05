@@ -14,12 +14,26 @@ using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.tr;
-using Domains.itinsync.icom.idocument.page;
 
-namespace Utils.itinsync.icom.cache.lookup
+
+namespace Utils.itinsync.icom.cache.document
 {
     public static class DocumentManager
     {
+
+        public static List<XDocumentDefination> getDefinitions()
+        {
+            List<XDocumentDefination> list = new List<XDocumentDefination>();
+
+            foreach (Int32 key in GlobalStaticCache.documentDefinition.Keys)
+            {
+
+                list.Add( GlobalStaticCache.documentDefinition[key]);
+            }
+
+            return list;
+
+        }
 
         public static XDocumentDefination getDocumentDefinition(Int32 doumentDefinitionID)
         {
@@ -32,17 +46,7 @@ namespace Utils.itinsync.icom.cache.lookup
             }
 
         }
-        public static pagename getpageName(Int32 pageID)
-        {
-            if (GlobalStaticCache.pageName.ContainsKey(pageID))
-                return GlobalStaticCache.pageName[pageID];
-            else
-            {
-                // write code to reload data
-                return null;
-            }
-
-        }
+       
         public static XDocumentSection getDocumentSection(Int32 doumentSectionID)
         {
             if (GlobalStaticCache.documentSection.ContainsKey(doumentSectionID))
@@ -56,7 +60,7 @@ namespace Utils.itinsync.icom.cache.lookup
         }
         public static List<XDocumentSection> getDocumentSections(Int32 doumentDefinitionID)
         {
-            if (GlobalStaticCache.documentSection.ContainsKey(doumentDefinitionID))
+            if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
                 return GlobalStaticCache.documentDefinition[doumentDefinitionID].documentSections;
             else
             {

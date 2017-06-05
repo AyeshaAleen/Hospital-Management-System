@@ -157,16 +157,25 @@ redips.handler1 = function (xhr, obj) {
 function deleteColumn(elem) {
     debugger;
     alert("hello");
-    var divelement = $(elem).parent();
+    var divelement = $(elem).parent().remove();
 
-    alert(divelement);
-    document.getElementsByTagName(divelement[0]).remove();
+    //alert(divelement);
+    //document,get(divelement).remove();
 }
 
 function AddDetail(id) {
     debugger;
+    //this is required object which contain all information regarding object
+    var fieldObject = document.getElementById(id);
+
+    // getting data from popup and setting it to required field
     document.getElementById("ControlName").value = id;
     document.getElementById("ControlID").value = id;
+    document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
+    document.getElementById("translation").value = fieldObject.getAttribute("translation");
+    document.getElementById("points").value = fieldObject.getAttribute("points");
+    document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
+
 
     $('#con-close-modal').modal('show');
 }
@@ -177,6 +186,11 @@ function SetDetail() {
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
+    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
+    document.getElementById(id).setAttribute("points", document.getElementById("points").value);
+    document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
+    
+    
     
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());

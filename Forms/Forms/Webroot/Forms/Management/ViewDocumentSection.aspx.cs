@@ -10,6 +10,8 @@ using Services.itinsync.icom.documents;
 using Services.itinsync.icom.documents.dto;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
+using Utils.itinsync.icom.cache.pages;
+using Domains.itinsync.icom.idocument.definition;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -17,51 +19,20 @@ namespace Forms.Webroot.Forms.Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadForm();
             if (!IsPostBack)
-            {
-                LoadDDown();
-            }
+             doLoad();
+            
         }
 
-        void LoadDDown()
+        private void doLoad()
         {
-            dto = new DocumentDTO();
-            dto.header = getHeader();
-            IResponseHandler response = new tablenameGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            ddlsectionPagesName.DataSource = PageManager.getPages();
+            ddlsectionPagesName.DataBind();
+            if (getParentRef()!=null)
             {
-                dto = (DocumentDTO)response;
-                //DropDownList1.DataSource = dto.pagenamelist;
-                DropDownList1.DataBind();
-            }
-        }
-        DocumentDTO dto;
-        private void LoadForm()
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(getSubjectID()))
-                {
-                    dto = new DocumentDTO();
-                    dto.header = getHeader();
-                    dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(getSubjectID());
-                    IResponseHandler response = new documentSectionGetService().executeAsPrimary(dto);
-                    if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-                    {
-                        dto = (DocumentDTO)response;
-                        tblDocument.DataSource = null;
-                        tblDocument.DataSource = dto.documentDefination.documentSections;
-                        tblDocument.DataBind();
-                        setSubjectID(dto.documentDefination.xDocumentDefinationID);
-                    }
-                    else
-                        showErrorMessage(response);
-                }
-            }
-            catch (Exception)
-            {
-
+                tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
+                tblDocument.DataBind();
+                  
             }
         }
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
@@ -76,26 +47,14 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.header = getHeader();
 
             dtoIn.documentSection.name = field.Value;
-            dtoIn.documentSection.pageID = Convert.ToInt32(DropDownList1.SelectedValue); // ok
+            dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
 
-            if (ClickedId.Value.Length > 0)
-                for (int i = 0; i < tblDocument.Controls.Count; i++)
-                    if ((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).ClientID == ClickedId.Value)
-                    {
-                        dtoIn.documentSection.documentsectionid = Convert.ToInt32((tblDocument.Controls[i].FindControl("btnEditDocument") as LinkButton).CommandArgument);
-
-                        dtoIn.documentSection.pageID = dto.documentDefination.documentSections.FirstOrDefault(x => x.documentsectionid
-                        == dtoIn.documentSection.documentsectionid).pageID;
-
-                        dtoIn.documentSection.flow = dto.documentDefination.documentSections.FirstOrDefault(x => x.documentsectionid
-                        == dtoIn.documentSection.documentsectionid).flow;
-                        break;
-                    }
+           
 
             IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dtoIn);
-            LoadForm();
+            doLoad();
         }
     }
 }
