@@ -19,6 +19,7 @@ namespace Forms.Webroot.Forms.Management
         {
             if (!IsPostBack)
             {
+                //setBreadCrumb("");
                 LoadForm();
             }
         }
@@ -55,7 +56,7 @@ namespace Forms.Webroot.Forms.Management
         }
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
         {
-            setSubjectID(Convert.ToString(e.CommandArgument));
+            setSectionID(e.CommandArgument.ToString());
             Response.Redirect(PageConstant.PAGE_DocumentSectiondynamicForm);
         }
         int DSID = 0;

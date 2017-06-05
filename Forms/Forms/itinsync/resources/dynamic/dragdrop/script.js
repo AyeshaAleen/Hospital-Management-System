@@ -157,10 +157,10 @@ redips.handler1 = function (xhr, obj) {
 function deleteColumn(elem) {
     debugger;
     alert("hello");
-    var divelement = $(elem).parent();
+    var divelement = $(elem).parent().remove();
 
-    alert(divelement);
-    document.getElementsByTagName(divelement[0]).remove();
+    //alert(divelement);
+    //document,get(divelement).remove();
 }
 
 function AddDetail(id) {

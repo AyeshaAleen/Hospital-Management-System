@@ -30,13 +30,15 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 {
     public partial class FormsManager : BasePage
     {
-        private static int section_id = 8;
-        private static int DDID = 1003;
+        private static int section_id = 0;
+        private static int DDID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                section_id = Convert.ToInt32(getSectionID());
+                DDID = Convert.ToInt32(getSubjectID());
                 loadDeopDown();
             }
         }
@@ -58,18 +60,18 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                //HtmlTable table = new HtmlTable();
-                //processDynamicContentform(table, dto.document, section_id);
+                HtmlTable table = new HtmlTable();
+                processDynamicContentform(table, dto.document, section_id);
 
-                //if (table.Rows.Count > 0)
-                //{
-                //    StringWriter sw = new StringWriter();
-                //    table.RenderControl(new HtmlTextWriter(sw));
+                if (table.Rows.Count > 0)
+                {
+                    StringWriter sw = new StringWriter();
+                    table.RenderControl(new HtmlTextWriter(sw));
 
-                //    string html = sw.ToString();
-                //    if (html != null)
-                //        tableOuterHtml.Value = html;
-                //}
+                    string html = sw.ToString();
+                    if (html != null)
+                        tableOuterHtml.Value = html;
+                }
             }
 
         }

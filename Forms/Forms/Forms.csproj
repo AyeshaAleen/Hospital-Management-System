@@ -2927,6 +2927,7 @@
     <Content Include="Webroot\Forms\Management\AddForms.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
+    <Content Include="Webroot\Forms\NewForm\Forms.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3448,6 +3449,13 @@
     <Compile Include="Webroot\Forms\Management\FormsManager\FormManager.aspx.designer.cs">
       <DependentUpon>FormManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\Forms\NewForm\Forms.aspx.cs">
+      <DependentUpon>Forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\NewForm\Forms.aspx.designer.cs">
+      <DependentUpon>Forms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3457,14 +3465,12 @@
     </Compile>
     <Compile Include="Webroot\Forms\SIO\BasicInfo.aspx.cs">
       <DependentUpon>BasicInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\BasicInfo.aspx.designer.cs">
       <DependentUpon>BasicInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\Cleanliness.aspx.cs">
       <DependentUpon>Cleanliness.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\Cleanliness.aspx.designer.cs">
       <DependentUpon>Cleanliness.aspx</DependentUpon>
@@ -3478,21 +3484,18 @@
     </Compile>
     <Compile Include="Webroot\Forms\SIO\Quality.aspx.cs">
       <DependentUpon>Quality.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\Quality.aspx.designer.cs">
       <DependentUpon>Quality.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\Service.aspx.cs">
       <DependentUpon>Service.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\Service.aspx.designer.cs">
       <DependentUpon>Service.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\ServiceTime.aspx.cs">
       <DependentUpon>ServiceTime.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Forms\SIO\ServiceTime.aspx.designer.cs">
       <DependentUpon>ServiceTime.aspx</DependentUpon>
