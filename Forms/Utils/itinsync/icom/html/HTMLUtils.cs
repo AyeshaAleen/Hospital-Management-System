@@ -262,7 +262,7 @@ namespace Utils.itinsync.icom.html
         {
             HtmlGenericControl spanRemoveDetail = new HtmlGenericControl("span");
             spanRemoveDetail.Attributes.Add("class", "hRight");
-            spanRemoveDetail.Attributes.Add("onclick", "deleteColumn('" + controlID + "')");
+            spanRemoveDetail.Attributes.Add("onclick", "deleteColumn(this)");
             spanRemoveDetail.InnerHtml = "x";
             createDiv.Controls.Add(spanRemoveDetail);
         }
