@@ -1,5 +1,6 @@
 ﻿using Domains.itinsync.icom.annotation;
 using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.interfaces.domain;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Domains.itinsync.icom.idocument
 {
-    public class Douments : System.Attribute, IDomain
+    public class Douments : System.Attribute, IDomain, IDocument
     {
         public enum columns
         { documentName, documentDefinitionID, transDate, transTime, status, data, filePath, type, extension, storeid , Userid }

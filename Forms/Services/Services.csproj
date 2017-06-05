@@ -43,13 +43,13 @@
     <Compile Include="Class1.cs" />
     <Compile Include="icom\cache\CacheManagmentService.cs" />
     <Compile Include="icom\cache\documentdefinition\DocumentDefinitionManagerService.cs" />
-    <Compile Include="icom\cache\documentdefinition\manager\DocumentManager.cs" />
     <Compile Include="icom\cache\lookup\LookupManagerService.cs" />
     <Compile Include="icom\cache\lookup\trans\LookupTranslationCacheService.cs" />
     <Compile Include="icom\cache\pages\PageManagerService.cs" />
     <Compile Include="icom\cache\permission\PermissionsService.cs" />
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />
     <Compile Include="icom\document\documentDefinitionGetService.cs" />
+    <Compile Include="icom\document\tablenameGetService.cs" />
     <Compile Include="icom\document\documentSectionSaveService.cs" />
     <Compile Include="icom\document\documentDefinitionSaveService.cs" />
     <Compile Include="icom\document\documentSectionGetService.cs" />
@@ -90,6 +90,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="icom\cache\documentdefinition\manager\" />
     <Folder Include="icom\document\dynamic\content\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -97,7 +97,7 @@
                                 </tbody>
                             </table>
                             <!-- main table -->
-                            <table id="tblEditor">
+                            <table id="tblEditor" class="table table-bordered table-responsive">
 
                                 <tbody>
                                     <tr>
@@ -166,11 +166,17 @@
                                            <input type="text" id="ControlID" readonly class="form-control"/>                                            
                                         </div>
                                     </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Translation</label>
+                                           <input type="text" id="translation" readonly class="form-control"/>                                            
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Mask</label>
                                            <asp:DropDownList ID="ddlMask" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                </asp:DropDownList>
+                                            </asp:DropDownList>
                                         </div>
                                     </div>
                                    
@@ -180,11 +186,23 @@
                                             <input type="text" id="cssClass" class="form-control" />
                                         </div>
                                     </div>
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">points</label>
+                                            <input type="text" id="points" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Default Value</label>
+                                            <input type="text" id="defaultValue" class="form-control" />
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Lookup Name</label>
                                            <asp:DropDownList ID="ddlLookupName" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                </asp:DropDownList>
+                                     </asp:DropDownList>
                                         </div>
                                     </div>
                                      <div class="col-md-6">

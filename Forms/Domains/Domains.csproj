@@ -60,6 +60,7 @@
     <Compile Include="itinsync\icom\idocument\table\td\XDocumentTableTD.cs" />
     <Compile Include="itinsync\icom\idocument\table\tr\XDocumentTableTR.cs" />
     <Compile Include="itinsync\icom\idocument\table\XDocumentTable.cs" />
+    <Compile Include="itinsync\icom\interfaces\document\IDocument.cs" />
     <Compile Include="itinsync\icom\interfaces\interfacerequestresponse.cs" />
     <Compile Include="itinsync\icom\interfaces\interfaces.cs" />
     <Compile Include="itinsync\icom\interfaces\request\IRequestHandler.cs" />

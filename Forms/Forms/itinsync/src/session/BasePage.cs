@@ -32,8 +32,11 @@ using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.idoument.table.calculation;
 using Utils.itinsync.icom.xml;
 using static Forms.itinsync.src.session.Session;
+
 using HtmlAgilityPack;
 using System.IO;
+using Utils.itinsync.icom.controls;
+using Domains.itinsync.icom.interfaces.document;
 
 namespace Forms.itinsync.src.session
 {
@@ -65,34 +68,10 @@ namespace Forms.itinsync.src.session
         protected void Page_SaveStateComplete(object sender, EventArgs e)
         {
             setIMessage(this);
-
-            //processDynamicContent
-           // processDynamicContent(this);
+            
 
         }
-        private void addLabel(TableCell tc, string trans)
-        {
-            if (string.IsNullOrEmpty(trans))
-                return;
-            else
-            {
-                Label lbl = new Label();
-                lbl.Text = TranslationManager.trans(trans);
-                tc.Controls.Add(lbl);
-            }
-        }
-
-        private void addLabel(HtmlTableCell tc, string trans)
-        {
-            if (string.IsNullOrEmpty(trans))
-                return;
-            else
-            {
-                Label lbl = new Label();
-                lbl.Text = TranslationManager.trans(trans);
-                tc.Controls.Add(lbl);
-            }
-        }
+     
 
         protected Table processDynamicContent(Table parentTable, Douments documents, Int32 sectionID)
         {
@@ -112,149 +91,23 @@ namespace Forms.itinsync.src.session
                         tabletr.CssClass = tr.cssClass;
                         tabletr.BorderWidth = 10;
                         
-
                         foreach (XDocumentTableTD td in tr.tds)
                         {
-
                             foreach (XDocumentTableContent content in td.fields)
                             {
-                                List<XDocumentCalculation> calculations = content.fieldcalculations;
+
+                                ControlsHelper controlHelper = new ControlsHelper();
 
                                 if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
-                                    TableHeaderCell tableHeader = new TableHeaderCell();
-
-                                    Label lbl = new Label();
-                                    lbl.ID = content.controlID;
-                                    //lbl.CssClass = content.cssClass;
-                                    tableHeader.HorizontalAlign = HorizontalAlign.Center;
-                                    tableHeader.VerticalAlign = VerticalAlign.Middle;
-                                    tableHeader.BackColor = System.Drawing.Color.WhiteSmoke;
-                                    tableHeader.ColumnSpan = content.colspan;
-                                    lbl.Text = TranslationManager.trans(content.translation);
-                                    tableHeader.Controls.Add(lbl);
-                                    tabletr.Cells.Add(tableHeader);
-
-
+                                    tabletr.Cells.Add(controlHelper.createTableHeader(content));
                                 }
                                 else
                                 {
                                     TableCell tc = new TableCell();
-                                    if (!string.IsNullOrEmpty(content.colspan.ToString()))
-                                        tc.ColumnSpan = content.colspan;
-                                    else
-                                        tc.ColumnSpan = Convert.ToInt32(td.colSpan);
-                                    //tc.CssClass = content.cssClass;
-                                    //tc.BorderStyle = BorderStyle.Solid;
-                                    tc.BorderWidth = 10;
-                                    
-                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
-                                    {
-                                        Label lbl = new Label();
-                                        lbl.ID = content.controlID;
-                                        //lbl.CssClass = content.cssClass;
-                                        lbl.Text = TranslationManager.trans(content.translation);
-                                        lbl.Attributes.Add("points", content.points);
-                                        tc.Controls.Add(lbl);
-                                        tabletr.Cells.Add(tc);
-                                    }
-
-                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
-                                    {
-                                        addLabel(tc, content.translation);
-                                        TextBox txtBox = new TextBox();
-                                        txtBox.ID = content.controlID;
-                                        txtBox.CssClass = content.cssClass;
-                                        txtBox.Attributes.Add("irequired", content.isRequired);
-                                        txtBox.Attributes.Add("imask", content.mask);
-                                      
-
-                                        txtBox.Attributes.Add("points", content.points);
-                                        if (calculations.Count > 0)
-                                        {
-                                            txtBox.Attributes.Add("onchange", "calculation();");
-                                            txtBox.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            txtBox.Attributes.Add("operation", calculations[0].operation);
-
-                                        }
-                                        txtBox.Text = content.defaultValue;
-
-
-                                        tc.Controls.Add(txtBox);
-                                        tabletr.Cells.Add(tc);
-
-                                    }
-                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
-                                    {
-                                        addLabel(tc, content.translation);
-                                        HtmlInputRadioButton radio = new HtmlInputRadioButton();
-                                        radio.Name = content.controlName;
-                                        //radio.Checked += new radiocheckedvent(your method);
-                                        radio.ID = content.controlID;
-                                        radio.Attributes.Add("irequired", content.isRequired);
-                                        radio.Attributes.Add("imask", content.mask);
-                                        radio.Attributes.Add("points", content.points);
-                                       
-
-                                        if (calculations.Count > 0)
-                                        {
-                                            radio.Attributes.Add("onchange", "calculation();");
-                                            radio.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            radio.Attributes.Add("operation", calculations[0].operation);
-                                        }
-                                        radio.Value = content.defaultValue;
-
-                                        tc.Controls.Add(radio);
-                                        tabletr.Cells.Add(tc);
-                                    }
-
-                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_CHECKBOX)
-                                    {
-                                        addLabel(tc, content.translation);
-                                        HtmlInputCheckBox check = new HtmlInputCheckBox();
-                                        check.Name = content.controlName;
-                                        check.ID = content.controlID;
-                                        check.Attributes.Add("irequired", content.isRequired);
-                                        check.Attributes.Add("imask", content.mask);
-                                        check.Attributes.Add("points", content.points);
-                                        
-                                        if (calculations.Count > 0)
-                                        {
-                                            check.Attributes.Add("onchange", "calculation();");
-                                            check.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            check.Attributes.Add("operation", calculations[0].operation);
-                                        }
-
-                                        check.Value = content.defaultValue;
-                                        tc.Controls.Add(check);
-                                        tabletr.Cells.Add(tc);
-                                    }
-                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_COMBObOX)
-                                    {
-                                        addLabel(tc, content.translation);
-                                        DropDownList ddl = new DropDownList();
-                                        ddl.ID = content.controlID;
-                                        ddl.DataValueField = "Code";
-                                        ddl.DataTextField = "Text";
-                                        ddl.Attributes.Add("irequired", content.isRequired);
-                                        ddl.Attributes.Add("imask", content.mask);
-                                        ddl.Attributes.Add("points", content.points);
-                                        if (calculations.Count > 0)
-                                        {
-                                            ddl.Attributes.Add("onchange", "calculation();");
-                                            ddl.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            ddl.Attributes.Add("operation", calculations[0].operation);
-                                        }
-
-                                        ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, getHeader().lang);
-
-                                        ddl.DataBind();
-                                        tc.Controls.Add(ddl);
-                                        tabletr.Cells.Add(tc);
-                                    }
+                                    tc.Controls.Add(controlHelper.addControl(content, getHeader().lang));
+                                    tabletr.Cells.Add(tc);
                                 }
-
-
                             }
                         }
 
@@ -265,300 +118,11 @@ namespace Forms.itinsync.src.session
                 }
             }
 
-
-
-            //this.Controls.Add(parentTable);
             return parentTable;
         }
 
 
-        protected  HtmlTable processDynamicContentform(HtmlTable parentTable, Douments documents, Int32 sectionID)
-        {
-
-            foreach (XDocumentSection section in documents.xdocumentDefinition.documentSections)
-            {
-                if (section.documentsectionid != sectionID)
-                    continue;
-
-                foreach (XDocumentTable table in section.documentTable)
-                {
-
-                    foreach (XDocumentTableTR tr in table.trs)
-                    {
-                        HtmlTableRow tabletr = new HtmlTableRow();
-
-                        tabletr.Style.Add("class", tr.cssClass);
-                        //tabletr.BorderWidth = 10;
-                        tabletr.Style.Add("border-width", "10");
-
-                        foreach (XDocumentTableTD td in tr.tds)
-                        {
-
-                            foreach (XDocumentTableContent content in td.fields)
-                            {
-                                List<XDocumentCalculation> calculations = content.fieldcalculations;
-
-                                if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
-                                {
-                                    //HtmlTableCell tableHeader = new HtmlTableCell();
-
-                                    //Label lbl = new Label();
-                                    //lbl.ID = content.controlID;
-                                    ////lbl.CssClass = content.cssClass;
-                                    //tableHeader.Align = HorizontalAlign.Center.ToString();
-                                    ////tableHeader.VAlign = VerticalAlign.Middle.ToString();
-                                    //tableHeader.BgColor = System.Drawing.Color.WhiteSmoke.ToString();
-                                    //tableHeader.ColSpan = content.colspan;
-                                    //lbl.Text = TranslationManager.trans(content.translation);
-
-                                    //AddDetailSpan(createDiv, content.controlID);
-                                    //createDiv.Controls.Add(lbl);
-                                    //spanRemoveDetail(createDiv,content.controlID);
-
-                                    //tableHeader.Controls.Add(createDiv);
-                                    //tabletr.Cells.Add(tableHeader);
-
-
-                                }
-                                else
-                                {
-                                    HtmlTableCell tc = new HtmlTableCell();
-                                    if (!string.IsNullOrEmpty(content.colspan.ToString()))
-                                        tc.ColSpan = content.colspan;
-                                    else
-                                        tc.ColSpan = Convert.ToInt32(td.colSpan);
-                                    //tc.CssClass = content.cssClass;
-                                    //tc.BorderStyle = BorderStyle.Solid;
-                                    //tc.BorderWidth = 10;
-
-                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
-                                    {
-                                        HtmlGenericControl lbl = new HtmlGenericControl("Label");
-                                        lbl.ID = content.controlID;
-                                        //lbl.CssClass = content.cssClass;
-                                        lbl.InnerText = TranslationManager.trans(content.translation);
-                                        lbl.Attributes.Add("points", content.points);
-
-                                        AddContentToDiv(tabletr, tc, lbl, content.controlID);
-
-                                    }
-
-                             
-
-                                    if (content.controlType == ApplicationCodes.FORMS_CONTROL_TAXTBOX)
-                                    {
-
-                                        addLabel(tc, content.translation);
-
-
-
-                                        HtmlInputText txtBox = new HtmlInputText();
-                                        txtBox.ID = content.controlID;
-                                        txtBox.Attributes.Add("class", content.cssClass);
-                                        txtBox.Attributes.Add("irequired", content.isRequired);
-                                        txtBox.Attributes.Add("imask", content.mask);
-
-
-                                        txtBox.Attributes.Add("points", content.points);
-                                        if (calculations.Count > 0)
-                                        {
-                                            txtBox.Attributes.Add("onchange", "calculation();");
-                                            txtBox.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            txtBox.Attributes.Add("operation", calculations[0].operation);
-
-                                        }
-                                        txtBox.Value = content.defaultValue;
-
-
-
-
-                                        AddContentToDiv(tabletr, tc, txtBox, content.controlID);
-                                    }
-                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOBUTTON)
-                                    {
-
-                                        addLabel(tc, content.translation);
-                                        HtmlInputRadioButton radio = new HtmlInputRadioButton();
-                                        radio.Name = content.controlName;
-                                        //radio.Checked += new radiocheckedvent(your method);
-                                        radio.Attributes.Add("class", content.cssClass);
-                                        radio.ID = content.controlID;
-                                        radio.Attributes.Add("irequired", content.isRequired);
-                                        radio.Attributes.Add("imask", content.mask);
-                                        radio.Attributes.Add("points", content.points);
-
-
-                                        if (calculations.Count > 0)
-                                        {
-                                            radio.Attributes.Add("onchange", "calculation();");
-                                            radio.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            radio.Attributes.Add("operation", calculations[0].operation);
-                                        }
-                                        radio.Value = content.defaultValue;
-
-                                        AddContentToDiv(tabletr, tc, radio, content.controlID);
-                                    }
-
-                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_CHECKBOX)
-                                    {
-
-                                        addLabel(tc, content.translation);
-                                        HtmlInputCheckBox check = new HtmlInputCheckBox();
-
-                                        check.Attributes.Add("class", content.cssClass);
-
-                                        check.Name = content.controlName;
-                                        check.ID = content.controlID;
-                                        check.Attributes.Add("irequired", content.isRequired);
-                                        check.Attributes.Add("imask", content.mask);
-                                        check.Attributes.Add("points", content.points);
-
-                                        if (calculations.Count > 0)
-                                        {
-                                            check.Attributes.Add("onchange", "calculation();");
-                                            check.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            check.Attributes.Add("operation", calculations[0].operation);
-                                        }
-
-                                        check.Value = content.defaultValue;
-
-                                        AddContentToDiv(tabletr, tc, check, content.controlID);
-                                    }
-                                    else if (content.controlType == ApplicationCodes.FORMS_CONTROL_TEXTAREA)
-                                    {
-
-                                        addLabel(tc, content.translation);
-                                        HtmlTextArea text_area = new HtmlTextArea();
-
-                                        text_area.Attributes.Add("class", content.cssClass);
-                                        text_area.Name = content.controlName;
-                                        text_area.ID = content.controlID;
-                                        text_area.Attributes.Add("irequired", content.isRequired);
-                                        text_area.Attributes.Add("imask", content.mask);
-                                        text_area.Attributes.Add("points", content.points);
-
-                                        if (calculations.Count > 0)
-                                        {
-                                            text_area.Attributes.Add("onchange", "calculation();");
-                                            text_area.Attributes.Add("resultantID", calculations[0].resultContent.controlID);
-                                            text_area.Attributes.Add("operation", calculations[0].operation);
-                                        }
-
-                                        text_area.Value = content.defaultValue;
-
-                                        AddContentToDiv(tabletr, tc, text_area, content.controlID);
-                                    }
-
-
-
-
-
-
-
-                                    //else if (content.controlType == ApplicationCodes.FORMS_CONTROL_RADIOGROUP)
-                                    //{
-
-                                    //    tc.Controls.Add(new LiteralControl("<div class='redips-drag' id='tx1c0' style='cursor: move; width: 158px;'>" +
-                                    //    "<span class='hLeft' onclick='AddDetail('" + content.controlID + "')'>+</span>" +
-                                    //    "<label class="radio - inline"><input type="radio" id="##_ID##" class="radio"  name="##_ID##">Yes</label>
-                                    //< label class="radio-inline"><input type = "radio" id="##_ID##" class="radio"  name="##_ID##">No</label>
-                                    //<label class="radio-inline"><input type = "radio" id="##_ID##" class="radio"  name="##_ID##">N/a</label> " +
-                                    //                                        "<span class='hRight' onclick='deleteColumn(this)'>x</span>" +
-                                    //                                        "</div>"));
-
-                                    //                                        //tc.Controls.Add(ddl);
-                                    //                                        //tabletr.Cells.Add(tc);
-                                    //                                    }
-
-
-}
-
-
-                            }
-                        }
-
-
-
-                        AddControlDiv(tabletr);
-
-                        parentTable.Rows.Add(tabletr);
-
-                    }
-
-                }
-            }
-
-
-
-            //this.Controls.Add(parentTable);
-            return parentTable;
-        }
-
-        private void AddControlDiv(HtmlTableRow tr)
-        {
-            HtmlTableCell tc = new HtmlTableCell();
-            HtmlGenericControl createControlDivs = new HtmlGenericControl("DIV");
-
-            HtmlGenericControl spanDeleteRow = new HtmlGenericControl("span");
-            spanDeleteRow.Attributes.Add("class", "rowTool");
-            spanDeleteRow.Attributes.Add("onclick", "redips.rowDelete(this)");
-            spanDeleteRow.InnerHtml = "x/ ";
-
-
-            HtmlGenericControl spanInsertRow = new HtmlGenericControl("span");
-            spanInsertRow.Attributes.Add("class", "rowTool");
-            spanInsertRow.Attributes.Add("onclick", "redips.rowInsert(this)");
-            spanInsertRow.InnerHtml = "r+/ ";
-
-            HtmlGenericControl spanInsertCell = new HtmlGenericControl("span");
-            spanInsertCell.Attributes.Add("class", "rowTool");
-            spanInsertCell.Attributes.Add("onclick", "redips.colInsert(this)");
-            spanInsertCell.InnerHtml = "c+";
-
-            createControlDivs.Controls.Add(spanDeleteRow);
-            createControlDivs.Controls.Add(spanInsertRow);
-            createControlDivs.Controls.Add(spanInsertCell);
-
-
-            tc.Controls.Add(createControlDivs);
-            tr.Cells.Add(tc);
-
-        }
-
-        private void AddContentToDiv(HtmlTableRow tr, HtmlTableCell tc, HtmlControl Ctrl, string controlID)
-        {
-            HtmlGenericControl createDivs = new HtmlGenericControl("DIV");
-            //createDiv.ID = "createDiv";
-            createDivs.Attributes.Add("class", "redips-drag");
-            createDivs.Style.Add("cursor", "move");
-            createDivs.Style.Add("width", "158px");
-
-            AddDetailSpan(createDivs, controlID);
-            createDivs.Controls.Add(Ctrl);
-            spanRemoveDetail(createDivs, controlID);
-
-            tc.Controls.Add(createDivs);
-            tr.Cells.Add(tc);
-
-        }
-
-        private void AddDetailSpan(HtmlGenericControl createDiv, string controlID)
-        {
-            HtmlGenericControl spanAddDetail = new HtmlGenericControl("span");
-            spanAddDetail.Attributes.Add("class", "hLeft");
-            spanAddDetail.Attributes.Add("onclick", "AddDetail('" + controlID + "')");
-            spanAddDetail.InnerHtml = "+";
-            createDiv.Controls.Add(spanAddDetail);
-        }
-
-        private void spanRemoveDetail(HtmlGenericControl createDiv, string controlID)
-        {
-            HtmlGenericControl spanRemoveDetail = new HtmlGenericControl("span");
-            spanRemoveDetail.Attributes.Add("class", "hRight");
-            spanRemoveDetail.Attributes.Add("onclick", "deleteColumn('"+ controlID + "')");
-            spanRemoveDetail.InnerHtml = "x";
-            createDiv.Controls.Add(spanRemoveDetail);
-        }
+      
 
         protected Table processDynamicContent(Control parent, Douments documents,Int32 sectionID)
         {
@@ -589,9 +153,6 @@ namespace Forms.itinsync.src.session
                             foreach (XDocumentTableContent content in td.fields)
                             {
                                // hepler.fieldCalculation(content, parent);
-
-                              
-
 
                             }
                         }
@@ -1126,26 +687,6 @@ namespace Forms.itinsync.src.session
         {
             Sessions.getSession().Set(SessionKey.SUBJECTID, value);
         }
-
-        public void setSectionID(string value)
-        {
-            Sessions.getSession().Set(SessionKey.SECTIONID, value);
-        }
-        public string getSectionID()
-        {
-            return Convert.ToString(Sessions.getSession().Get(SessionKey.SECTIONID));
-        }
-        public void setBreadCrumb(string value)
-        {
-            Sessions.getSession().Set(SessionKey.BREADCRUMB, value);
-        }
-        public string getBreadCrumb()
-        {
-            return Convert.ToString(Sessions.getSession().Get(SessionKey.BREADCRUMB));
-        }
-
-
-
         public void setSubjectID(int value)
         {
             Sessions.getSession().Set(SessionKey.SUBJECTID, value);
@@ -1209,6 +750,7 @@ namespace Forms.itinsync.src.session
             unAuthorisedAccess();
             return false;
         }
+        
         public Int32 getCurrentPage()
         {
             return Convert.ToInt32(Sessions.getSession().Get(SessionKey.CURRENTPAGE));
@@ -1227,6 +769,15 @@ namespace Forms.itinsync.src.session
             pageVisitedStack.Add(pageNo);
 
             Sessions.getSession().Set(SessionKey.PAGEVISTSTACK, pageVisitedStack);
+        }
+
+        public IDocument getParentRef()
+        {
+            return (IDocument)Sessions.getSession().Get(SessionKey.PARENTREF);
+        }
+        public void setParentRef(IDocument document)
+        {
+            Sessions.getSession().Set(SessionKey.PARENTREF, document);
         }
         public string getLastURL()
         {
@@ -1259,6 +810,8 @@ namespace Forms.itinsync.src.session
             return false;
         }
 
+
+
         public Header getHeader()
         {
             Header header = new Header();
@@ -1266,6 +819,7 @@ namespace Forms.itinsync.src.session
             header.currentPageNo = getCurrentPage();
             header.previousPageNo = getLastVisitedURLCode();
             header.userinformation = getUserInformation();
+            header.parentRef = getParentRef();
             header.lang = getUserInformation() == null || getUserInformation().userAccount == null ? ApplicationCodes.DEFAULT_USER_LANG : getUserInformation().userAccount.lang;
 
             return header;
@@ -1282,167 +836,6 @@ namespace Forms.itinsync.src.session
             return Convert.ToString(Sessions.getSession().Get(SessionKey.XML));
         }
 
-        public XDocumentTable HtmlParse(string html,int section_id)
-        {
-            #region add Load Html
-          
-            HtmlDocument resultat = new HtmlDocument();
-            resultat.LoadHtml(html);
-
-            #endregion
-
-            XDocumentTable documentTable = new XDocumentTable();
-
-            #region add Table dto values
-
-
-            HtmlNode table = resultat.DocumentNode.Descendants("table").SingleOrDefault();
-
-            if (table != null)
-            {
-                documentTable.documentsectionid = section_id;
-               
-            }
-
-            #endregion
-
-            #region add Table Row dto values
-
-            List<HtmlNode> rowcount = table.Descendants("tr").ToList();
-
-
-            foreach (HtmlNode Rownode in rowcount)
-            {
-
-                XDocumentTableTR tableTR = new XDocumentTableTR();
-
-
-                tableTR.cssClass = "table-border";
-                //tableTR.id
-
-                #endregion
-
-                #region add Table Column dto values
-                if (Rownode.HasChildNodes)
-                {
-                    documentTable.trs.Add(tableTR);
-
-
-
-                    foreach (HtmlNode colnode in Rownode.Descendants("td"))
-                    {
-                        if (colnode.HasChildNodes && !(colnode.GetAttributeValue("last", false)))
-                        {
-                            XDocumentTableTD tableTD = new XDocumentTableTD();
-
-
-                            tableTD.tdType = "600";
-                            tableTD.cssClass = colnode.GetAttributeValue("Class", "");
-                            tableTR.tds.Add(tableTD);
-
-                            #endregion
-
-                            #region add Table Column Content dto values
-
-
-
-
-                            foreach (var fieldnode in colnode.ChildNodes)
-                            {
-                                if (!string.IsNullOrWhiteSpace(fieldnode.OuterHtml))
-                                {
-                                   
-                                    //string tag= fieldnode.ChildNodes[1].get;
-
-                                    string type = fieldnode.ChildNodes[1].GetAttributeValue("type", string.Empty);
-
-                                   
-
-                                    if (!string.IsNullOrEmpty(type))
-                                    {
-                                        XDocumentTableContent tableContent = new XDocumentTableContent();
-
-                                        if (type == "checkbox")
-                                        {
-                                            tableContent.controlType = "1";
-                                        }
-                                        if (type == "radio")
-                                        {
-                                            tableContent.controlType = "2";
-                                        }
-                                        if (type == "text")
-                                        {
-                                            tableContent.controlType = "3";
-                                        }
-                                   
-
-                                        tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
-                                        tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
-                                        tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
-                                        tableContent.mask = fieldnode.ChildNodes[1].GetAttributeValue("imask", "");
-                                        tableContent.cssClass = fieldnode.ChildNodes[1].GetAttributeValue("Class", "");
-                                        tableContent.lookupName= fieldnode.ChildNodes[1].GetAttributeValue("LookupName", "");
-
-                                        tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
-                                       
-                                        //dto.documentTableContentlist.Add(dto.documentTableContent);
-
-                                        tableTD.fields.Add(tableContent);
-                                    }
-
-                                    else 
-                                    {
-                                        XDocumentTableContent tableContent = new XDocumentTableContent();
-
-                                        HtmlNode types_Node_Text_Area = fieldnode.Descendants("textarea").SingleOrDefault();
-
-                                        HtmlNode types_Node_Label = fieldnode.Descendants("label").SingleOrDefault();
-
-
-                                        if (types_Node_Label != null)
-                                        {
-                                            tableContent.controlType = "5";
-                                            AddDocumentTableTD(tableContent, tableTD, types_Node_Label, colnode, section_id);
-                                        }
-
-                                        if (types_Node_Text_Area != null)
-                                        {
-                                            tableContent.controlType = "6";
-                                            AddDocumentTableTD(tableContent, tableTD, types_Node_Text_Area, colnode, section_id);
-                                        }
-
-
-
-
-                                    }
-                                }
-
-                            }
-                            #endregion
-                        }
-                        //}
-                    }
-                }
-            }
-
-
-            return documentTable;
-
-        }
-        private void AddDocumentTableTD(XDocumentTableContent tableContent,XDocumentTableTD tableTD, HtmlNode types_Node,HtmlNode colnode,int section_id)
-        {
-            tableContent.controlName = types_Node.GetAttributeValue("name", "");
-            tableContent.controlID = types_Node.GetAttributeValue("id", "") + section_id + "formname";
-            tableContent.isRequired = types_Node.GetAttributeValue("irequired", "");
-            tableContent.mask = types_Node.GetAttributeValue("imask", "");
-            tableContent.cssClass = types_Node.GetAttributeValue("Class", "");
-            tableContent.lookupName = types_Node.GetAttributeValue("LookupName", "");
-
-            tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
-
-            //dto.documentTableContentlist.Add(dto.documentTableContent);
-
-            tableTD.fields.Add(tableContent);
-        }
+       
     }
 }

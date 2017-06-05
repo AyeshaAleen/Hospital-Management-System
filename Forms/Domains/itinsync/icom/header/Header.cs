@@ -1,6 +1,8 @@
 ﻿
 
 
+using Domains.itinsync.icom.idocument;
+using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.icom.session.user;
 using Domains.itinsync.interfaces.domain;
 using System;
@@ -13,9 +15,9 @@ namespace Domains.itinsync.icom.header
         public enum columns { previousPageNo, userid, lang, transID }
         public enum primaryKey { currentPageNo }
         public UserInformation userinformation = new UserInformation();
-      
 
 
+        public IDocument parentRef = new Douments();
 
         public Int32 currentPageNo { get; set; }
         public Int32 previousPageNo { get; set; }

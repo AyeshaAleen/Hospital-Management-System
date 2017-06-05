@@ -16,6 +16,7 @@ using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.section;
 
+
 namespace Utils.itinsync.icom.cache.global
 {
     public static class GlobalStaticCache

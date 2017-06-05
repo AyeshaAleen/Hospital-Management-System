@@ -23,13 +23,17 @@ namespace Utils.itinsync.icom.cache.lookup
                 lang = ApplicationCodes.DEFAULT_USER_LANG;
 
             List<LookUp> lookupList = new List<LookUp>();
-            foreach (DictionaryEntry entry in GlobalStaticCache.LKcacheMap[lang][lookupName])
+            if (GlobalStaticCache.LKcacheMap[lang].ContainsKey(lookupName))
             {
-                LookUp lk = new LookUp();
-                lk.code = Convert.ToString(entry.Key);
-                lk.text = Convert.ToString(entry.Value);
-                lookupList.Add(lk);
+                foreach (DictionaryEntry entry in GlobalStaticCache.LKcacheMap[lang][lookupName])
+                {
+                    LookUp lk = new LookUp();
+                    lk.code = Convert.ToString(entry.Key);
+                    lk.text = Convert.ToString(entry.Value);
+                    lookupList.Add(lk);
+                }
             }
+            
             lookupList.OrderBy(x => x.text);
             return lookupList;
         }
