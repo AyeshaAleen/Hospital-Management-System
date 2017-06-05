@@ -32,7 +32,7 @@ namespace Forms.Webroot.Forms.Management
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                DropDownList1.DataSource = dto.pagenamelist;
+                //DropDownList1.DataSource = dto.pagenamelist;
                 DropDownList1.DataBind();
             }
         }

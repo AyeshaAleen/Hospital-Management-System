@@ -35,10 +35,10 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-                dto.pagenamelist = pagenameDAO.getInstance(dbContext).readAll();
+                //dto.pagenamelist = pagenameDAO.getInstance(dbContext).readAll();
                 //dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
                 //dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);
-               
+
             }
             catch (Exception ex)
             {
@@ -48,8 +48,5 @@ namespace Services.itinsync.icom.documents
             }
             return dto;
         }
-
-
-
     }
 }

@@ -17,8 +17,10 @@ namespace Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            byte[] pdfbyte =  new EVOConverter().getPDF("<html>hello<p></p></html>", "");
+            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            string htmlString = new UTF8Encoding().GetString(new WebClient().DownloadData(url));
+            
+            byte[] pdfbyte =  new EVOConverter().getPDF(htmlString, url);
 
             // Set response content type
             Response.AddHeader("Content-Type", "application/pdf");
