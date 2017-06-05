@@ -60,7 +60,7 @@ namespace Utils.itinsync.icom.cache.document
         }
         public static List<XDocumentSection> getDocumentSections(Int32 doumentDefinitionID)
         {
-            if (GlobalStaticCache.documentSection.ContainsKey(doumentDefinitionID))
+            if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
                 return GlobalStaticCache.documentDefinition[doumentDefinitionID].documentSections;
             else
             {

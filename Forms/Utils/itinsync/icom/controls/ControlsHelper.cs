@@ -44,6 +44,10 @@ namespace Utils.itinsync.icom.controls
             else
             {
                 Label lbl = new Label();
+                lbl.Attributes.Add("translation", content.translation);
+                lbl.Attributes.Add("id", content.controlID);
+                lbl.Attributes.Add("name", content.controlName);
+                lbl.Attributes.Add("type", "label");
                 lbl.Text = TranslationManager.trans(content.translation);
                 
 

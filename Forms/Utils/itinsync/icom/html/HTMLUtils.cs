@@ -101,17 +101,13 @@ namespace Utils.itinsync.icom.html
 
 
                                         if (type == "checkbox")
-                                        {
                                             tableContent.controlType =ApplicationCodes.FORMS_CONTROL_CHECKBOX;
-                                        }
                                         else if (type == "radio")
-                                        {
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_RADIOBUTTON;
-                                        }
                                         else if (type == "text")
-                                        {
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TAXTBOX;
-                                        }
+                                        else if  (type == "label")
+                                            tableContent.controlType = ApplicationCodes.FORMS_CONTROL_LABEL;
                                         //if (type=="select")
                                         //{
                                         //    dto.documentTableContent.controlType = "4";

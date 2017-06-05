@@ -165,8 +165,17 @@ function deleteColumn(elem) {
 
 function AddDetail(id) {
     debugger;
+    //this is required object which contain all information regarding object
+    var fieldObject = document.getElementById(id);
+
+    // getting data from popup and setting it to required field
     document.getElementById("ControlName").value = id;
     document.getElementById("ControlID").value = id;
+    document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
+    document.getElementById("translation").value = fieldObject.getAttribute("translation");
+    document.getElementById("points").value = fieldObject.getAttribute("points");
+    document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
+
 
     $('#con-close-modal').modal('show');
 }
