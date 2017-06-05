@@ -71,7 +71,7 @@ redips.init = function () {
         // set new width to the dropped DIV element
         var width = targetCell.offsetWidth;
         // set width and reset height value
-        rd.obj.style.width = (width - 2) + 'px';
+        //rd.obj.style.width = (width - 2) + 'px';
         rd.obj.style.height = '';
     };
     // event handler invoked in a moment when DIV element is dropped to the table
