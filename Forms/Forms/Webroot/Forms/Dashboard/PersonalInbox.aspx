@@ -1,4 +1,4 @@
-﻿<%@ Page Title="User Dashboard" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserDashboard.aspx.cs" Inherits="Forms.Webroot.Forms.Dashboard.UserDashboard" %>
+﻿<%@ Page Title="Personal Inbox" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="PersonalInbox.aspx.cs" Inherits="Forms.Webroot.Forms.Dashboard.PersonalInbox" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>

@@ -2923,7 +2923,7 @@
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
     <Content Include="Webroot\admin\AdminDashboard.aspx" />
     <Content Include="Webroot\CommonMaster.js" />
-    <Content Include="Webroot\Forms\Dashboard\UserDashboard.aspx" />
+    <Content Include="Webroot\Forms\Dashboard\PersonalInbox.aspx" />
     <Content Include="Webroot\Forms\Management\AddForms.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
@@ -3407,12 +3407,12 @@
     <Compile Include="Webroot\Forms\Dashboard\DashboardMaster.master.designer.cs">
       <DependentUpon>DashboardMaster.master</DependentUpon>
     </Compile>
-    <Compile Include="Webroot\Forms\Dashboard\UserDashboard.aspx.cs">
-      <DependentUpon>UserDashboard.aspx</DependentUpon>
+    <Compile Include="Webroot\Forms\Dashboard\PersonalInbox.aspx.cs">
+      <DependentUpon>PersonalInbox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webroot\Forms\Dashboard\UserDashboard.aspx.designer.cs">
-      <DependentUpon>UserDashboard.aspx</DependentUpon>
+    <Compile Include="Webroot\Forms\Dashboard\PersonalInbox.aspx.designer.cs">
+      <DependentUpon>PersonalInbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\FormMaster.master.cs">
       <DependentUpon>FormMaster.master</DependentUpon>

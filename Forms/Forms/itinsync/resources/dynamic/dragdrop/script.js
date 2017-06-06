@@ -173,6 +173,7 @@ function AddDetail(id) {
     document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
 
 
+    document.getElementById(id).style.borderColor = 'red';
     $('#con-close-modal').modal('show');
 }
 function SetDetail() {
@@ -201,6 +202,9 @@ function SetDetail() {
 
     if (document.getElementById(id).getAttribute("type") == "label")
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
+
+
+    document.getElementById(id).style.borderColor = 'none';
     $('#con-close-modal').modal('hide');
 }
 
