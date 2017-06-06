@@ -42,8 +42,8 @@
                                 <thead>
                                     <tr>
                                         <th data-field="name" data-sortable="true">Section Name</th>
-                                        <th data-field="action" data-align="center">View</th>
-                                        <th data-field="action" data-align="center">Edit</th>
+                                        <th data-field="View" data-align="center">View</th>
+                                        <th data-field="Edit" data-align="center">Edit</th>
                                     </tr>
                                 </thead>
 

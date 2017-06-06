@@ -99,6 +99,7 @@
                                         <%--<a href="../ViewDocumentSection.aspx">../ViewDocumentSection.aspx</a>
                                         <a href=<%ResolveClientUrl(""); %>>Manage Section</a>--%>
                                     </tr>
+                                    
                                 </tbody>
                             </table>
                             <!-- main table -->
@@ -119,6 +120,7 @@
 									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>

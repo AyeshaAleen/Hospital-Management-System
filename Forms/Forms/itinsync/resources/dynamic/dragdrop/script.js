@@ -229,7 +229,7 @@ function fieldset(event,divid) {
 
     else
     {
-        event[0].id = "dynamic_" + event[0].event[0].type + divid;
+        event[0].id = "dynamic_" + event[0].type + divid;
         return "dynamic_" + event[0].type + divid;
     }
    
@@ -419,12 +419,13 @@ redips.rowInsert = function (el) {
 };
 
 redips.colInsert = function (el) {
+
     var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
         top_row,									// cells reference in top row of the table editor
         nr,											// new table row
         lc;											// last cell in newly inserted row
     // set reference to the top row cells
-    row.insertCell(row.cells - 1);
+    row.insertCell(row.cells -1);
 };
 
 
