@@ -165,7 +165,7 @@ function deleteColumn(elem) {
 function AddDetail(id) {
     debugger;
 
-    alert(id.offsetWidth);
+
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
 
