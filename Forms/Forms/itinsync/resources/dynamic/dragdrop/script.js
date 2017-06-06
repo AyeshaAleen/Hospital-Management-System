@@ -129,6 +129,7 @@ redips.handler1 = function (xhr, obj) {
 
         var eleminput = obj.div.getElementsByTagName("input");
         var elemlabel = obj.div.getElementsByTagName("label");
+        var elemselect = obj.div.getElementsByTagName("select");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
         var elemheading = obj.div.getElementsByTagName("h3");
         var controlID = "";
@@ -140,6 +141,8 @@ redips.handler1 = function (xhr, obj) {
             controlID = fieldset(elemtextarea, obj.div.id);
         if (elemheading.length > 0)
             controlID= fieldset(elemheading, obj.div.id);
+        if (elemselect.length > 0)
+            controlID = fieldset(elemselect, obj.div.id);
 
         var popupHTML = layout[0];
         var params = "AddDetail('" + controlID + "')";
@@ -161,6 +164,8 @@ function deleteColumn(elem) {
 
 function AddDetail(id) {
     debugger;
+
+    alert(id.offsetWidth);
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
 
@@ -173,7 +178,7 @@ function AddDetail(id) {
     document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
 
 
-    document.getElementById(id).style.borderColor = 'red';
+    
     $('#con-close-modal').modal('show');
 }
 function SetDetail() {
@@ -204,7 +209,7 @@ function SetDetail() {
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
 
-    document.getElementById(id).style.borderColor = 'none';
+
     $('#con-close-modal').modal('hide');
 }
 
@@ -220,12 +225,13 @@ function fieldClick(event) {
 function fieldset(event,divid) {
     debugger;
  
-    if (event[0].getAttribute("type") == "label")
+    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select")
     {
         event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].getAttribute("type") + divid;
     }
-        
+
+
 
     else
     {
