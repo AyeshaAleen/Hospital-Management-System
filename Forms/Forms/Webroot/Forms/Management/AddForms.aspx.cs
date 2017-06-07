@@ -36,7 +36,7 @@ namespace Forms.Webroot.Forms.Management
         {
             
             setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(e.CommandArgument)));
-
+            setSubjectID(Convert.ToInt32(e.CommandArgument));
             //popupmodal.Style.Value = "display:block";
            
             Response.Redirect(PageConstant.PAGE_DocumentSection);

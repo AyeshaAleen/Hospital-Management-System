@@ -39,6 +39,8 @@ namespace Utils.itinsync.icom.constant.lookup
         public static readonly string LKPriority = "LKPriority";
 
         public static readonly string LKUserRole = "LKUserRole";
+        public static readonly string LKEmailRouting = "LKEmailRouting";
+
         public static readonly string LKInvoiceType = "LKInvoiceType";
         public static readonly string LKInvoiceStatus = "LKInvoiceStatus";
 

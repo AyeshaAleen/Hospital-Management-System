@@ -52,6 +52,7 @@
     <Compile Include="icom\document\DocumentRoleGetService.cs" />
     <Compile Include="icom\document\DocumentRoleRouteGetService.cs" />
     <Compile Include="icom\document\DocumentRoleRouteSaveService.cs.cs" />
+    <Compile Include="icom\document\DocumentRoleDeleteService.cs" />
     <Compile Include="icom\document\DocumentRoleSaveService.cs" />
     <Compile Include="icom\document\DocumentUserRouteGetService.cs" />
     <Compile Include="icom\document\DocumentUserRouteSaveService.cs" />

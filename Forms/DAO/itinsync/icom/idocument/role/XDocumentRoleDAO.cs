@@ -80,6 +80,11 @@ namespace DAO.itinsync.icom.idocument.role
                 list.Add((XDocumentRole)domain);
             return list;
         }
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where xdocumentroleid = {0}", ID);
+            return delete(delSQL);
+        }
         //public XDocumentDefination findbyDocumentName(string DocumentName)
         //{
 

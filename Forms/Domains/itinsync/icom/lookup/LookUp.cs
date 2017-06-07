@@ -10,9 +10,7 @@ namespace Domains.itinsync.icom.lookup
         public enum primaryKey { lookUpID }
         public enum forignKey { }
         public Int32 lookUpID { get; set; }
-
-        [LookupAttribute(lookupName = "LKUserRole", relatedTag = "text")]
-
+        
         public String name { get; set; }
         public String code { get; set; }
         public String text { get; set; }
