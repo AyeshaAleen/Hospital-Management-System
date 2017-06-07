@@ -30,7 +30,7 @@ namespace DAO.itinsync.icom.idocument.role
         protected override IDomain setResult(DataTable dt, int i)
         {
             XDocumentRole role = new XDocumentRole();
-            role.xdocumentRoelID = Convert.ToInt32(dt.Rows[i][XDocumentRole.primaryKey.xdocumentRoelID.ToString()]);
+            role.xdocumentroleid = Convert.ToInt32(dt.Rows[i][XDocumentRole.primaryKey.xdocumentroleid.ToString()]);
 
             setPropertiesValue(role, dt, i, typeof(XDocumentRole.columns));
 
@@ -42,22 +42,22 @@ namespace DAO.itinsync.icom.idocument.role
             if (where.Length > 0)
                 results = readWhere(where);
             else
-                results.Add(findbyPrimaryKey(((XDocumentRole)o).xdocumentRoelID));
+                results.Add(findbyPrimaryKey(((XDocumentRole)o).xdocumentroleid));
             foreach (XDocumentRole lk in results)
             {
                 string whereClause = " update " + TABLENAME + " set ";
                 whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(XDocumentRole.columns));
                 if (whereClause.Contains("="))//update on the base of primary key column
-                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentRole.primaryKey.xdocumentRoelID.ToString(), lk.xdocumentRoelID)));
+                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentRole.primaryKey.xdocumentroleid.ToString(), lk.xdocumentroleid)));
             }
             return "";
         }
-        public XDocumentRole findbyPrimaryKey(Int32 xDocumentRoleID)
+        public XDocumentRole findbyPrimaryKey(Int32 xdocumentroleid)
         {
-            if (DocumentManager.getDocumentRole(xDocumentRoleID) != null)
-                return DocumentManager.getDocumentRole(xDocumentRoleID);
+            if (DocumentManager.getDocumentRole(xdocumentroleid) != null)
+                return DocumentManager.getDocumentRole(xdocumentroleid);
 
-            string sql = "select * From " + TABLENAME + " where xDocumentRoleID = " + xDocumentRoleID;
+            string sql = "select * From " + TABLENAME + " where xdocumentroleid = " + xdocumentroleid;
             return (XDocumentRole)processSingleResult(sql);
         }
         public List<XDocumentRole> readAll()

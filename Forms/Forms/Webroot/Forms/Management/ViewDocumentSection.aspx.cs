@@ -12,6 +12,9 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Utils.itinsync.icom.cache.pages;
 using Domains.itinsync.icom.idocument.definition;
+using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom.constant.lookup;
+using Services.icom.document;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -20,7 +23,7 @@ namespace Forms.Webroot.Forms.Management
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-             doLoad();
+                doLoad();
             
         }
 
@@ -33,7 +36,21 @@ namespace Forms.Webroot.Forms.Management
                 tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
                 tblDocument.DataBind();
             }
+            ddlOperation.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKUserRole, getHeader().lang);
+            ddlOperation.DataBind();
+
+            LoadUserRoleTbl();
         }
+        void LoadUserRoleTbl()
+        {
+            DocumentDTO dto = new DocumentDTO();
+            getHeader();
+            IResponseHandler response = new DocumentRoleGetService().executeAsPrimary(dto);
+           
+            tblUserRole.DataSource = ((DocumentDTO)response).documentRolelist;
+            tblUserRole.DataBind();
+        }
+
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
         {
             setSubjectID(Convert.ToString(e.CommandArgument));
@@ -53,5 +70,35 @@ namespace Forms.Webroot.Forms.Management
             IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dtoIn);
             doLoad();
         }
+
+        protected void btnAddUserRole_Click(object sender, EventArgs e)
+        {
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+
+            dto.documentRole.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
+            dto.documentRole.role = Convert.ToInt32(ddlOperation.SelectedValue);
+
+            IResponseHandler response = new DocumentRoleSaveService().executeAsPrimary(dto);
+
+            LoadUserRoleTbl();
+        }
+
+        protected void btnEditUserRole_Command(object sender, CommandEventArgs e)
+        {
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+
+            dto.documentRole.xdocumentroleid = Convert.ToInt32(e.CommandArgument);
+            ddlOperation.SelectedValue = Convert.ToString(e.CommandArgument);
+            dto.documentRole.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
+            dto.documentRole.role = Convert.ToInt32(ddlOperation.SelectedValue);
+        }
+
+        protected void btnDeleteUserRole_Command(object sender, CommandEventArgs e)
+        {
+
+        }
+        
     }
 }

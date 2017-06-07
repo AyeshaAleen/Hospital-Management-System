@@ -21,7 +21,7 @@ namespace Services.icom.document
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentRole.xdocumentRoelID > 0)
+                if (dto.documentRole.xdocumentroleid> 0)
                 {
                     XDocumentRoleDAO.getInstance(dbContext).update(dto.documentRole, "");
                 }

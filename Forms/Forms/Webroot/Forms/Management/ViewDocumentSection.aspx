@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddUserRole" Text="Add" runat="server" CssClass="btn btn-info waves-effect btn-lg" />
+                            <asp:Button ID="btnAddUserRole" Text="Add"  OnClick="btnAddUserRole_Click" CssClass="btn btn-info waves-effect btn-lg" runat="server" />
                         </div>
 
                          <div class="clearfix"></div>
@@ -157,25 +157,24 @@
                                 </thead>
 
                                 <tbody>
-                                    <asp:Repeater ID="Repeater1" runat="server">
+                                    <asp:Repeater ID="tblUserRole" runat="server">
                                         <ItemTemplate>
                                             <tr>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="lblLookupName" Text='<%# Eval("text") %>' />
                                                 </td>
 
                                                 <td style="text-align: center;">
-                                                   <%-- <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
-                                                    </asp:LinkButton>--%>
+                                                    <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xdocumentroleid") ) %>'
+                                                        CommandName='Reset' OnCommand="btnEditUserRole_Command" ToolTip="Edit">
+                                                    </asp:LinkButton>
                                                 </td>
                                                 <td style="text-align: center;">
-                                                   <%-- <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' ToolTip="Edit"
-                                                        data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this)">
-                                                    </asp:LinkButton>--%>
+                                                    <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xdocumentroleid") ) %>'
+                                                        CommandName='Reset' OnCommand="btnDeleteUserRole_Command" ToolTip="Delete">
+                                                    </asp:LinkButton>
                                                 </td>
                                             </tr>
                                         </ItemTemplate>
