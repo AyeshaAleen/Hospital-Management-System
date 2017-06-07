@@ -49,6 +49,12 @@
     <Compile Include="icom\cache\permission\PermissionsService.cs" />
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />
     <Compile Include="icom\document\documentDefinitionGetService.cs" />
+    <Compile Include="icom\document\DocumentRoleGetService.cs" />
+    <Compile Include="icom\document\DocumentRoleRouteGetService.cs" />
+    <Compile Include="icom\document\DocumentRoleRouteSaveService.cs.cs" />
+    <Compile Include="icom\document\DocumentRoleSaveService.cs" />
+    <Compile Include="icom\document\DocumentUserRouteGetService.cs" />
+    <Compile Include="icom\document\DocumentUserRouteSaveService.cs" />
     <Compile Include="icom\document\tablenameGetService.cs" />
     <Compile Include="icom\document\documentSectionSaveService.cs" />
     <Compile Include="icom\document\documentDefinitionSaveService.cs" />

@@ -1,19 +1,18 @@
-﻿using DAO.itinsync.icom.BaseAS.frame;
-
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DAO.itinsync.icom.BaseAS.frame;
+using DAO.itinsync.icom.idocument.userRoute;
 using Domains.itinsync.icom.interfaces.response;
-using System;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-using DAO.itinsync.icom.idocument.section;
-
-
-//Created By Qundeel Ch
-
-namespace Services.itinsync.icom.documents
+namespace Services.icom.document
 {
-    public class documentSectionGetService : FrameAS
+    public class DocumentUserRouteGetService : FrameAS
     {
         DocumentDTO dto = null;
 
@@ -23,8 +22,7 @@ namespace Services.itinsync.icom.documents
             {
                 dto = (DocumentDTO)o;
 
-                dto.documentDefination.documentSections = XDocumentSectionDAO.getInstance(dbContext).readyByDocumentDefinitionID(dto.documentDefination.xDocumentDefinationID);
-                
+                dto.documentUserRoutelist = XDocumentUserRouteDAO.getInstance(dbContext).readAll();
             }
             catch (Exception ex)
             {
@@ -34,8 +32,5 @@ namespace Services.itinsync.icom.documents
             }
             return dto;
         }
-
-
-
     }
 }

@@ -32,7 +32,6 @@ namespace Forms.Webroot.Forms.Management
             {
                 tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
                 tblDocument.DataBind();
-                  
             }
         }
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
@@ -50,8 +49,6 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
-
-           
 
             IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dtoIn);
             doLoad();

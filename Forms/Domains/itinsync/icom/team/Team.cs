@@ -8,11 +8,11 @@ namespace Entities.itinsync.team
 {
     public class Team
     {
-        public enum columns { teamid, teamname, status }
+        public enum columns { teamid, teamname, status,vendorid }
         public int teamid { get; set; }
         public string teamname { get; set; }
         public string status { get; set; }
         public string statusText { get; set; }
-
+        public int vendorid { get; set; }
     }
 }

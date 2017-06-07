@@ -1,30 +1,34 @@
-﻿using DAO.itinsync.icom.BaseAS.frame;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+using DAO.itinsync.icom.BaseAS.frame;
+using DAO.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.interfaces.response;
-using System;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-using DAO.itinsync.icom.idocument.section;
-
-
-//Created By Qundeel Ch
-
-namespace Services.itinsync.icom.documents
+namespace Services.icom.document
 {
-    public class documentSectionGetService : FrameAS
+    public class DocumentRoleSaveService : FrameAS
     {
         DocumentDTO dto = null;
-
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (DocumentDTO)o;
-
-                dto.documentDefination.documentSections = XDocumentSectionDAO.getInstance(dbContext).readyByDocumentDefinitionID(dto.documentDefination.xDocumentDefinationID);
-                
+                if (dto.documentRole.xdocumentRoelID > 0)
+                {
+                    XDocumentRoleDAO.getInstance(dbContext).update(dto.documentRole, "");
+                }
+                else
+                {
+                    XDocumentRoleDAO.getInstance(dbContext).create(dto.documentRole);
+                }
             }
             catch (Exception ex)
             {
@@ -34,8 +38,5 @@ namespace Services.itinsync.icom.documents
             }
             return dto;
         }
-
-
-
     }
 }
