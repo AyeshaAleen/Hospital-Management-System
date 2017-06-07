@@ -17,7 +17,7 @@ namespace Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            /*string url = HttpContext.Current.Request.Url.AbsoluteUri;
             string htmlString = new UTF8Encoding().GetString(new WebClient().DownloadData(url));
             
             byte[] pdfbyte =  new EVOConverter().getPDF(htmlString, url);
@@ -34,7 +34,7 @@ namespace Forms
 
             // End the HTTP response and stop the current page processing
             Response.End();
-
+            */
 
 
         }

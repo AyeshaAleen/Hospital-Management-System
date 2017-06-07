@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Forms.Webroot.Forms.Dashboard
 {
-    public partial class UserDashboard : System.Web.UI.Page
+    public partial class PersonalInbox : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

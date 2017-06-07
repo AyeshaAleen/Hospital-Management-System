@@ -38,16 +38,17 @@ namespace Forms.Webroot.Forms.Management.FormsManager
         {
             if (!IsPostBack)
             {
-                loadDeopDown();
+                loadDropDown();
             }
         }
-        private void loadDeopDown()
+        private void loadDropDown()
         {
             ddlLookupName.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKControlType, getHeader().lang);
             ddlLookupName.DataBind();
-
             ddlMask.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKMask, getHeader().lang);
             ddlMask.DataBind();
+            ddlOperation.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKOperation, getHeader().lang);
+            ddlOperation.DataBind();
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {

@@ -57,7 +57,7 @@ namespace Forms.itinsync.src.session
                 Sessions.getSession().Set(SessionKey.DICTONARYKEY, new Dictionary<string, string>());
 
 
-                Response.Redirect(PageConstant.PAGE_USER_DASHBOARD);
+                Response.Redirect(PageConstant.PAGE_PERSONAL_INBOX);
 
             }
             else

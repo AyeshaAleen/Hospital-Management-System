@@ -16,7 +16,7 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_ACTIVATE_TASK = "ActivateTask.aspx";
         public static string PAGE_LOGPAYMENT_TASK = "BOLogPayment.aspx";
         public static string PAGE_EXIT_TDR = "ExistTDR.aspx";
-        public static string PAGE_PERSONAL_INBOX = "PersonalInbox.aspx";
+        public static string PAGE_PERSONAL_INBOX = "/Webroot/Forms/Dashboard/PersonalInbox";
 
 
         public static string PAGE_SIO = "/Webroot/Forms/SIO/GeneralSIO";
@@ -24,8 +24,6 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_DocumentSection = "/Webroot/Forms/Management/ViewDocumentSection";
 
         public static string PAGE_DocumentSectiondynamicForm = "/Webroot/Forms/Management/FormsManager/FormManager";
-
-        public static string PAGE_USER_DASHBOARD = "/Webroot/Forms/Dashboard/UserDashboard";
 
         public static string PAGE_MANAGE_USER_CITIES = "ManageUserCities.aspx";
         public static string PAGE_MANAGE_USER = "ManageUser.aspx";

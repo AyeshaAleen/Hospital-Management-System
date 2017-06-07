@@ -12,6 +12,8 @@
 
         <div class="col-sm-12">
             <div class="card-box">
+                 <a href="../ViewDocumentSection.aspx" class="btn btn-primary pull-right">Back</a>
+
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
                 <div class="row">
                     <div id="redips-drag">
@@ -28,27 +30,27 @@
 
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
+                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i> label text</div>
                                         </td>
                                     </tr>
-                                  <%--  <tr>
+                                  <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="da1"><i class="glyphicon glyphicon-header"></i>Heading</div>
-                                        </td>
-                                    </tr>--%>
-                                    <tr>
-                                        <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
+                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i> DropDown</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>CheckBox</div>
+                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i> TextBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Single</div>
+                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i> CheckBox</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i> Radio Button</div>
                                         </td>
                                     </tr>
                                <%--     <tr>
@@ -58,7 +60,7 @@
                                     </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i> TextArea</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -76,7 +78,10 @@
                                             <input type="button" value="Merge" class="btn btn-primary" onclick="redips.merge()" title="Merge marked cells horizontally" />
                                             <input type="button" value="Split" class="btn btn-primary" onclick="redips.split()" title="Split marked cells horizontally" />
                                         </td>
+<td class="redips-mark">
+                                            <input type="button" value="Save" class="btn btn-primary" title="Save" />
 
+</td>
 
                                         <!--<td class="redips-mark">
 								<input type="button" value="Split H" class="button" onclick="redips.split('h')" title="Split marked table cell horizontally"/>
@@ -94,6 +99,7 @@
                                         <%--<a href="../ViewDocumentSection.aspx">../ViewDocumentSection.aspx</a>
                                         <a href=<%ResolveClientUrl(""); %>>Manage Section</a>--%>
                                     </tr>
+                                    
                                 </tbody>
                             </table>
                             <!-- main table -->
@@ -114,6 +120,7 @@
 									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>
@@ -202,6 +209,13 @@
                                         <div class="form-group">
                                             <label class="control-label">Lookup Name</label>
                                            <asp:DropDownList ID="ddlLookupName" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                     </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Operation</label>
+                                           <asp:DropDownList ID="ddlOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                      </asp:DropDownList>
                                         </div>
                                     </div>

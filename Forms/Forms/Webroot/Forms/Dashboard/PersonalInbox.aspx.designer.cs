@@ -10,7 +10,8 @@
 namespace Forms.Webroot.Forms.Dashboard {
     
     
-    public partial class UserDashboard {
+    public partial class PersonalInbox
+    {
         
         /// <summary>
         /// validate control.
