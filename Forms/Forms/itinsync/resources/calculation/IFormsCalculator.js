@@ -70,7 +70,8 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation)
         {
             continue;
         }
-
+        if (inputObj.getAttribute("status") == 0)
+            continue;
 
         // do calculation
 
@@ -82,7 +83,10 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation)
         if (!points || !resultantID || !operation)
             continue;
 
-        this.doOperation(points, resultantID,operation);
+        this.doOperation(points, resultantID, operation);
+
+        //marked this field as done 
+        inputObj.setAttribute("status","0");
 
     }
 
@@ -118,13 +122,26 @@ function doOperation(value, resultantID, operation)
     }
     else if (operation == FORMS_CONTROL_AVERAGE)
     {
-        resultantObject.value = parseFloat(resultantValue) + parseFloat(value);
+        var totalfield = document.getElementById("hiddenTotal" + resultantID);
+        if (totalfield == null || totalfield == undefined)
+            totalfield = createHiddenField("hiddenTotal" + resultantID);
+
+        totalfield.value = parseFloat(totalfield.value) + parseFloat(value);
+
+
         fieldCount++;
-        resultantObject.value = resultantObject.value / fieldCount;
+        resultantObject.value = totalfield.value / fieldCount;
         resultantObject.setAttribute("fieldCount", fieldCount);
     }
 }
-
+function createHiddenField(totalID)
+{
+    var x = document.createElement("INPUT");
+    x.setAttribute("type", "hidden");
+    x.setAttribute("id", totalID);
+    x.setAttribute("value", 0);
+    return x;
+}
 function getInputType  (inputObj) {
     var type = "";
     if (inputObj.tagName == 'INPUT')
