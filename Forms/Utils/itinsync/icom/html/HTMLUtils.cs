@@ -256,6 +256,8 @@ namespace Utils.itinsync.icom.html
             spanAddDetail.Attributes.Add("onclick", "AddDetail('" + controlID + "')");
             spanAddDetail.InnerHtml = "+";
             createDiv.Controls.Add(spanAddDetail);
+
+
         }
 
         public static void removeDetailSpan(HtmlGenericControl createDiv, string controlID)

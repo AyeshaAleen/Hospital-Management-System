@@ -212,18 +212,36 @@
                                      </asp:DropDownList>
                                         </div>
                                     </div>
-                                      <div class="col-md-6">
+                                 
+
+                                      
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            
+                                            <input type="checkbox" id="isRequired"/> isRequired
+                                           
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12" style="border-top:1px solid #ccc">
+                                        <br />
+                                        <h3>Operation</h3>
+                                        </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Operation</label>
                                            <asp:DropDownList ID="ddlOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                      </asp:DropDownList>
                                         </div>
                                     </div>
-                                     <div class="col-md-6">
+
+
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            
-                                            <input type="checkbox" id="isRequired"  style="margin-top:37px"/> isRequired
-                                           
+                                            <label class="control-label">Control IDs</label>
+                                           <asp:DropDownList ID="ddlControlID" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                     </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -240,6 +258,9 @@
             </div>
         </div>
     </div>
+
+
+   
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>
@@ -285,7 +306,7 @@
 
       
 
-
+      
         
 
 

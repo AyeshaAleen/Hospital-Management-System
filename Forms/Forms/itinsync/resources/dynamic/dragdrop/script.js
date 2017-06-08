@@ -24,8 +24,9 @@ redips.configuration = function () {
 
   //  redips.component = "<a href=\"#\" data-toggle=\"popover\" onclick=\"AddDetail()\" title=\"Popover Header\" data-content=\"Some content inside the popover\">Toggle popover</a>";
         //< button onclick=\"getpopover(this)\" type=\"button\" id=\"bulk_actions_btnsss\" class=\"btn btn-default has-spinner-two\" data-toggle=\"popover\" data-placement=\"bottom\" data-original-title=\"\" data-content=\"wwwwwwwwwwClick any question mark icon to get help and tips with specific tasks\" aria-describedby=\"popover335446789\"> Apply</button>| <span class=\"hRight\" onclick=\"deleteColumn(this)\">x</span>";
-
-    redips.component = '<span class="hLeft" onclick="AddDetail()">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+   
+    //redips.component = '<span class="hLeft" onclick="AddDetail()">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+    redips.component = '<a class="hLeft" onclick="AddDetail()" rel="popover" data-content="<p><label>Name:</label><input type=\'text\' id=\'txtName\' name=\'txtName\' class=\'form-control\'> </p>"  data-placement="top">+</a>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
 };
 
 
@@ -165,6 +166,18 @@ function deleteColumn(elem) {
 function AddDetail(id) {
     debugger;
 
+    $('a[rel=popover]').popover({
+        html: 'true',
+        placement: 'top'
+    });
+
+   
+
+    $('#tblEditor').find('td input').each(function () {
+        $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option></option>").val($(this).attr('id')).html($(this).attr('id')));
+    });
+    
+   
 
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
@@ -202,6 +215,9 @@ function SetDetail() {
     
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
+    document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
+    document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
+
     document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
 
 
