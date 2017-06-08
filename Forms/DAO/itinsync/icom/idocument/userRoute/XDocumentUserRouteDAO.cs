@@ -80,6 +80,12 @@ namespace DAO.itinsync.icom.idocument.userRoute
                 list.Add((XDocumentUserRoute)domain);
             return list;
         }
+
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where id = {0}", ID);
+            return delete(delSQL);
+        }
         //public XDocumentUserRoute findbyDocumentName(string DocumentName)
         //{
 

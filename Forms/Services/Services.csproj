@@ -50,10 +50,12 @@
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />
     <Compile Include="icom\document\documentDefinitionGetService.cs" />
     <Compile Include="icom\document\DocumentRoleGetService.cs" />
+    <Compile Include="icom\document\DocumentRoleRouteDeleteService.cs" />
     <Compile Include="icom\document\DocumentRoleRouteGetService.cs" />
     <Compile Include="icom\document\DocumentRoleRouteSaveService.cs.cs" />
     <Compile Include="icom\document\DocumentRoleDeleteService.cs" />
     <Compile Include="icom\document\DocumentRoleSaveService.cs" />
+    <Compile Include="icom\document\DocumentUserRouteDeleteService.cs.cs" />
     <Compile Include="icom\document\DocumentUserRouteGetService.cs" />
     <Compile Include="icom\document\DocumentUserRouteSaveService.cs" />
     <Compile Include="icom\document\tablenameGetService.cs" />
@@ -64,6 +66,8 @@
     <Compile Include="icom\document\DTO\documentDTO.cs" />
     <Compile Include="icom\document\documentSaveService.cs" />
     <Compile Include="icom\document\documentGetService.cs" />
+    <Compile Include="icom\emailroutingview\dto\EmailRoutingDTO.cs" />
+    <Compile Include="icom\emailroutingview\EmailRoutingGetService.cs" />
     <Compile Include="icom\tablecontent\dto\tablecontentDTO.cs" />
     <Compile Include="icom\tablecontent\tablecontentDeleteService .cs" />
     <Compile Include="icom\tablecontent\tablecontentSaveService.cs" />

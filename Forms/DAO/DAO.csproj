@@ -81,6 +81,7 @@
     <Compile Include="itinsync\icom\useraccounts\UserRoleDAO.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserTeamDAO.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserVecationDAO.cs" />
+    <Compile Include="itinsync\icom\views\emailroutingview\EmailRoutingViewDAO.cs" />
     <Compile Include="itinsync\icom\views\UserPermissionViewDAO.cs" />
     <Compile Include="itinsync\icom\views\UserTeamViewDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

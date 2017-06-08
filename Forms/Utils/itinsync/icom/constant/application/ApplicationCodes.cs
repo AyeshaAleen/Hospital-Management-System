@@ -149,5 +149,14 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string ERROR_TEXT = "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>";
         public static readonly string SUCCESS_TEXT = "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>";
         public static readonly Int32 ERROR_FILEREAD_PROBLEM = 71;
+
+        //***********Email Routing*********/////
+        public static string Forms_Should_Send_To_Store_Supervisor = "Forms should send to Store supervisor";
+        public static string Forms_Should_Send_To_Store_Manager = "Forms should send to store Manager";
+        public static string Forms_Should_Send_To_Store_GM = "Forms should send to store GM";
+        public static string Forms_Should_Send_To_ALL_Manager = "Forms should send to All Manager";
+        public static string Forms_Should_Send_To_ALL_Supervisor = "Forms should send to All supervisor";
+        public static string Select_User_To_Forms_Send = "Select user to forms send";
+
     }
 }

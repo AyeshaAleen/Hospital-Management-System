@@ -16,9 +16,9 @@ namespace Domains.itinsync.icom.idocument.userRoute
 
         public Int32 id { get; set; }
         public Int32 xdocumentdefinitionid { get; set; }
-        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "user_Text")]
+        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "routing_Text")]
         public Int32 userid { get; set; }
-        public string user_Text { get; set; }
+        public string routing_Text { get; set; }
         public object getKey() { return id; }
 
         public void setTransID(object transID)

@@ -205,10 +205,12 @@
                                 <label class="control-label">Route</label>
                                 <asp:DropDownList ID="ddlEmailRouting" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                 </asp:DropDownList>
+                                <asp:DropDownList ID="ddlUsers" runat="server" CssClass="form-control" DataValueField="userID" DataTextField="userName">
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddEmailRouting" Text="Add" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
+                            <asp:Button ID="btnAddEmailRouting" Text="Add" OnClick="btnAddEmailRouting_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
                         </div>
                         <div class="clearfix"></div>
                         <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
@@ -229,7 +231,13 @@
                                             <td>
                                                 <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("routing_Text") %>' />
                                             </td>
-
+                                            <td style="text-align: center;">
+                                                 <asp:LinkButton ID="btnDeleteEmailRouting" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "id") ) %>'
+                                                        CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteEmailRouting_Command"
+                                                        >
+                                                    </asp:LinkButton>
+                                            </td>
                                             <td style="text-align: center;"></td>
                                             <td style="text-align: center;"></td>
                                         </tr>

@@ -17,10 +17,10 @@ namespace Domains.itinsync.icom.idocument.roleRoute
         public Int32 id { get; set; }
         public Int32 xdocumentdefinitionid { get; set; }
 
-        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "role_Text")]
+        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "routing_Text")]
         public Int32 role { get; set; }
 
-        public string role_Text { get; set; }
+        public string routing_Text { get; set; }
         public object getKey() { return id; }
 
         public void setTransID(object transID)

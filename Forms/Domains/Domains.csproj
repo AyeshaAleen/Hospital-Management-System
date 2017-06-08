@@ -101,6 +101,7 @@
     <Compile Include="itinsync\icom\vendor\Rate.cs" />
     <Compile Include="itinsync\icom\vendor\Vendor.cs" />
     <Compile Include="itinsync\icom\views\documentcontentview\documentcontent.cs" />
+    <Compile Include="itinsync\icom\views\emailroutingview\EmailRouting.cs" />
     <Compile Include="itinsync\icom\views\session\user\UserInformation.cs" />
     <Compile Include="itinsync\icom\views\user\UserPermissionView.cs" />
     <Compile Include="itinsync\icom\views\user\UserTeamView.cs" />
