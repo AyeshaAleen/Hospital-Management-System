@@ -14,7 +14,7 @@ namespace DAO.itinsync.icom.views.emailroutingview
 {
     public class EmailRoutingViewDAO : CRUDBase
     {
-        string TABLENAME = " viewemailrouting ";
+        string TABLENAME = " emailroutingview ";
         public static EmailRoutingViewDAO getInstance(DBContext dbContext)
         {
             EmailRoutingViewDAO obj = new EmailRoutingViewDAO();
@@ -29,7 +29,7 @@ namespace DAO.itinsync.icom.views.emailroutingview
         {
 
             EmailRouting routing = new EmailRouting();
-            routing.xDocumentDefinationID = Convert.ToInt32(dt.Rows[i][EmailRouting.columns.xDocumentDefinationID.ToString()]);
+            routing.id = dt.Rows[i][EmailRouting.columns.id.ToString()].ToString();
 
             setPropertiesValue(routing, dt, i, typeof(EmailRouting.columns));
 
@@ -47,10 +47,11 @@ namespace DAO.itinsync.icom.views.emailroutingview
                 list.Add((EmailRouting)domain);
             return list;
         }
-        public EmailRouting findbyDefinitionID(Int32 id)
+        public List<EmailRouting> findbyDefinitionID(Int32 id)
         {
-            string READ = string.Format("Select * from " + TABLENAME + " where xdocumentdefinationid = " + id);
-            return (EmailRouting)processSingleResult(READ);
+            string READ = string.Format("Select * from " + TABLENAME + " where xdocumentdefinitionid = " + id);
+            return wrap(processResults(READ));
+            //return (EmailRouting)processSingleResult(READ);
         }
 
         public List<EmailRouting> readyAll()

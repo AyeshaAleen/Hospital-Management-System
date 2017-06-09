@@ -229,7 +229,7 @@
                                     <ItemTemplate>
                                         <tr>
                                             <td>
-                                                <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("routing_Text") %>' />
+                                                <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("route_Text") %>' />
                                             </td>
                                             <td style="text-align: center;">
                                                  <asp:LinkButton ID="btnDeleteEmailRouting" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
