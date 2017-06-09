@@ -779,6 +779,14 @@ namespace Forms.itinsync.src.session
         {
             Sessions.getSession().Set(SessionKey.PARENTREF, document);
         }
+        public void setResponseHandler(IResponseHandler responseHandler)
+        {
+            Sessions.getSession().Set(SessionKey.RESPONSEHANDLER, responseHandler);
+        }
+        public IResponseHandler getResponseHandler()
+        {
+            return (IResponseHandler) Sessions.getSession().Get(SessionKey.RESPONSEHANDLER);
+        }
         public string getLastURL()
         {
             return (GlobalStaticCache.PageCacheMap[getLastVisitedURLCode().ToString()]).webName;

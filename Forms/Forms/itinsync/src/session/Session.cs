@@ -55,7 +55,7 @@ namespace Forms.itinsync.src.session
             /// <summary>
             /// IResponseHandler
             /// </summary>
-            DTOOBJECT,
+            RESPONSEHANDLER,
 
 
 
