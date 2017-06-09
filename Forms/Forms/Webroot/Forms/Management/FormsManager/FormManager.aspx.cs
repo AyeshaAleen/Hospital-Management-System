@@ -53,6 +53,12 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             ddlMask.DataBind();
             ddlOperation.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKOperation, getHeader().lang);
             ddlOperation.DataBind();
+
+
+            ddlLookupName.DataSource = LookupManager.readLookups(getHeader().lang);
+            ddlLookupName.DataBind();
+
+            
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
