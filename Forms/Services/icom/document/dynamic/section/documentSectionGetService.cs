@@ -5,16 +5,15 @@ using System;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
-using DAO.itinsync.icom.idocument;
-using DAO.itinsync.icom.idocument.definition;
 
+using DAO.itinsync.icom.idocument.section;
 
 
 //Created By Qundeel Ch
 
-namespace Services.itinsync.icom.documents
+namespace Services.itinsync.icom.document.dynamic.section
 {
-    public class DocumentGetService : FrameAS
+    public class DocumentSectionGetService : FrameAS
     {
         DocumentDTO dto = null;
 
@@ -24,13 +23,8 @@ namespace Services.itinsync.icom.documents
             {
                 dto = (DocumentDTO)o;
 
-               
-                if(dto.document.storeid>0)
-                dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentDefinitionID(dto.document.documentDefinitionID,dto.document.storeid);
-
-                dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);
-
-
+                dto.documentDefination.documentSections = XDocumentSectionDAO.getInstance(dbContext).readyByDocumentDefinitionID(dto.documentDefination.xDocumentDefinationID);
+                
             }
             catch (Exception ex)
             {

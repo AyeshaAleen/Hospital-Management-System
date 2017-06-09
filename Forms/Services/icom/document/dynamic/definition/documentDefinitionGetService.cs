@@ -24,9 +24,9 @@ using Domains.itinsync.icom.idocument.table.calculation;
 
 //Created By Qundeel Ch
 
-namespace Services.itinsync.icom.documents
+namespace Services.itinsync.icom.document.dynamic.definition
 {
-    public class documentDefinitionGetService : FrameAS
+    public class DocumentDefinitionGetService : FrameAS
     {
         DocumentDTO dto = null;
 

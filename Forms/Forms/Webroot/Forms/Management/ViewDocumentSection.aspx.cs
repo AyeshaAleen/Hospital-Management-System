@@ -14,11 +14,12 @@ using Utils.itinsync.icom.cache.pages;
 using Domains.itinsync.icom.idocument.definition;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.lookup;
-using Services.icom.document;
 using Services.icom.emailroutingview.dto;
 using Services.icom.emailroutingview;
 using Services.itinsync.icom.useraccounts.dto;
-using Services.itinsync.icom.useraccounts; 
+using Services.itinsync.icom.useraccounts;
+using Services.itinsync.icom.document.dynamic.route;
+using Services.itinsync.icom.document.dynamic.section;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -102,7 +103,7 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
 
-            IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dtoIn);
+            IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             doLoad();
         }
 
@@ -144,8 +145,7 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            //if (ddlEmailRouting.SelectedIndex != ddlEmailRouting.Items.Count - 1)
-            if (ddlEmailRouting.SelectedItem.Text != ApplicationCodes.Select_User_To_Forms_Send)
+            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS)
             {
                 dto.documentRoleRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRoleRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);

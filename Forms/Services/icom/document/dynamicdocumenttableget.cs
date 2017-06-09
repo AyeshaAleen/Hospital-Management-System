@@ -26,7 +26,7 @@ using Domains.itinsync.icom.idocument.table.calculation;
 
 namespace Services.itinsync.icom.documents
 {
-    public class dynamicdocumenttableget : FrameAS
+    public class DynamicDocumentTableGet : FrameAS
     {
         DocumentDTO dto = null;
 

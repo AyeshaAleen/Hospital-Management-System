@@ -3,29 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.userRoute;
+using DAO.itinsync.icom.idocument.roleRoute;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-namespace Services.icom.document
+namespace Services.itinsync.icom.document.dynamic.route
 {
-    public class DocumentUserRouteDeleteService :FrameAS
+    public class DocumentRoleRouteGetService : FrameAS
     {
         DocumentDTO dto = null;
+
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentUserRoute.id > 0)
-                {
-                    XDocumentUserRouteDAO.getInstance(dbContext).deleteByID(dto.documentUserRoute.id);
-                }
 
+                dto.documentRoleRoutelist = XDocumentRoleRouteDAO.getInstance(dbContext).readAll();
             }
             catch (Exception ex)
             {

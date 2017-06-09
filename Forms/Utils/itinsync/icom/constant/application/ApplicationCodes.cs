@@ -151,12 +151,19 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly Int32 ERROR_FILEREAD_PROBLEM = 71;
 
         //***********Email Routing*********/////
-        public static string Forms_Should_Send_To_Store_Supervisor = "Forms should send to Store supervisor";
+       /* public static string Forms_Should_Send_To_Store_Supervisor = "Forms should send to Store supervisor";
         public static string Forms_Should_Send_To_Store_Manager = "Forms should send to store Manager";
         public static string Forms_Should_Send_To_Store_GM = "Forms should send to store GM";
         public static string Forms_Should_Send_To_ALL_Manager = "Forms should send to All Manager";
         public static string Forms_Should_Send_To_ALL_Supervisor = "Forms should send to All supervisor";
-        public static string Select_User_To_Forms_Send = "Select user to forms send";
+        public static string Select_User_To_Forms_Send = "Select user to forms send";*/
+
+        public static string ROUTE_SEND_STORE_SUPERVISOR= "1";
+        public static string ROUTE_SEND_STORE_MANAGER = "2";
+        public static string ROUTE_SEND_STORE_GM = "3";
+        public static string ROUTE_SEND_STORE_ALL_MANAGER = "4";
+        public static string ROUTE_SEND_STORE_ALL_SUPERVISOR = "5";
+        public static string ROUTE_SEND_STORE_USERS = "6";
 
     }
 }

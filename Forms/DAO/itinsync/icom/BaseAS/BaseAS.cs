@@ -66,7 +66,16 @@ namespace DAO.itinsync.icom.BaseAS
                 rollback();
             }
             closeConnection();
+
+            finilizer(bCommit);
+            
         }
+
+        protected virtual void finilizer(bool status)
+        {
+        }
+
+        
         protected virtual void perCommit()
         {
         }
