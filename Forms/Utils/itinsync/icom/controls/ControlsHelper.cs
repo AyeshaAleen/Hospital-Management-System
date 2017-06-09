@@ -25,11 +25,11 @@ namespace Utils.itinsync.icom.controls
             txtBox.Attributes.Add("imask", content.mask);
 
             txtBox.Attributes.Add("points", content.points);
-            if (content.calculations.Count > 0)
+            if (content.fieldcalculations.Count > 0)
             {
                 txtBox.Attributes.Add("onchange", "calculation();");
-                txtBox.Attributes.Add("resultantID", content.calculations[0].resultContent.controlID);
-                txtBox.Attributes.Add("operation", content.calculations[0].operation);
+                txtBox.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                txtBox.Attributes.Add("operation", content.fieldcalculations[0].operation);
 
             }
             txtBox.Text = content.defaultValue;
@@ -84,11 +84,11 @@ namespace Utils.itinsync.icom.controls
             radio.Attributes.Add("points", content.points);
 
 
-            if (content.calculations.Count > 0)
+            if (content.fieldcalculations.Count > 0)
             {
                 radio.Attributes.Add("onchange", "calculation();");
-                radio.Attributes.Add("resultantID", content.calculations[0].resultContent.controlID);
-                radio.Attributes.Add("operation", content.calculations[0].operation);
+                radio.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                radio.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
             radio.Value = content.defaultValue;
 
@@ -105,11 +105,11 @@ namespace Utils.itinsync.icom.controls
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
 
-            if (content.calculations.Count > 0)
+            if (content.fieldcalculations.Count > 0)
             {
                 check.Attributes.Add("onchange", "calculation();");
-                check.Attributes.Add("resultantID", content.calculations[0].resultContent.controlID);
-                check.Attributes.Add("operation", content.calculations[0].operation);
+                check.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                check.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
 
             check.Value = content.defaultValue;
@@ -126,11 +126,11 @@ namespace Utils.itinsync.icom.controls
             ddl.Attributes.Add("irequired", content.isRequired);
             ddl.Attributes.Add("imask", content.mask);
             ddl.Attributes.Add("points", content.points);
-            if (content.calculations.Count > 0)
+            if (content.fieldcalculations.Count > 0)
             {
                 ddl.Attributes.Add("onchange", "calculation();");
-                ddl.Attributes.Add("resultantID", content.calculations[0].resultContent.controlID);
-                ddl.Attributes.Add("operation", content.calculations[0].operation);
+                ddl.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                ddl.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
 
             ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, lang);

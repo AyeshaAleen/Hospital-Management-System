@@ -146,12 +146,8 @@
 
                 <div class="clearfix"></div>
 
-         
-             
-
-
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog" style="margin-left: 40px;margin-top: 200px">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -292,20 +288,25 @@
 
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "")
             { 
-            document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
-            var theTbl = document.getElementById('tblEditor');
-            //$('#tblEditor tr').each(function () {
-            //    var newel = document.createElement('td');
-            //    $(this).append(parenttbl);
+                document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
+                var theTbl = document.getElementById('tblEditor');
+                //$('#tblEditor tr').each(function () {
+                //    var newel = document.createElement('td');
+                //    $(this).append(parenttbl);
 
                
-            //});
-        }
+                //});
+            }
+
+            $('.modal-dialog').draggable({
+                handle: ".modal-header"
+            });
+
+
         });
 
 
       
-
       
         
 

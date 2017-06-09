@@ -87,5 +87,31 @@ namespace Utils.itinsync.icom.cache.lookup
             return "???" + text + "???";
 
         }
+
+
+        public static List<LookUp> readLookups(string lang)
+        {
+            if (lang == null || lang.Length == 0)
+                lang = ApplicationCodes.DEFAULT_USER_LANG;
+
+            List<LookUp> lookupList = new List<LookUp>();
+
+
+            int count = 0;
+            foreach (string key in GlobalStaticCache.LKcacheMap[lang].Keys)
+            {
+
+                LookUp lk = new LookUp();
+                lk.code = Convert.ToString(count);
+                lk.text = Convert.ToString(key);
+                lookupList.Add(lk);
+                count++;
+
+            }
+
+
+            lookupList.OrderBy(x => x.text);
+            return lookupList;
+        }
     }
 }
