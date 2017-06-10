@@ -62,11 +62,7 @@ namespace DAO.itinsync.icom.userrole
             string sql = "select * From " + TABLENAME;
             return wrap(processResults(sql));
         }
-        private List<UserRole> languageLookup()
-        {
-            string READBYLOOKUP = "select * from " + TABLENAME + " where name ='" + LookupsConstant.LKUserLang + "' order by name";
-            return wrap(processResults(READBYLOOKUP));
-        }
+       
         private List<UserRole> readWhere(string where)
         {
             if (where == null || where.Length == 0)

@@ -63,10 +63,20 @@ namespace Utils.itinsync.icom.constant.application
 
         ///*************Roles******************************///
 
-        public static readonly string ROLES_CUSTOMER = "3001";
-        public static readonly string ROLES_SUPPLIER = "3002";
-        public static readonly string ROLES_THRIRD_PARTY = "3003";
-        public static readonly string ROLES_CUSTOMER_USER = "1005";
+        public static readonly int ROLES_ADMIN = 1001;
+        public static readonly int ROLES_MANAGER = 1002;
+        public static readonly int ROLES_SUPERVISOR = 1003;
+        public static readonly int ROLES_GM = 1004;
+        public static readonly int ROLES_TRAINING_SUPERVISOR = 1005;
+        public static readonly int ROLES_ASSISTANT_MANAGER = 1006;
+        public static readonly int ROLES_SWING_MANAGER = 1007;
+        public static readonly int ROLES_MAINTENANCE = 1008;
+        public static readonly int ROLES_OFFICE_STAFF = 1009;
+        public static readonly int ROLES_DIRECTOR_OPERATION = 1010;
+        public static readonly int ROLES_CREW = 1011;
+        public static readonly int ROLES_FINANCIAL_MANAGER = 1012;
+
+
 
 
         ///**************VENDOR PAYMENT FREQUECNY*************///
@@ -158,12 +168,12 @@ namespace Utils.itinsync.icom.constant.application
         public static string Forms_Should_Send_To_ALL_Supervisor = "Forms should send to All supervisor";
         public static string Select_User_To_Forms_Send = "Select user to forms send";*/
 
-        public static string ROUTE_SEND_STORE_SUPERVISOR= "1";
-        public static string ROUTE_SEND_STORE_MANAGER = "2";
-        public static string ROUTE_SEND_STORE_GM = "3";
-        public static string ROUTE_SEND_STORE_ALL_MANAGER = "4";
-        public static string ROUTE_SEND_STORE_ALL_SUPERVISOR = "5";
-        public static string ROUTE_SEND_STORE_USERS = "6";
+        public static Int32 ROUTE_SEND_STORE_SUPERVISOR= 1;
+        public static Int32 ROUTE_SEND_STORE_MANAGER =2;
+        public static Int32 ROUTE_SEND_STORE_GM =3;
+        public static Int32 ROUTE_SEND_STORE_ALL_MANAGER = 4;
+        public static Int32 ROUTE_SEND_STORE_ALL_SUPERVISOR = 5;
+        public static Int32 ROUTE_SEND_STORE_USERS = 6;
 
     }
 }

@@ -81,6 +81,7 @@
     <Compile Include="itinsync\icom\payment\Payment.cs" />
     <Compile Include="itinsync\icom\permission\Permission.cs" />
     <Compile Include="itinsync\icom\role\Role.cs" />
+    <Compile Include="itinsync\icom\store\Store.cs" />
     <Compile Include="itinsync\icom\task\Task.cs" />
     <Compile Include="itinsync\icom\task\taskdedinition\TaskDefinition.cs" />
     <Compile Include="itinsync\icom\task\taskdedinition\xTaskDefinition.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="itinsync\icom\useraccounts\UserProfile.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRegion.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRole.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserStore.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserTeam.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserVecation.cs" />
     <Compile Include="itinsync\icom\vehicle\Vehicle.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="itinsync\icom\views\emailroutingview\EmailRouting.cs" />
     <Compile Include="itinsync\icom\views\session\user\UserInformation.cs" />
     <Compile Include="itinsync\icom\views\user\UserPermissionView.cs" />
+    <Compile Include="itinsync\icom\views\user\UserStoreView.cs" />
     <Compile Include="itinsync\icom\views\user\UserTeamView.cs" />
     <Compile Include="itinsync\interfaces\domain\IDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
