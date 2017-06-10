@@ -145,7 +145,7 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS)
+            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS.ToString())
             {
                 dto.documentRoleRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRoleRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
