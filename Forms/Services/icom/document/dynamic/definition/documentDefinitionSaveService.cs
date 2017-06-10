@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.role;
+using DAO.itinsync.icom.useraccounts;
 using Domains.itinsync.icom.interfaces.response;
+using Services.itinsync.icom.useraccounts.dto;
+using System;
+using System.Threading;
+using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.application;
+using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
+using DAO.itinsync.icom.idocument;
+using DAO.itinsync.icom.idocument.definition;
 
-namespace Services.icom.document
+namespace Services.itinsync.icom.document.dynamic.definition
 {
-    public class DocumentRoleDeleteService : FrameAS
+    public class DocumentDefinitionSaveService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -21,11 +23,16 @@ namespace Services.icom.document
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentRole.xdocumentroleid> 0)
+                if (dto.documentDefination.xDocumentDefinationID > 0)
                 {
-                    XDocumentRoleDAO.getInstance(dbContext).deleteByID(dto.documentRole.xdocumentroleid);
+                    XDocumentDefinationDAO.getInstance(dbContext).update(dto.documentDefination, "");
                 }
-               
+                else
+                {
+                    XDocumentDefinationDAO.getInstance(dbContext).create(dto.documentDefination);
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -35,5 +42,8 @@ namespace Services.icom.document
             }
             return dto;
         }
+
+      
+
     }
 }

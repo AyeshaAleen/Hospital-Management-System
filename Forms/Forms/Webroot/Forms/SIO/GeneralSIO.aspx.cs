@@ -28,27 +28,11 @@ namespace Forms.Webroot.Forms.SIO
         public static int documentid = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-           if(!IsPostBack)
-                this.CreateControl();
+            if (!IsPostBack)
+                doLoad();
 
         }
-      
-     
-        
-        //protected override object SaveViewState()
-        //{
-        //    object[] newViewState = new object[2];
-
-        //    ////CreateControl();
-
-        //    Table tbl = (Table)PagePanel.FindControl("tableDynamic");
-
-        //    newViewState[0] = tbl;
-        //    newViewState[1] = base.SaveViewState();
-        //    return newViewState;
-        //}
-
-        private void CreateControl()
+        private void doLoad()
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
@@ -56,16 +40,22 @@ namespace Forms.Webroot.Forms.SIO
             dto.document.storeid = 1;
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
 
+            CreateControl(response);
+        }
+      
+        private void CreateControl(IResponseHandler response)
+        {
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                dto = (DocumentDTO)response;
+                setResponseHandler(response);
+                DocumentDTO dto = (DocumentDTO)response;
                 dbxml = dto.document.data;
                 documentid = dto.document.documentID;
                 Table obj_Table = processDynamicContent(tableDynamic, dto.document, section_id);
-                PagePanel.Controls.Add(obj_Table);
 
-                obj_Table.EnableViewState = true;
-                ViewState["obj_Table"] = true;
+
+                tableDynamic.EnableViewState = true;
+                ViewState["tableDynamic"] = true;
 
             }
         }
@@ -84,7 +74,7 @@ namespace Forms.Webroot.Forms.SIO
             
             dto.document.documentID = documentid;
 
-            IResponseHandler response = new documentSaveService().executeAsPrimary(dto);
+            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
             //if(response.getErrorBlock().ErrorCode==ApplicationCodes.ERROR_NO)
             //{
 
@@ -92,11 +82,18 @@ namespace Forms.Webroot.Forms.SIO
         }
 
 
-        
+       
+
+        protected override void LoadViewState(object savedState)
+        {
+           CreateControl(getResponseHandler());
+            base.LoadViewState(savedState);
+            
+        }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-            Table table = (Table)ViewState["obj_Table"];
+          
 
             xml = "<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>" + "</SIO>";
 

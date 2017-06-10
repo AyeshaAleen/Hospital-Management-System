@@ -12,7 +12,7 @@ using Services.itinsync.icom.documents.dto;
 
 namespace Services.itinsync.icom.documents
 {
-    public class tablenameGetService : FrameAS
+    public class TableNameGetService : FrameAS
     {
         DocumentDTO dto = null;
 
