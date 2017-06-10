@@ -159,12 +159,10 @@ namespace Forms.Webroot.Forms.Management
 
                 IResponseHandler response = new DocumentUserRouteSaveService().executeAsPrimary(dto);
             }
-
-            //LoadEmailRoutingTbl();
+            LoadEmailRoutingTbl();
         }
         protected void btnDeleteEmailRouting_Command(object sender, CommandEventArgs e)
         {
-            //r3652 5
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
             string prefixiD = e.CommandArgument.ToString();

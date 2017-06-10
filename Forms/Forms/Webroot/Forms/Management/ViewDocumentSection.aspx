@@ -219,7 +219,7 @@
                             <thead>
                                 <tr>
                                     <th data-field="name" data-sortable="true">Route</th>
-                                    <th data-field="edit" data-align="center">Edit</th>
+                                    <%--<th data-field="edit" data-align="center">Edit</th>--%>
                                     <th data-field="action" data-align="center">Delete</th>
                                 </tr>
                             </thead>
@@ -247,6 +247,10 @@
 
                             </tbody>
                         </table>
+                    </div>
+                    <div>
+                        <br />
+                        <asp:CheckBox ID="CheckBox1" Text="Storage" runat="server" /><asp:CheckBox ID="CheckBox2" Text="Email" runat="server" />
                     </div>
                 </div>
             </div>
