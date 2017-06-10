@@ -3227,6 +3227,7 @@
     <Content Include="Webroot\Forms\Dashboard\DashboardMaster.master" />
     <Content Include="Webroot\admin\AdminMaster.master" />
     <Content Include="Webroot\Forms\Management\FormsManager\DynamicFormMaster.master" />
+    <Content Include="Webroot\Forms\DocumentMaster.master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -3413,6 +3414,13 @@
     </Compile>
     <Compile Include="Webroot\Forms\Dashboard\PersonalInbox.aspx.designer.cs">
       <DependentUpon>PersonalInbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\DocumentMaster.master.cs">
+      <DependentUpon>DocumentMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\DocumentMaster.master.designer.cs">
+      <DependentUpon>DocumentMaster.master</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\FormMaster.master.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
