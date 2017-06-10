@@ -99,6 +99,7 @@
                                         <%--<a href="../ViewDocumentSection.aspx">../ViewDocumentSection.aspx</a>
                                         <a href=<%ResolveClientUrl(""); %>>Manage Section</a>--%>
                                     </tr>
+                                    
                                 </tbody>
                             </table>
                             <!-- main table -->
@@ -119,6 +120,7 @@
 									<span onclick="redips.colInsert(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>
@@ -144,12 +146,8 @@
 
                 <div class="clearfix"></div>
 
-         
-             
-
-
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog" style="margin-left: 40px;margin-top: 200px">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -210,18 +208,36 @@
                                      </asp:DropDownList>
                                         </div>
                                     </div>
-                                      <div class="col-md-6">
+                                 
+
+                                      
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            
+                                            <input type="checkbox" id="isRequired"/> isRequired
+                                           
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12" style="border-top:1px solid #ccc">
+                                        <br />
+                                        <h3>Operation</h3>
+                                        </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Operation</label>
                                            <asp:DropDownList ID="ddlOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                      </asp:DropDownList>
                                         </div>
                                     </div>
-                                     <div class="col-md-6">
+
+
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            
-                                            <input type="checkbox" id="isRequired"  style="margin-top:37px"/> isRequired
-                                           
+                                            <label class="control-label">Control IDs</label>
+                                           <asp:DropDownList ID="ddlControlID" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                     </asp:DropDownList>
                                         </div>
                                     </div>
                                 </div>
@@ -238,6 +254,9 @@
             </div>
         </div>
     </div>
+
+
+   
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>
@@ -269,21 +288,26 @@
 
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "")
             { 
-            document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
-            var theTbl = document.getElementById('tblEditor');
-            //$('#tblEditor tr').each(function () {
-            //    var newel = document.createElement('td');
-            //    $(this).append(parenttbl);
+                document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
+                var theTbl = document.getElementById('tblEditor');
+                //$('#tblEditor tr').each(function () {
+                //    var newel = document.createElement('td');
+                //    $(this).append(parenttbl);
 
                
-            //});
-        }
+                //});
+            }
+
+            $('.modal-dialog').draggable({
+                handle: ".modal-header"
+            });
+
+
         });
 
 
       
-
-
+      
         
 
 

@@ -54,13 +54,17 @@
     <Compile Include="itinsync\icom\idocument\content\XDocumentContent.cs" />
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefination.cs" />
     <Compile Include="itinsync\icom\idocument\Douments.cs" />
+    <Compile Include="itinsync\icom\idocument\roleRoute\XDocumentRoleRoute.cs" />
+    <Compile Include="itinsync\icom\idocument\role\XDocumentRole.cs" />
     <Compile Include="itinsync\icom\idocument\section\XDocumentSection.cs" />
     <Compile Include="itinsync\icom\idocument\table\calculation\XDocumentCalculation.cs" />
     <Compile Include="itinsync\icom\idocument\table\content\XDocumentTableContent.cs" />
     <Compile Include="itinsync\icom\idocument\table\td\XDocumentTableTD.cs" />
     <Compile Include="itinsync\icom\idocument\table\tr\XDocumentTableTR.cs" />
     <Compile Include="itinsync\icom\idocument\table\XDocumentTable.cs" />
+    <Compile Include="itinsync\icom\idocument\userRoute\XDocumentUserRoute.cs" />
     <Compile Include="itinsync\icom\interfaces\document\IDocument.cs" />
+    <Compile Include="itinsync\icom\interfaces\email\IEmail.cs" />
     <Compile Include="itinsync\icom\interfaces\interfacerequestresponse.cs" />
     <Compile Include="itinsync\icom\interfaces\interfaces.cs" />
     <Compile Include="itinsync\icom\interfaces\request\IRequestHandler.cs" />
@@ -77,6 +81,7 @@
     <Compile Include="itinsync\icom\payment\Payment.cs" />
     <Compile Include="itinsync\icom\permission\Permission.cs" />
     <Compile Include="itinsync\icom\role\Role.cs" />
+    <Compile Include="itinsync\icom\store\Store.cs" />
     <Compile Include="itinsync\icom\task\Task.cs" />
     <Compile Include="itinsync\icom\task\taskdedinition\TaskDefinition.cs" />
     <Compile Include="itinsync\icom\task\taskdedinition\xTaskDefinition.cs" />
@@ -87,6 +92,7 @@
     <Compile Include="itinsync\icom\useraccounts\UserProfile.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRegion.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRole.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserStore.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserTeam.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserVecation.cs" />
     <Compile Include="itinsync\icom\vehicle\Vehicle.cs" />
@@ -98,13 +104,17 @@
     <Compile Include="itinsync\icom\vendor\Rate.cs" />
     <Compile Include="itinsync\icom\vendor\Vendor.cs" />
     <Compile Include="itinsync\icom\views\documentcontentview\documentcontent.cs" />
+    <Compile Include="itinsync\icom\views\emailroutingview\EmailRouting.cs" />
     <Compile Include="itinsync\icom\views\session\user\UserInformation.cs" />
     <Compile Include="itinsync\icom\views\user\UserPermissionView.cs" />
+    <Compile Include="itinsync\icom\views\user\UserStoreView.cs" />
     <Compile Include="itinsync\icom\views\user\UserTeamView.cs" />
     <Compile Include="itinsync\interfaces\domain\IDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="itinsync\icom\email\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

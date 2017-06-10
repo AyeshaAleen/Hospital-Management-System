@@ -58,6 +58,15 @@ namespace Forms.Webroot.Forms.Management.FormsManager {
         protected global::System.Web.UI.WebControls.DropDownList ddlOperation;
         
         /// <summary>
+        /// ddlControlID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlControlID;
+        
+        /// <summary>
         /// tableOuterHtml control.
         /// </summary>
         /// <remarks>

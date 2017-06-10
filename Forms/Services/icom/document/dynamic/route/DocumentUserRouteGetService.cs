@@ -1,39 +1,28 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.useraccounts;
+using DAO.itinsync.icom.idocument.userRoute;
 using Domains.itinsync.icom.interfaces.response;
-using Services.itinsync.icom.useraccounts.dto;
-using System;
-using System.Threading;
-using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.application;
-using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
-using DAO.itinsync.icom.idocument;
-using DAO.itinsync.icom.idocument.section;
 
-namespace Services.itinsync.icom.documents
+namespace Services.itinsync.icom.document.dynamic.route
 {
-    public class documentSectionSaveService : FrameAS
+    public class DocumentUserRouteGetService : FrameAS
     {
         DocumentDTO dto = null;
+
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentSection.documentsectionid > 0)
-                {
-                    
-                    XDocumentSectionDAO.getInstance(dbContext).update(dto.documentSection, "");
-                }
-                else
-                {
-                    XDocumentSectionDAO.getInstance(dbContext).create(dto.documentSection);
-                }
 
-
+                dto.documentUserRoutelist = XDocumentUserRouteDAO.getInstance(dbContext).readAll();
             }
             catch (Exception ex)
             {
@@ -43,8 +32,5 @@ namespace Services.itinsync.icom.documents
             }
             return dto;
         }
-
-      
-
     }
 }

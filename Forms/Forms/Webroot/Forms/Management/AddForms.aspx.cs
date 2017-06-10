@@ -11,6 +11,7 @@ using Services.itinsync.icom.documents.dto;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Utils.itinsync.icom.cache.document;
+using Services.itinsync.icom.document.dynamic.definition;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -36,15 +37,16 @@ namespace Forms.Webroot.Forms.Management
         {
             
             setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(e.CommandArgument)));
-
+            setSubjectID(Convert.ToInt32(e.CommandArgument));
             //popupmodal.Style.Value = "display:block";
-
+           
             Response.Redirect(PageConstant.PAGE_DocumentSection);
         }
         
         int DDID = 0;
         protected void btnSaveDocument_Click(object sender, EventArgs e)
         {
+           
             DbOperation();
             LoadForm();
         }
@@ -57,7 +59,7 @@ namespace Forms.Webroot.Forms.Management
             dto.documentDefination.xDocumentDefinationID = DDID;
             dto.documentDefination.name = field.Value;
 
-            IResponseHandler response = new documentDefinitionSaveService().executeAsPrimary(dto);
+            IResponseHandler response = new DocumentDefinitionSaveService().executeAsPrimary(dto);
             return response;
         }
     }

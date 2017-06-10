@@ -1,5 +1,6 @@
 ﻿using Domains.itinsync.interfaces.domain;
 using System;
+using Domains.itinsync.icom.annotation;
 
 namespace Domains.itinsync.icom.lookup
 {
@@ -9,6 +10,7 @@ namespace Domains.itinsync.icom.lookup
         public enum primaryKey { lookUpID }
         public enum forignKey { }
         public Int32 lookUpID { get; set; }
+        
         public String name { get; set; }
         public String code { get; set; }
         public String text { get; set; }

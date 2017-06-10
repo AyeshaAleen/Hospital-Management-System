@@ -28,12 +28,25 @@
                             <h4 class="m-t-0 header-title"></h4>
 
 
-                            <%--<a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Document</a>--%>
 
-                            <asp:Button runat="server" ID="btnAdd" Text="Add New Document" data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this);"
-                                CssClass="btn btn-primary waves-effect waves-light pull-right" />
 
-                            <asp:HiddenField ID="ClickedId" runat="server" />
+                            <div class="row">
+                              
+                                    
+                                         
+                                <div class="form-group col-md-5">
+                                    <label for="field-1" class="control-label">Form Name</label>
+                                    <input type="text" class="form-control" id="field" runat="server" placeholder="Form Name">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="field-1" class="control-label">Pages</label>
+                                    <asp:DropDownList ID="ddlsectionPagesName" runat="server" CssClass="form-control" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-info waves-effect waves-light btn-sp"></asp:Button>
+                                </div>
+                            </div>
+                                     
 
                             <div class="clearfix"></div>
                             <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
@@ -42,8 +55,8 @@
                                 <thead>
                                     <tr>
                                         <th data-field="name" data-sortable="true">Section Name</th>
-                                        <th data-field="action" data-align="center">View</th>
-                                        <th data-field="action" data-align="center">Edit</th>
+                                        <th data-field="View" data-align="center">View</th>
+                                        <th data-field="Edit" data-align="center">Edit</th>
                                     </tr>
                                 </thead>
 
@@ -78,32 +91,7 @@
                         </div>
 
 
-                        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                        <h4 class="modal-title">Add new Document</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="field-1" class="control-label">Form Name</label>
-                                                    <input type="text" class="form-control" required id="field" runat="server" placeholder="Form Name">
-                                                    <asp:DropDownList ID="ddlsectionPagesName" runat="server" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
-                                                </div>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                        <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-info waves-effect waves-light"></asp:Button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- /.modal -->
 
                     </div>
@@ -136,54 +124,54 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">User Role</label>
-                                <asp:DropDownList ID="ddlOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                <asp:DropDownList ID="ddlUserRole" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                 </asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddUserRole" Text="Add" runat="server" CssClass="btn btn-info waves-effect btn-lg" />
+                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
                         </div>
 
-                         <div class="clearfix"></div>
-                            <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
-                                data-page-list="[10, 20, 50, 100]"
-                                data-page-size="10" data-pagination="true">
-                                <thead>
-                                    <tr>
-                                        <th data-field="name" data-sortable="true">User Role</th>
-                                        <th data-field="action" data-align="center">Edit</th>
-                                        <th data-field="action" data-align="center">Delete</th>
-                                    </tr>
-                                </thead>
+                        <div class="clearfix"></div>
+                        <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
+                            data-page-list="[10, 20, 50, 100]"
+                            data-page-size="10" data-pagination="true">
+                            <thead>
+                                <tr>
+                                    <th data-field="name" data-sortable="true">User Role</th>
+                                    <%--<th data-field="Edit" data-align="center">Edit</th>--%>
+                                    <th data-field="action" data-align="center">Delete</th>
+                                </tr>
+                            </thead>
 
-                                <tbody>
-                                    <asp:Repeater ID="Repeater1" runat="server">
-                                        <ItemTemplate>
-                                            <tr>
-                                                <td>
-                                                    <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' />
-                                                </td>
+                            <tbody>
+                                <asp:Repeater ID="tblUserRole" runat="server">
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td>
+                                                <asp:Label runat="server" ID="tblUserRoleName" Text='<%# Eval("role_Text") %>' />
+                                            </td>
 
-                                                <td style="text-align: center;">
-                                                   <%-- <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
-                                                    </asp:LinkButton>--%>
-                                                </td>
-                                                <td style="text-align: center;">
-                                                   <%-- <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' ToolTip="Edit"
-                                                        data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this)">
-                                                    </asp:LinkButton>--%>
-                                                </td>
-                                            </tr>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
+                                           <%-- <td style="text-align: center;">
+                                                 <asp:LinkButton ID="btnEditUserRole" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xdocumentroleid") ) %>'
+                                                        CommandName='Rese' ToolTip="Edit" OnCommand="btnEditUserRole_Command" >
+                                                    </asp:LinkButton>
+                                            </td>--%>
+                                            <td style="text-align: center;">
+                                                 <asp:LinkButton ID="btnDeleteUserRole" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xdocumentroleid") ) %>'
+                                                        CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteUserRole_Command"
+                                                        >
+                                                    </asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
 
 
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>
@@ -215,66 +203,61 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Route</label>
-                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                <asp:DropDownList ID="ddlEmailRouting" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlUsers" runat="server" CssClass="form-control" DataValueField="userID" DataTextField="userName">
                                 </asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddEmailRouting" Text="Add" runat="server" CssClass="btn btn-info waves-effect btn-lg" />
+                            <asp:Button ID="btnAddEmailRouting" Text="Add" OnClick="btnAddEmailRouting_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
                         </div>
-                         <div class="clearfix"></div>
-                            <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
-                                data-page-list="[10, 20, 50, 100]"
-                                data-page-size="10" data-pagination="true">
-                                <thead>
-                                    <tr>
-                                        <th data-field="name" data-sortable="true">Route</th>
-                                        <th data-field="action" data-align="center">Edit</th>
-                                        <th data-field="action" data-align="center">Delete</th>
-                                    </tr>
-                                </thead>
+                        <div class="clearfix"></div>
+                        <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
+                            data-page-list="[10, 20, 50, 100]"
+                            data-page-size="10" data-pagination="true">
+                            <thead>
+                                <tr>
+                                    <th data-field="name" data-sortable="true">Route</th>
+                                    <%--<th data-field="edit" data-align="center">Edit</th>--%>
+                                    <th data-field="action" data-align="center">Delete</th>
+                                </tr>
+                            </thead>
 
-                                <tbody>
-                                    <asp:Repeater ID="Repeater2" runat="server">
-                                        <ItemTemplate>
-                                            <tr>
-                                                <td>
-                                                    <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' />
-                                                </td>
-
-                                                <td style="text-align: center;">
-                                                   <%-- <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
-                                                    </asp:LinkButton>--%>
-                                                </td>
-                                                <td style="text-align: center;">
-                                                   <%-- <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' ToolTip="Edit"
-                                                        data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this)">
-                                                    </asp:LinkButton>--%>
-                                                </td>
-                                            </tr>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
+                            <tbody>
+                                <asp:Repeater ID="tblEmailRouting" runat="server">
+                                    <ItemTemplate>
+                                        <tr>
+                                            <td>
+                                                <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("route_Text") %>' />
+                                            </td>
+                                            <td style="text-align: center;">
+                                                 <asp:LinkButton ID="btnDeleteEmailRouting" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "id") ) %>'
+                                                        CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteEmailRouting_Command"
+                                                        >
+                                                    </asp:LinkButton>
+                                            </td>
+                                            <td style="text-align: center;"></td>
+                                            <td style="text-align: center;"></td>
+                                        </tr>
+                                    </ItemTemplate>
+                                </asp:Repeater>
 
 
-                                </tbody>
-                            </table>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <br />
+                        <asp:CheckBox ID="CheckBox1" Text="Storage" runat="server" /><asp:CheckBox ID="CheckBox2" Text="Email" runat="server" />
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-
-
-
-
-
-
-
+             
 
 
 
@@ -283,7 +266,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
-        function Clicked(btn) {
+       <%-- function Clicked(btn) {
             document.getElementById('<%=field.ClientID%>').value = "";
             document.getElementById('<%=ClickedId.ClientID%>').value = "";
             document.getElementById('<%=ddlsectionPagesName.ClientID%>').style.display = 'inherit';
@@ -293,6 +276,6 @@
                 document.getElementById('<%=ClickedId.ClientID%>').value = btn.id;
                 document.getElementById('<%=ddlsectionPagesName.ClientID%>').style.display = 'none';
             }
-        }
-    </script>
+        }=--%>
+</script>
 </asp:Content>

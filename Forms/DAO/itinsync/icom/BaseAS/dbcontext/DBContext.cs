@@ -1,5 +1,7 @@
 ﻿using Domains.itinsync.icom.header;
+using Domains.itinsync.icom.interfaces.email;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 
 namespace DAO.itinsync.icom.BaseAS.dbcontext
 {

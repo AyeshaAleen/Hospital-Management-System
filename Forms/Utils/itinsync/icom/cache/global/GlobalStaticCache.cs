@@ -15,7 +15,9 @@ using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.section;
-
+using Domains.itinsync.icom.idocument.role;
+using Domains.itinsync.icom.idocument.roleRoute;
+using Domains.itinsync.icom.idocument.userRoute;
 
 namespace Utils.itinsync.icom.cache.global
 {
@@ -35,5 +37,8 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<Int32, XDocumentCalculation>               documentCalculation         = new Dictionary<Int32, XDocumentCalculation>();
         public static Dictionary<Int32, XDocumentSection>                   documentSection             = new Dictionary<Int32, XDocumentSection>();
 
+        public static Dictionary<Int32, XDocumentRole>                      documentRole = new Dictionary<Int32, XDocumentRole>();
+        public static Dictionary<Int32, XDocumentRoleRoute>                 documentRoleRoute = new Dictionary<Int32, XDocumentRoleRoute>();
+        public static Dictionary<Int32, XDocumentUserRoute>                 documentUserRoute = new Dictionary<Int32, XDocumentUserRoute>();
     }
 }

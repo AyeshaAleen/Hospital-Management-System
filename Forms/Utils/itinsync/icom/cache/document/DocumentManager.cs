@@ -14,7 +14,9 @@ using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.tr;
-
+using Domains.itinsync.icom.idocument.role;
+using Domains.itinsync.icom.idocument.roleRoute;
+using Domains.itinsync.icom.idocument.userRoute;
 
 namespace Utils.itinsync.icom.cache.document
 {
@@ -47,6 +49,37 @@ namespace Utils.itinsync.icom.cache.document
 
         }
        
+        public static XDocumentRole getDocumentRole(Int32 doumentRoleID)
+        {
+            if (GlobalStaticCache.documentRole.ContainsKey(doumentRoleID))
+                return GlobalStaticCache.documentRole[doumentRoleID];
+            else
+            {
+                // write code to reload data
+                return null;
+            }
+        }
+        public static XDocumentRoleRoute getDocumentRoleRoute(Int32 id)
+        {
+            if (GlobalStaticCache.documentRoleRoute.ContainsKey(id))
+                return GlobalStaticCache.documentRoleRoute[id];
+            else
+            {
+                // write code to reload data
+                return null;
+            }
+        }
+        public static XDocumentUserRoute getDocumentUserRoute(Int32 id)
+        {
+            if (GlobalStaticCache.documentUserRoute.ContainsKey(id))
+                return GlobalStaticCache.documentUserRoute[id];
+            else
+            {
+                // write code to reload data
+                return null;
+            }
+        }
+
         public static XDocumentSection getDocumentSection(Int32 doumentSectionID)
         {
             if (GlobalStaticCache.documentSection.ContainsKey(doumentSectionID))

@@ -12,7 +12,7 @@
            
               <h4 class="m-t-0 header-title"><b>General SIO</b></h4>
             
-                  <asp:Panel ID="PagePanel" runat="server">
+        
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
                    
                 </asp:Table>
@@ -33,6 +33,7 @@
     </div>
      <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"   OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
 
+    <div id="hiddenDiv" style="display:none"></div>
 </asp:Content>
 
 <asp:Content ID="cntGeneralSIOFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">

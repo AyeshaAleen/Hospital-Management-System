@@ -443,17 +443,7 @@ namespace Forms.itinsync.src.session
         {
             setRequestedMap(ApplicationCodes.READONLYSTATE, ApplicationCodes.FALSE_INDICATOR);
         }
-        public void setdtoObject(IResponseHandler response)
-        {
-
-            Sessions.getSession().Set(SessionKey.DTOOBJECT, response);
-        }
-        public IResponseHandler getdtoObject()
-        {
-
-            return (IResponseHandler)Sessions.getSession().Get(SessionKey.DTOOBJECT);
-        }
-
+       
         public void setReadonlyFrame(Control parent)
         {
             foreach (Control c in parent.Controls)
@@ -778,6 +768,14 @@ namespace Forms.itinsync.src.session
         public void setParentRef(IDocument document)
         {
             Sessions.getSession().Set(SessionKey.PARENTREF, document);
+        }
+        public void setResponseHandler(IResponseHandler responseHandler)
+        {
+            Sessions.getSession().Set(SessionKey.RESPONSEHANDLER, responseHandler);
+        }
+        public IResponseHandler getResponseHandler()
+        {
+            return (IResponseHandler) Sessions.getSession().Get(SessionKey.RESPONSEHANDLER);
         }
         public string getLastURL()
         {

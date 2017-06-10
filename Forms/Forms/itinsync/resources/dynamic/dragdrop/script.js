@@ -24,8 +24,9 @@ redips.configuration = function () {
 
   //  redips.component = "<a href=\"#\" data-toggle=\"popover\" onclick=\"AddDetail()\" title=\"Popover Header\" data-content=\"Some content inside the popover\">Toggle popover</a>";
         //< button onclick=\"getpopover(this)\" type=\"button\" id=\"bulk_actions_btnsss\" class=\"btn btn-default has-spinner-two\" data-toggle=\"popover\" data-placement=\"bottom\" data-original-title=\"\" data-content=\"wwwwwwwwwwClick any question mark icon to get help and tips with specific tasks\" aria-describedby=\"popover335446789\"> Apply</button>| <span class=\"hRight\" onclick=\"deleteColumn(this)\">x</span>";
-
-    redips.component = '<span class="hLeft" onclick="AddDetail()">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+   
+    //redips.component = '<span class="hLeft" onclick="AddDetail()">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+    redips.component = '<a class="hLeft" onclick="AddDetail()" rel="popover" data-content="<p><label>Name:</label><input type=\'text\' id=\'txtName\' name=\'txtName\' class=\'form-control\'> </p>"  data-placement="top">+</a>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
 };
 
 
@@ -129,6 +130,7 @@ redips.handler1 = function (xhr, obj) {
 
         var eleminput = obj.div.getElementsByTagName("input");
         var elemlabel = obj.div.getElementsByTagName("label");
+        var elemselect = obj.div.getElementsByTagName("select");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
         var elemheading = obj.div.getElementsByTagName("h3");
         var controlID = "";
@@ -140,6 +142,8 @@ redips.handler1 = function (xhr, obj) {
             controlID = fieldset(elemtextarea, obj.div.id);
         if (elemheading.length > 0)
             controlID= fieldset(elemheading, obj.div.id);
+        if (elemselect.length > 0)
+            controlID = fieldset(elemselect, obj.div.id);
 
         var popupHTML = layout[0];
         var params = "AddDetail('" + controlID + "')";
@@ -161,6 +165,20 @@ function deleteColumn(elem) {
 
 function AddDetail(id) {
     debugger;
+
+    $('a[rel=popover]').popover({
+        html: 'true',
+        placement: 'top'
+    });
+
+   
+
+    $('#tblEditor').find('td input').each(function () {
+        $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option></option>").val($(this).attr('id')).html($(this).attr('id')));
+    });
+    
+   
+
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
 
@@ -173,7 +191,7 @@ function AddDetail(id) {
     document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
 
 
-    document.getElementById(id).style.borderColor = 'red';
+    
     $('#con-close-modal').modal('show');
 }
 function SetDetail() {
@@ -197,6 +215,9 @@ function SetDetail() {
     
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
+    document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
+    document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
+
     document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
 
 
@@ -204,7 +225,7 @@ function SetDetail() {
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
 
-    document.getElementById(id).style.borderColor = 'none';
+
     $('#con-close-modal').modal('hide');
 }
 
@@ -220,16 +241,17 @@ function fieldClick(event) {
 function fieldset(event,divid) {
     debugger;
  
-    if (event[0].getAttribute("type") == "label")
+    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select")
     {
         event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].getAttribute("type") + divid;
     }
-        
+
+
 
     else
     {
-        event[0].id = "dynamic_" + event[0].event[0].type + divid;
+        event[0].id = "dynamic_" + event[0].type + divid;
         return "dynamic_" + event[0].type + divid;
     }
    
@@ -419,12 +441,13 @@ redips.rowInsert = function (el) {
 };
 
 redips.colInsert = function (el) {
+
     var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
         top_row,									// cells reference in top row of the table editor
         nr,											// new table row
         lc;											// last cell in newly inserted row
     // set reference to the top row cells
-    row.insertCell(row.cells - 1);
+    row.insertCell(row.cells -1);
 };
 
 
