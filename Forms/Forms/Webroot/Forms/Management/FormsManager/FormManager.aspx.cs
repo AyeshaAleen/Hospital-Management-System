@@ -36,7 +36,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+           if (!IsPostBack)
             {
                 loadDropDown();
             }

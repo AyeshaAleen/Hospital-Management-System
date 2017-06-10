@@ -61,6 +61,12 @@ namespace DAO.itinsync.icom.idocument.roleRoute
             return (XDocumentRoleRoute)processSingleResult(sql);
         }
 
+        public List<XDocumentRoleRoute> readbyDefinitionID(Int32 documentdefinitionid)
+        {
+            string sql = "select * From " + TABLENAME + " where xdocumentdefinitionid = " + documentdefinitionid; 
+            return wrap(processResults(sql));
+        }
+
         public List<XDocumentRoleRoute> readAll()
         {
             string sql = "select * From " + TABLENAME;

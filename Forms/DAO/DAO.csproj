@@ -62,6 +62,8 @@
     <Compile Include="itinsync\icom\idocument\roleRoute\XDocumentRoleRouteDAO.cs" />
     <Compile Include="itinsync\icom\idocument\role\XDocumentRoleDAO.cs" />
     <Compile Include="itinsync\icom\idocument\userRoute\XDocumentUserRouteDAO.cs" />
+    <Compile Include="itinsync\icom\store\StoreDAO.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserStoreDAO.cs" />
     <Compile Include="itinsync\icom\views\document\DocumentContentViewDAO.cs" />
     <Compile Include="itinsync\icom\idocument\content\XDocumentContentDAO.cs" />
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefinationDAO.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="itinsync\icom\views\emailroutingview\EmailRoutingViewDAO.cs" />
     <Compile Include="itinsync\icom\views\UserPermissionViewDAO.cs" />
     <Compile Include="itinsync\icom\views\UserTeamViewDAO.cs" />
+    <Compile Include="itinsync\icom\views\user\UserStoreViewDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +103,9 @@
       <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="itinsync\icom\email\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -124,7 +124,11 @@ function doOperation(value, resultantID, operation)
     {
         var totalfield = document.getElementById("hiddenTotal" + resultantID);
         if (totalfield == null || totalfield == undefined)
-            totalfield = createHiddenField("hiddenTotal" + resultantID);
+        {
+             createHiddenField("hiddenTotal" + resultantID);
+             totalfield=document.getElementById("hiddenTotal" + resultantID);
+        }
+            
 
         totalfield.value = parseFloat(totalfield.value) + parseFloat(value);
 
@@ -139,7 +143,12 @@ function createHiddenField(totalID)
     var x = document.createElement("INPUT");
     x.setAttribute("type", "hidden");
     x.setAttribute("id", totalID);
-    x.setAttribute("value", 0);
+    
+    x.value = 0;
+
+    var hiddenDiv = document.getElementById("hiddenDiv");
+    hiddenDiv.innerHTML = x.outerHTML;
+    
     return x;
 }
 function getInputType  (inputObj) {

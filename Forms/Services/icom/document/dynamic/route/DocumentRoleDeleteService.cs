@@ -11,9 +11,9 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-namespace Services.icom.document
+namespace Services.itinsync.icom.document.dynamic.route
 {
-    public class DocumentRoleSaveService : FrameAS
+    public class DocumentRoleDeleteService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -23,12 +23,9 @@ namespace Services.icom.document
                 dto = (DocumentDTO)o;
                 if (dto.documentRole.xdocumentroleid> 0)
                 {
-                    XDocumentRoleDAO.getInstance(dbContext).update(dto.documentRole, "");
+                    XDocumentRoleDAO.getInstance(dbContext).deleteByID(dto.documentRole.xdocumentroleid);
                 }
-                else
-                {
-                    XDocumentRoleDAO.getInstance(dbContext).create(dto.documentRole);
-                }
+               
             }
             catch (Exception ex)
             {

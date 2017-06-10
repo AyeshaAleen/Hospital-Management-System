@@ -11,6 +11,7 @@ using Services.itinsync.icom.documents.dto;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Utils.itinsync.icom.cache.document;
+using Services.itinsync.icom.document.dynamic.definition;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -58,7 +59,7 @@ namespace Forms.Webroot.Forms.Management
             dto.documentDefination.xDocumentDefinationID = DDID;
             dto.documentDefination.name = field.Value;
 
-            IResponseHandler response = new documentDefinitionSaveService().executeAsPrimary(dto);
+            IResponseHandler response = new DocumentDefinitionSaveService().executeAsPrimary(dto);
             return response;
         }
     }

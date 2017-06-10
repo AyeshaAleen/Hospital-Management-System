@@ -14,11 +14,12 @@ using Utils.itinsync.icom.cache.pages;
 using Domains.itinsync.icom.idocument.definition;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.lookup;
-using Services.icom.document;
 using Services.icom.emailroutingview.dto;
 using Services.icom.emailroutingview;
 using Services.itinsync.icom.useraccounts.dto;
-using Services.itinsync.icom.useraccounts; 
+using Services.itinsync.icom.useraccounts;
+using Services.itinsync.icom.document.dynamic.route;
+using Services.itinsync.icom.document.dynamic.section;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -28,7 +29,6 @@ namespace Forms.Webroot.Forms.Management
         {
             if (!IsPostBack)
                 doLoad();
-
         }
 
         private void doLoad()
@@ -54,7 +54,7 @@ namespace Forms.Webroot.Forms.Management
         {
             UserAccountsDTO dto = new UserAccountsDTO();
             dto.header = getHeader();
-            
+
             IResponseHandler response = new UserAccountsGetService().executeAsPrimary(dto);
 
             ddlUsers.DataSource = ((UserAccountsDTO)response).userAccountsList;
@@ -77,11 +77,12 @@ namespace Forms.Webroot.Forms.Management
         {
             EmailRoutingDTO dto = new EmailRoutingDTO();
             dto.header = getHeader();
+            dto.emailRouting.xdocumentdefinitionid = 1001;
             IResponseHandler response = new EmailRoutingGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (EmailRoutingDTO)response;
-                tblEmailRouting.DataSource = dto.emailRoutinglist; 
+                tblEmailRouting.DataSource = dto.emailRoutinglist;
                 tblEmailRouting.DataBind();
             }
         }
@@ -102,7 +103,7 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
 
-            IResponseHandler response = new documentSectionSaveService().executeAsPrimary(dtoIn);
+            IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             doLoad();
         }
 
@@ -144,8 +145,7 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            //if (ddlEmailRouting.SelectedIndex != ddlEmailRouting.Items.Count - 1)
-            if (ddlEmailRouting.SelectedItem.Text != ApplicationCodes.Select_User_To_Forms_Send)
+            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS.ToString())
             {
                 dto.documentRoleRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRoleRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
@@ -159,26 +159,26 @@ namespace Forms.Webroot.Forms.Management
 
                 IResponseHandler response = new DocumentUserRouteSaveService().executeAsPrimary(dto);
             }
-
-            //LoadEmailRoutingTbl();
+            LoadEmailRoutingTbl();
         }
         protected void btnDeleteEmailRouting_Command(object sender, CommandEventArgs e)
         {
-            //DocumentDTO dto = new DocumentDTO();
-            //dto.header = getHeader();
-            ////if (ddlEmailRouting.SelectedIndex != ddlEmailRouting.Items.Count - 1)
-            //if (ddlEmailRouting.SelectedItem.Text != ApplicationCodes.Select_User_To_Forms_Send)
-            //{
-            //    dto.documentRoleRoute.id = Convert.ToInt32(e.CommandArgument);
-            //    IResponseHandler response = new DocumentRoleRouteDeleteService().executeAsPrimary(dto);
-            //}
-            //else
-            //{
-            //    dto.documentUserRoute.id = Convert.ToInt32(e.CommandArgument);
-            //    IResponseHandler response = new DocumentUserRouteDeleteService().executeAsPrimary(dto);
-            //}
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+            string prefixiD = e.CommandArgument.ToString();
 
-            //LoadEmailRoutingTbl();
+            if (prefixiD.Substring(0, 1) == "r")
+            {
+                dto.documentRoleRoute.id = Convert.ToInt32(prefixiD.Substring(1, prefixiD.Length - 1));
+                IResponseHandler response = new DocumentRoleRouteDeleteService().executeAsPrimary(dto);
+            }
+            else
+            {
+                dto.documentUserRoute.id = Convert.ToInt32(prefixiD.Substring(1, prefixiD.Length - 1));
+                IResponseHandler response = new DocumentUserRouteDeleteService().executeAsPrimary(dto);
+            }
+
+            LoadEmailRoutingTbl();
         }
     }
 }

@@ -14,8 +14,8 @@ namespace Services.icom.emailroutingview.dto
 {
     public class EmailRoutingDTO : IRequestHandler, IResponseHandler
     {
-        public string READBY { get; set; }
-        public string UPDATEBY { get; set; }
+        //public string READBY { get; set; }
+        //public string UPDATEBY { get; set; }
 
         public EmailRouting emailRouting = new EmailRouting();
         public List<EmailRouting> emailRoutinglist = new List<EmailRouting>();

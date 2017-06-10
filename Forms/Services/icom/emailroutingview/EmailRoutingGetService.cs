@@ -22,9 +22,9 @@ namespace Services.icom.emailroutingview
             try
             {
                 dto = (EmailRoutingDTO)o;
-                if (dto.emailRouting.xDocumentDefinationID > 0)
+                if (dto.emailRouting.xdocumentdefinitionid > 0)
                 {
-                    EmailRoutingViewDAO.getInstance(dbContext).findbyDefinitionID(dto.emailRouting.xDocumentDefinationID);
+                    dto.emailRoutinglist = EmailRoutingViewDAO.getInstance(dbContext).findbyDefinitionID(dto.emailRouting.xdocumentdefinitionid);
                 }
 
             }

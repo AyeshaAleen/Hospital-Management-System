@@ -65,6 +65,8 @@ namespace DAO.itinsync.icom.BaseAS.frame
             {
                 endTransaction(bCommit);
             }
+
+
             return responseHandler;
         }
         protected Task diaryRequest(string name, Int32 subjectid, string body)

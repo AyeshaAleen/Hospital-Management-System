@@ -16,7 +16,7 @@ using System.Xml;
 
 namespace Services.itinsync.icom.documents
 {
-    public class documentSaveService : FrameAS
+    public class DocumentSaveService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)

@@ -66,6 +66,14 @@ namespace DAO.itinsync.icom.idocument.userRoute
             return wrap(processResults(sql));
         }
 
+        public List<XDocumentUserRoute> findbyDocumentDefinitionID(Int32 documentDefinitionID)
+        {
+            
+            string SQL = string.Format("Select * from " + TABLENAME + " where xdocumentdefinitionid =" + documentDefinitionID);
+            return wrap(processResults(SQL));
+        }
+
+
         private List<XDocumentUserRoute> readWhere(string where)
         {
             if (where == null || where.Length == 0)
