@@ -78,5 +78,12 @@ namespace DAO.itinsync.icom.lookuptrans
                 list.Add((LookupTrans)domain);
             return list;
         }
+
+
+        public bool deleteBytrans(string trans)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where code = '{0}'", trans);
+            return delete(delSQL);
+        }
     }
 }

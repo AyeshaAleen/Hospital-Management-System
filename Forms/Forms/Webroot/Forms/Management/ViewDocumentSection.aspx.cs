@@ -46,9 +46,9 @@ namespace Forms.Webroot.Forms.Management
             ddlEmailRouting.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKEmailRouting, getHeader().lang);
             ddlEmailRouting.DataBind();
 
-            LoadUsers();
-            LoadUserRoleTbl();
-            LoadEmailRoutingTbl();
+            LoadUsers();//getUsers()
+            LoadUserRoleTbl();//getRoles
+            LoadEmailRoutingTbl();//getEmailRoutes
         }
         void LoadUsers()
         {

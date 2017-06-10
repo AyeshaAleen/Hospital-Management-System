@@ -8,6 +8,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utils.itinsync.icom.cache.global;
+using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument.table;
+using Domains.itinsync.icom.idocument.table.tr;
+using Domains.itinsync.icom.idocument.table.td;
+using Domains.itinsync.icom.idocument.table.content;
 
 namespace DAO.itinsync.icom.idocument.table.calculation
 {
@@ -57,6 +64,48 @@ namespace DAO.itinsync.icom.idocument.table.calculation
             foreach (IDomain domain in result)
                 list.Add((XDocumentCalculation)domain);
             return list;
+        }
+
+
+        public List<XDocumentCalculation> readbyFieldID(Int32 fieldID)
+        {
+            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            {
+                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+
+                foreach (XDocumentSection section in documentDefinition.documentSections)
+                {
+                    foreach (XDocumentTable table in section.documentTable)
+                    {
+                        foreach (XDocumentTableTR tr in table.trs)
+                        {
+                            foreach (XDocumentTableTD td in tr.tds)
+                            {
+                                foreach (XDocumentTableContent field in td.fields)
+                                {
+                                    if (field.documentTableContentID == fieldID)
+                                        return field.calculations;
+                                }
+                                   
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+
+            string sql = "select * From " + TABLENAME + " where tdID = " + fieldID;
+            return wrap(processResults(sql));
+        }
+
+
+
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where xdocumentcalculationID = {0}", ID);
+            return delete(delSQL);
         }
     }
 }

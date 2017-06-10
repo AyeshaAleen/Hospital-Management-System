@@ -17,7 +17,10 @@ namespace Domains.itinsync.icom.idocument.table.calculation
         public Int32 documentcontentID { get; set; }
         public string operation { get; set; }
         public Int32 resultContentID { get; set; }
-      
+
+
+        public string resultContentAttribute { get; set; }
+
         public object getKey() { return xdocumentcalculationID; }
         public void setTransID(object transID)
         {
