@@ -169,7 +169,8 @@ function setTranslation() {
     debugger;
     var input = $("#defaultValue").val();
     var output = input.split(" ").join('.');
-    document.getElementById("translation").val = output;
+    $("#translation").val(output);
+  
     
 }
 
@@ -218,17 +219,18 @@ function SetDetail() {
     debugger;
 
 
+   
+
     var id = document.getElementById("ControlName").value;
    
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
 
-    if (document.getElementById(id).getAttribute("type") == "select") {
-
+   
         document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
 
-    }
+
 
     if (document.getElementById(id).getAttribute("type") != "label")
     {
