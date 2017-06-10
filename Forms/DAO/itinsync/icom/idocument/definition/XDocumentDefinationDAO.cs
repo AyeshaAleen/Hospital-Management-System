@@ -120,6 +120,7 @@ namespace DAO.itinsync.icom.idocument.definition
 
         public void load()
         {
+            GlobalStaticCache.documentCalculation = new Dictionary<Int32, XDocumentCalculation>();
             List<XDocumentDefination> documentsDefinitions = readAll();
             foreach (XDocumentDefination documentDefinition in documentsDefinitions)
             {

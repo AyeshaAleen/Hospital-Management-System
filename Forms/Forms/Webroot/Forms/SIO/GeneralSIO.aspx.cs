@@ -86,7 +86,7 @@ namespace Forms.Webroot.Forms.SIO
 
         protected override void LoadViewState(object savedState)
         {
-           CreateControl(getResponseHandler());
+            CreateControl(getResponseHandler());
             base.LoadViewState(savedState);
             
         }
