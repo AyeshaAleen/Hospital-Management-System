@@ -17,10 +17,13 @@ using DAO.itinsync.icom.idocument.table.tr;
 using DAO.itinsync.icom.idocument.table.td;
 using DAO.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.table.calculation;
+using DAO.itinsync.icom.idocument.table.calculation;
+using DAO.itinsync.icom.lookuptrans;
 
 namespace Services.itinsync.icom.tablecontent
 {
-    public class tablecontentDeleteService : FrameAS
+    public class TableContentManageService : FrameAS
     {
         tablecontentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -41,29 +44,46 @@ namespace Services.itinsync.icom.tablecontent
                 {
                     foreach (XDocumentTable table in dto.documentTablelist)
                     {
-                      
+
+                        XDocumentTableDAO.getInstance(dbContext).deleteByID(table.documentTableID);
+
                         dto.documentTable.trs = XDocumentTableTRDAO.getInstance(dbContext).readbyTableID(table.documentTableID);
 
                         foreach (XDocumentTableTR tr in dto.documentTable.trs)
                         {
+                            XDocumentTableTRDAO.getInstance(dbContext).deleteByID(tr.trID);
+
 
                             tr.tds = XDocumentTableTDDAO.getInstance(dbContext).readbyTRID(tr.trID);
                             foreach (XDocumentTableTD td in tr.tds)
                             {
+                                XDocumentTableTDDAO.getInstance(dbContext).deleteByID(td.tdID);
+
                                 td.fields = XDocumentTableContentDAO.getInstance(dbContext).readbyTDID(td.tdID);
                                 foreach (XDocumentTableContent field in td.fields)
                                 {
-
                                     XDocumentTableContentDAO.getInstance(dbContext).deleteByID(field.documentTableContentID);
+                                    LookupTransDAO.getInstance(dbContext).deleteBytrans(field.translation);
+
+                                    field.calculations = XDocumentCalculationDAO.getInstance(dbContext).readbyFieldID(field.documentTableContentID);
+                                    foreach (XDocumentCalculation calculation in field.calculations)
+                                    {
+                                        XDocumentCalculationDAO.getInstance(dbContext).deleteByID(calculation.xdocumentcalculationID);
+
+                                    }
+                                   
+
+                                   
+
 
                                 }
-                                XDocumentTableTDDAO.getInstance(dbContext).deleteByID(td.tdID);
+                               
 
                             }
-                            XDocumentTableTRDAO.getInstance(dbContext).deleteByID(tr.trID);
+                          
 
                         }
-                        XDocumentTableDAO.getInstance(dbContext).deleteByID(table.documentTableID);
+                       
                     }
 
                     #endregion
@@ -71,8 +91,9 @@ namespace Services.itinsync.icom.tablecontent
 
 
 
+                new TableContentSaveService().executeAsSecondary(dto,dbContext);
 
-                
+
             }
             catch (Exception ex)
             {

@@ -574,7 +574,7 @@ namespace Forms.itinsync.src.session
         }
         protected void showErrorMessage(IResponseHandler response)
         {
-            HtmlGenericControl alertFailure = (HtmlGenericControl)this.Master.FindControl("alertFailure");
+            HtmlGenericControl alertFailure = (HtmlGenericControl)this.Master.Master.FindControl("alertFailure");
             alertFailure.Visible = true;
             alertFailure.InnerHtml = ApplicationCodes.ERROR_TEXT + response.getErrorBlock().ErrorText;
         }

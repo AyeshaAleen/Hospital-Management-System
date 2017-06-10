@@ -25,8 +25,7 @@ redips.configuration = function () {
   //  redips.component = "<a href=\"#\" data-toggle=\"popover\" onclick=\"AddDetail()\" title=\"Popover Header\" data-content=\"Some content inside the popover\">Toggle popover</a>";
         //< button onclick=\"getpopover(this)\" type=\"button\" id=\"bulk_actions_btnsss\" class=\"btn btn-default has-spinner-two\" data-toggle=\"popover\" data-placement=\"bottom\" data-original-title=\"\" data-content=\"wwwwwwwwwwClick any question mark icon to get help and tips with specific tasks\" aria-describedby=\"popover335446789\"> Apply</button>| <span class=\"hRight\" onclick=\"deleteColumn(this)\">x</span>";
    
-    //redips.component = '<span class="hLeft" onclick="AddDetail()">+</span>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
-    redips.component = '<a class="hLeft" onclick="AddDetail()" rel="popover" data-content="<p><label>Name:</label><input type=\'text\' id=\'txtName\' name=\'txtName\' class=\'form-control\'> </p>"  data-placement="top">+</a>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+    redips.component = '<a href="#con-modal" class="hLeft" onclick="AddDetail()">+</a>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
 };
 
 
@@ -159,25 +158,46 @@ redips.handler1 = function (xhr, obj) {
 };
 
 function deleteColumn(elem) {
+
     debugger;
     var divelement = $(elem).parent().remove();
+}
+
+
+function setTranslation() {
+
+    debugger;
+    var input = $("#defaultValue").val();
+    var output = input.split(" ").join('.');
+    document.getElementById("translation").val = output;
+    
 }
 
 function AddDetail(id) {
     debugger;
 
-    $('a[rel=popover]').popover({
-        html: 'true',
-        placement: 'top'
-    });
 
-   
-
+    $("#opt").remove();
+    
     $('#tblEditor').find('td input').each(function () {
-        $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option></option>").val($(this).attr('id')).html($(this).attr('id')));
+
+        $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
     });
     
-   
+
+    if (document.getElementById(id).getAttribute("type") == "label") {
+        document.getElementById("points").disabled = true;
+        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = true;
+        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = true;
+    }
+
+    else
+    {
+        document.getElementById("points").disabled = false;
+        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = false;
+        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = false;
+    }
+
 
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
@@ -200,26 +220,31 @@ function SetDetail() {
 
     var id = document.getElementById("ControlName").value;
    
-
-    
-
-    
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
-    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
-    document.getElementById(id).setAttribute("points", document.getElementById("points").value);
-    document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
-    
-    
-    
-    document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
-    document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
-    document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
-    document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
 
+    if (document.getElementById(id).getAttribute("type") == "select") {
+
+        document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
+
+    }
+
+    if (document.getElementById(id).getAttribute("type") != "label")
+    {
+       
+
+        document.getElementById(id).setAttribute("points", document.getElementById("points").value);
+        document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
+        document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
+    }
+
+    document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
     document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
 
+    document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
+    document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
+  
 
     if (document.getElementById(id).getAttribute("type") == "label")
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
@@ -241,7 +266,7 @@ function fieldClick(event) {
 function fieldset(event,divid) {
     debugger;
  
-    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select")
+    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea")
     {
         event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].getAttribute("type") + divid;

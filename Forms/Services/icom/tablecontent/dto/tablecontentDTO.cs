@@ -13,6 +13,7 @@ using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
 using System;
+using Domains.itinsync.icom.lookup.lookuptrans;
 
 namespace Services.itinsync.icom.tablecontent.dto
 {
@@ -26,6 +27,13 @@ namespace Services.itinsync.icom.tablecontent.dto
         public int sectionnID { get; set; }
 
         public XDocumentTable documentTable = new XDocumentTable();
+
+        public XDocumentTable documentTableParse = new XDocumentTable();
+
+        public XDocumentCalculation documentCalculation = new XDocumentCalculation();
+
+        public LookupTrans lookupTrans = new LookupTrans();
+
 
         public List<XDocumentTable> documentTablelist = new List<XDocumentTable>();
 

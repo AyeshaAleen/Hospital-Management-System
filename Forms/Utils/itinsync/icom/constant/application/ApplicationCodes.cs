@@ -28,10 +28,8 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string FORMS_CONTROL_TAXTBOX = "3";
         public static readonly string FORMS_CONTROL_COMBObOX = "4";
         public static readonly string FORMS_CONTROL_LABEL = "5";
-
         public static readonly string FORMS_CONTROL_TEXTAREA = "6";
-  
-
+        public static readonly string FORMS_CONTROL_SELECT = "7";
 
         public static readonly string FORMS_CALCULATION_PLUS= "PLUS";
         public static readonly string FORMS_CALCULATION_MINUS= "MINUS";

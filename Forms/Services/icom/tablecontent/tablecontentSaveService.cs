@@ -17,10 +17,13 @@ using DAO.itinsync.icom.idocument.table.tr;
 using DAO.itinsync.icom.idocument.table.td;
 using DAO.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.definition;
+using DAO.itinsync.icom.lookuptrans;
+using Domains.itinsync.icom.idocument.table.calculation;
+using DAO.itinsync.icom.idocument.table.calculation;
 
 namespace Services.itinsync.icom.tablecontent
 {
-    public class tablecontentSaveService : FrameAS
+    public class TableContentSaveService : FrameAS
     {
         tablecontentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -39,22 +42,22 @@ namespace Services.itinsync.icom.tablecontent
 
                 #region Create Table
 
-                if (dto.documentTable != null)
+                if (dto.documentTableParse != null)
                 {
-                    dto.documentTable.documentTableID = XDocumentTableDAO.getInstance(dbContext).create(dto.documentTable);
+                    dto.documentTableParse.documentTableID = XDocumentTableDAO.getInstance(dbContext).create(dto.documentTableParse);
                 }
 
                 #endregion
 
                 #region Create Other Data
 
-                if (dto.documentTable.trs != null && dto.documentTable.trs.Count > 0)
+                if (dto.documentTableParse.trs != null && dto.documentTableParse.trs.Count > 0)
                 {
-                    foreach (XDocumentTableTR tr in dto.documentTable.trs)
+                    foreach (XDocumentTableTR tr in dto.documentTableParse.trs)
                     {
                         #region Create Table TR
 
-                        tr.documentTableID = dto.documentTable.documentTableID;
+                        tr.documentTableID = dto.documentTableParse.documentTableID;
                         tr.trID = XDocumentTableTRDAO.getInstance(dbContext).create(tr);
 
                         #endregion
@@ -80,11 +83,38 @@ namespace Services.itinsync.icom.tablecontent
                                         {
                                             field.tdID = td.tdID;
                                             field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
+
+                                            dto.lookupTrans.code = field.translation;
+                                            dto.lookupTrans.value = field.defaultValue;
+                                            dto.lookupTrans.lang = "en";
+
+                                            LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
+
+                                            if(field.calculations!=null)
+                                            {
+                                                if(field.calculations.Count>0)
+                                                {
+                                                    foreach (XDocumentCalculation calculation in field.calculations)
+                                                    {
+                                                        if (field.controlID == calculation.resultContentAttribute)
+                                                            calculation.resultContentID = field.documentTableContentID;
+                                                        else
+                                                        calculation.documentcontentID = field.documentTableContentID;
+
+                                                        calculation.xdocumentcalculationID= XDocumentCalculationDAO.getInstance(dbContext).create(calculation);
+                                                    }
+                                                    }
+                                            }
+
+
                                         }
                                     }
+
                                 }
 
                                 #endregion
+
+
                             }
                         }
 
