@@ -27,6 +27,7 @@ using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.xml;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.html;
+using Utils.itinsync.icom.cache.document;
 
 namespace Forms.Webroot.Forms.Management.FormsManager
 {
@@ -85,6 +86,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             IResponseHandler response = new TableContentManageService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
+                setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID)));
                 tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()), getHeader().lang);
                 showSuccessMessage(response);
             }

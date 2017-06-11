@@ -237,7 +237,7 @@ namespace Utils.itinsync.icom.html
             HtmlGenericControl crosscell = new HtmlGenericControl("span");
             crosscell.Attributes.Add("class", "rowTool");
             crosscell.Attributes.Add("onclick", "redips.cellDelete(this)");
-            crosscell.InnerHtml = "/xc";
+            crosscell.InnerHtml = "xc";
             createDiv.Controls.Add(crosscell);
 
 

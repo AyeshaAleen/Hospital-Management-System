@@ -148,6 +148,10 @@ redips.handler1 = function (xhr, obj) {
         var params = "AddDetail('" + controlID + "')";
         popupHTML = popupHTML.replace("AddDetail()", params);
 
+        obj.div.innerHTML = obj.div.innerHTML.replace("##_ID##", controlID);
+
+        
+
         obj.div.innerHTML = popupHTML + obj.div.innerHTML;
 
     }
@@ -204,7 +208,7 @@ function AddDetail(id) {
     var fieldObject = document.getElementById(id);
 
     // getting data from popup and setting it to required field
-    document.getElementById("ControlName").value = id;
+    document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
     document.getElementById("ControlID").value = id;
     document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
     document.getElementById("translation").value = fieldObject.getAttribute("translation");
@@ -230,11 +234,7 @@ function SetDetail() {
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
-
-   
-        document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
-
-
+    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
 
     if (document.getElementById(id).getAttribute("type") != "label")
     {
@@ -243,11 +243,12 @@ function SetDetail() {
         document.getElementById(id).setAttribute("points", document.getElementById("points").value);
         document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
         document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
+        document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
     }
+    
 
+   
     document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
-    document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
-
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
   
@@ -275,14 +276,13 @@ function fieldset(event,divid) {
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea")
     {
         event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].getAttribute("type") + divid;
     }
-
-
-
     else
     {
         event[0].id = "dynamic_" + event[0].type + divid;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].type + divid;
     }
    

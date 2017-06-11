@@ -59,24 +59,22 @@ namespace Services.itinsync.icom.tablecontent
                         {
                             foreach (XDocumentTableTD td in tr.tds)
                             {
-                                #region Create Table TD
+                              
+                              #region Create Table TD Content
+                              if (td.fields != null && td.fields.Count > 0)
+                              {
 
-                                td.trID = tr.trID;
-                                td.tdID = XDocumentTableTDDAO.getInstance(dbContext).create(td);
-
-                                #endregion
-
-                                #region Create Table TD Content
-                                  if (td.fields != null && td.fields.Count > 0)
-                                  {
-                                        foreach (XDocumentTableContent field in td.fields)
-                                        {
-                                            translation(field);
-                                            field.tdID = td.tdID;
-                                            field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
-                                            calculation(field);
-                                        }
-                                   }
+                                    td.trID = tr.trID;
+                                    td.tdID = XDocumentTableTDDAO.getInstance(dbContext).create(td);
+                                    
+                                    foreach (XDocumentTableContent field in td.fields)
+                                    {
+                                        translation(field);
+                                        field.tdID = td.tdID;
+                                        field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
+                                        calculation(field);
+                                    }
+                              }
                                 #endregion
                             }
                         }
