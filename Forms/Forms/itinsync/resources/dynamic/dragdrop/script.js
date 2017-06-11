@@ -210,6 +210,10 @@ function AddDetail(id) {
     document.getElementById("translation").value = fieldObject.getAttribute("translation");
     document.getElementById("points").value = fieldObject.getAttribute("points");
     document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
+    if (fieldObject.getAttribute("irequired") == "true")
+        document.getElementById("isRequired").checked = true;
+    else
+        document.getElementById("isRequired").checked = false;
 
 
     
@@ -489,6 +493,17 @@ redips.rowDelete = function (el) {
     }
 };
 
+
+redips.cellDelete = function (el) {
+    // find source row (skip inner row)
+    var row = REDIPS.drag.findParent('TR', el);
+    // confirm deletion
+    if (confirm('Delete Cell?')) {
+        // delete row from table editor
+        row.deleteCell(0);
+        //REDIPS.table.row(redips.tableEditor, 'delete', row.rowIndex);
+    }
+};
 
 // add onload event listener
 if (window.addEventListener) {

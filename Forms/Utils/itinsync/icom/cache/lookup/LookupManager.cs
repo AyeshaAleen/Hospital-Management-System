@@ -25,6 +25,12 @@ namespace Utils.itinsync.icom.cache.lookup
             List<LookUp> lookupList = new List<LookUp>();
             if (GlobalStaticCache.LKcacheMap[lang].ContainsKey(lookupName))
             {
+                LookUp firstindex = new LookUp();
+                firstindex.code = Convert.ToString("-1");
+                firstindex.text = Convert.ToString("");
+                lookupList.Add(firstindex);
+                
+
                 foreach (DictionaryEntry entry in GlobalStaticCache.LKcacheMap[lang][lookupName])
                 {
                     LookUp lk = new LookUp();
@@ -98,6 +104,11 @@ namespace Utils.itinsync.icom.cache.lookup
 
 
             int count = 0;
+            LookUp firstindex = new LookUp();
+            firstindex.code = Convert.ToString(count);
+            firstindex.text = Convert.ToString("");
+            lookupList.Add(firstindex);
+            count++;
             foreach (string key in GlobalStaticCache.LKcacheMap[lang].Keys)
             {
 

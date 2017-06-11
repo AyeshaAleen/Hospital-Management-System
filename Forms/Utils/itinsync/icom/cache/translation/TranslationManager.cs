@@ -26,6 +26,8 @@ namespace Utils.itinsync.icom.cache.translation
             //languages.Add(new LookUp().code);
             foreach (LookUp lk in languages)
             {
+                if (lk.code == "-1")
+                    continue;
                 Dictionary<string, string> langcacheMap = new Dictionary<string, string>();
 
                 string filepath = ServiceUtils.getBasePath() + "/itinsync/translations/lang_" + lk.code + ".properties";

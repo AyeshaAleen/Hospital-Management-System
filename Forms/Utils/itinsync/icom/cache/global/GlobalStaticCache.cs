@@ -40,5 +40,27 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<Int32, XDocumentRole>                      documentRole = new Dictionary<Int32, XDocumentRole>();
         public static Dictionary<Int32, XDocumentRoleRoute>                 documentRoleRoute = new Dictionary<Int32, XDocumentRoleRoute>();
         public static Dictionary<Int32, XDocumentUserRoute>                 documentUserRoute = new Dictionary<Int32, XDocumentUserRoute>();
+
+            public static void invalidateCache()
+            {
+                translationcacheMap             = new Dictionary<string, Dictionary<string, string>>();
+                LKcacheMap                      = new Dictionary<string, Dictionary<string, Hashtable>>();
+                PermissionCacheMap              = new Dictionary<string, Hashtable>();
+                PageCacheMap                    = new Dictionary<string, PageName>();
+                TaskDefinitionCacheMap          = new Dictionary<string, TaskDefinition>();
+                PageIDCacheMap                  = new List<Int32>();
+                documentDefinition              = new Dictionary<Int32, XDocumentDefination>();
+                documentTables                  = new Dictionary<Int32, XDocumentTable>();
+                documentTablesTR                = new Dictionary<Int32, XDocumentTableTR>();
+                documentTablesTD                = new Dictionary<Int32, XDocumentTableTD>();
+                documentContent                 = new Dictionary<Int32, XDocumentTableContent>();
+                documentCalculation             = new Dictionary<Int32, XDocumentCalculation>();
+                documentSection                 = new Dictionary<Int32, XDocumentSection>();
+                documentRole                    = new Dictionary<Int32, XDocumentRole>();
+                documentRoleRoute               = new Dictionary<Int32, XDocumentRoleRoute>();
+                documentUserRoute               = new Dictionary<Int32, XDocumentUserRoute>();
+
+             
+         }
     }
 }

@@ -20,6 +20,7 @@ using Domains.itinsync.icom.idocument.definition;
 using DAO.itinsync.icom.lookuptrans;
 using Domains.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.idocument.table.calculation;
+using Domains.itinsync.icom.lookup.lookuptrans;
 
 namespace Services.itinsync.icom.tablecontent
 {
@@ -31,15 +32,7 @@ namespace Services.itinsync.icom.tablecontent
             try
             {
                 dto = (tablecontentDTO)o;
-
                 
-               // XDocumentDefination documentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyDocumentName(dto.documentdefinitionName);
-
-                #region check is document exist
-
-                #endregion
-                
-
                 #region Create Table
 
                 if (dto.documentTableParse != null)
@@ -74,60 +67,22 @@ namespace Services.itinsync.icom.tablecontent
                                 #endregion
 
                                 #region Create Table TD Content
-
-                                if (td.fields != null)
-                                {
-                                    if (td.fields.Count > 0)
-                                    {
+                                  if (td.fields != null && td.fields.Count > 0)
+                                  {
                                         foreach (XDocumentTableContent field in td.fields)
                                         {
+                                            translation(field);
                                             field.tdID = td.tdID;
                                             field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
-
-                                            dto.lookupTrans.code = field.translation;
-                                            dto.lookupTrans.value = field.defaultValue;
-                                            dto.lookupTrans.lang = "en";
-
-                                            LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
-
-                                            if(field.calculations!=null)
-                                            {
-                                                if(field.calculations.Count>0)
-                                                {
-                                                    foreach (XDocumentCalculation calculation in field.calculations)
-                                                    {
-                                                        if (field.controlID == calculation.resultContentAttribute)
-                                                            calculation.resultContentID = field.documentTableContentID;
-                                                        else
-                                                        calculation.documentcontentID = field.documentTableContentID;
-
-                                                        calculation.xdocumentcalculationID= XDocumentCalculationDAO.getInstance(dbContext).create(calculation);
-                                                    }
-                                                    }
-                                            }
-
-
+                                            calculation(field);
                                         }
-                                    }
-
-                                }
-
+                                   }
                                 #endregion
-
-
                             }
                         }
-
-
                     }
                 }
                 #endregion
-
-
-
-
-
-                
             }
             catch (Exception ex)
             {
@@ -138,7 +93,37 @@ namespace Services.itinsync.icom.tablecontent
             return dto;
         }
 
+        private void translation(XDocumentTableContent field)
+        {
+            dto.lookupTrans.code = field.translation;
+            dto.lookupTrans.value = field.defaultValue;
+            dto.lookupTrans.lang = "en";
+            if (LookupTransDAO.getInstance(dbContext).translationExists(field.defaultValue, "en"))
+            {
+                LookupTrans trans= LookupTransDAO.getInstance(dbContext).findbyTranslcation(field.defaultValue, "en");
+                field.translation = trans.code;
+                field.defaultValue = trans.value;
+            }
+            else
+                LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
+        }
 
+        private void calculation(XDocumentTableContent field)
+        {
+                if (field.calculations != null && field.calculations.Count > 0)
+                {
+                    foreach (XDocumentCalculation calculation in field.calculations)
+                    {
+                        if (field.controlID == calculation.resultContentAttribute)
+                            calculation.resultContentID = field.documentTableContentID;
+                        else
+                            calculation.documentcontentID = field.documentTableContentID;
+                        if(calculation.operation.Length >0)
+                            calculation.xdocumentcalculationID = XDocumentCalculationDAO.getInstance(dbContext).create(calculation);
+                    }
+                }
+            
+        }
 
     }
 }
