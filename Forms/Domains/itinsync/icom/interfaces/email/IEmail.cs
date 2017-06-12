@@ -9,7 +9,6 @@ namespace Domains.itinsync.icom.interfaces.email
 {
     public interface IEmail
     {
-         List<string> getRecipients();
          IDocument getParentref();
     }
 }

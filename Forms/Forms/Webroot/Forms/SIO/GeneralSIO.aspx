@@ -1,10 +1,10 @@
-﻿<%@ Page Title="General SIO" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" 
+﻿<%@ Page Title="General SIO" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" 
      CodeBehind="GeneralSIO.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.GeneralSIO" %>
 
-<asp:Content ID="cntGeneralSIOHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntGeneralSIOHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
 </asp:Content>
 
-<asp:Content ID="cntGeneralSIOBody" ContentPlaceHolderID="FormMasterBody" runat="server"> 
+<asp:Content ID="cntGeneralSIOBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server"> 
 
     <div class="row" id="validate" runat="server">
         <div class="col-sm-12">
@@ -17,7 +17,7 @@
                    
                 </asp:Table>
              
-                   </asp:Panel>
+           
 
 
               
@@ -36,7 +36,7 @@
     <div id="hiddenDiv" style="display:none"></div>
 </asp:Content>
 
-<asp:Content ID="cntGeneralSIOFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="cntGeneralSIOFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
     <script>
 function demoFromHTML() {
 

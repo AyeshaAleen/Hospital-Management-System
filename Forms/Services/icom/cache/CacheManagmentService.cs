@@ -10,6 +10,7 @@ using Services.itinsync.icom.cache.pages;
 using Services.itinsync.icom.cache.permission;
 using Services.itinsync.icom.cache.task.taskdefinition;
 using Services.itinsync.icom.cache.lookup.trans;
+using Utils.itinsync.icom.cache.global;
 //using Services.itinsync.icom.cache.document.documentdefinition;
 
 namespace Services.itinsync.icom.cache
@@ -18,6 +19,7 @@ namespace Services.itinsync.icom.cache
     {
         protected override IResponseHandler executeBody(object o)
         {
+            GlobalStaticCache.invalidateCache();
             //**************Need to cache Lookup***************//
             LookupManagerService lks = new LookupManagerService();
             lks.executeAsSecondary(null,dbContext);

@@ -71,8 +71,8 @@
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                     </div>
                                 </div>--%>
-                                <div class="btn-group pull-right m-t-15">
-                                    <button type="button" class="btn btn-inverse waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span><a href="#"></a> Back </button>
+                             <div class="btn-group pull-right m-t-15">
+                                    <a href="javascript: history.go(-1)" class="btn btn-inverse waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </a>
                                     
                                 </div>
 

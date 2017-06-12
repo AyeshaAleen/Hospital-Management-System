@@ -17,6 +17,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.controls;
+using Domains.itinsync.icom.idocument.table.calculation;
 
 namespace Utils.itinsync.icom.html
 {
@@ -98,7 +99,7 @@ namespace Utils.itinsync.icom.html
                                     if (!string.IsNullOrEmpty(type))
                                     {
                                         XDocumentTableContent tableContent = new XDocumentTableContent();
-
+                                        XDocumentCalculation fieldcalculation = new XDocumentCalculation();
 
                                         if (type == "checkbox")
                                             tableContent.controlType =ApplicationCodes.FORMS_CONTROL_CHECKBOX;
@@ -108,14 +109,16 @@ namespace Utils.itinsync.icom.html
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TAXTBOX;
                                         else if  (type == "label")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_LABEL;
-                                        //if (type=="select")
-                                        //{
-                                        //    dto.documentTableContent.controlType = "4";
-                                        //}
-                                        //if (fieldnode.FirstChild.GetType() == typeof(Label))
-                                        //{
-                                        //    dto.documentTableContent.controlType = "5";
-                                        //}
+                                        if (type == "select")
+                                        {
+                                            tableContent.controlType = ApplicationCodes.FORMS_CONTROL_SELECT;
+                                        }
+                                        if (type == "textarea")
+                                        {
+                                            tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TEXTAREA;
+                                        }
+
+
 
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
@@ -127,12 +130,19 @@ namespace Utils.itinsync.icom.html
                                         tableContent.points = fieldnode.ChildNodes[1].GetAttributeValue("points", "");
                                         tableContent.defaultValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
 
-
+                                        
 
                                         tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
-                                       
-                                        //dto.documentTableContentlist.Add(dto.documentTableContent);
 
+                                        //fieldcalculation.documentcontentID= fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
+                                        if (fieldnode.ChildNodes[1].GetAttributeValue("Operation", "") != "")
+                                        {
+                                            fieldcalculation.resultContentAttribute = fieldnode.ChildNodes[1].GetAttributeValue("resultantid", "") + section_id + "formname";
+                                            fieldcalculation.operation = fieldnode.ChildNodes[1].GetAttributeValue("Operation", "");
+
+                                            //dto.documentTableContentlist.Add(dto.documentTableContent);
+                                            tableContent.calculations.Add(fieldcalculation);
+                                        }
                                         tableTD.fields.Add(tableContent);
                                     }
                                 }
@@ -187,6 +197,7 @@ namespace Utils.itinsync.icom.html
 
 
                                 createDetailSpan(createDiv, content.controlID);
+                                if (helper.addControl(content, lang) != null)
                                 createDiv.Controls.Add( helper.addControl(content, lang));
                                 removeDetailSpan(createDiv, content.controlID);
 
@@ -223,10 +234,17 @@ namespace Utils.itinsync.icom.html
 
             HtmlGenericControl createDiv = new HtmlGenericControl("div");
 
+            HtmlGenericControl crosscell = new HtmlGenericControl("span");
+            crosscell.Attributes.Add("class", "rowTool");
+            crosscell.Attributes.Add("onclick", "redips.cellDelete(this)");
+            crosscell.InnerHtml = "xc";
+            createDiv.Controls.Add(crosscell);
+
+
             HtmlGenericControl cross = new HtmlGenericControl("span");
             cross.Attributes.Add("class", "rowTool");
             cross.Attributes.Add("onclick", "redips.rowDelete(this)");
-            cross.InnerHtml = "x";
+            cross.InnerHtml = "/xr";
             createDiv.Controls.Add(cross);
 
 

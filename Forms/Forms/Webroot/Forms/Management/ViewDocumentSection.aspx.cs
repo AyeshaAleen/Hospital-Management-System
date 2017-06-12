@@ -49,9 +49,9 @@ namespace Forms.Webroot.Forms.Management
             ddlEmailRouting.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKEmailRouting, getHeader().lang);
             ddlEmailRouting.DataBind();
 
-            LoadUsers();
-            LoadUserRoleTbl();
-            LoadEmailRoutingTbl();
+            LoadUsers();//getUsers()
+            LoadUserRoleTbl();//getRoles
+            LoadEmailRoutingTbl();//getEmailRoutes
         }
         void LoadUsers()
         {
@@ -175,7 +175,7 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS)
+            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS.ToString())
             {
                 dto.documentRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);

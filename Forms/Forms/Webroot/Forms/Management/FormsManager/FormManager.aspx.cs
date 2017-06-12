@@ -27,6 +27,7 @@ using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.xml;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.html;
+using Utils.itinsync.icom.cache.document;
 
 namespace Forms.Webroot.Forms.Management.FormsManager
 {
@@ -43,9 +44,9 @@ namespace Forms.Webroot.Forms.Management.FormsManager
         }
         private void loadDropDown()
         {
-           // string m = Enum.GetName(typeof(LookupsConstant)value);
+            // string m = Enum.GetName(typeof(LookupsConstant)value);
 
-     
+
 
             //ddlLookupName.DataSource = LookupsConstant;
             //ddlLookupName.DataBind();
@@ -58,15 +59,15 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             ddlLookupName.DataSource = LookupManager.readLookups(getHeader().lang);
             ddlLookupName.DataBind();
 
-            
+
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            
-            tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()),getHeader().lang);
+
+            tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()), getHeader().lang);
 
         }
-    
+
         protected void savedocument_Click(object sender, EventArgs e)
         {
 
@@ -78,30 +79,27 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             dto.sectionnID = Convert.ToInt32(getSubjectID());
 
             //Delete existing record if any
-            IResponseHandler responseDelete = new tablecontentDeleteService().executeAsPrimary(dto);
-            if (responseDelete.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+            dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()));
+            dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
+
+            IResponseHandler response = new TableContentManageService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                dto = new tablecontentDTO();
-
-                dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-                dto.documentTable =HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()));
-                dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
-
-
-
-
-
-                IResponseHandler response = new tablecontentSaveService().executeAsPrimary(dto);
-                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-                {
-                    showSuccessMessage(response);
-                }
-                else
-                {
-                    showErrorMessage(response);
-                }
+                setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID)));
+                tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()), getHeader().lang);
+                showSuccessMessage(response);
             }
+            else
+            {
+                showErrorMessage(response);
+            }
+
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

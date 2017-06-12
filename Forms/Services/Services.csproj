@@ -61,6 +61,8 @@
     <Compile Include="icom\document\dynamic\route\DocumentRouteSaveService.cs" />
     <Compile Include="icom\document\dynamic\section\DocumentSectionGetService.cs" />
     <Compile Include="icom\document\dynamic\section\DocumentSectionSaveService.cs" />
+    <Compile Include="icom\document\email\dto\EmailDTO.cs" />
+    <Compile Include="icom\document\email\EmailSendService.cs" />
     <Compile Include="icom\document\TableNameGetService.cs" />
     <Compile Include="icom\document\DynamicDocumentTableGet.cs" />
     <Compile Include="icom\document\DTO\documentDTO.cs" />
@@ -69,8 +71,8 @@
     <Compile Include="icom\emailroutingview\dto\EmailRoutingDTO.cs" />
     <Compile Include="icom\emailroutingview\EmailRoutingGetService.cs" />
     <Compile Include="icom\tablecontent\dto\tablecontentDTO.cs" />
-    <Compile Include="icom\tablecontent\tablecontentDeleteService .cs" />
-    <Compile Include="icom\tablecontent\tablecontentSaveService.cs" />
+    <Compile Include="icom\tablecontent\TableContentManageService .cs" />
+    <Compile Include="icom\tablecontent\TableContentSaveService.cs" />
     <Compile Include="icom\useraccounts\DTO\UserAccountsDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserInformationInDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserPermissionDTO.cs" />
@@ -102,7 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="icom\cache\documentdefinition\manager\" />
+    <Folder Include="icom\documentcalculation\" />
     <Folder Include="icom\document\dynamic\content\" />
+    <Folder Include="icom\lookuptrans\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

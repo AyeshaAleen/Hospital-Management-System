@@ -67,11 +67,11 @@ namespace DAO.itinsync.icom.BaseAS
             }
             closeConnection();
 
-            finilizer(bCommit);
+            finalizer(bCommit);
             
         }
 
-        protected virtual void finilizer(bool status)
+        protected virtual void finalizer(bool status)
         {
         }
 

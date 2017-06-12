@@ -54,16 +54,24 @@ namespace DAO.itinsync.icom.lookuptrans
             string sql = "select * From " + TABLENAME + "where lookupTransID = " + lookupTransID;
             return (LookupTrans)processSingleResult(sql);
         }
+
+        public bool translationExists(string trans,string lang)
+        {
+            string sql = string.Format("select count(*) as count From " + TABLENAME + "where value = '{0}' and lang='{1}'" , trans.Trim() ,lang);
+            return executeCount(sql) > 0;
+            
+        }
+        public LookupTrans findbyTranslcation(string value,string lang)
+        {
+            string sql = string.Format("select * From " + TABLENAME + "where value = '{0}' and lang='{1}'", value.Trim(), lang);
+            return (LookupTrans)processSingleResult(sql);
+        }
         public List<LookupTrans> readAll()
         {
             string sql = "select * From " + TABLENAME;
             return wrap(processResults(sql));
         }
-        private List<LookupTrans> languageLookup()
-        {
-            string READBYLOOKUP = "select * from " + TABLENAME + " where name ='" + LookupsConstant.LKUserLang + "' order by name";
-            return wrap(processResults(READBYLOOKUP));
-        }
+      
         private List<LookupTrans> readWhere(string where)
         {
             if (where == null || where.Length == 0)
@@ -77,6 +85,13 @@ namespace DAO.itinsync.icom.lookuptrans
             foreach (IDomain domain in result)
                 list.Add((LookupTrans)domain);
             return list;
+        }
+
+
+        public bool deleteBytrans(string trans)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where code = '{0}'", trans);
+            return delete(delSQL);
         }
     }
 }

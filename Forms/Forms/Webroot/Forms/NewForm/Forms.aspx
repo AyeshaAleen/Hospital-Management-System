@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <br />
-                    <button id="btnGo" runat="server" class="btn btn-md btn-primary waves-effect" onclick=""><span style="font-size:20px">Go</span> &nbsp;<i class="fa-2x fa fa-arrow-right"></i></button>
+                    <button id="btnGo" runat="server" class="btn btn-primary waves-effect" onclick=""><span style="font-size:20px">Go</span> &nbsp;<i class="fa fa-arrow-right"></i></button>
 
                 </div>
                 <div class="clearfix"></div>
