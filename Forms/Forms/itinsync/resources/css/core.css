@@ -955,8 +955,11 @@ label {
   padding: 0;
   padding-top: 15px;
 }
+.modal-dialog {
+    margin-left:10px !important
+}
 .modal-full {
-  width: 98%;
+    width: 98%;
 }
 .modal-content .nav.nav-tabs + .tab-content {
   margin-bottom: 0px;
@@ -2297,4 +2300,11 @@ table tr td {
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#fee18d', EndColorStr='#fec86c');
 
 	border-color:#e1b160;
+}
+.btn-sp {
+    margin-top:27px;
+}
+.heading-sp {
+    margin-left:-15px;
+    margin-bottom:35px;
 }

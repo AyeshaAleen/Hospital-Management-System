@@ -22,6 +22,15 @@ namespace Forms.Webroot.Forms {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder DocumnetMasterHead;
         
         /// <summary>
+        /// tblSectionTab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater tblSectionTab;
+        
+        /// <summary>
         /// DocumnetMasterBody control.
         /// </summary>
         /// <remarks>

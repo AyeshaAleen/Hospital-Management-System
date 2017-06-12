@@ -11,7 +11,11 @@ namespace Forms.Webroot.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //if (getParentRef() != null)
+            //{
+            //    tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
+            //    tblDocument.DataBind();
+            //}
         }
     }
 }

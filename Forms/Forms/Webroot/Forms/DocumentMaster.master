@@ -67,13 +67,14 @@
 								<ol class="breadcrumb" id="breadcrumblist">	</ol>--%>
 
                                 <div class="card-box">
+                                    
                                     <h4 class="m-t-0 header-title"><b>SIO</b></h4>
                                     <div class="row">
-                                        <a href="#" class="tag">1- one</a>
+                                        <asp:Repeater ID="tblSectionTab" runat="server">
+                                        <a href="#" class="tag">Section Name</a>
 
-	                                    <a href="#" class="tag">2- two</a>
-
-	                                    <a href="#" class="tag">3- three</a>
+	                                
+                                            </asp:Repeater>
                                     </div>
 
                                 </div>    
