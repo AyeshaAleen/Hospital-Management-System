@@ -37,8 +37,8 @@ namespace Forms.Webroot.Forms.Management
 
         private void doLoad()
         {
-            ddlsectionPagesName.DataSource = PageManager.getPages();
-            ddlsectionPagesName.DataBind();
+            //ddlsectionPagesName.DataSource = PageManager.getPages();
+            //ddlsectionPagesName.DataBind();
             if (getParentRef() != null)
             {
                 tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
@@ -133,7 +133,7 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.header = getHeader();
 
             dtoIn.documentSection.name = field.Value;
-            dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
+            //dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
 
