@@ -221,10 +221,14 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-
                                             <input type="checkbox" id="isRequired" />
                                             isRequired
-                                           
+                                        </div>
+                                    </div>
+                                      <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="isReadonly" />
+                                            isReadonly
                                         </div>
                                     </div>
 

@@ -37,7 +37,7 @@ namespace Utils.itinsync.icom.cache.document
 
         }
 
-        public static XDocumentDefination getDocumentDefinition(Int32 doumentDefinitionID)
+        public static XDocumentDefination getDocumentDefinition(Int64 doumentDefinitionID)
         {
             if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
                 return GlobalStaticCache.documentDefinition[doumentDefinitionID];
@@ -91,7 +91,7 @@ namespace Utils.itinsync.icom.cache.document
             }
 
         }
-        public static List<XDocumentSection> getDocumentSections(Int32 doumentDefinitionID)
+        public static List<XDocumentSection> getDocumentSections(Int64 doumentDefinitionID)
         {
             if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
                 return GlobalStaticCache.documentDefinition[doumentDefinitionID].documentSections;

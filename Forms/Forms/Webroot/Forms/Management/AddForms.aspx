@@ -14,7 +14,7 @@
                     CssClass="btn btn-primary waves-effect waves-light pull-right"
                      />
 
-                <asp:HiddenField ID="ClickedId" runat="server"/>
+                
                 <div class="clearfix"></div>
                 <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
                     data-page-list="[10, 20, 50, 100]"
@@ -33,6 +33,9 @@
                                 <tr>
                                     <td>
                                         <asp:Label runat="server" ID="tblDocName" Text='<%# Eval("name") %>' />
+
+                                      <asp:HiddenField runat="server"  ID="tblDocID" Value='<%# Eval("xDocumentDefinationID") %>' />
+                                       
                                     </td>
 
                                     <td style="text-align: center;">
@@ -69,7 +72,10 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="field-1" class="control-label">Form Name</label>
-                                    <input type="text" class="form-control" required id="field" runat="server" placeholder="Form Name">
+                                    <input type="text" class="form-control" required id="TxtDocumentName" runat="server" placeholder="Form Name">
+
+                                   
+                                    <input type="hidden" class="form-control" id="TxtEditDocumentId" runat="server">
                                 </div>
                             </div>
 
@@ -90,12 +96,13 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
         function Clicked(btn) {
-            document.getElementById('<%=field.ClientID%>').value = "";
-            document.getElementById('<%=ClickedId.ClientID%>').value = "";
+            debugger;
+            document.getElementById('<%=TxtDocumentName.ClientID%>').value = "";
+            document.getElementById('<%=TxtEditDocumentId.ClientID%>').value = "";
 
             if (btn.id.includes("btnEditDocument")) {
-                document.getElementById('<%=field.ClientID%>').value = document.getElementById(btn.id.replace("btnEditDocument", "tblDocName")).innerHTML;
-                document.getElementById('<%=ClickedId.ClientID%>').value = btn.id;
+                document.getElementById('<%=TxtDocumentName.ClientID%>').value = document.getElementById(btn.id.replace("btnEditDocument", "tblDocName")).innerHTML;
+                document.getElementById('<%=TxtEditDocumentId.ClientID%>').value = document.getElementById(btn.id.replace("btnEditDocument", "tblDocID")).value;
             }
         }
     </script>

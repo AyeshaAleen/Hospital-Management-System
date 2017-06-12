@@ -33,8 +33,8 @@ namespace Forms.Webroot.Forms.Management
 
         private void doLoad()
         {
-            ddlsectionPagesName.DataSource = PageManager.getPages();
-            ddlsectionPagesName.DataBind();
+            //ddlsectionPagesName.DataSource = PageManager.getPages();
+            //ddlsectionPagesName.DataBind();
             if (getParentRef() != null)
             {
                 tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
@@ -99,12 +99,19 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.header = getHeader();
 
             dtoIn.documentSection.name = field.Value;
-            dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
+            //dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
 
             IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
-            doLoad();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                doLoad();
+            }
+            else
+                showErrorMessage(response);
+            
         }
 
         protected void btnAddUserRole_Click(object sender, EventArgs e)
@@ -116,8 +123,14 @@ namespace Forms.Webroot.Forms.Management
             dto.documentRole.role = Convert.ToInt32(ddlUserRole.SelectedValue);
 
             IResponseHandler response = new DocumentRoleSaveService().executeAsPrimary(dto);
-
-            LoadUserRoleTbl();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadUserRoleTbl();
+            }
+            else
+                showErrorMessage(response);
+            
         }
 
         protected void btnEditUserRole_Command(object sender, CommandEventArgs e)
@@ -138,8 +151,15 @@ namespace Forms.Webroot.Forms.Management
             dto.documentRole.xdocumentroleid = Convert.ToInt32(e.CommandArgument);
 
             IResponseHandler response = new DocumentRoleDeleteService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadUserRoleTbl();
+            }
+            else
+                showErrorMessage(response);
 
-            LoadUserRoleTbl();
+            
         }
         protected void btnAddEmailRouting_Click(object sender, EventArgs e)
         {
@@ -151,6 +171,13 @@ namespace Forms.Webroot.Forms.Management
                 dto.documentRoleRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
 
                 IResponseHandler response = new DocumentRoleRouteSaveService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    showSuccessMessage(response);
+                    LoadEmailRoutingTbl();
+                }
+                else
+                    showErrorMessage(response);
             }
             else
             {
@@ -158,8 +185,16 @@ namespace Forms.Webroot.Forms.Management
                 dto.documentUserRoute.userid = Convert.ToInt32(ddlUsers.SelectedValue); // Pending
 
                 IResponseHandler response = new DocumentUserRouteSaveService().executeAsPrimary(dto);
+
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    showSuccessMessage(response);
+                    LoadEmailRoutingTbl();
+                }
+                else
+                    showErrorMessage(response);
             }
-            LoadEmailRoutingTbl();
+            
         }
         protected void btnDeleteEmailRouting_Command(object sender, CommandEventArgs e)
         {
@@ -171,14 +206,26 @@ namespace Forms.Webroot.Forms.Management
             {
                 dto.documentRoleRoute.id = Convert.ToInt32(prefixiD.Substring(1, prefixiD.Length - 1));
                 IResponseHandler response = new DocumentRoleRouteDeleteService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    showSuccessMessage(response);
+                    LoadEmailRoutingTbl();
+                }
+                else
+                    showErrorMessage(response);
             }
             else
             {
                 dto.documentUserRoute.id = Convert.ToInt32(prefixiD.Substring(1, prefixiD.Length - 1));
                 IResponseHandler response = new DocumentUserRouteDeleteService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    showSuccessMessage(response);
+                    LoadEmailRoutingTbl();
+                }
+                else
+                    showErrorMessage(response);
             }
-
-            LoadEmailRoutingTbl();
         }
     }
 }

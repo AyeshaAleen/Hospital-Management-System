@@ -13,12 +13,12 @@ namespace Domains.itinsync.icom.idocument.definition
     {
         public enum columns { name, rdlcPath, dataTable, parameters, vendorid, storage, email }
         public enum primaryKey { xDocumentDefinationID }
-        public Int32 xDocumentDefinationID { get; set; }
+        public Int64 xDocumentDefinationID { get; set; }
         public String name { get; set; }
         public String rdlcPath { get; set; }
         public String dataTable { get; set; }
         public String parameters { get; set; }
-        public Int32 vendorid { get; set; }
+        public Int64 vendorid { get; set; }
         public String storage { get; set; }
         public String email { get; set; }
         public string QMode { get; set; }

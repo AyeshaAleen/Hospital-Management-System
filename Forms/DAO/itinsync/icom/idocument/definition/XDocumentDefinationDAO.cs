@@ -65,11 +65,11 @@ namespace DAO.itinsync.icom.idocument.definition
                 string whereClause = " update " + TABLENAME + " set ";
                 whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(XDocumentDefination.columns));
                 if (whereClause.Contains("="))//update on the base of primary key column
-                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentDefination.primaryKey.xDocumentDefinationID.ToString(), lk.xDocumentDefinationID)));
+                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(XDocumentDefination.primaryKey.xDocumentDefinationID.ToString(), lk.xDocumentDefinationID.ToString())));
             }
             return "";
         }
-        public XDocumentDefination findbyPrimaryKey(Int32 xDocumentDefinationID)
+        public XDocumentDefination findbyPrimaryKey(Int64 xDocumentDefinationID)
         {
             if (DocumentManager.getDocumentDefinition(xDocumentDefinationID) != null)
                 return DocumentManager.getDocumentDefinition(xDocumentDefinationID);

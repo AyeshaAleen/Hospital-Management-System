@@ -117,7 +117,8 @@ namespace Utils.itinsync.icom.html
                                         {
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TEXTAREA;
                                         }
-
+                                        if (type == "heading")
+                                            tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HEADING;
 
 
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
@@ -129,8 +130,9 @@ namespace Utils.itinsync.icom.html
                                         tableContent.translation= fieldnode.ChildNodes[1].GetAttributeValue("translation", "");
                                         tableContent.points = fieldnode.ChildNodes[1].GetAttributeValue("points", "");
                                         tableContent.defaultValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
+                                        tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("readonly", "");
 
-                                        
+
 
                                         tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
 

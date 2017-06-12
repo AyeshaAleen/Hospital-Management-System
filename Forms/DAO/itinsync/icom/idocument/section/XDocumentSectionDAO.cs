@@ -45,7 +45,7 @@ namespace DAO.itinsync.icom.idocument.section
 
             return content;
         }
-        public List<XDocumentSection> readyByDocumentDefinitionID(Int32 documentDefinitionID)
+        public List<XDocumentSection> readyByDocumentDefinitionID(Int64 documentDefinitionID)
         {
             if(DocumentManager.getDocumentSections(documentDefinitionID) !=null ) 
                 return DocumentManager.getDocumentSections(documentDefinitionID);

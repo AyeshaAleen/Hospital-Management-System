@@ -23,7 +23,7 @@ namespace Utils.itinsync.icom.controls
             txtBox.CssClass = content.cssClass;
             txtBox.Attributes.Add("irequired", content.isRequired);
             txtBox.Attributes.Add("imask", content.mask);
-
+            txtBox.Attributes.Add("disabled", content.isReadonly);
             txtBox.Attributes.Add("points", content.points);
             if (content.fieldcalculations.Count > 0)
             {
@@ -83,12 +83,12 @@ namespace Utils.itinsync.icom.controls
             radio.Attributes.Add("irequired", content.isRequired);
             radio.Attributes.Add("imask", content.mask);
             radio.Attributes.Add("points", content.points);
-
+            radio.Attributes.Add("disabled", content.isReadonly);
 
             if (content.fieldcalculations.Count > 0)
             {
                 radio.Attributes.Add("onchange", "calculation();");
-                radio.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                radio.Attributes.Add("resultantID", content.fieldcalculations[0].resultContentID.ToString());
                 radio.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
             radio.Value = content.defaultValue;
@@ -103,6 +103,7 @@ namespace Utils.itinsync.icom.controls
             check.Name = content.controlName;
             check.ID = content.controlID;
             check.Attributes.Add("irequired", content.isRequired);
+            check.Attributes.Add("disabled", content.isReadonly);
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
 
@@ -125,6 +126,8 @@ namespace Utils.itinsync.icom.controls
             ddl.DataValueField = "Code";
             ddl.DataTextField = "Text";
             ddl.Attributes.Add("irequired", content.isRequired);
+            ddl.Attributes.Add("disabled", content.isReadonly);
+
             ddl.Attributes.Add("imask", content.mask);
             ddl.Attributes.Add("points", content.points);
             if (content.fieldcalculations.Count > 0)
