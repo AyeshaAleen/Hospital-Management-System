@@ -11,7 +11,7 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-namespace Services.itinsync.icom.document.dynamic.route
+namespace Services.itinsync.icom.document.dynamic.role
 {
     public class DocumentRoleDeleteService : FrameAS
     {

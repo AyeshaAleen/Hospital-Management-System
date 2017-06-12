@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.userRoute;
+using DAO.itinsync.icom.idocument.route;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
@@ -12,22 +13,17 @@ using Services.itinsync.icom.documents.dto;
 
 namespace Services.itinsync.icom.document.dynamic.route
 {
-    public class DocumentUserRouteSaveService : FrameAS
+    public class DocumentRouteGetService : FrameAS
     {
         DocumentDTO dto = null;
+
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentUserRoute.id > 0)
-                {
-                    XDocumentUserRouteDAO.getInstance(dbContext).update(dto.documentUserRoute, "");
-                }
-                else
-                {
-                    XDocumentUserRouteDAO.getInstance(dbContext).create(dto.documentUserRoute);
-                }
+
+                dto.documentRoutelist = XDocumentRouteDAO.getInstance(dbContext).findbyDefinitionID(dto.documentRoute.xdocumentdefinitionid);
             }
             catch (Exception ex)
             {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.roleRoute;
+using DAO.itinsync.icom.idocument.route;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
@@ -13,7 +13,7 @@ using Services.itinsync.icom.documents.dto;
 
 namespace Services.itinsync.icom.document.dynamic.route
 {
-    public class DocumentRoleRouteDeleteService : FrameAS
+    public class DocumentRouteDeleteService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -21,11 +21,11 @@ namespace Services.itinsync.icom.document.dynamic.route
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentRoleRoute.id > 0)
+                if (dto.documentRoute.id> 0)
                 {
-                    XDocumentRoleRouteDAO.getInstance(dbContext).deleteByID(dto.documentRoleRoute.id);
+                    XDocumentRouteDAO.getInstance(dbContext).deleteByID(dto.documentRoute.id);
                 }
-
+               
             }
             catch (Exception ex)
             {

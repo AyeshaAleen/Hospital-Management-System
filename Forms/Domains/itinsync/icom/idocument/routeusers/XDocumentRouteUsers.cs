@@ -7,18 +7,26 @@ using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.interfaces.domain;
 using Domains.itinsync.icom.annotation;
 
-namespace Domains.itinsync.icom.idocument.userRoute
+namespace Domains.itinsync.icom.idocument.routeusers
 {
-    public class XDocumentUserRoute : System.Attribute, IDomain, IDocument
+    public class XDocumentRouteUsers : System.Attribute, IDomain, IDocument
     {
-        public enum columns { xdocumentdefinitionid, userid }
+        public enum columns { xdocumentdefinitionid, userid,role, users }
         public enum primaryKey { id }
 
         public Int32 id { get; set; }
         public Int32 xdocumentdefinitionid { get; set; }
-        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "routing_Text")]
+       
         public Int32 userid { get; set; }
-        public string routing_Text { get; set; }
+      
+
+
+        public string users { get; set; }
+
+        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "role_Text")]
+
+        public Int32 role { get; set; }
+        public string role_Text { get; set; }
         public object getKey() { return id; }
 
         public void setTransID(object transID)

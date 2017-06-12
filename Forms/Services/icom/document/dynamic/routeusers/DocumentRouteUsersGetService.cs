@@ -5,27 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.userRoute;
+using DAO.itinsync.icom.idocument.routeusers;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-namespace Services.itinsync.icom.document.dynamic.route
+namespace Services.itinsync.icom.document.dynamic.routeusers
 {
-    public class DocumentUserRouteDeleteService :FrameAS
+    public class DocumentRouteUsersGetService : FrameAS
     {
         DocumentDTO dto = null;
+
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentUserRoute.id > 0)
-                {
-                    XDocumentUserRouteDAO.getInstance(dbContext).deleteByID(dto.documentUserRoute.id);
-                }
 
+                dto.documentRouteUserslist = XDocumentRouteUsersDAO.getInstance(dbContext).findbyDefinitionID(dto.documentRouteUsers.xdocumentdefinitionid);
             }
             catch (Exception ex)
             {

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.roleRoute;
+using DAO.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-namespace Services.itinsync.icom.document.dynamic.route
+namespace Services.itinsync.icom.document.dynamic.role
 {
-    public class DocumentRoleRouteSaveService : FrameAS
+    public class DocumentRoleSaveService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -20,13 +21,13 @@ namespace Services.itinsync.icom.document.dynamic.route
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentRoleRoute.id > 0)
+                if (dto.documentRole.xdocumentroleid> 0)
                 {
-                    XDocumentRoleRouteDAO.getInstance(dbContext).update(dto.documentRoleRoute, "");
+                    XDocumentRoleDAO.getInstance(dbContext).update(dto.documentRole, "");
                 }
                 else
                 {
-                    XDocumentRoleRouteDAO.getInstance(dbContext).create(dto.documentRoleRoute);
+                    XDocumentRoleDAO.getInstance(dbContext).create(dto.documentRole);
                 }
             }
             catch (Exception ex)

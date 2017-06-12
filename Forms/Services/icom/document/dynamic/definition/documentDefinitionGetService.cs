@@ -22,11 +22,11 @@ using DAO.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.table.calculation;
 
 
-//Created By Qundeel Ch
+
 
 namespace Services.itinsync.icom.document.dynamic.definition
 {
-    public class DocumentDefinitionGetService : FrameAS
+    public class DocumentDefinitionGetService:FrameAS
     {
         DocumentDTO dto = null;
 
@@ -35,11 +35,12 @@ namespace Services.itinsync.icom.document.dynamic.definition
             try
             {
                 dto = (DocumentDTO)o;
+                if (dto.documentDefination.xDocumentDefinationID > 0)
+                    dto.documentDefination = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.documentDefination.xDocumentDefinationID);
+                else
 
                 //dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentName(dto.document.documentName);
                 dto.documentDefinationlist = XDocumentDefinationDAO.getInstance(dbContext).readAll();
-               
-                
 
             }
             catch (Exception ex)
@@ -50,8 +51,5 @@ namespace Services.itinsync.icom.document.dynamic.definition
             }
             return dto;
         }
-
-
-
     }
 }

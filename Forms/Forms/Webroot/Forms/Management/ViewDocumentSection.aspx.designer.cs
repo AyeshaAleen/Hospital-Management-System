@@ -103,13 +103,22 @@ namespace Forms.Webroot.Forms.Management {
         protected global::System.Web.UI.WebControls.Button btnAddEmailRouting;
         
         /// <summary>
-        /// tblEmailRouting control.
+        /// tblRoute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater tblEmailRouting;
+        protected global::System.Web.UI.WebControls.Repeater tblRoute;
+        
+        /// <summary>
+        /// tblRouteUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater tblRouteUsers;
         
         /// <summary>
         /// CheckBox1 control.
