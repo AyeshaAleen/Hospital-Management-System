@@ -76,22 +76,22 @@ namespace Forms.Webroot.Forms.Management {
         protected global::System.Web.UI.WebControls.Repeater tblUserRole;
         
         /// <summary>
-        /// CheckBox3 control.
+        /// chkStorage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.CheckBox chkStorage;
         
         /// <summary>
-        /// CheckBox4 control.
+        /// chkEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.CheckBox chkEmail;
         
         /// <summary>
         /// ddlEmailRouting control.
@@ -121,15 +121,6 @@ namespace Forms.Webroot.Forms.Management {
         protected global::System.Web.UI.WebControls.Repeater tblRoute;
         
         /// <summary>
-        /// tblRouteUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater tblRouteUsers;
-        
-        /// <summary>
         /// ddlUserRouting control.
         /// </summary>
         /// <remarks>
@@ -148,21 +139,21 @@ namespace Forms.Webroot.Forms.Management {
         protected global::System.Web.UI.WebControls.DropDownList ddlUsers;
         
         /// <summary>
-        /// Button1 control.
+        /// btnAddUserEmailRouting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnAddUserEmailRouting;
         
         /// <summary>
-        /// Repeater1 control.
+        /// tblRouteUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.Repeater tblRouteUsers;
     }
 }

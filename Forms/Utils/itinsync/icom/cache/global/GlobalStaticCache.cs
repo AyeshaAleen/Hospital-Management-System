@@ -16,8 +16,8 @@ using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.role;
-using Domains.itinsync.icom.idocument.roleRoute;
-using Domains.itinsync.icom.idocument.userRoute;
+using Domains.itinsync.icom.idocument.route;
+using Domains.itinsync.icom.idocument.routeusers;
 
 namespace Utils.itinsync.icom.cache.global
 {
@@ -38,8 +38,8 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<Int32, XDocumentSection>                   documentSection             = new Dictionary<Int32, XDocumentSection>();
 
         public static Dictionary<Int32, XDocumentRole>                      documentRole = new Dictionary<Int32, XDocumentRole>();
-        public static Dictionary<Int32, XDocumentRoleRoute>                 documentRoleRoute = new Dictionary<Int32, XDocumentRoleRoute>();
-        public static Dictionary<Int32, XDocumentUserRoute>                 documentUserRoute = new Dictionary<Int32, XDocumentUserRoute>();
+        public static Dictionary<Int32, XDocumentRoute> documentRoute = new Dictionary<Int32, XDocumentRoute>();
+        public static Dictionary<Int32, XDocumentRouteUsers> documentRouteUser = new Dictionary<Int32, XDocumentRouteUsers>();
 
             public static void invalidateCache()
             {
@@ -57,8 +57,8 @@ namespace Utils.itinsync.icom.cache.global
                 documentCalculation             = new Dictionary<Int32, XDocumentCalculation>();
                 documentSection                 = new Dictionary<Int32, XDocumentSection>();
                 documentRole                    = new Dictionary<Int32, XDocumentRole>();
-                documentRoleRoute               = new Dictionary<Int32, XDocumentRoleRoute>();
-                documentUserRoute               = new Dictionary<Int32, XDocumentUserRoute>();
+                documentRoute               = new Dictionary<Int32, XDocumentRoute>();
+            documentRouteUser = new Dictionary<Int32, XDocumentRouteUsers>();
 
              
          }

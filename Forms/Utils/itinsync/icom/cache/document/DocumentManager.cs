@@ -72,8 +72,8 @@ namespace Utils.itinsync.icom.cache.document
         }
         public static XDocumentRouteUsers getDocumentRouteUsers(Int32 id)
         {
-            if (GlobalStaticCache.documentRouteUsers.ContainsKey(id))
-                return GlobalStaticCache.documentRouteUsers[id];
+            if (GlobalStaticCache.documentRouteUser.ContainsKey(id))
+                return GlobalStaticCache.documentRouteUser[id];
             else
             {
                 // write code to reload data

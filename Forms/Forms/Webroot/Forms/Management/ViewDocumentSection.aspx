@@ -202,8 +202,8 @@
                         <div class="col-md-6 col-md-offset-6">
                             <div class="form-group">
 
-                             <label class="checkbox-inline"> <asp:CheckBox ID="CheckBox3" Text="Storage" runat="server" /></label>
-                               <label class="checkbox-inline"> <asp:CheckBox ID="CheckBox4" Text="Email" runat="server" /></label> 
+                             <label class="checkbox-inline"> <asp:CheckBox ID="chkStorage" Text="Storage" runat="server" /></label>
+                               <label class="checkbox-inline"> <asp:CheckBox ID="chkEmail" Text="Email" runat="server" /></label> 
                         </div>
                             </div>
                         
@@ -230,16 +230,16 @@
                             </thead>
 
                             <tbody>
-                                <asp:Repeater ID="tblEmailRouting" runat="server">
+                                <asp:Repeater ID="tblRoute" runat="server">
                                     <ItemTemplate>
                                         <tr>
                                             <td>
-                                                <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("route_Text") %>' />
+                                                <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("role_Text") %>' />
                                             </td>
                                             <td style="text-align: center;">
-                                                <asp:LinkButton ID="btnDeleteEmailRouting" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
+                                                <asp:LinkButton ID="btnDeleteRoute" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
                                                     CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "id") ) %>'
-                                                    CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteEmailRouting_Command">
+                                                    CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteRoute_Command">
                                                 </asp:LinkButton>
                                             </td>
 
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <asp:Button ID="Button1" Text="Add" OnClick="btnAddEmailRouting_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
+                        <asp:Button ID="btnAddUserEmailRouting" Text="Add" OnClick="btnAddUserEmailRouting_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
                     </div>
                     <div class="clearfix"></div>
                     <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
@@ -293,18 +293,18 @@
                         </thead>
 
                         <tbody>
-                            <asp:Repeater ID="Repeater1" runat="server">
+                            <asp:Repeater ID="tblRouteUsers" runat="server">
                                 <ItemTemplate>
                                     <tr>
                                         <td>
-                                            <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("route_Text") %>' />
+                                            <asp:Label runat="server" ID="lblEmailRouting" Text='<%# Eval("role_Text") %>' />
                                         </td>
                                         <td style="text-align: center;">
-                                            <asp:Label runat="server" ID="Label1" Text='<%# Eval("route_Text") %>' /></td>
+                                            <asp:Label runat="server" ID="Label1" Text='<%# Eval("users") %>' /></td>
                                         <td style="text-align: center;">
-                                            <asp:LinkButton ID="btnDeleteEmailRouting" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
+                                            <asp:LinkButton ID="btnDeleteRouteUsers" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
                                                 CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "id") ) %>'
-                                                CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteEmailRouting_Command">
+                                                CommandName='Reset' ToolTip="Delete" OnCommand="btnDeleteRouteUsers_Command">
                                             </asp:LinkButton>
                                         </td>
                                     </tr>

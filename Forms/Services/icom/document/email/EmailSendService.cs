@@ -12,13 +12,14 @@ using Utils.itinsync.icom.exceptions;
 using Domains.itinsync.icom.idocument.definition;
 using DAO.itinsync.icom.store;
 using Domains.itinsync.icom.store;
-using DAO.itinsync.icom.idocument.roleRoute;
-using Domains.itinsync.icom.idocument.roleRoute;
+using DAO.itinsync.icom.idocument.route;
+using Domains.itinsync.icom.idocument.route;
 using DAO.itinsync.icom.userrole;
-using DAO.itinsync.icom.views.user;
+
 using Domains.itinsync.icom.views.user;
-using Domains.itinsync.icom.idocument.userRoute;
-using DAO.itinsync.icom.idocument.userRoute;
+using Domains.itinsync.icom.idocument.routeusers;
+using DAO.itinsync.icom.idocument.routeusers;
+using DAO.itinsync.icom.views.user;
 
 namespace Services.icom.document.email
 {
@@ -51,12 +52,12 @@ namespace Services.icom.document.email
         {
             string recipient = "";
             List<Int32> userID = new List<Int32>();
-            List<XDocumentRoleRoute> routes = XDocumentRoleRouteDAO.getInstance(dbContext).readbyDefinitionID(document.documentDefinitionID);
-            foreach (XDocumentRoleRoute route in routes)
+            List<XDocumentRoute> routes = XDocumentRouteDAO.getInstance(dbContext).findbyDefinitionID(document.documentDefinitionID);
+            foreach (XDocumentRoute route in routes)
             {
                 if (route.role == ApplicationCodes.ROUTE_SEND_STORE_ALL_MANAGER)
                 {
-                    List<UserStoreView> userStores =UserStoreViewDAO.getInstance(dbContext).readRole(ApplicationCodes.ROLES_MANAGER);
+                    List<UserStoreView> userStores = UserStoreViewDAO.getInstance(dbContext).readRole(ApplicationCodes.ROLES_MANAGER);
                     foreach (UserStoreView userStore in userStores)
                         userID.Add(userStore.userID);
 
@@ -89,8 +90,8 @@ namespace Services.icom.document.email
             }
 
 
-            List<XDocumentUserRoute> users = XDocumentUserRouteDAO.getInstance(dbContext).findbyDocumentDefinitionID(document.documentDefinitionID);
-            foreach (XDocumentUserRoute user in users)
+            List<XDocumentRouteUsers> users = XDocumentRouteUsersDAO.getInstance(dbContext).findbyDefinitionID(document.documentDefinitionID);
+            foreach (XDocumentRouteUsers user in users)
               userID.Add(user.userid);
             
 

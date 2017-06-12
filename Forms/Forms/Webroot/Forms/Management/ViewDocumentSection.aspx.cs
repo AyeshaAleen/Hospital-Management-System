@@ -23,6 +23,7 @@ using Services.itinsync.icom.document.dynamic.route;
 using Services.itinsync.icom.document.dynamic.routeusers;
 using Services.itinsync.icom.document.dynamic.section;
 using Services.itinsync.icom.document.dynamic.definition;
+using System.Data;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -48,6 +49,9 @@ namespace Forms.Webroot.Forms.Management
 
             ddlEmailRouting.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKEmailRouting, getHeader().lang);
             ddlEmailRouting.DataBind();
+
+            ddlUserRouting.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKUserEmailRouting, getHeader().lang);
+            ddlUserRouting.DataBind();
 
             LoadUsers();//getUsers()
             LoadUserRoleTbl();//getRoles
@@ -112,8 +116,8 @@ namespace Forms.Webroot.Forms.Management
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-                CheckBox1.Checked = dto.documentDefination.email == "0" ? true : false;
-                CheckBox2.Checked= dto.documentDefination.storage == "0" ? true : false;
+                chkEmail.Checked = dto.documentDefination.email == "0" ? true : false;
+                chkStorage.Checked= dto.documentDefination.storage == "0" ? true : false;
             }
         }
 
@@ -134,7 +138,14 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
 
             IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
-            doLoad();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                doLoad();
+            }
+            else
+                showErrorMessage(response);
+          
         }
 
         protected void btnAddUserRole_Click(object sender, EventArgs e)
@@ -146,8 +157,14 @@ namespace Forms.Webroot.Forms.Management
             dto.documentRole.role = Convert.ToInt32(ddlUserRole.SelectedValue);
 
             IResponseHandler response = new DocumentRoleSaveService().executeAsPrimary(dto);
-
-            LoadUserRoleTbl();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadUserRoleTbl();
+            }
+            else
+                showErrorMessage(response);
+           
         }
 
         protected void btnEditUserRole_Command(object sender, CommandEventArgs e)
@@ -168,29 +185,51 @@ namespace Forms.Webroot.Forms.Management
             dto.documentRole.xdocumentroleid = Convert.ToInt32(e.CommandArgument);
 
             IResponseHandler response = new DocumentRoleDeleteService().executeAsPrimary(dto);
-
-            LoadUserRoleTbl();
-        }
-        protected void btnAddEmailRouting_Click(object sender, EventArgs e)
-        {
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            if (ddlEmailRouting.SelectedValue != ApplicationCodes.ROUTE_SEND_STORE_USERS.ToString())
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                dto.documentRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
-                dto.documentRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
-
-                IResponseHandler response = new DocumentRouteSaveService().executeAsPrimary(dto);
+                showSuccessMessage(response);
+                LoadUserRoleTbl();
             }
             else
-            {
-                dto.documentRouteUsers.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
+                showErrorMessage(response);
+           
+        }
+        protected void btnAddUserEmailRouting_Click(object sender, EventArgs e)
+        {
+            DocumentDTO dto = new DocumentDTO();
+            dto.documentRouteUsers.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRouteUsers.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
                 dto.documentRouteUsers.userid = Convert.ToInt32(ddlUsers.SelectedValue);
 
                 IResponseHandler response = new DocumentRouteUsersSaveService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadEmailRoutingTbl();
             }
-            LoadEmailRoutingTbl();
+            else
+                showErrorMessage(response);
+
+            
+        }
+
+    
+        protected void btnAddEmailRouting_Click(object sender, EventArgs e)
+        {
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+                dto.documentRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
+                dto.documentRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
+
+                IResponseHandler response = new DocumentRouteSaveService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                showSuccessMessage(response);
+                LoadEmailRoutingTbl();
+                }
+                else
+                    showErrorMessage(response);
+           
         }
         protected void btnDeleteRoute_Command(object sender, CommandEventArgs e)
         {
@@ -199,18 +238,30 @@ namespace Forms.Webroot.Forms.Management
 
             dto.documentRoute.id = Convert.ToInt32(e.CommandArgument);
             IResponseHandler response = new DocumentRouteDeleteService().executeAsPrimary(dto);
-
-            LoadEmailRoutingTbl();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadEmailRoutingTbl();
+            }
+            else
+                showErrorMessage(response);
+          
         }
         protected void btnDeleteRouteUsers_Command(object sender, CommandEventArgs e)
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
 
-            dto.documentRoute.id = Convert.ToInt32(e.CommandArgument);
+            dto.documentRouteUsers.id = Convert.ToInt32(e.CommandArgument);
             IResponseHandler response = new DocumentRouteUsersDeleteService().executeAsPrimary(dto);
-
-            LoadEmailRoutingTbl();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadEmailRoutingTbl();
+            }
+            else
+                showErrorMessage(response);
+           
         }
     }
 }
