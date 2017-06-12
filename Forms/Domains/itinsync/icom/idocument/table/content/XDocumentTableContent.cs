@@ -12,12 +12,13 @@ namespace Domains.itinsync.icom.idocument.table.content
 
     {
         public enum columns { tdID, controlType, controlName, controlID, mask, isRequired, translation, cssClass, hight, width,
-            sequence , lookupName, colspan, defaultValue, points
+            sequence , lookupName, colspan, defaultValue, points, isReadonly
         }
         public enum primaryKey { documentTableContentID }
         public Int32 documentTableContentID { get; set; }
         public Int32 tdID { get; set; }
         public string controlType { get; set; }
+        public string isReadonly { get; set; }
         public string controlName { get; set; }
         public string controlID { get; set; }
         public Int32 colspan { get; set; }

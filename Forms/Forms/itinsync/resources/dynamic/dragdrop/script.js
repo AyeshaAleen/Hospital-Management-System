@@ -131,7 +131,7 @@ redips.handler1 = function (xhr, obj) {
         var elemlabel = obj.div.getElementsByTagName("label");
         var elemselect = obj.div.getElementsByTagName("select");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
-        var elemheading = obj.div.getElementsByTagName("h3");
+        var elemheading = obj.div.getElementsByTagName("h2");
         var controlID = "";
         if (eleminput.length > 0)
             controlID = fieldset(eleminput, obj.div.id);
@@ -183,7 +183,7 @@ function AddDetail(id) {
 
 
     $("#opt").remove();
-    
+    $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append("");
     $('#tblEditor').find('td input').each(function () {
 
         $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
@@ -235,7 +235,9 @@ function SetDetail() {
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
     document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
-
+    if ($("#isReadonly").is(':checked')) {
+        document.getElementById(id).setAttribute("disabled", "disabled");
+    }
     if (document.getElementById(id).getAttribute("type") != "label")
     {
        
@@ -273,7 +275,7 @@ function fieldClick(event) {
 function fieldset(event,divid) {
     debugger;
  
-    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea")
+    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")
     {
         event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
         event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;

@@ -47,8 +47,14 @@ namespace Forms.Webroot.Forms.Management
         protected void btnSaveDocument_Click(object sender, EventArgs e)
         {
            
-            DbOperation();
-            LoadForm();
+            IResponseHandler response= DbOperation();
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                LoadForm();
+            }
+            else
+                showErrorMessage(response);
         }
         DocumentDTO dto;
         IResponseHandler DbOperation()
@@ -56,10 +62,12 @@ namespace Forms.Webroot.Forms.Management
             dto = new DocumentDTO();
             dto.header = getHeader();
             //if (documentID > 0) dto.header = getHeader(); else getHeader();
-            dto.documentDefination.xDocumentDefinationID = DDID;
-            dto.documentDefination.name = field.Value;
+            if(TxtEditDocumentId.Value!=null)
+            dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(TxtEditDocumentId.Value);
+            dto.documentDefination.name = TxtDocumentName.Value;
 
             IResponseHandler response = new DocumentDefinitionSaveService().executeAsPrimary(dto);
+            
             return response;
         }
     }

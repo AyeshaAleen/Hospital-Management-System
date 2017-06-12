@@ -12,6 +12,7 @@ using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 using DAO.itinsync.icom.idocument;
 using DAO.itinsync.icom.idocument.section;
+using Services.itinsync.icom.cache;
 
 namespace Services.itinsync.icom.document.dynamic.section
 {
@@ -44,7 +45,11 @@ namespace Services.itinsync.icom.document.dynamic.section
             return dto;
         }
 
-      
 
+        protected override void finalizer(bool status)
+        {
+            //reload document cache service as we have made content changes
+            new CacheManagmentService().executeAsPrimary(null);
+        }
     }
 }

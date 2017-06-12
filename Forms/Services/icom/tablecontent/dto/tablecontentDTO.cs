@@ -22,7 +22,7 @@ namespace Services.itinsync.icom.tablecontent.dto
         public string READBY { get; set; }
         public string documentdefinitionName { get; set; }
 
-        public int documentdefinitionID { get; set; }
+        public Int64 documentdefinitionID { get; set; }
 
         public int sectionnID { get; set; }
 

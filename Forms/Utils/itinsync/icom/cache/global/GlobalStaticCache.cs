@@ -29,7 +29,7 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<string, PageName>                          PageCacheMap                = new Dictionary<string, PageName>();
         public static Dictionary<string, TaskDefinition>                    TaskDefinitionCacheMap      = new Dictionary<string, TaskDefinition>();
         public static List<Int32>                                           PageIDCacheMap              = new List<Int32>();
-        public static Dictionary<Int32, XDocumentDefination>                documentDefinition          = new Dictionary<Int32, XDocumentDefination>();
+        public static Dictionary<Int64, XDocumentDefination>                documentDefinition          = new Dictionary<Int64, XDocumentDefination>();
         public static Dictionary<Int32, XDocumentTable>                     documentTables              = new Dictionary<Int32, XDocumentTable>();
         public static Dictionary<Int32, XDocumentTableTR>                   documentTablesTR            = new Dictionary<Int32, XDocumentTableTR>();
         public static Dictionary<Int32, XDocumentTableTD>                   documentTablesTD            = new Dictionary<Int32, XDocumentTableTD>();
@@ -49,7 +49,7 @@ namespace Utils.itinsync.icom.cache.global
                 PageCacheMap                    = new Dictionary<string, PageName>();
                 TaskDefinitionCacheMap          = new Dictionary<string, TaskDefinition>();
                 PageIDCacheMap                  = new List<Int32>();
-                documentDefinition              = new Dictionary<Int32, XDocumentDefination>();
+                documentDefinition              = new Dictionary<Int64, XDocumentDefination>();
                 documentTables                  = new Dictionary<Int32, XDocumentTable>();
                 documentTablesTR                = new Dictionary<Int32, XDocumentTableTR>();
                 documentTablesTD                = new Dictionary<Int32, XDocumentTableTD>();
