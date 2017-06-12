@@ -48,6 +48,7 @@ namespace Utils.itinsync.icom.controls
                 lbl.Attributes.Add("id", content.controlID);
                 lbl.Attributes.Add("name", content.controlName);
                 lbl.Attributes.Add("type", "label");
+                lbl.Attributes.Add("defaultValue", TranslationManager.trans(content.translation));
                 lbl.Text = TranslationManager.trans(content.translation);
                 
 

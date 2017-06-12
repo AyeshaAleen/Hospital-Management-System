@@ -20,6 +20,8 @@ using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.lookuptrans;
+using Services.itinsync.icom.cache.task.taskdefinition;
+using Services.itinsync.icom.cache;
 
 namespace Services.itinsync.icom.tablecontent
 {
@@ -72,10 +74,7 @@ namespace Services.itinsync.icom.tablecontent
 
                                     }
                                    
-
-                                   
-
-
+                                    
                                 }
                                
 
@@ -104,6 +103,12 @@ namespace Services.itinsync.icom.tablecontent
             return dto;
         }
 
+
+        protected override void finalizer(bool status)
+        {
+            //reload document cache service as we have made content changes
+            new CacheManagmentService().executeAsPrimary(null);
+        }
 
 
     }

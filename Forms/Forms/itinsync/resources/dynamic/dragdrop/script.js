@@ -148,6 +148,10 @@ redips.handler1 = function (xhr, obj) {
         var params = "AddDetail('" + controlID + "')";
         popupHTML = popupHTML.replace("AddDetail()", params);
 
+        obj.div.innerHTML = obj.div.innerHTML.replace("##_ID##", controlID);
+
+        
+
         obj.div.innerHTML = popupHTML + obj.div.innerHTML;
 
     }
@@ -169,7 +173,8 @@ function setTranslation() {
     debugger;
     var input = $("#defaultValue").val();
     var output = input.split(" ").join('.');
-    document.getElementById("translation").val = output;
+    $("#translation").val(output);
+  
     
 }
 
@@ -203,12 +208,16 @@ function AddDetail(id) {
     var fieldObject = document.getElementById(id);
 
     // getting data from popup and setting it to required field
-    document.getElementById("ControlName").value = id;
+    document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
     document.getElementById("ControlID").value = id;
     document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
     document.getElementById("translation").value = fieldObject.getAttribute("translation");
     document.getElementById("points").value = fieldObject.getAttribute("points");
     document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
+    if (fieldObject.getAttribute("irequired") == "true")
+        document.getElementById("isRequired").checked = true;
+    else
+        document.getElementById("isRequired").checked = false;
 
 
     
@@ -218,17 +227,14 @@ function SetDetail() {
     debugger;
 
 
+   
+
     var id = document.getElementById("ControlName").value;
    
     document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
-
-    if (document.getElementById(id).getAttribute("type") == "select") {
-
-        document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
-
-    }
+    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
 
     if (document.getElementById(id).getAttribute("type") != "label")
     {
@@ -237,11 +243,12 @@ function SetDetail() {
         document.getElementById(id).setAttribute("points", document.getElementById("points").value);
         document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
         document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
+        document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
     }
+    
 
+   
     document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
-    document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
-
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
   
@@ -269,14 +276,13 @@ function fieldset(event,divid) {
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea")
     {
         event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].getAttribute("type") + divid;
     }
-
-
-
     else
     {
         event[0].id = "dynamic_" + event[0].type + divid;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
         return "dynamic_" + event[0].type + divid;
     }
    
@@ -487,6 +493,17 @@ redips.rowDelete = function (el) {
     }
 };
 
+
+redips.cellDelete = function (el) {
+    // find source row (skip inner row)
+    var row = REDIPS.drag.findParent('TR', el);
+    // confirm deletion
+    if (confirm('Delete Cell?')) {
+        // delete row from table editor
+        row.deleteCell(0);
+        //REDIPS.table.row(redips.tableEditor, 'delete', row.rowIndex);
+    }
+};
 
 // add onload event listener
 if (window.addEventListener) {

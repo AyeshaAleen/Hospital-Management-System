@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Forms Manager" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Webroot/Forms/Management/FormsManager/DynamicFormMaster.master" AutoEventWireup="true" CodeBehind="FormManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
+﻿<%@ Page Title="Forms Manager" EnableEventValidation="false" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/Webroot/Forms/Management/FormsManager/DynamicFormMaster.master" AutoEventWireup="true" CodeBehind="FormManager.aspx.cs" Inherits="Forms.Webroot.Forms.Management.FormsManager.FormsManager" %>
 
 <asp:Content ID="cntFormsManagerHead" ContentPlaceHolderID="DynamicFormMasterHead" runat="server">
     <link href="../../../../itinsync/resources/dynamic/dragdrop/style.css" rel="stylesheet" />
@@ -106,13 +106,15 @@
 
                                 <tbody>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                       <td>
+
+                                       </td>
 
                                         <td id="cellcontrol" class="redips-mark ignore" last="true">
                                             <div>
-                                                <span onclick="redips.rowDelete(this)" class="rowTool">x/</span>
+                                                
+                                                <span onclick="redips.cellDelete(this)" class="rowTool">xc/</span>
+                                                <span onclick="redips.rowDelete(this)" class="rowTool">xr/</span>
 
                                                 <span onclick="redips.rowInsert(this)" class="rowTool">r+/</span>
 
