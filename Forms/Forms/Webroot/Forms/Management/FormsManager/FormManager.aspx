@@ -37,6 +37,11 @@
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i>Heading</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
                                             <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i>DropDown</div>
                                         </td>
                                     </tr>

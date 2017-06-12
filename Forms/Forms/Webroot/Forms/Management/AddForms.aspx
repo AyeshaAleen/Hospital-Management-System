@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card-box">
+                                    
                 <h4 class="m-t-0 header-title"><b>Forms</b></h4>
-
                 <%--<a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Forms</a>--%>
                 <asp:Button runat="server" ID="btnAdd"  Text="Add New Forms" data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this);"
                     CssClass="btn btn-primary waves-effect waves-light pull-right"
@@ -22,7 +22,8 @@
                     <thead>
                         <tr>
                             <th data-field="name" data-sortable="true">Form Name</th>
-                            <th data-field="action" data-align="center">Action</th>
+                            <th data-field="view" data-align="center">View</th>
+                            <th data-field="edit" data-align="center">Edit</th>
                         </tr>
                     </thead>
 
@@ -39,12 +40,12 @@
                                             CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xDocumentDefinationID") ) %>'
                                             CommandName='Reset' OnCommand="tbl_sectionDetails" ToolTip="View" >
                                         </asp:LinkButton>
+                                        </td>
+                                    <td style="text-align: center;">
                                         <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
-
                                             CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "xDocumentDefinationID") ) %>'
                                             CommandName='Reset'  ToolTip="Edit"
-                                            data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this)"
-                                            >
+                                            data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this)">
                                         </asp:LinkButton>
                                     </td>
                                 </tr>
