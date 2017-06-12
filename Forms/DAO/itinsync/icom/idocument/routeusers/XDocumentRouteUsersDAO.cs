@@ -17,7 +17,7 @@ namespace DAO.itinsync.icom.idocument.routeusers
     public class XDocumentRouteUsersDAO : CRUDBase
     {
         string TABLENAME = " xdocumentrouteusers ";
-        string VIEWNAME = " routeusersview ";
+       // string VIEWNAME = " routeusersview ";
         public static XDocumentRouteUsersDAO getInstance(DBContext dbContext)
         {
             XDocumentRouteUsersDAO obj = new XDocumentRouteUsersDAO();
@@ -83,7 +83,7 @@ namespace DAO.itinsync.icom.idocument.routeusers
         }
         public List<XDocumentRouteUsers> findbyDefinitionID(Int64 xdocumentdefinitionid)
         {
-            string READ = string.Format("Select * from " + VIEWNAME + " where xdocumentdefinitionid = " + xdocumentdefinitionid);
+            string READ = string.Format("Select * from " + TABLENAME + " where xdocumentdefinitionid = " + xdocumentdefinitionid);
             return wrap(processResults(READ));
         }
     }

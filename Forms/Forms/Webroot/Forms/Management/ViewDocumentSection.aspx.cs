@@ -24,6 +24,7 @@ using Services.itinsync.icom.document.dynamic.routeusers;
 using Services.itinsync.icom.document.dynamic.section;
 using Services.itinsync.icom.document.dynamic.definition;
 using System.Data;
+using Utils.itinsync.icom.cache.document;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -82,6 +83,16 @@ namespace Forms.Webroot.Forms.Management
 
         void LoadEmailRoutingTbl()
         {
+            tblRoute.DataSource = DocumentManager.getDefinitionRoute(getParentRef().getParentrefKey());
+            tblRoute.DataBind();
+
+            tblRouteUsers.DataSource = DocumentManager.getDefinitionRouteUsers(getParentRef().getParentrefKey());
+            tblRouteUsers.DataBind();
+
+            chkEmail.Checked = DocumentManager.getDocumentDefinition(getParentRef().getParentrefKey()).email== "0" ? true : false;
+            chkStorage.Checked = DocumentManager.getDocumentDefinition(getParentRef().getParentrefKey()).storage == "0" ? true : false;
+
+            /*
             // Getting Route
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
@@ -118,7 +129,7 @@ namespace Forms.Webroot.Forms.Management
                 dto = (DocumentDTO)response;
                 chkEmail.Checked = dto.documentDefination.email == "0" ? true : false;
                 chkStorage.Checked= dto.documentDefination.storage == "0" ? true : false;
-            }
+            }*/
         }
 
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
