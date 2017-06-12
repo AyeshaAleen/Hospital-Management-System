@@ -10,16 +10,17 @@ namespace Domains.itinsync.icom.views.emailroutingview
 {
     public class EmailRouting : System.Attribute, IDomain
     {
-        public enum columns { id,route, storage, email }
-        public string id { get; set; }
-        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "route_Text")]
-        public Int32 route { get; set; }
+        public enum columns { id, xdocumentdefinitionid, role, Users, storage, email }
+        public Int64 id { get; set; }
+        [LookupAttribute(lookupName = "LKEmailRouting", relatedTag = "role_Text")]
+        public Int32 role { get; set; }
 
-        public string route_Text { get; set; }
-        public Int32 xdocumentdefinitionid { get; set; }
+        public string role_Text { get; set; }
+        public Int64 xdocumentdefinitionid { get; set; }
         public bool storage { get; set; }
         public bool email { get; set; }
-       
+
+        public string Users { get; set; }
         public object getKey()
         {
             return id;

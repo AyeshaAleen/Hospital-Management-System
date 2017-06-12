@@ -8,8 +8,8 @@ using Domains.itinsync.icom.idocument;
 using Domains.itinsync.icom.document;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.role;
-using Domains.itinsync.icom.idocument.roleRoute;
-using Domains.itinsync.icom.idocument.userRoute;
+using Domains.itinsync.icom.idocument.route;
+using Domains.itinsync.icom.idocument.routeusers;
 
 namespace Services.itinsync.icom.documents.dto
 {
@@ -31,11 +31,11 @@ namespace Services.itinsync.icom.documents.dto
         public XDocumentRole documentRole = new XDocumentRole();
         public List<XDocumentRole> documentRolelist = new List<XDocumentRole>();
 
-        public XDocumentRoleRoute documentRoleRoute = new XDocumentRoleRoute();
-        public List<XDocumentRoleRoute> documentRoleRoutelist = new List<XDocumentRoleRoute>();
+        public XDocumentRoute documentRoute = new XDocumentRoute();
+        public List<XDocumentRoute> documentRoutelist = new List<XDocumentRoute>();
 
-        public XDocumentUserRoute documentUserRoute = new XDocumentUserRoute();
-        public List<XDocumentUserRoute> documentUserRoutelist = new List<XDocumentUserRoute>();
+        public XDocumentRouteUsers documentRouteUsers = new XDocumentRouteUsers();
+        public List<XDocumentRouteUsers> documentRouteUserslist = new List<XDocumentRouteUsers>();
 
         public List<Douments> documentList = new List<Douments>();
         public ErrorBlock errorBlock = new ErrorBlock();

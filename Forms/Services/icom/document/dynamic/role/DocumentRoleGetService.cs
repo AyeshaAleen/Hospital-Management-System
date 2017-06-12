@@ -11,24 +11,19 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 
-namespace Services.itinsync.icom.document.dynamic.route
+namespace Services.itinsync.icom.document.dynamic.role
 {
-    public class DocumentRoleSaveService : FrameAS
+    public class DocumentRoleGetService : FrameAS
     {
         DocumentDTO dto = null;
+
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentRole.xdocumentroleid> 0)
-                {
-                    XDocumentRoleDAO.getInstance(dbContext).update(dto.documentRole, "");
-                }
-                else
-                {
-                    XDocumentRoleDAO.getInstance(dbContext).create(dto.documentRole);
-                }
+
+                dto.documentRolelist = XDocumentRoleDAO.getInstance(dbContext).readAll();
             }
             catch (Exception ex)
             {
