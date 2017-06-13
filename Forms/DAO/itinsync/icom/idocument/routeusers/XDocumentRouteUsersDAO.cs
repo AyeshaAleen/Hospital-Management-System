@@ -86,5 +86,11 @@ namespace DAO.itinsync.icom.idocument.routeusers
             string READ = string.Format("Select * from " + TABLENAME + " where xdocumentdefinitionid = " + xdocumentdefinitionid);
             return wrap(processResults(READ));
         }
+
+        public List<XDocumentRouteUsers> readAll()
+        {
+            string sql = "select * From " + TABLENAME;
+            return wrap(processResults(sql));
+        }
     }
 }

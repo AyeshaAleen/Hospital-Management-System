@@ -29,7 +29,7 @@ using System.Collections;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.cache.document;
 using DAO.itinsync.icom.idocument.route;
-using DAO.itinsync.icom.idocument.routeusers;
+using DAO.itinsync.icom.views.routeusers;
 
 namespace DAO.itinsync.icom.idocument.definition
 {
@@ -127,7 +127,7 @@ namespace DAO.itinsync.icom.idocument.definition
             {
                 documentDefinition.documentSections = XDocumentSectionDAO.getInstance(currentDBContext).readyByDocumentDefinitionID(documentDefinition.xDocumentDefinationID);
                 documentDefinition.roleRoute = XDocumentRouteDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
-                documentDefinition.userRoute = XDocumentRouteUsersDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
+                documentDefinition.routeUsers = XDocumentRouteUsersViewDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
 
                 foreach (XDocumentSection section in documentDefinition.documentSections)
                 {

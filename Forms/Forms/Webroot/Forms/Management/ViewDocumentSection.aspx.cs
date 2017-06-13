@@ -178,16 +178,16 @@ namespace Forms.Webroot.Forms.Management
            
         }
 
-        protected void btnEditUserRole_Command(object sender, CommandEventArgs e)
-        {
-            //DocumentDTO dto = new DocumentDTO();
-            //dto.header = getHeader();
+        //protected void btnEditUserRole_Command(object sender, CommandEventArgs e)
+        //{
+        //    //DocumentDTO dto = new DocumentDTO();
+        //    //dto.header = getHeader();
 
-            //dto.documentRole.xdocumentroleid = Convert.ToInt32(e.CommandArgument);
-            //ddlOperation.SelectedValue = Convert.ToString(e.CommandArgument);
-            //dto.documentRole.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
-            //dto.documentRole.role = Convert.ToInt32(ddlOperation.SelectedValue);
-        }
+        //    //dto.documentRole.xdocumentroleid = Convert.ToInt32(e.CommandArgument);
+        //    //ddlOperation.SelectedValue = Convert.ToString(e.CommandArgument);
+        //    //dto.documentRole.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
+        //    //dto.documentRole.role = Convert.ToInt32(ddlOperation.SelectedValue);
+        //}
 
         protected void btnDeleteUserRole_Command(object sender, CommandEventArgs e)
         {

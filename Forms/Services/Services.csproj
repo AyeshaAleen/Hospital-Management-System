@@ -86,6 +86,8 @@
     <Compile Include="icom\useraccounts\UserTeamDeleteService.cs" />
     <Compile Include="icom\useraccounts\UserTeamGetService.cs" />
     <Compile Include="icom\useraccounts\UserTeamSaveService.cs" />
+    <Compile Include="icom\views\routeusers\DocumentRouteUsersGetService.cs" />
+    <Compile Include="icom\views\routeusers\dto\DocumentRouteUsersDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using Domains.itinsync.icom.idocument.route;
-using Domains.itinsync.icom.idocument.routeusers;
+using Domains.itinsync.icom.views.routeusers;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.interfaces.domain;
@@ -39,6 +39,6 @@ namespace Domains.itinsync.icom.idocument.definition
         public List<XDocumentSection> documentSections = new List<XDocumentSection>();
 
         public List<XDocumentRoute> roleRoute = new List<XDocumentRoute>();
-        public List<XDocumentRouteUsers> userRoute = new List<XDocumentRouteUsers>();
+        public List<XDocumentRouteUsersView> routeUsers = new List<XDocumentRouteUsersView>();
     }
 }

@@ -16,6 +16,7 @@ using Domains.itinsync.icom.idocument.table.td;
 using Domains.itinsync.icom.idocument.table.tr;
 using Domains.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.idocument.route;
+using Domains.itinsync.icom.views.routeusers;
 using Domains.itinsync.icom.idocument.routeusers;
 
 namespace Utils.itinsync.icom.cache.document
@@ -51,14 +52,14 @@ namespace Utils.itinsync.icom.cache.document
 
         }
 
-        public static List<XDocumentRouteUsers> getDefinitionRouteUsers(Int64 doumentDefinitionID)
+        public static List<XDocumentRouteUsersView> getDefinitionRouteUsers(Int64 doumentDefinitionID)
         {
             if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
-                return GlobalStaticCache.documentDefinition[doumentDefinitionID].userRoute;
+                return GlobalStaticCache.documentDefinition[doumentDefinitionID].routeUsers;
             else
             {
                 // write code to reload data
-                return new List<XDocumentRouteUsers>();
+                return new List<XDocumentRouteUsersView>();
             }
 
         }
