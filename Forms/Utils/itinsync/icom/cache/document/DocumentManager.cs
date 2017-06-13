@@ -23,6 +23,7 @@ namespace Utils.itinsync.icom.cache.document
     public static class DocumentManager
     {
 
+
         public static List<XDocumentDefination> getDefinitions()
         {
             List<XDocumentDefination> list = new List<XDocumentDefination>();
@@ -34,6 +35,31 @@ namespace Utils.itinsync.icom.cache.document
             }
 
             return list;
+
+        }
+
+
+        public static List<XDocumentRoute> getDefinitionRoute(Int64 doumentDefinitionID)
+        {
+            if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
+                return GlobalStaticCache.documentDefinition[doumentDefinitionID].roleRoute;
+            else
+            {
+                // write code to reload data
+                return new List<XDocumentRoute> ();
+            }
+
+        }
+
+        public static List<XDocumentRouteUsers> getDefinitionRouteUsers(Int64 doumentDefinitionID)
+        {
+            if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
+                return GlobalStaticCache.documentDefinition[doumentDefinitionID].userRoute;
+            else
+            {
+                // write code to reload data
+                return new List<XDocumentRouteUsers>();
+            }
 
         }
 

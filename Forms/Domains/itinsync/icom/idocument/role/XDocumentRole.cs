@@ -9,7 +9,7 @@ using Domains.itinsync.icom.annotation;
 
 namespace Domains.itinsync.icom.idocument.role
 {
-    public class XDocumentRole : System.Attribute, IDomain, IDocument
+    public class XDocumentRole : System.Attribute, IDomain
     {
         public enum columns { xdocumentdefinitionid, role }
         public enum primaryKey { xdocumentroleid }

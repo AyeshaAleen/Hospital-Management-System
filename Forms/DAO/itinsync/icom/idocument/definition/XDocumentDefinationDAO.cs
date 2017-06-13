@@ -28,6 +28,8 @@ using DAO.itinsync.icom.idocument.section;//
 using System.Collections;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.cache.document;
+using DAO.itinsync.icom.idocument.route;
+using DAO.itinsync.icom.idocument.routeusers;
 
 namespace DAO.itinsync.icom.idocument.definition
 {
@@ -120,13 +122,12 @@ namespace DAO.itinsync.icom.idocument.definition
 
         public void load()
         {
-            GlobalStaticCache.documentCalculation = new Dictionary<Int32, XDocumentCalculation>();
-            GlobalStaticCache.documentSection   =  new Dictionary<Int32, XDocumentSection>();
-            GlobalStaticCache.documentTables = new Dictionary<Int32, XDocumentTable>();
             List<XDocumentDefination> documentsDefinitions = readAll();
             foreach (XDocumentDefination documentDefinition in documentsDefinitions)
             {
                 documentDefinition.documentSections = XDocumentSectionDAO.getInstance(currentDBContext).readyByDocumentDefinitionID(documentDefinition.xDocumentDefinationID);
+                documentDefinition.roleRoute = XDocumentRouteDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
+                documentDefinition.userRoute = XDocumentRouteUsersDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
 
                 foreach (XDocumentSection section in documentDefinition.documentSections)
                 {

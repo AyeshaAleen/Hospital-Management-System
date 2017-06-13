@@ -52,7 +52,7 @@ namespace DAO.itinsync.icom.idocument
                 string whereClause = " update " + TABLENAME + " set ";
                 whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(Douments.columns));
                 if (whereClause.Contains("="))//update on the base of primary key column
-                    update(Utils.itinsync.icom.ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(Douments.primaryKey.documentID.ToString(), lk.documentID)));
+                    update(ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(Douments.primaryKey.documentID.ToString(), lk.documentID)));
             }
             return "";
         }
