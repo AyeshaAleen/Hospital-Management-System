@@ -26,8 +26,6 @@ namespace Forms.Webroot.Forms.Management
         }
         private void LoadForm()
         {
-            
-
             tblDocument.DataSource = DocumentManager.getDefinitions();
             tblDocument.DataBind();
             
@@ -43,10 +41,9 @@ namespace Forms.Webroot.Forms.Management
             Response.Redirect(PageConstant.PAGE_DocumentSection);
         }
         
-        int DDID = 0;
+        
         protected void btnSaveDocument_Click(object sender, EventArgs e)
         {
-           
             IResponseHandler response= DbOperation();
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
@@ -62,8 +59,8 @@ namespace Forms.Webroot.Forms.Management
             dto = new DocumentDTO();
             dto.header = getHeader();
             //if (documentID > 0) dto.header = getHeader(); else getHeader();
-            if(TxtEditDocumentId.Value!=null)
-            dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(TxtEditDocumentId.Value);
+            if (TxtEditDocumentId.Value != null)
+                dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(TxtEditDocumentId.Value);
             dto.documentDefination.name = TxtDocumentName.Value;
 
             IResponseHandler response = new DocumentDefinitionSaveService().executeAsPrimary(dto);

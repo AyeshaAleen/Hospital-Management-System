@@ -117,7 +117,7 @@ namespace Forms.Webroot.Forms.Management
             {
                 dto = (DocumentDTO)response;
                 chkEmail.Checked = dto.documentDefination.email == "0" ? true : false;
-                chkStorage.Checked= dto.documentDefination.storage == "0" ? true : false;
+                chkStorage.Checked = dto.documentDefination.storage == "0" ? true : false;
             }
         }
 
