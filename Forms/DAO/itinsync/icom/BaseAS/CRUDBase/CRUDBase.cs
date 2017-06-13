@@ -198,8 +198,6 @@ namespace DAO.itinsync.icom.BaseAS.CRUDBase
         }
         protected void setPropertyValue(IDomain src, string propertyName, int i, DataTable dt, object value)
         {
-
-
             if (value == DBNull.Value)
                 return;
             //find out the type

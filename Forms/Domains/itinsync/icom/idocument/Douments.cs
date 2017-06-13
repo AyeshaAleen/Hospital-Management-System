@@ -39,6 +39,11 @@ namespace Domains.itinsync.icom.idocument
             this.transID = (Int32)transID;
         }
 
+        public int getParentrefKey()
+        {
+            return documentID;
+        }
+
 
 
         //*************Relational Mapping Objects*******************//////

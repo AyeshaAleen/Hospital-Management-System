@@ -9,7 +9,7 @@ using Domains.itinsync.icom.annotation;
 
 namespace Domains.itinsync.icom.idocument.route
 {
-    public class XDocumentRoute : System.Attribute, IDomain, IDocument
+    public class XDocumentRoute : System.Attribute, IDomain
     {
         public enum columns { xdocumentdefinitionid, role }
         public enum primaryKey { id }

@@ -1,4 +1,6 @@
-﻿using Domains.itinsync.icom.idocument.section;
+﻿using Domains.itinsync.icom.idocument.route;
+using Domains.itinsync.icom.views.routeusers;
+using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.interfaces.domain;
 using System;
@@ -13,7 +15,7 @@ namespace Domains.itinsync.icom.idocument.definition
     {
         public enum columns { name, rdlcPath, dataTable, parameters, vendorid, storage, email }
         public enum primaryKey { xDocumentDefinationID }
-        public Int64 xDocumentDefinationID { get; set; }
+        public Int32 xDocumentDefinationID { get; set; }
         public String name { get; set; }
         public String rdlcPath { get; set; }
         public String dataTable { get; set; }
@@ -28,9 +30,15 @@ namespace Domains.itinsync.icom.idocument.definition
         {
 
         }
-
+        public int getParentrefKey()
+        {
+            return xDocumentDefinationID;
+        }
 
         //*************Relational Mapping Objects*******************//////
         public List<XDocumentSection> documentSections = new List<XDocumentSection>();
+
+        public List<XDocumentRoute> roleRoute = new List<XDocumentRoute>();
+        public List<XDocumentRouteUsersView> routeUsers = new List<XDocumentRouteUsersView>();
     }
 }

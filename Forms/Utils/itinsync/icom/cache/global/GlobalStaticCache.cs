@@ -17,6 +17,7 @@ using Domains.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.idocument.route;
+using Domains.itinsync.icom.views.routeusers;
 using Domains.itinsync.icom.idocument.routeusers;
 
 namespace Utils.itinsync.icom.cache.global
@@ -41,7 +42,9 @@ namespace Utils.itinsync.icom.cache.global
         public static Dictionary<Int32, XDocumentRoute> documentRoute = new Dictionary<Int32, XDocumentRoute>();
         public static Dictionary<Int32, XDocumentRouteUsers> documentRouteUser = new Dictionary<Int32, XDocumentRouteUsers>();
 
-            public static void invalidateCache()
+        public static Dictionary<Int32, XDocumentRouteUsers> documentRouteUserV = new Dictionary<Int32, XDocumentRouteUsers>();
+
+        public static void invalidateCache()
             {
                 translationcacheMap             = new Dictionary<string, Dictionary<string, string>>();
                 LKcacheMap                      = new Dictionary<string, Dictionary<string, Hashtable>>();
