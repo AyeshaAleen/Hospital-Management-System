@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Service Time" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ServiceTime.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.ServiceTime" %>
+﻿<%@ Page Title="Service Time" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" CodeBehind="ServiceTime.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.ServiceTime" %>
 
-<asp:Content ID="cntServiceTimeHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntServiceTimeHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntServiceTimeBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntServiceTimeBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server">
     <div class="row" runat="server" id="processDynamicDiv"> 
         <div class="col-sm-12">
             <div class="card-box">
@@ -204,5 +204,5 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="cntServiceTimeFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="cntServiceTimeFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
 </asp:Content>

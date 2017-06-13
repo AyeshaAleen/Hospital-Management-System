@@ -2308,3 +2308,6 @@ table tr td {
     margin-left:-15px;
     margin-bottom:35px;
 }
+.min-height-sp {
+    min-height:400px;
+}

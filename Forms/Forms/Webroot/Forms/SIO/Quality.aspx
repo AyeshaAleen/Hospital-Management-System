@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Quality" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="Quality.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Quality" %>
+﻿<%@ Page Title="Quality" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" CodeBehind="Quality.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Quality" %>
 
-<asp:Content ID="cntQualityHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntQualityHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntQualityBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntQualityBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server">
     <div class="row">
         <div class="col-sm-12">
             <div class="card-box">
@@ -199,5 +199,5 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="cntQualityFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="cntQualityFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
 </asp:Content>

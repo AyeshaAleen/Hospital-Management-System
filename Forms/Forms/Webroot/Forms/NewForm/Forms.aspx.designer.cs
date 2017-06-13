@@ -19,7 +19,7 @@ namespace Forms.Webroot.Forms.NewForm {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlForms;
+        protected global::System.Web.UI.WebControls.DropDownList ddlForms;
         
         /// <summary>
         /// ddlStore control.
@@ -28,7 +28,7 @@ namespace Forms.Webroot.Forms.NewForm {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlStore;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStore;
         
         /// <summary>
         /// btnGo control.

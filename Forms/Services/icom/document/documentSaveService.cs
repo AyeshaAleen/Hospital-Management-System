@@ -36,11 +36,12 @@ namespace Services.itinsync.icom.documents
                 else
                 {
                   
-                    dto.document.documentName = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID).name;
-
+                   
 
                     dto.document.documentID = DocumentDAO.getInstance(dbContext).create(dto.document);
                 }
+
+
             }
             catch (Exception ex)
             {

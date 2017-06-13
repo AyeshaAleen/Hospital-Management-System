@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Service" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="Service.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Service" %>
+﻿<%@ Page Title="Service" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" CodeBehind="Service.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Service" %>
 
-<asp:Content ID="cntServiceHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntServiceHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntServiceBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntServiceBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server">
     <div class="row">
         <div class="col-sm-12">
             <div class="card-box">
@@ -22,5 +22,5 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="cntServiceFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="cntServiceFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
 </asp:Content>

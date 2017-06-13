@@ -60,6 +60,11 @@ namespace DAO.itinsync.icom.store
         {
             return (Store)processSingleResult("select * From " + TABLENAME + "where storeid = " + storeid);
         }
+        public List<Store> readAll()
+        {
+            string SQL = string.Format("Select * from " + TABLENAME);
+            return wrap(processResults(SQL));
+        }
 
         private List<Store> readWhere(string where)
         {

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Cleanliness" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="Cleanliness.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Cleanliness" %>
+﻿<%@ Page Title="Cleanliness" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" CodeBehind="Cleanliness.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.Cleanliness" %>
 
-<asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server">
 
     <div class="row">
         <div class="col-sm-12">
@@ -210,5 +210,5 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
 </asp:Content>
