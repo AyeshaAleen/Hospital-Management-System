@@ -41,6 +41,8 @@ namespace Services.itinsync.icom.documents
                     dto.document.documentID = DocumentDAO.getInstance(dbContext).create(dto.document);
                 }
 
+          
+
 
             }
             catch (Exception ex)

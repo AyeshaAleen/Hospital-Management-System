@@ -13,10 +13,11 @@ using Services.itinsync.icom.documents.dto;
 using DAO.itinsync.icom.idocument;
 using DAO.itinsync.icom.idocument.section;
 using Services.itinsync.icom.cache;
+using Services.icom.cache.frame;
 
 namespace Services.itinsync.icom.document.dynamic.section
 {
-    public class DocumentSectionSaveService : FrameAS
+    public class DocumentSectionSaveService : FrameASCache
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)

@@ -10,10 +10,11 @@ using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
+using Services.icom.cache.frame;
 
 namespace Services.itinsync.icom.document.dynamic.route
 {
-    public class DocumentRouteDeleteService : FrameAS
+    public class DocumentRouteDeleteService : FrameASCache
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)

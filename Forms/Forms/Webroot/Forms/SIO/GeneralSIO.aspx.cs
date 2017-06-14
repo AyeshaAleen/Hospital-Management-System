@@ -17,6 +17,8 @@ using Utils.itinsync.icom.xml;
 using System.Xml;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument;
+using Utils.itinsync.icom.cache.document;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -32,81 +34,33 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!IsPostBack)
             {
-                Manage_documents();
-
-                getDocument();
+                createControl();
                 
             }
         }
-
-        private void Manage_documents()
+        
+        private void createControl()
         {
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
-            dto.document.documentDefinitionID = Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID);
-
-            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR)
+            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c=>c.name.Equals("GeneralSIO")).SingleOrDefault();
+            dbxml = ((Douments)getParentRef()).data;
+            documentid = ((Douments)getParentRef()).documentID;
+            if(Section != null)
             {
-                save_data();
-            }
-        }
-
-        private void getDocument()
-        {
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document.documentDefinitionID = Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID);
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
-            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                CreateControl(response);
-            }
-            }
-
-        private void CreateControl(IResponseHandler response)
-        {
-            XDocumentSection Section = ((XDocumentDefination)getParentRef()).documentSections.Where(c=>c.name.Equals("GeneralSIO")).SingleOrDefault();
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                setResponseHandler(response);
-                DocumentDTO dto = (DocumentDTO)response;
-                dbxml = dto.document.data;
-                documentid = dto.document.documentID;
-                if(Section != null)
-                {
-                    Table obj_Table = processDynamicContent(tableDynamic, dto.document, Section.documentsectionid);
+                    Table obj_Table = processDynamicContent(tableDynamic, ((Douments)getParentRef()), Section.documentsectionid);
                     tableDynamic.EnableViewState = true;
                     ViewState["tableDynamic"] = true;
-                }
             }
+            
         }
 
-        private void save_data()
-        {
-
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document.documentDefinitionID = Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID);
-            dto.document.transDate = DateFunctions.getCurrentDateAsString();
-            dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
-            dto.document.data = xml;
-            dto.document.Userid = getHeader().userID;
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
-            dto.document.documentID = documentid;
-            dto.document.flow = DocumentFlow;
-            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
-           
-        }
+      
 
 
        
 
         protected override void LoadViewState(object savedState)
         {
-            CreateControl(getResponseHandler());
+            createControl();
             base.LoadViewState(savedState);
             
         }
@@ -133,9 +87,30 @@ namespace Forms.Webroot.Forms.SIO
 
             xml = xmlparser.getRootTagXML("GeneralSIO");
 
-            save_data();
+             save_data();
+            
          
-            Response.Redirect("ServiceTime.aspx");
+            
+        }
+
+        private void save_data()
+        {
+
+            //need to move below code in genaric class as we need to call it from various point with same information
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+            dto.document =(Douments) getParentRef();
+            dto.document.data = xml;
+            dto.document.flow = 2;
+            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
+
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (DocumentDTO)response;
+                setParentRef(dto.document);
+                Response.Redirect("ServiceTime.aspx");
+            }
+
         }
 
     }
