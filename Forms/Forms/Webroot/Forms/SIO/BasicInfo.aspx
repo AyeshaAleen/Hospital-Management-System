@@ -131,7 +131,7 @@
                 <div class="col-md-12">
                     <h4 class="header-title">Send To</h4>
                     <p>
-                        <input type="checkbox" id="chkBI4" name="chkBI4" runat="server" CssClass="checkbox" />Select All</p>
+                        <input type="checkbox" id="chkBI4" runat="server" CssClass="checkbox" />Select All</p>
 
                     <p>
                         <asp:CheckBoxList runat="server"
@@ -194,8 +194,9 @@
                 <div class="clearfix"></div>
 
                 <div class="col-md-12 m-t-40">
-                    <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
+                    <asp:Button ID="btnPrevious" runat="server" Text="Previous"   CssClass="btn btn-inverse waves-effect waves-light" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                    <asp:Button ID="Button1" runat="server" Text="btnnnnnn" CssClass="btn sa-close btn-inverse waves-effect waves-light pull-right" />
                 </div>
 
                 <div class="clearfix"></div>
