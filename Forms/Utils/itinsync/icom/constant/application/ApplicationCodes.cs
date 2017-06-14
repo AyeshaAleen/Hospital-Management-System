@@ -94,6 +94,10 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string TAKS_STATUS_COMPLETE = "102";
 
 
+        ///**************DOCUMENT STATUS CODES*************///
+        public static readonly string DOCUMENT_STATUS_CANCELLED = "200";
+        public static readonly string DOCUMENT_STATUS_INPROGRESS = "201";
+        public static readonly string DOCUMENT_STATUS_COMPLETE = "202";
 
 
         ///**************INVOICE STATUS CODES*************///

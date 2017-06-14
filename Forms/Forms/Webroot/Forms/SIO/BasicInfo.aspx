@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Basic Info" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="BasicInfo.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.BasicInfo" %>
+﻿<%@ Page Title="Basic Info" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" CodeBehind="BasicInfo.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.BasicInfo" %>
 
-<asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="FormMasterHead" runat="server">
+<asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server">
     <div class="row" id="validate">
         <div class="col-sm-12">
             <div class="card-box">
@@ -204,6 +204,6 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
     
 </asp:Content>

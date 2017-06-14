@@ -63,6 +63,8 @@
     <Compile Include="icom\document\dynamic\section\DocumentSectionSaveService.cs" />
     <Compile Include="icom\document\email\dto\EmailDTO.cs" />
     <Compile Include="icom\document\email\EmailSendService.cs" />
+    <Compile Include="icom\document\store\dto\StoreDTO.cs" />
+    <Compile Include="icom\document\store\StoreGetService.cs" />
     <Compile Include="icom\document\TableNameGetService.cs" />
     <Compile Include="icom\document\DynamicDocumentTableGet.cs" />
     <Compile Include="icom\document\DTO\documentDTO.cs" />

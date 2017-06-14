@@ -38,10 +38,10 @@
                                     <label for="field-1" class="control-label">Form Name</label>
                                     <input type="text" class="form-control" id="field" runat="server" placeholder="Form Name">
                                 </div>
-                               <%-- <div class="form-group col-md-5">
+                                <div class="form-group col-md-5">
                                     <label for="field-1" class="control-label">Pages</label>
                                     <asp:DropDownList ID="ddlsectionPagesName" runat="server" CssClass="form-control" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
-                                </div>--%>
+                                </div>
                                 <div class="form-group col-md-2">
                                     <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-info waves-effect waves-light btn-sp"></asp:Button>
                                 </div>

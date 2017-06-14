@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
+using Domains.itinsync.icom.interfaces.document;
 
 namespace Forms.itinsync.src.session
 {
@@ -28,7 +29,11 @@ namespace Forms.itinsync.src.session
             return bp.trasnlation(key);
         }
 
-       
+        protected IDocument getParentRef()
+        {
+            return bp.getParentRef();
+        }
+
         public void logOut()
         {
             bp.logOut();

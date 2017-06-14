@@ -66,15 +66,22 @@
 								<h4 class="page-title"><%: Page.Title %></h4>
 								<ol class="breadcrumb" id="breadcrumblist">	</ol>--%>
 
+                                 
+
                                 <div class="card-box">
                                     
                                     <h4 class="m-t-0 header-title"><b>SIO</b></h4>
                                     <div class="row">
+                                        
                                         <asp:Repeater ID="tblSectionTab" runat="server">
-                                        <a href="#" class="tag">Section Name</a>
+                                            <ItemTemplate>
+                                                   
+                                        <a href=<%# Eval("Webname") %> id="PageTab" class="tag" runat="server"><%# Eval("name") %></a>
 
-	                                
+                                                    
+                                            </ItemTemplate>
                                             </asp:Repeater>
+                                              
                                     </div>
 
                                 </div>    
