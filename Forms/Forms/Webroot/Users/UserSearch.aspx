@@ -1,4 +1,4 @@
-﻿<%@ Page Title="User Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserSearch.aspx.cs" Inherits="Forms.Webroot.Desktop.Users.UserSearch" %>
+﻿<%@ Page Title="User Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserSearch.aspx.cs" Inherits="Forms.Webroot.Users.UserSearch" %>
 <asp:Content ID="cntUserSearchHeader" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="cntUserSearchBody" ContentPlaceHolderID="FormMasterBody" runat="server">
@@ -60,13 +60,13 @@
                             <table class="table table-striped table-bordered table-hover dynamic-table">
                                 <thead>
                                     <tr>
-                                        <th><% Response.Write(trasnlation("UserAccounts.firstName")); %></th>
-                                        <th><% Response.Write(trasnlation("UserAccounts.lastName")); %></th>
-                                        <th><% Response.Write(trasnlation("UserAccounts.userName")); %></th>
-                                        <th><% Response.Write(trasnlation("UserAccounts.userEmail")); %></th>
-                                        <th><% Response.Write(trasnlation("UserAccounts.userPhone")); %></th>
-                                        <th><% Response.Write(trasnlation("UserAccounts.role")); %></th>
-                                        <th><% Response.Write(trasnlation("UserAccounts.lang")); %></th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>User Name</th>
+                                        <th>User Email</th>
+                                        <th>User Phone</th>
+                                        <th>Role</th>
+                                        <th>Language</th>
                                         <th> Edit </th>
                                         <th> Permission </th>
                                         <th> Team </th>

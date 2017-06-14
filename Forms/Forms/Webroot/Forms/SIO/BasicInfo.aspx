@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Basic Info" Language="C#" MasterPageFile="~/Webroot/Forms/DocumentMaster.master" AutoEventWireup="true" CodeBehind="BasicInfo.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.BasicInfo" %>
+﻿<%@ Page Title="Basic Info" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="BasicInfo.aspx.cs" Inherits="Forms.Webroot.Forms.SIO.BasicInfo" %>
 
-<asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="DocumnetMasterHead" runat="server">
+<asp:Content ID="cntBasicInfoHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="DocumnetMasterBody" runat="server">
+<asp:Content ID="cntBasicInfoBody" ContentPlaceHolderID="FormMasterBody" runat="server">
     <div class="row" id="validate">
         <div class="col-sm-12">
             <div class="card-box">
@@ -194,7 +194,7 @@
                 <div class="clearfix"></div>
 
                 <div class="col-md-12 m-t-40">
-                    <asp:Button ID="btnPrevious" runat="server" Text="Previous"   CssClass="btn btn-inverse waves-effect waves-light" />
+                    <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
                     <asp:Button ID="Button1" runat="server" Text="btnnnnnn" CssClass="btn sa-close btn-inverse waves-effect waves-light pull-right" />
                 </div>
@@ -204,6 +204,6 @@
         </div>
     </div>
 </asp:Content>
-<asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="DocumnetMasterFoot" runat="server">
+<asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
     
 </asp:Content>

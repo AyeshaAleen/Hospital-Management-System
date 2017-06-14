@@ -72,6 +72,9 @@
     <Compile Include="icom\document\DocumentGetService.cs" />
     <Compile Include="icom\Permission\dto\PermissionDTO.cs" />
     <Compile Include="icom\Permission\PermissionGetService.cs" />
+    <Compile Include="icom\signature\dto\SignatureDTO.cs" />
+    <Compile Include="icom\signature\SignatureGetService.cs" />
+    <Compile Include="icom\signature\SignatureSaveService.cs" />
     <Compile Include="icom\tablecontent\dto\tablecontentDTO.cs" />
     <Compile Include="icom\tablecontent\TableContentManageService .cs" />
     <Compile Include="icom\tablecontent\TableContentSaveService.cs" />

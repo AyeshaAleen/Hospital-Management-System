@@ -23,7 +23,6 @@ namespace Forms.Webroot.Forms.SIO
     [Serializable()]
     public partial class BasicInfo : BasePage
     {
-
         private static string dbxml = "";
         public static string xml = "<SIO></SIO>";
         public static int documentid = 0;
@@ -32,11 +31,16 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!IsPostBack)
             {
-
-
+                loaddata();
             }
         }
-
+        private void loaddata()
+        {
+            if (!string.IsNullOrEmpty(getXMLSession()))
+            {
+                processXML(this, getXMLSession(), "BasicInfo");
+            }
+        }
 
         private void save_data()
         {

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 
-namespace Forms.Webroot.Desktop.Users
+namespace Forms.Webroot.Users
 {
     public partial class UserSearch : BasePage
     {
@@ -47,7 +47,7 @@ namespace Forms.Webroot.Desktop.Users
         protected void tblEditPermission_RowClick(object sender, CommandEventArgs e)
         {
             setSubjectID(Convert.ToString(e.CommandArgument));
-
+            Response.Redirect(PageConstant.PAGE_EDIT_PERMISSION);
             //Redirect(PageConstant.PAGE_EDIT_PERMISSION);
         }
         protected void tblEditTeam_RowClick(object sender, CommandEventArgs e)

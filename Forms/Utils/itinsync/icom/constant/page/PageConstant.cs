@@ -29,6 +29,7 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_MANAGE_USER = "ManageUser.aspx";
 
         public static string PAGE_ADD_USER = "AddUser.aspx";
+        public static string PAGE_EDIT_PERMISSION = "UserPermission/UserPermissions.aspx";
         public static string PAGE_EDITUSER = "EditUsers.aspx";
 
         public static string PAGE_EDITPERMISSION = "EditPermission.aspx";

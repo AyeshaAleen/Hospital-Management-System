@@ -11,7 +11,7 @@ using Utils.itinsync.icom.constant.application;
 //using Services.itinsync.icom.team.dto;
 //using Services.itinsync.icom.team;
 
-namespace Forms.Webroot.Desktop.Users
+namespace Forms.Webroot.Users
 {
     public partial class AddUser : BasePage
     {
@@ -100,7 +100,7 @@ namespace Forms.Webroot.Desktop.Users
             dto.useraccounts.userPhone = txtContact.Value;
             dto.useraccounts.role = Convert.ToInt32(ddlUserRole.SelectedValue);
             dto.useraccounts.lang = ddlLang.SelectedValue;
-            dto.useraccounts.vendorID = Convert.ToInt32(ddlvendor.SelectedValue);
+           // dto.useraccounts.vendorID = Convert.ToInt32(ddlvendor.SelectedValue);
             return new UserAccountSaveService().executeAsPrimary(dto);
         }
 

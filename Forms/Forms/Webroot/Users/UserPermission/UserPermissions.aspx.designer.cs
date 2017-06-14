@@ -7,72 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Desktop.Users {
+namespace Forms.Webroot.Users.UserPermission {
     
     
-    public partial class UserSearch {
+    public partial class UserPermissions {
         
         /// <summary>
-        /// txtUserName control.
+        /// lblname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblname;
         
         /// <summary>
-        /// txtUserID control.
+        /// Tbody1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tbody1;
         
         /// <summary>
-        /// btnSearchUser control.
+        /// tblUserPermissions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearchUser;
+        protected global::System.Web.UI.WebControls.Repeater tblUserPermissions;
         
         /// <summary>
-        /// btnClearForm control.
+        /// ddlPermission control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearForm;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPermission;
         
         /// <summary>
-        /// btnAddNew control.
+        /// btnAddPermission control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddNew;
-        
-        /// <summary>
-        /// tblBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblBody;
-        
-        /// <summary>
-        /// repeaterUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterUsers;
+        protected global::System.Web.UI.WebControls.Button btnAddPermission;
     }
 }

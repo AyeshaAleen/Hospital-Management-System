@@ -8,7 +8,7 @@ using System;
 using Utils.itinsync.icom.constant.application;
 using System.Web.UI.WebControls;
 
-namespace Forms.Webroot.Desktop.Users.UserPermission
+namespace Forms.Webroot.Users.UserPermission
 {
     public partial class UserPermissions : BasePage
     {
