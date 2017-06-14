@@ -14,8 +14,7 @@ using Utils.itinsync.icom.cache.pages;
 using Domains.itinsync.icom.idocument.definition;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.lookup;
-using Services.icom.emailroutingview.dto;
-using Services.icom.emailroutingview;
+
 using Services.itinsync.icom.useraccounts.dto;
 using Services.itinsync.icom.useraccounts;
 using Services.itinsync.icom.document.dynamic.role;
@@ -145,7 +144,7 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.name = field.Value;
             dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
-            dtoIn.documentSection.documentdefinitionid = getParentRef().getParentrefKey();
+            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
 
             IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
@@ -163,7 +162,7 @@ namespace Forms.Webroot.Forms.Management
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
 
-            dto.documentRole.xdocumentdefinitionid = getParentRef().getParentrefKey();
+            dto.documentRole.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
             dto.documentRole.role = Convert.ToInt32(ddlUserRole.SelectedValue);
 
             IResponseHandler response = new DocumentRoleSaveService().executeAsPrimary(dto);
@@ -207,7 +206,7 @@ namespace Forms.Webroot.Forms.Management
         protected void btnAddUserEmailRouting_Click(object sender, EventArgs e)
         {
             DocumentDTO dto = new DocumentDTO();
-            dto.documentRouteUsers.xdocumentdefinitionid = getParentRef().getParentrefKey();
+            dto.documentRouteUsers.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRouteUsers.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
                 dto.documentRouteUsers.userid = Convert.ToInt32(ddlUsers.SelectedValue);
 
@@ -228,7 +227,7 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.documentRoute.xdocumentdefinitionid = getParentRef().getParentrefKey();
+                dto.documentRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
                 dto.documentRoute.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
 
                 IResponseHandler response = new DocumentRouteSaveService().executeAsPrimary(dto);

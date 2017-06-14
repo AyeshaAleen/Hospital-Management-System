@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.views.emailroutingview;
+﻿using DAO.itinsync.icom.BaseAS.frame;
+using DAO.itinsync.icom.useraccounts;
 using Domains.itinsync.icom.interfaces.response;
+using System;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
-using Services.icom.emailroutingview.dto;
 
-namespace Services.icom.emailroutingview
+namespace Services.itinsync.icom.useraccounts
 {
-    public class EmailRoutingGetService:FrameAS
+    public class UserPermissionViewSaveService : FrameAS
     {
-        EmailRoutingDTO dto = null;
-
+        dto.UserPermissionViewDTO dto = null;
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
-                dto = (EmailRoutingDTO)o;
-                if (dto.emailRouting.xdocumentdefinitionid > 0)
+                dto = (dto.UserPermissionViewDTO)o;
+                if (dto.userpermissionview.userID > 0)
                 {
-                    dto.emailRoutinglist = EmailRoutingDAO.getInstance(dbContext).findbyDefinitionID(dto.emailRouting.xdocumentdefinitionid);
+                    UserPermissionDAO.getInstance(dbContext).update(dto.userpermissionview, "");
                 }
-
+                else
+                {
+                    UserPermissionDAO.getInstance(dbContext).create(dto.userpermissionview);
+                }
             }
             catch (Exception ex)
             {

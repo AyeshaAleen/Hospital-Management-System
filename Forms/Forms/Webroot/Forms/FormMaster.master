@@ -30,6 +30,10 @@
                              <li>
                                 <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
                             </li>
+                           
+                             <li>
+                                <a href="../../Users/UserSearch.aspx" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
+                            </li>
 
                            <%-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>

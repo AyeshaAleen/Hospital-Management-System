@@ -71,8 +71,11 @@
     <Compile Include="icom\document\DTO\documentDTO.cs" />
     <Compile Include="icom\document\DocumentSaveService.cs" />
     <Compile Include="icom\document\DocumentGetService.cs" />
-    <Compile Include="icom\emailroutingview\dto\EmailRoutingDTO.cs" />
-    <Compile Include="icom\emailroutingview\EmailRoutingGetService.cs" />
+    <Compile Include="icom\Permission\dto\PermissionDTO.cs" />
+    <Compile Include="icom\Permission\PermissionGetService.cs" />
+    <Compile Include="icom\signature\dto\SignatureDTO.cs" />
+    <Compile Include="icom\signature\SignatureGetService.cs" />
+    <Compile Include="icom\signature\SignatureSaveService.cs" />
     <Compile Include="icom\tablecontent\dto\tablecontentDTO.cs" />
     <Compile Include="icom\tablecontent\TableContentManageService .cs" />
     <Compile Include="icom\tablecontent\TableContentSaveService.cs" />
@@ -91,6 +94,9 @@
     <Compile Include="icom\useraccounts\UserTeamSaveService.cs" />
     <Compile Include="icom\views\routeusers\DocumentRouteUsersGetService.cs" />
     <Compile Include="icom\views\routeusers\dto\DocumentRouteUsersDTO.cs" />
+    <Compile Include="icom\views\userpermissionview\dto\UserPermissionViewDTO.cs" />
+    <Compile Include="icom\views\userpermissionview\UserPermissionViewGetService.cs" />
+    <Compile Include="icom\views\userpermissionview\UserPermissionViewSaveService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

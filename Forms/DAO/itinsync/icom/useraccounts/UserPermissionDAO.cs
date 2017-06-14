@@ -89,7 +89,7 @@ namespace DAO.itinsync.icom.useraccounts
         }
         public bool permissionExists(Int32 code, Int32 userID )
         {
-            if(executeCount(string.Format("select count(*) as count from ars.userpermission where code = '{0}' and userID = '{1}'", code, userID)) > 0)
+            if(executeCount(string.Format("select count(*) as count from " + TABLENAME + " where code = '{0}' and userID = '{1}'", code, userID)) > 0)
                  return true;
             else
                 return false;
