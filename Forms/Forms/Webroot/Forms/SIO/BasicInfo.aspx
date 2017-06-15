@@ -111,7 +111,7 @@
                     <div class="form-group">
                         <label class="control-label"></label>
                         <label class="control-label">
-                            <input type="checkbox" runat="server" id="chkBI1" CssClass="checkbox" />Auto Fail
+                            <input type="checkbox" runat="server" id="chkBI1" CssClass="checkbox" /> Auto Fail
                         </label>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                 <div class="col-md-12">
                     <h4 class="header-title">Send To</h4>
                     <p>
-                        <input type="checkbox" id="chkBI4" runat="server" CssClass="checkbox" />Select All</p>
+                        <input type="checkbox" id="chkBI4" runat="server" CssClass="checkbox" /> Select All</p>
 
                     <p>
                         <asp:CheckBoxList runat="server"
