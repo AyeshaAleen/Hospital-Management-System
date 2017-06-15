@@ -289,11 +289,7 @@
 
         $(document).ready(function () {
 
-            debugger;
-
-            //    var parenttbl = document.getElementById("cellcontrol");
-            //    var outer = parenttbl.outerHTML;
-            //    outer = decodehtml(outer);
+          
 
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "") {
                 document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;

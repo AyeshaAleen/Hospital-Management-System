@@ -75,9 +75,13 @@ namespace Utils.itinsync.icom.html
                         if (colnode.HasChildNodes && !(colnode.GetAttributeValue("last", false)))
                         {
                             XDocumentTableTD tableTD = new XDocumentTableTD();
+                            
+                            
+                            if (colnode.Descendants("h2").SingleOrDefault()!=null)
+                            tableTD.tdType = "601";
+                            else
+                                tableTD.tdType = "600";
 
-
-                            tableTD.tdType = "600";
                             tableTD.cssClass = colnode.GetAttributeValue("Class", "");
                             tableTR.tds.Add(tableTD);
 

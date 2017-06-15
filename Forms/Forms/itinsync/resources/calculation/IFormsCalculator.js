@@ -5,7 +5,7 @@ var FORMS_CALCULATION_MULTIPLY= "MULTIPLY";
 var FORMS_CALCULATION_DIVIDE= "DIVIDE";
 var FORMS_CONTROL_PERCENTAGE = "PERCENTAGE ";
 var FORMS_CONTROL_AVERAGE = "AVERAGE";
-var PAGE_CONTEXT = "CommonMasterBody_FormMasterBody_";
+var PAGE_CONTEXT = "CommonMasterBody_DocumnetMasterBody_";
 
 function calculation  ()
 {
@@ -100,7 +100,11 @@ function doOperation(value, resultantID, operation)
 
     var resultantObject = document.getElementById(PAGE_CONTEXT + resultantID);
     var fieldCount = resultantObject.getAttribute("fieldCount");
-    var resultantValue  = resultantObject.value;
+    var resultantValue = 0;
+    if (resultantObject.value == "")
+        resultantValue = 0;
+        else
+     resultantValue  = resultantObject.value;
 
     if(!fieldCount)
         fieldCount = 0;

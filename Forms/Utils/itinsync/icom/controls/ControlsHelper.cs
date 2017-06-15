@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.cache.translation;
 using Utils.itinsync.icom.constant.application;
+using Utils.itinsync.icom.cache.document;
 
 namespace Utils.itinsync.icom.controls
 {
@@ -32,7 +33,8 @@ namespace Utils.itinsync.icom.controls
                 if (content.fieldcalculations[0].resultContent != null)
                 {
                     if (content.fieldcalculations[0].resultContent.controlID != null)
-                        txtBox.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                        //bcoz i form calculator required proper id
+                        AddResultantID(txtBox, content);
                     if (content.fieldcalculations[0].operation != null)
                         txtBox.Attributes.Add("operation", content.fieldcalculations[0].operation);
                 }
@@ -95,7 +97,10 @@ namespace Utils.itinsync.icom.controls
             if (content.fieldcalculations.Count > 0)
             {
                 radio.Attributes.Add("onchange", "calculation();");
-                radio.Attributes.Add("resultantID", content.fieldcalculations[0].resultContentID.ToString());
+
+                //bcoz i form calculator required proper id
+                AddResultantID(radio,content);
+                
                 radio.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
             if(!string.IsNullOrEmpty(content.defaultValue))
@@ -104,8 +109,16 @@ namespace Utils.itinsync.icom.controls
             return radio;
         }
 
+        private void AddResultantID(HtmlControl control, XDocumentTableContent content)
+        {
+            control.Attributes.Add("resultantID", DocumentManager.getDocumentTablesContentID(content.fieldcalculations[0].resultContentID).controlID);
+        }
 
-        public  HtmlInputCheckBox createCheckBox(XDocumentTableContent content)
+        private void AddResultantID(WebControl control, XDocumentTableContent content)
+        {
+            control.Attributes.Add("resultantID", DocumentManager.getDocumentTablesContentID(content.fieldcalculations[0].resultContentID).controlID);
+        }
+            public  HtmlInputCheckBox createCheckBox(XDocumentTableContent content)
         {
             HtmlInputCheckBox check = new HtmlInputCheckBox();
             check.Name = content.controlName;
@@ -119,7 +132,7 @@ namespace Utils.itinsync.icom.controls
             if (content.fieldcalculations.Count > 0)
             {
                 check.Attributes.Add("onchange", "calculation();");
-                check.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                AddResultantID(check, content);
                 check.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
             if (!string.IsNullOrEmpty(content.defaultValue))
@@ -143,7 +156,7 @@ namespace Utils.itinsync.icom.controls
             if (content.fieldcalculations.Count > 0)
             {
                 ddl.Attributes.Add("onchange", "calculation();");
-                ddl.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                AddResultantID(ddl, content);
                 ddl.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
 

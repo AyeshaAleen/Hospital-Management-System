@@ -103,7 +103,7 @@ namespace Forms.Webroot.Forms.SIO
             dto.header = getHeader();
             dto.document =(Douments) getParentRef();
             dto.document.data = xml;
-            dto.document.flow = 2;
+            dto.document.flow = 1;
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)

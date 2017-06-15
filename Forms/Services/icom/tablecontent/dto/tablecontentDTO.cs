@@ -32,6 +32,8 @@ namespace Services.itinsync.icom.tablecontent.dto
 
         public XDocumentCalculation documentCalculation = new XDocumentCalculation();
 
+        public List<XDocumentCalculation> documentCalculationlist = new List<XDocumentCalculation>();
+
         public LookupTrans lookupTrans = new LookupTrans();
 
 

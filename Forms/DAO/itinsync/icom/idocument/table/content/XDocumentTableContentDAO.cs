@@ -75,6 +75,11 @@ namespace DAO.itinsync.icom.idocument.table.content
             return (XDocumentTableContent)processSingleResult(sql);
         }
 
+        public XDocumentTableContent findbycontrolID(string controlID)
+        {
+            string sql = "select * From " + TABLENAME + "where controlID = " + controlID;
+            return (XDocumentTableContent)processSingleResult(sql);
+        }
 
 
         public XDocumentTableContent findByPrimaryKey(Int32 ID)

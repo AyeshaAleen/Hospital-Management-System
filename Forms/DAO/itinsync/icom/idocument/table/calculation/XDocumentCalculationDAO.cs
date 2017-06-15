@@ -69,34 +69,35 @@ namespace DAO.itinsync.icom.idocument.table.calculation
 
         public List<XDocumentCalculation> readbyFieldID(Int32 fieldID)
         {
-            foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
-            {
-                XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
+            //foreach (Int32 entry in GlobalStaticCache.documentDefinition.Keys)
+            //{
+            //    XDocumentDefination documentDefinition = GlobalStaticCache.documentDefinition[entry];
 
-                foreach (XDocumentSection section in documentDefinition.documentSections)
-                {
-                    foreach (XDocumentTable table in section.documentTable)
-                    {
-                        foreach (XDocumentTableTR tr in table.trs)
-                        {
-                            foreach (XDocumentTableTD td in tr.tds)
-                            {
-                                foreach (XDocumentTableContent field in td.fields)
-                                {
-                                    if (field.documentTableContentID == fieldID)
-                                        return field.calculations;
-                                }
+            //    foreach (XDocumentSection section in documentDefinition.documentSections)
+            //    {
+            //        foreach (XDocumentTable table in section.documentTable)
+            //        {
+            //            foreach (XDocumentTableTR tr in table.trs)
+            //            {
+            //                foreach (XDocumentTableTD td in tr.tds)
+            //                {
+            //                    foreach (XDocumentTableContent field in td.fields)
+            //                    {
+            //                        if (field.documentTableContentID == fieldID)
+            //                            //issue
+            //                            return field.calculations;
+            //                    }
                                    
-                            }
+            //                }
 
-                        }
+            //            }
 
-                    }
+            //        }
 
-                }
-            }
+            //    }
+            //}
 
-            string sql = "select * From " + TABLENAME + " where tdID = " + fieldID;
+            string sql = "select * From " + TABLENAME + " where documentcontentID = " + fieldID;
             return wrap(processResults(sql));
         }
 
