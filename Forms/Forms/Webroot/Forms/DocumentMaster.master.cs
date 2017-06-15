@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using Domains.itinsync.icom.idocument.definition;
 using Forms.itinsync.src.session;
 using Utils.itinsync.icom.cache.pages;
+using Domains.itinsync.icom.idocument;
 
 namespace Forms.Webroot.Forms
 {
@@ -21,7 +22,7 @@ namespace Forms.Webroot.Forms
                 DataTable dt_PageDetail = new DataTable();
                 dt_PageDetail.Columns.Add("name");
                 dt_PageDetail.Columns.Add("Webname");
-                foreach (var section in ((XDocumentDefination)getParentRef()).documentSections)
+                foreach (var section in ((Douments)getParentRef()).xdocumentDefinition.documentSections)
                 {
                     dt_PageDetail.Rows.Add(section.name, PageManager.readbyPageID(section.pageID).webName);
                 }

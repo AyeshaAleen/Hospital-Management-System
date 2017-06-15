@@ -104,5 +104,18 @@ namespace DAO.itinsync.icom.idocument.section
                 list.Add((XDocumentSection)domain);
             return list;
         }
+
+        public int LastFlowID(Int32 DefinationId)
+        {
+            string sql = "select max(flow) From " + TABLENAME + " where documentdefinitionid = "+ DefinationId;
+            return MaxValue(sql);
+            //return (XDocumentSection)processSingleResult(sql);
+        }
+
+        public bool DeleteByID(Int32 SectionId)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where documentsectionid = {0}", SectionId);
+            return delete(delSQL);
+        }
     }
 }

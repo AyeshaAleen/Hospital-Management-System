@@ -5,28 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.idocument.route;
+using DAO.itinsync.icom.signature;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
-using Services.itinsync.icom.documents.dto;
-using Services.icom.cache.frame;
+using Services.icom.signature.dto;
 
-namespace Services.itinsync.icom.document.dynamic.route
+namespace Services.icom.signature
 {
-    public class DocumentRouteDeleteService : FrameASCache
+    public class SignatureGetService : FrameAS
     {
-        DocumentDTO dto = null;
+        SignatureDTO dto = null;
+
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
-                dto = (DocumentDTO)o;
-                if (dto.documentRoute.id> 0)
-                {
-                    XDocumentRouteDAO.getInstance(dbContext).deleteByID(dto.documentRoute.id);
-                }
-               
+                dto = (SignatureDTO)o;
+                dto.signaturelist = SignatureDAO.getInstance(dbContext).findbyDocumentid(dto.signature.documentid);
             }
             catch (Exception ex)
             {

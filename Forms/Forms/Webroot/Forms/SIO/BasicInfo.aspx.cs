@@ -17,13 +17,13 @@ using Utils.itinsync.icom.xml;
 using System.Xml;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument;
 
 namespace Forms.Webroot.Forms.SIO
 {
     [Serializable()]
     public partial class BasicInfo : BasePage
     {
-
         private static string dbxml = "";
         public static string xml = "<SIO></SIO>";
         public static int documentid = 0;
@@ -32,23 +32,28 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!IsPostBack)
             {
-
-
+                loaddata();
             }
         }
-
+        private void loaddata()
+        {
+            if (!string.IsNullOrEmpty(getXMLSession()))
+            {
+                processXML(this, getXMLSession(), "BasicInfo");
+            }
+        }
 
         private void save_data()
         {
 
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentDefinitionID = Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID);
+            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID;
             dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
             dto.document.data = xml;
             dto.document.Userid = getHeader().userID;
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
+            dto.document.storeid = ((Douments)getParentRef()).storeid;
             dto.document.documentID = documentid;
             dto.document.flow = DocumentFlow;
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Forms.SIO {
-    
-    
-    public partial class BasicInfo {
-        
+namespace Forms.Webroot.Forms.SIO
+{
+
+
+    public partial class BasicInfo
+    {
+
         /// <summary>
         /// txtStore control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtStore;
-        
+
         /// <summary>
         /// txtBI1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI1;
-        
+
         /// <summary>
         /// txtBI2 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI2;
-        
+
         /// <summary>
         /// txtBI3 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI3;
-        
+
         /// <summary>
         /// txtBI4 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI4;
-        
+
         /// <summary>
         /// txtBI5 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI5;
-        
+
         /// <summary>
         /// txtBI6 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI6;
-        
+
         /// <summary>
         /// txtBI7 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI7;
-        
+
         /// <summary>
         /// lblBI1 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblBI1;
-        
+
         /// <summary>
         /// txtBI12 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI12;
-        
+
         /// <summary>
         /// txtBI8 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI8;
-        
+
         /// <summary>
         /// txtBI9 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI9;
-        
+
         /// <summary>
         /// chkBI1 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkBI1;
-        
+
         /// <summary>
         /// radBI1 control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radBI1;
-        
+
         /// <summary>
         /// radBI2 control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton radBI2;
-        
+
         /// <summary>
         /// chkBI4 control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkBI4;
-        
+
         /// <summary>
         /// chkBI5 control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList chkBI5;
-        
+
         /// <summary>
         /// txtBI10 control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI10;
-        
+
         /// <summary>
         /// txtBI11 control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtBI11;
-        
+
         /// <summary>
         /// btnPrevious control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrevious;
-        
+
         /// <summary>
         /// btnSubmit control.
         /// </summary>
@@ -200,5 +202,14 @@ namespace Forms.Webroot.Forms.SIO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

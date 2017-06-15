@@ -8,17 +8,14 @@ using Domains.itinsync.icom.interfaces.request;
 using Domains.itinsync.icom.interfaces.response;
 using Domains.itinsync.icom.header;
 using Domains.itinsync.icom.error;
-using Domains.itinsync.icom.views.emailroutingview;
+using Domains.itinsync.icom.signature;
 
-namespace Services.icom.emailroutingview.dto
+namespace Services.icom.signature.dto
 {
-    public class EmailRoutingDTO : IRequestHandler, IResponseHandler
+    public class SignatureDTO : IRequestHandler, IResponseHandler
     {
-        //public string READBY { get; set; }
-        //public string UPDATEBY { get; set; }
-
-        public EmailRouting emailRouting = new EmailRouting();
-        public List<EmailRouting> emailRoutinglist = new List<EmailRouting>();
+        public Signature signature = new Signature();
+        public List<Signature> signaturelist = new List<Signature>();
 
         public ErrorBlock errorBlock = new ErrorBlock();
         public Header header = new Header();
