@@ -169,6 +169,19 @@ namespace DAO.itinsync.icom.BaseAS.CRUDBase
             }
             return 0;
         }
+
+        protected int MaxValue(string sql)
+        {
+            if (connection != null)
+            {
+                MySqlCommand ccmd = new MySqlCommand(sql, connection);
+                ccmd.Transaction = sqlTran;
+                int rowsAffected = Convert.ToInt32(ccmd.ExecuteScalar());
+                return rowsAffected;
+            }
+            return 0;
+        }
+
         protected bool delete(string commandtext)
         {
             if (connection != null)

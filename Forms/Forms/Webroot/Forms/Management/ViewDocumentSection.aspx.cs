@@ -136,13 +136,30 @@ namespace Forms.Webroot.Forms.Management
             Response.Redirect(PageConstant.PAGE_DocumentSectiondynamicForm);
         }
 
+        protected void btnDeleteDocument_Command(object sender, CommandEventArgs e)
+        {
+            DocumentDTO dtoIn = new DocumentDTO();
+            dtoIn.header = getHeader();
+
+            dtoIn.documentSection.documentsectionid = Convert.ToInt32(e.CommandArgument);
+
+            IResponseHandler response = new DocumentSectionDeleteService().executeAsPrimary(dtoIn);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                showSuccessMessage(response);
+                doLoad();
+            }
+            else
+                showErrorMessage(response);
+        }
+
         protected void btnSaveSection_Click(object sender, EventArgs e)
         {
             DocumentDTO dtoIn = new DocumentDTO();
             dtoIn.header = getHeader();
 
             dtoIn.documentSection.name = field.Value;
-            dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
+            dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); 
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
             dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
 

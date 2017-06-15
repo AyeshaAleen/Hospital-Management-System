@@ -16,7 +16,7 @@ using Services.itinsync.icom.cache;
 
 namespace Services.itinsync.icom.document.dynamic.section
 {
-    public class DocumentSectionSaveService : FrameAS
+    public class DocumentSectionDeleteService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -27,15 +27,9 @@ namespace Services.itinsync.icom.document.dynamic.section
                 if (dto.documentSection.documentsectionid > 0)
                 {
                     
-                    XDocumentSectionDAO.getInstance(dbContext).update(dto.documentSection, "");
+                    XDocumentSectionDAO.getInstance(dbContext).DeleteByID(dto.documentSection.documentsectionid);
                 }
-                else
-                {
-                    dto.documentSection.flow = (XDocumentSectionDAO.getInstance(dbContext).LastFlowID(dto.documentSection.documentdefinitionid)+1).ToString();
-                    XDocumentSectionDAO.getInstance(dbContext).create(dto.documentSection);
-                }
-
-
+                
             }
             catch (Exception ex)
             {

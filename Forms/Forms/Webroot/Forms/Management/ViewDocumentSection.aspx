@@ -56,7 +56,7 @@
                                     <tr>
                                         <th data-field="name" data-sortable="true">Section Name</th>
                                         <th data-field="View" data-align="center">View</th>
-                                        <th data-field="Edit" data-align="center">Edit</th>
+                                        <th data-field="Delete" data-align="center">Delete</th>
                                     </tr>
                                 </thead>
 
@@ -75,10 +75,10 @@
                                                     </asp:LinkButton>
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-edit bigger-120"
+                                                    <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
                                                         CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' ToolTip="Edit"
-                                                        data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this)">
+                                                        CommandName='Reset' ToolTip="Delete"
+                                                       OnCommand="btnDeleteDocument_Command">
                                                     </asp:LinkButton>
                                                 </td>
                                             </tr>

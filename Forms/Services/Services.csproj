@@ -60,6 +60,7 @@
     <Compile Include="icom\document\dynamic\route\DocumentRouteGetService.cs" />
     <Compile Include="icom\document\dynamic\route\DocumentRouteSaveService.cs" />
     <Compile Include="icom\document\dynamic\section\DocumentSectionGetService.cs" />
+    <Compile Include="icom\document\dynamic\section\DocumentSectionDeleteService.cs" />
     <Compile Include="icom\document\dynamic\section\DocumentSectionSaveService.cs" />
     <Compile Include="icom\document\email\dto\EmailDTO.cs" />
     <Compile Include="icom\document\email\EmailSendService.cs" />
