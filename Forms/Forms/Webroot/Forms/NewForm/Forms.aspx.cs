@@ -12,6 +12,9 @@ using Services.icom.document.email;
 using Services.icom.document.store.dto;
 using Utils.itinsync.icom.cache.document;
 using Utils.itinsync.icom.constant.application;
+using Services.itinsync.icom.documents.dto;
+using Utils.itinsync.icom.date;
+using Services.itinsync.icom.documents;
 
 namespace Forms.Webroot.Forms.NewForm
 {
@@ -45,13 +48,29 @@ namespace Forms.Webroot.Forms.NewForm
 
         protected void getDocumentDetail(object sender, EventArgs e)
         {
-            XDocumentDefination DocumentDefinition = DocumentManager.getDocumentDefinition(Convert.ToInt32(ddlForms.SelectedValue));
-            setParentRef(DocumentDefinition);
-            //For Storing Store
-            setSubjectID(ddlStore.SelectedValue);
+
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
+            dto.document.documentDefinitionID = Convert.ToInt32(ddlForms.SelectedValue);
+            dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
+            dto.document.transDate = DateFunctions.getCurrentDateAsString();
+            dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
+            dto.document.data = "<SIO></SIO>";
+            dto.document.Userid = getHeader().userID;
+            dto.document.storeid = Convert.ToInt32(ddlStore.SelectedValue);
+            dto.document.flow = 1;
+            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
+
+            
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (DocumentDTO)response;
+                setParentRef(dto.document);
+                Response.Redirect("/Webroot/Forms/" + ddlForms.SelectedItem + "/" + dto.document.xdocumentDefinition.documentSections.First().name + ".aspx");
+            }
             
 
-            Response.Redirect("/Webroot/Forms/" +ddlForms.SelectedItem +"/"+ DocumentDefinition .documentSections.First().name+ ".aspx");
+            
         }
     }
 }

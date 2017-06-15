@@ -43,6 +43,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="icom\cache\CacheManagmentService.cs" />
     <Compile Include="icom\cache\documentdefinition\DocumentDefinitionManagerService.cs" />
+    <Compile Include="icom\cache\frame\FrameASCache.cs" />
     <Compile Include="icom\cache\lookup\LookupManagerService.cs" />
     <Compile Include="icom\cache\lookup\trans\LookupTranslationCacheService.cs" />
     <Compile Include="icom\cache\pages\PageManagerService.cs" />

@@ -22,10 +22,11 @@ using DAO.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.lookuptrans;
 using Services.itinsync.icom.cache.task.taskdefinition;
 using Services.itinsync.icom.cache;
+using Services.icom.cache.frame;
 
 namespace Services.itinsync.icom.tablecontent
 {
-    public class TableContentManageService : FrameAS
+    public class TableContentManageService : FrameASCache
     {
         tablecontentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -104,11 +105,7 @@ namespace Services.itinsync.icom.tablecontent
         }
 
 
-        protected override void finalizer(bool status)
-        {
-            //reload document cache service as we have made content changes
-            new CacheManagmentService().executeAsPrimary(null);
-        }
+       
 
 
     }
