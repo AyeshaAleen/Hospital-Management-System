@@ -17,6 +17,7 @@ using Utils.itinsync.icom.xml;
 using System.Xml;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
+using Domains.itinsync.icom.idocument;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -43,7 +44,7 @@ namespace Forms.Webroot.Forms.SIO
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentDefinitionID = Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID);
+            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID;
             dto.document.storeid = Convert.ToInt32(getSubjectID());
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
@@ -77,7 +78,7 @@ namespace Forms.Webroot.Forms.SIO
 
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentDefinitionID = Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID);
+            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID; ;
             dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
             dto.document.data = xml;
