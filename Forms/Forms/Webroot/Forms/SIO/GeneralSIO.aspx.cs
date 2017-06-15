@@ -29,7 +29,7 @@ namespace Forms.Webroot.Forms.SIO
         private static string dbxml = "";
         public static string xml = "<SIO></SIO>";
         public static int documentid = 0;
-        public static int DocumentFlow = 1;
+        public static int DocumentFlow = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -69,7 +69,7 @@ namespace Forms.Webroot.Forms.SIO
         {
           
 
-            xml = "<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>" + "</SIO>";
+            xml ="<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>" + "</SIO>";
 
             string db_xml = dbxml;
             XMLParser xmlparser = new XMLParser(db_xml);
@@ -77,15 +77,17 @@ namespace Forms.Webroot.Forms.SIO
 
 
             XMLParser xmlparser_In = new XMLParser(xml);
-           
+
 
             string invalue = xmlparser_In.getTagXML("GeneralSIO");
 
-            
 
-            xmlparser.setTagXML("GeneralSIO", invalue.ToString());
 
-            xml = xmlparser.getRootTagXML("GeneralSIO");
+            xmlparser.setTagXML("GeneralSIO", xml);
+
+            string finalxml= xmlparser.getRootTagXML("GeneralSIO");
+            if (!string.IsNullOrEmpty(finalxml))
+                xml = finalxml;
 
              save_data();
             
@@ -101,7 +103,7 @@ namespace Forms.Webroot.Forms.SIO
             dto.header = getHeader();
             dto.document =(Douments) getParentRef();
             dto.document.data = xml;
-            dto.document.flow = 2;
+            dto.document.flow = 1;
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)

@@ -11,6 +11,7 @@ using System.Web.UI.WebControls;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.cache.translation;
 using Utils.itinsync.icom.constant.application;
+using Utils.itinsync.icom.cache.document;
 
 namespace Utils.itinsync.icom.controls
 {
@@ -23,16 +24,23 @@ namespace Utils.itinsync.icom.controls
             txtBox.CssClass = content.cssClass;
             txtBox.Attributes.Add("irequired", content.isRequired);
             txtBox.Attributes.Add("imask", content.mask);
-            txtBox.Attributes.Add("disabled", content.isReadonly);
+            if (!string.IsNullOrEmpty(content.isReadonly))
+                txtBox.Attributes.Add("disabled", content.isReadonly);
             txtBox.Attributes.Add("points", content.points);
             if (content.fieldcalculations.Count > 0)
             {
                 txtBox.Attributes.Add("onchange", "calculation();");
-                txtBox.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
-                txtBox.Attributes.Add("operation", content.fieldcalculations[0].operation);
-
+                if (content.fieldcalculations[0].resultContent != null)
+                {
+                    if (content.fieldcalculations[0].resultContent.controlID != null)
+                        //bcoz i form calculator required proper id
+                        AddResultantID(txtBox, content);
+                    if (content.fieldcalculations[0].operation != null)
+                        txtBox.Attributes.Add("operation", content.fieldcalculations[0].operation);
+                }
             }
-            txtBox.Text = content.defaultValue;
+            if (!string.IsNullOrEmpty(content.defaultValue))
+                txtBox.Text = content.defaultValue;
 
             return txtBox;
         }
@@ -83,38 +91,52 @@ namespace Utils.itinsync.icom.controls
             radio.Attributes.Add("irequired", content.isRequired);
             radio.Attributes.Add("imask", content.mask);
             radio.Attributes.Add("points", content.points);
+            if(!string.IsNullOrEmpty(content.isReadonly))
             radio.Attributes.Add("disabled", content.isReadonly);
 
             if (content.fieldcalculations.Count > 0)
             {
                 radio.Attributes.Add("onchange", "calculation();");
-                radio.Attributes.Add("resultantID", content.fieldcalculations[0].resultContentID.ToString());
+
+                //bcoz i form calculator required proper id
+                AddResultantID(radio,content);
+                
                 radio.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
+            if(!string.IsNullOrEmpty(content.defaultValue))
             radio.Value = content.defaultValue;
 
             return radio;
         }
 
+        private void AddResultantID(HtmlControl control, XDocumentTableContent content)
+        {
+            control.Attributes.Add("resultantID", DocumentManager.getDocumentTablesContentID(content.fieldcalculations[0].resultContentID).controlID);
+        }
 
-        public  HtmlInputCheckBox createCheckBox(XDocumentTableContent content)
+        private void AddResultantID(WebControl control, XDocumentTableContent content)
+        {
+            control.Attributes.Add("resultantID", DocumentManager.getDocumentTablesContentID(content.fieldcalculations[0].resultContentID).controlID);
+        }
+            public  HtmlInputCheckBox createCheckBox(XDocumentTableContent content)
         {
             HtmlInputCheckBox check = new HtmlInputCheckBox();
             check.Name = content.controlName;
             check.ID = content.controlID;
             check.Attributes.Add("irequired", content.isRequired);
-            check.Attributes.Add("disabled", content.isReadonly);
+            if (!string.IsNullOrEmpty(content.isReadonly))
+                check.Attributes.Add("disabled", content.isReadonly);
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
 
             if (content.fieldcalculations.Count > 0)
             {
                 check.Attributes.Add("onchange", "calculation();");
-                check.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                AddResultantID(check, content);
                 check.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
-
-            check.Value = content.defaultValue;
+            if (!string.IsNullOrEmpty(content.defaultValue))
+                check.Value = content.defaultValue;
 
             return check;
         }
@@ -126,14 +148,15 @@ namespace Utils.itinsync.icom.controls
             ddl.DataValueField = "Code";
             ddl.DataTextField = "Text";
             ddl.Attributes.Add("irequired", content.isRequired);
-            ddl.Attributes.Add("disabled", content.isReadonly);
+            if (!string.IsNullOrEmpty(content.isReadonly))
+                ddl.Attributes.Add("disabled", content.isReadonly);
 
             ddl.Attributes.Add("imask", content.mask);
             ddl.Attributes.Add("points", content.points);
             if (content.fieldcalculations.Count > 0)
             {
                 ddl.Attributes.Add("onchange", "calculation();");
-                ddl.Attributes.Add("resultantID", content.fieldcalculations[0].resultContent.controlID);
+                AddResultantID(ddl, content);
                 ddl.Attributes.Add("operation", content.fieldcalculations[0].operation);
             }
 

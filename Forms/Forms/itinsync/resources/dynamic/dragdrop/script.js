@@ -105,7 +105,7 @@ redips.init = function () {
 // callback method is called with XHR and obj object (obj is just passed from ajaxCall to this callback function)
 // error handling is wrapped inside callback function
 redips.handler1 = function (xhr, obj) {
-    debugger;
+
     // prepare title and layout local variables
     var title,
         layout;
@@ -162,15 +162,14 @@ redips.handler1 = function (xhr, obj) {
 };
 
 function deleteColumn(elem) {
-
-    debugger;
+    
     var divelement = $(elem).parent().remove();
 }
 
 
 function setTranslation() {
 
-    debugger;
+
     var input = $("#defaultValue").val();
     var output = input.split(" ").join('.');
     $("#translation").val(output);
@@ -179,11 +178,12 @@ function setTranslation() {
 }
 
 function AddDetail(id) {
-    debugger;
 
 
-    $("#opt").remove();
-    $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append("");
+$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove()
+
+$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
+
     $('#tblEditor').find('td input').each(function () {
 
         $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
@@ -202,7 +202,11 @@ function AddDetail(id) {
         document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = false;
         document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = false;
     }
-
+    if (document.getElementById(id).getAttribute("type") == "radio") {
+        document.getElementById("ControlName").disabled = false;
+    }
+    else
+        document.getElementById("ControlName").disabled = true;
 
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
@@ -224,19 +228,19 @@ function AddDetail(id) {
     $('#con-close-modal').modal('show');
 }
 function SetDetail() {
-    debugger;
 
-
+      var  id = document.getElementById("ControlID").value;
    
-
-    var id = document.getElementById("ControlName").value;
-   
-    document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
+    document.getElementById(id).setAttribute("id", document.getElementById("ControlID").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
     document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
     if ($("#isReadonly").is(':checked')) {
         document.getElementById(id).setAttribute("disabled", "disabled");
+    }
+    else
+    {
+        document.getElementById(id).removeAttribute("disabled", "");
     }
     if (document.getElementById(id).getAttribute("type") != "label")
     {
@@ -273,7 +277,7 @@ function fieldClick(event) {
 }
 
 function fieldset(event,divid) {
-    debugger;
+
  
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")
     {

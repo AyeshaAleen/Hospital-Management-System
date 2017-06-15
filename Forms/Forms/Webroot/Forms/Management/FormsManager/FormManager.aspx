@@ -168,13 +168,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Control Name</label>
-                                            <input type="text" id="ControlName" readonly class="form-control" />
+                                            <input type="text" id="ControlName" disabled class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Control ID</label>
-                                            <input type="text" id="ControlID" readonly class="form-control" />
+                                            <input type="text" id="ControlID" disabled class="form-control" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -289,11 +289,7 @@
 
         $(document).ready(function () {
 
-            debugger;
-
-            //    var parenttbl = document.getElementById("cellcontrol");
-            //    var outer = parenttbl.outerHTML;
-            //    outer = decodehtml(outer);
+          
 
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "") {
                 document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;

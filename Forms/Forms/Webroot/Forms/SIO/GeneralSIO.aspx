@@ -13,7 +13,7 @@
               <h4 class="m-t-0 header-title"><b>General SIO</b></h4>
             
         
-                <asp:Table ID="tableDynamic" runat="server" data-toggle="table">
+                <asp:Table ID="tableDynamic" runat="server" data-toggle="table" CssClass="table table-bordered table-hover">
                    
                 </asp:Table>
              
@@ -25,7 +25,7 @@
                    
                   <div class="clearfix"></div>
                
-                <button onclick="javascript:demoFromHTML();">PDF</button>
+                
 
            <div class="clearfix"></div>
             </div>
