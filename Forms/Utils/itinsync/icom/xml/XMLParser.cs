@@ -100,13 +100,14 @@ namespace Utils.itinsync.icom.xml
 
 
             XmlNodeList nodeList = xmlDoc.DocumentElement.SelectNodes("/" + rootTag + "/" + tag);
-
-            foreach (XmlNode node in nodeList)
+            if (nodeList.Count > 0)
             {
+                foreach (XmlNode node in nodeList)
+                {
 
-                return "<" + rootTag + ">" + node.InnerXml + "</" + rootTag + ">";
+                    return "<" + rootTag + ">" + node.InnerXml + "</" + rootTag + ">";
+                }
             }
-
             return "";
         }
 
@@ -115,14 +116,15 @@ namespace Utils.itinsync.icom.xml
         {
             XmlNode node = xmlDoc.SelectSingleNode("/"+ rootTag+"/"+ tag);
 
-            
-
-            if (node.Name == tag)
+            if (node != null)
             {
-                node.InnerXml = node.OuterXml;
-                node.InnerXml = value;
-            }
 
+                if (node.Name == tag)
+                {
+                    node.InnerXml = node.OuterXml;
+                    node.InnerXml = value;
+                }
+            }
             return "";
         }
 

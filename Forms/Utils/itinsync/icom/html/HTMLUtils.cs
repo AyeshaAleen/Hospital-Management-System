@@ -23,7 +23,7 @@ namespace Utils.itinsync.icom.html
 {
     public static class HTMLUtils
     {
-        public static XDocumentTable  HtmlParse(string html, int section_id)
+        public static XDocumentTable  HtmlParse(string html, int section_id,string formname)
         {
               #region add Load Html
           
@@ -33,7 +33,7 @@ namespace Utils.itinsync.icom.html
             #endregion
 
             XDocumentTable documentTable = new XDocumentTable();
-
+            
             #region add Table dto values
 
 
@@ -87,7 +87,7 @@ namespace Utils.itinsync.icom.html
 
 
 
-
+                            
                             foreach (var fieldnode in colnode.ChildNodes)
                             {
                                 if (!string.IsNullOrWhiteSpace(fieldnode.OuterHtml))
@@ -98,8 +98,8 @@ namespace Utils.itinsync.icom.html
 
                                     if (!string.IsNullOrEmpty(type))
                                     {
+
                                         XDocumentTableContent tableContent = new XDocumentTableContent();
-                                        XDocumentCalculation fieldcalculation = new XDocumentCalculation();
 
                                         if (type == "checkbox")
                                             tableContent.controlType =ApplicationCodes.FORMS_CONTROL_CHECKBOX;
@@ -119,10 +119,13 @@ namespace Utils.itinsync.icom.html
                                         }
                                         if (type == "heading")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HEADING;
+                                         
+                                        string ControlId = fieldnode.ChildNodes[1].GetAttributeValue("id", "").Replace(section_id.ToString()+ formname, string.Empty);
 
-
+                                        
+                                        
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
-                                        tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
+                                        tableContent.controlID = ControlId + section_id + formname;
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
                                         tableContent.mask = fieldnode.ChildNodes[1].GetAttributeValue("imask", "");
                                         tableContent.cssClass = fieldnode.ChildNodes[1].GetAttributeValue("Class", "");
@@ -139,7 +142,11 @@ namespace Utils.itinsync.icom.html
                                         //fieldcalculation.documentcontentID= fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
                                         if (fieldnode.ChildNodes[1].GetAttributeValue("Operation", "") != "")
                                         {
-                                            fieldcalculation.resultContentAttribute = fieldnode.ChildNodes[1].GetAttributeValue("resultantid", "") + section_id + "formname";
+                                            XDocumentCalculation fieldcalculation = new XDocumentCalculation();
+                                            string resultContentAttribute = fieldnode.ChildNodes[1].GetAttributeValue("resultantid", "").Replace(section_id.ToString() + formname, string.Empty);
+
+
+                                            fieldcalculation.resultContentAttribute = resultContentAttribute + section_id + formname;
                                             fieldcalculation.operation = fieldnode.ChildNodes[1].GetAttributeValue("Operation", "");
 
                                             //dto.documentTableContentlist.Add(dto.documentTableContent);

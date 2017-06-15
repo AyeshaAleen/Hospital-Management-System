@@ -80,7 +80,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 
             //Delete existing record if any
             dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-            dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()));
+            dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).name);
             dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
 
             IResponseHandler response = new TableContentManageService().executeAsPrimary(dto);

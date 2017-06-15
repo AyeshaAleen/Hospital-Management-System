@@ -7,10 +7,12 @@ using System.Web.UI.WebControls;
 using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.icom.interfaces.response;
+using Domains.itinsync.icom.pages;
 using Forms.itinsync.src.session;
 using Services.icom.document.email;
 using Services.icom.document.store.dto;
 using Utils.itinsync.icom.cache.document;
+using Utils.itinsync.icom.cache.pages;
 using Utils.itinsync.icom.constant.application;
 
 namespace Forms.Webroot.Forms.NewForm
@@ -48,10 +50,9 @@ namespace Forms.Webroot.Forms.NewForm
             XDocumentDefination DocumentDefinition = DocumentManager.getDocumentDefinition(Convert.ToInt32(ddlForms.SelectedValue));
             setParentRef(DocumentDefinition);
             //For Storing Store
-            setSubjectID(ddlStore.SelectedValue);
-            
-
-            Response.Redirect("/Webroot/Forms/" +ddlForms.SelectedItem +"/"+ DocumentDefinition .documentSections.First().name+ ".aspx");
+            //setSubjectID(ddlStore.SelectedValue);
+            PageName getPageDetail = PageManager.readbyPageID(DocumentDefinition.documentSections.First().pageID);
+            Response.Redirect(getPageDetail.webName);
         }
     }
 }

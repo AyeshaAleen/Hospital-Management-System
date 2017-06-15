@@ -110,12 +110,16 @@ namespace Services.itinsync.icom.tablecontent
         {
                 if (field.calculations != null && field.calculations.Count > 0)
                 {
-                    foreach (XDocumentCalculation calculation in field.calculations)
+               
+                foreach (XDocumentCalculation calculation in field.calculations)
                     {
-                        if (field.controlID == calculation.resultContentAttribute)
-                            calculation.resultContentID = field.documentTableContentID;
-                        else
-                            calculation.documentcontentID = field.documentTableContentID;
+                    XDocumentTableContent TableContent = XDocumentTableContentDAO.getInstance(dbContext).findbyPrimaryKey(Convert.ToInt32(calculation.resultContentAttribute));
+
+
+                    if (TableContent!=null && Convert.ToInt32(TableContent.controlID) > 0)
+                        calculation.resultContentID = field.documentTableContentID;
+                    //    else
+                    calculation.documentcontentID = field.documentTableContentID;
                         if(calculation.operation.Length >0)
                             calculation.xdocumentcalculationID = XDocumentCalculationDAO.getInstance(dbContext).create(calculation);
                     }

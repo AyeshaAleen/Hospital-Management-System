@@ -145,7 +145,7 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.name = field.Value;
             dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); // ok
             dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
-            dtoIn.documentSection.documentdefinitionid = Convert.ToInt32(getSubjectID());
+            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
 
             IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)

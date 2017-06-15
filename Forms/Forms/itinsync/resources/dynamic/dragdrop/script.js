@@ -202,7 +202,11 @@ function AddDetail(id) {
         document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = false;
         document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = false;
     }
-
+    if (document.getElementById(id).getAttribute("type") == "radio") {
+        document.getElementById("ControlName").disabled = false;
+    }
+    else
+        document.getElementById("ControlName").disabled = true;
 
     //this is required object which contain all information regarding object
     var fieldObject = document.getElementById(id);
@@ -226,12 +230,9 @@ function AddDetail(id) {
 function SetDetail() {
     debugger;
 
-
+      var  id = document.getElementById("ControlID").value;
    
-
-    var id = document.getElementById("ControlName").value;
-   
-    document.getElementById(id).setAttribute("id", document.getElementById("ControlName").value);
+    document.getElementById(id).setAttribute("id", document.getElementById("ControlID").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
     document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
