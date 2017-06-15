@@ -78,7 +78,7 @@ namespace Forms.Webroot.Forms.SIO
 
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID);
+            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID;
             dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
             dto.document.data = xml;
