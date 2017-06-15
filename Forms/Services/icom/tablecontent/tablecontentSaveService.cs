@@ -81,7 +81,7 @@ namespace Services.itinsync.icom.tablecontent
                                        
 										calculationMap.Add(field.documentTableContentID,field.calculations);
                                         if(!(fieldMap.ContainsKey(field.controlID)))
-										fieldMap.Add(field.controlID,field);
+										    fieldMap.Add(field.controlID,field);
                                            
                                     }
                               }

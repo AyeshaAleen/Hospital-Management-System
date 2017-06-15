@@ -83,7 +83,7 @@ namespace Forms.Webroot.Forms.SIO
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
             dto.document.data = xml;
             dto.document.Userid = getHeader().userID;
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
+            dto.document.storeid = ((Douments)getParentRef()).storeid;
             dto.document.documentID = documentid;
             dto.document.flow = DocumentFlow;
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
