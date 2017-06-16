@@ -2,6 +2,7 @@
 using DAO.itinsync.icom.useraccounts;
 using DAO.itinsync.icom.userregion;
 using DAO.itinsync.icom.userrole;
+//using DAO.itinsync.icom.vendor;
 using DAO.itinsync.icom.views;
 using Domains.itinsync.icom.interfaces.response;
 using Domains.itinsync.icom.session.user;
@@ -40,7 +41,7 @@ namespace Services.user
                         List<UserRole> userRole = UserRoleDAO.getInstance(dbContext).readByUserID(user.userID);
                         userInfo.userRoles = userRole;
                         userInfo.userTeams = UserTeamViewDAO.getInstance(dbContext).readByUserID(user.userID);
-                        userInfo.userRegion = UserRegionDAO.getInstance(dbContext).readByUserID(user.userID);
+                        //userInfo.userregion = UserRegionDAO.getInstance(dbContext).readByUserID(user.userID);
                         userInfo.authorise = true;
                         getHeader().userID = user.userID;
                         getHeader().userinformation = userInfo;

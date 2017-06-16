@@ -7,28 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Users {
+namespace Forms.Webroot.Team.TeamSearch {
     
     
-    public partial class UserSearch {
+    public partial class TeamSearch {
         
         /// <summary>
-        /// txtUserName control.
+        /// txtTeamName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTeamName;
         
         /// <summary>
-        /// btnSearchUser control.
+        /// btnSearchTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearchUser;
+        protected global::System.Web.UI.WebControls.Button btnSearchTeam;
         
         /// <summary>
         /// btnClearForm control.
@@ -58,12 +58,12 @@ namespace Forms.Webroot.Users {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblBody;
         
         /// <summary>
-        /// repeaterUsers control.
+        /// repeaterTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterUsers;
+        protected global::System.Web.UI.WebControls.Repeater repeaterTeam;
     }
 }

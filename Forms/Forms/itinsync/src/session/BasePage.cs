@@ -409,11 +409,11 @@ namespace Forms.itinsync.src.session
         {
             Sessions.getSession().ClearSessionKeys();
         }
-        public string trasnlation(string key)
+         public string trasnlation(string key)
         {
+            if (key == null || key.Length == 0)
+                return "";
             return TranslationManager.trans(key, getUserInformation() == null ? "" : getUserInformation().userAccount.lang);
-
-           
         }
 
         public void DateFormatter(Control parent)

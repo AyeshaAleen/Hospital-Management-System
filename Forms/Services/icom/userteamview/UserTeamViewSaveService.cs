@@ -1,26 +1,29 @@
 ﻿using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.userteam;
-using domains.itinsync.useraccounts;
+using DAO.itinsync.icom.views;
 using Domains.itinsync.icom.interfaces.response;
-using Services.itinsync.icom.useraccounts.dto;
+using Domains.itinsync.icom.views.user;
+using Services.itinsync.icom.userteamview.dto;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 
-namespace Services.itinsync.icom.useraccounts
+namespace Services.itinsync.icom.userteamview
 {
-    public class UserTeamSaveService : FrameAS
+    public class UserTeamViewSaveService : FrameAS
     {
-        UserTeamDTO dto = null;
+        UserTeamViewDTO dto = null;
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
-                UserTeam userteam = new UserTeam();
-                dto = (UserTeamDTO)o;
-                UserTeam up = dto.userteam;
-                if (!UserTeamDAO.getInstance(dbContext).teamExists(dto.userteam.teamID, dto.userteam.userID))
-                    UserTeamDAO.getInstance(dbContext).create(up);
+                UserTeamView userteamview = new UserTeamView();
+                dto = (UserTeamViewDTO)o;
+                UserTeamView up = dto.userteamview;
+                UserTeamViewDAO.getInstance(dbContext).create(up);
             }
             catch (Exception ex)
             {

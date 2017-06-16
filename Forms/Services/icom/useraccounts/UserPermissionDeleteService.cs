@@ -3,6 +3,7 @@ using System;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.exceptions;
 using Utils.itinsync.icom.constant.application;
+using DAO.itinsync.icom.views;
 using DAO.itinsync.icom.useraccounts;
 
 namespace Services.itinsync.icom.useraccounts

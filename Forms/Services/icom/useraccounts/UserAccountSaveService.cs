@@ -2,6 +2,7 @@
 using DAO.itinsync.icom.BaseAS.frame;
 using DAO.itinsync.icom.useraccounts;
 using Domains.itinsync.icom.interfaces.response;
+
 using Services.itinsync.icom.useraccounts.dto;
 using System;
 using System.Threading;
@@ -43,7 +44,10 @@ namespace Services.itinsync.icom.useraccounts
             return dto;
         }
 
-      
+        protected override void postCommit()
+        {
+            
+        }
 
     }
 }

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="User Permissions" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserPermissions.aspx.cs" Inherits="Forms.Webroot.Users.UserPermission.UserPermissions" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
+﻿<%@ Page Title="Assign Team" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AssignTeam.aspx.cs" Inherits="Forms.Webroot.Team.AssignTeam" %>
+<asp:Content ID="AssignTeamHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="FormMasterBody" runat="server">
+<asp:Content ID="AssignTeamBody" ContentPlaceHolderID="FormMasterBody" runat="server">
     <div class="page-content">
 
         <div class="page-header">
@@ -20,30 +20,30 @@
                             <div class="pull-right tableTools-container"></div>
                         </div>
                         <div class="table-header">
-                             <% Response.Write(trasnlation("Current Permissions")); %>
+                             <% Response.Write(translation("Current.Teams")); %>
                         </div>
 
                         <!-- div.table-responsive -->
 
                         <!-- div.dataTables_borderWrap -->
                         <div>
-                            <table class="table table-striped table-bordered table-hover dynamic-table" id="tbluserPermission">
+                            <table class="table table-striped table-bordered table-hover dynamic-table" id="tbluserTeam">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center"><% Response.Write(trasnlation("Permissions")); %></th>
+                                        <th style="text-align:center"><% Response.Write(trasnlation("Teams")); %></th>
                                         <th style="text-align:center"><% Response.Write(trasnlation("Delete")); %></th>
                                     </tr>
                                 </thead>
                                 <tbody runat="server" id="Tbody1">
-                                    <asp:Repeater ID="tblUserPermissions" runat="server">
+                                    <asp:Repeater ID="tblUserTeams" runat="server">
                                         <ItemTemplate>
                                             <tr>
-                                                <td>
-                                                    <asp:Label runat="server" ID="tbllText" Text='<%# Eval("text") %>' /></td>
+                                              <td>
+                                                <asp:Label runat="server" ID="tbllText" Text='<%# Eval("teamName") %>' /></td>
                                                 <td style="text-align: center;">
                                                     <asp:LinkButton ID="btnEdit" runat="server" CssClass="ace-icon fa fa-close bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "userPermissionID") ) %>'
-                                                        CommandName='edit' OnCommand="tbl_Delete_Click" ToolTip="Delete">
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "userTeamID") ) %>'
+                                                        CommandName='edit' OnCommand="tbl_Delete_Click" ToolTip="View">
                                                     </asp:LinkButton>
                                                 </td>
                                             </tr>
@@ -55,12 +55,12 @@
                     </div>
 
                     <div class="col-xs-12">
-                        <h1>Add New Permission</h1>
+                        <h1>Add New Team</h1>
                          <div class="form-group  col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Pages")); %></label>
+                            <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Teams")); %></label>
 
                             <div class="col-sm-8">
-                                <asp:DropDownList ID="ddlPermission" DataValueField="code" DataTextField="text"  runat="server" CssClass="chosen-select form-control">
+                                <asp:DropDownList ID="ddlTeam" DataValueField="teamID" DataTextField="teamName"  runat="server" CssClass="chosen-select form-control">
                                     
                                 </asp:DropDownList>
                                
@@ -71,7 +71,7 @@
 
                       <div class="form-group col-xs-12">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnAddPermission" runat="server" OnClick="btnAddPermission_Click" Text="Add.Permission" class="btn btn-sm btn-success" />
+                                <asp:Button ID="btnAddTeam" runat="server" OnClick="btnAddTeam_Click" Text="Add.Team" class="btn btn-sm btn-success" />
                             </div>
                         </div>
 
@@ -83,5 +83,5 @@
         <!-- /.row -->
     </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
+<asp:Content ID="AssignTeamFooter" ContentPlaceHolderID="FormMasterFoot" runat="server">
 </asp:Content>

@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domains.itinsync.icom.annotation;
+using Domains.itinsync.interfaces.domain;
+using System;
 
-namespace Entities.itinsync.team
+namespace Domains.itinsync.icom.team
 {
-    public class Team
+    public class Team : System.Attribute, IDomain
     {
-        public enum columns { teamid, teamname, status,vendorid }
-        public int teamid { get; set; }
-        public string teamname { get; set; }
-        public string status { get; set; }
-        public string statusText { get; set; }
-        public int vendorid { get; set; }
+        public enum columns {  teamName, status }
+        public enum primaryKey { teamID }
+        public Int32 teamID { get; set; }
+        public String teamName { get; set; }
+
+        [LookupAttribute(lookupName = "LKTaskStatus", relatedTag = "statusText")]
+        public String status { get; set; }
+        public String statusText { get; set; }
+        public object getKey() {  return teamID; }
+
+        public void setTransID(object transID)
+        {
+            
+        }
     }
 }

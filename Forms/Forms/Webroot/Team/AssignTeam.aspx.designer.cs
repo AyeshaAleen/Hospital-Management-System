@@ -7,63 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Users {
+namespace Forms.Webroot.Team {
     
     
-    public partial class UserSearch {
+    public partial class AssignTeam {
         
         /// <summary>
-        /// txtUserName control.
+        /// lblname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblname;
         
         /// <summary>
-        /// btnSearchUser control.
+        /// Tbody1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearchUser;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tbody1;
         
         /// <summary>
-        /// btnClearForm control.
+        /// tblUserTeams control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearForm;
+        protected global::System.Web.UI.WebControls.Repeater tblUserTeams;
         
         /// <summary>
-        /// btnAddNew control.
+        /// ddlTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddNew;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
         
         /// <summary>
-        /// tblBody control.
+        /// btnAddTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblBody;
-        
-        /// <summary>
-        /// repeaterUsers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeaterUsers;
+        protected global::System.Web.UI.WebControls.Button btnAddTeam;
     }
 }
