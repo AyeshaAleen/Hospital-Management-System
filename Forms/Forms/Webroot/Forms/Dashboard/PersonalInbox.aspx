@@ -13,7 +13,7 @@
 
 
                 <div class="col-md-6 col-lg-3">
-                    <a href="">
+                    <a href="#">
                         <div class="widget-bg-color-icon card-box fadeInDown animated">
                             <div class="bg-icon bg-icon-info pull-left">
                                 <i class="md md-home text-info"></i>

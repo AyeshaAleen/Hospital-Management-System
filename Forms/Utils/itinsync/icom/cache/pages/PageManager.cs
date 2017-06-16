@@ -18,6 +18,18 @@ namespace Utils.itinsync.icom.cache.pages
 
         }
 
+        public static PageName readbyPageName(string pageName)
+        {
+            if (GlobalStaticCache.PageCacheMap.ContainsKey(pageName))
+                return GlobalStaticCache.PageCacheMap[pageName];
+            else
+            {
+                // write code to reload data
+                return null;
+            }
+
+        }
+
         public static PageName getPageName(Int32 pageID)
         {
             if (GlobalStaticCache.PageCacheMap.ContainsKey(pageID.ToString()))

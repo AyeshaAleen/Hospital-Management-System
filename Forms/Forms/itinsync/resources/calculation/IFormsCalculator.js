@@ -5,7 +5,7 @@ var FORMS_CALCULATION_MULTIPLY= "MULTIPLY";
 var FORMS_CALCULATION_DIVIDE= "DIVIDE";
 var FORMS_CONTROL_PERCENTAGE = "PERCENTAGE ";
 var FORMS_CONTROL_AVERAGE = "AVERAGE";
-var PAGE_CONTEXT = "CommonMasterBody_FormMasterBody_";
+var PAGE_CONTEXT = "CommonMasterBody_DocumnetMasterBody_";
 
 function calculation  ()
 {
@@ -44,6 +44,7 @@ function calculation  ()
 
 function initInputFields(inputFields, idDiv, bIgnoreSkipValidation)
 {
+    debugger;
 
     for (var i = 0; i < inputFields.length; i++)
     {
@@ -95,32 +96,38 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation)
 
 function doOperation(value, resultantID, operation)
 {
+    debugger;
+
     var resultantObject = document.getElementById(PAGE_CONTEXT + resultantID);
     var fieldCount = resultantObject.getAttribute("fieldCount");
-    var resultantValue  = resultantObject.value;
+    var resultantValue = 0;
+    if (resultantObject.value == "")
+        resultantValue = 0;
+        else
+     resultantValue  = resultantObject.value;
 
     if(!fieldCount)
         fieldCount = 0;
 
-    if (operation == FORMS_CALCULATION_PLUS)
+    if (operation.toUpperCase() == FORMS_CALCULATION_PLUS)
     {
         
         resultantObject.value = parseFloat(resultantValue) + parseFloat(value);
     }
     
-    else if (operation == FORMS_CALCULATION_MINUS)
+    else if (operation.toUpperCase() == FORMS_CALCULATION_MINUS)
     {
         resultantObject.value = parseFloat(resultantValue) - parseFloat(value);
     }
-    else if (operation == FORMS_CALCULATION_MULTIPLY)
+    else if (operation.toUpperCase() == FORMS_CALCULATION_MULTIPLY)
     {
         resultantObject.value = parseFloat(resultantValue) * parseFloat(value);
     }
-    else if (operation == FORMS_CALCULATION_DIVIDE)
+    else if (operation.toUpperCase() == FORMS_CALCULATION_DIVIDE)
     {
         resultantObject.value = parseFloat(resultantValue) / parseFloat(value);
     }
-    else if (operation == FORMS_CONTROL_AVERAGE)
+    else if (operation.toUpperCase() == FORMS_CONTROL_AVERAGE)
     {
         var totalfield = document.getElementById("hiddenTotal" + resultantID);
         if (totalfield == null || totalfield == undefined)

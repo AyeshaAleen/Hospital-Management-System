@@ -21,16 +21,21 @@ using DAO.itinsync.icom.lookuptrans;
 using Domains.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.lookup.lookuptrans;
+using System.Collections.Generic;
 
 namespace Services.itinsync.icom.tablecontent
 {
     public class TableContentSaveService : FrameAS
     {
         tablecontentDTO dto = null;
+		Dictionary<Int32, List<XDocumentCalculation>>  calculationMap =new Dictionary<Int32, List<XDocumentCalculation>>();
+		Dictionary<string, XDocumentTableContent>  fieldMap =new Dictionary<string, XDocumentTableContent>();
+            
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
+
                 dto = (tablecontentDTO)o;
                 
                 #region Create Table
@@ -72,7 +77,12 @@ namespace Services.itinsync.icom.tablecontent
                                         translation(field);
                                         field.tdID = td.tdID;
                                         field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
-                                        calculation(field);
+										
+                                       
+										calculationMap.Add(field.documentTableContentID,field.calculations);
+                                        if(!(fieldMap.ContainsKey(field.controlID)))
+										    fieldMap.Add(field.controlID,field);
+                                           
                                     }
                               }
                                 #endregion
@@ -81,6 +91,8 @@ namespace Services.itinsync.icom.tablecontent
                     }
                 }
                 #endregion
+				
+				docalculation();
             }
             catch (Exception ex)
             {
@@ -106,20 +118,24 @@ namespace Services.itinsync.icom.tablecontent
                 LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
         }
 
-        private void calculation(XDocumentTableContent field)
+        private void docalculation()
         {
-                if (field.calculations != null && field.calculations.Count > 0)
-                {
-                    foreach (XDocumentCalculation calculation in field.calculations)
-                    {
-                        if (field.controlID == calculation.resultContentAttribute)
-                            calculation.resultContentID = field.documentTableContentID;
-                        else
-                            calculation.documentcontentID = field.documentTableContentID;
-                        if(calculation.operation.Length >0)
-                            calculation.xdocumentcalculationID = XDocumentCalculationDAO.getInstance(dbContext).create(calculation);
-                    }
+
+          
+		  foreach(Int32 documentTableContentID in calculationMap.Keys)
+		  {
+			 foreach (XDocumentCalculation calculation in calculationMap[documentTableContentID])
+			 {
+					//here you find resultant ID
+					calculation.resultContentID = fieldMap[calculation.resultContentAttribute].documentTableContentID;
+
+                    calculation.documentcontentID = documentTableContentID;
+                    //now write code for Create calculation object here
+
+                    XDocumentCalculationDAO.getInstance(dbContext).create(calculation);
                 }
+		  }
+               
             
         }
 

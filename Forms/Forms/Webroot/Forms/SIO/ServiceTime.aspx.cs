@@ -45,7 +45,7 @@ namespace Forms.Webroot.Forms.SIO
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
             dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID;
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
+            dto.document.storeid = ((Douments)getParentRef()).storeid;
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
@@ -84,7 +84,7 @@ namespace Forms.Webroot.Forms.SIO
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
             dto.document.data = xml;
             dto.document.Userid = getHeader().userID;
-            dto.document.storeid = Convert.ToInt32(getSubjectID());
+            dto.document.storeid = ((Douments)getParentRef()).storeid;
             dto.document.documentID = documentid;
             dto.document.flow = DocumentFlow;
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
