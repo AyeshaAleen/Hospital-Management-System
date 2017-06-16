@@ -80,6 +80,10 @@
     <Compile Include="icom\tablecontent\dto\tablecontentDTO.cs" />
     <Compile Include="icom\tablecontent\TableContentManageService .cs" />
     <Compile Include="icom\tablecontent\TableContentSaveService.cs" />
+    <Compile Include="icom\team\DTO\TeamDTO.cs" />
+    <Compile Include="icom\team\DTO\TeamnformationInDTO.cs" />
+    <Compile Include="icom\team\TeamGetService.cs" />
+    <Compile Include="icom\team\TeamSaveService.cs" />
     <Compile Include="icom\useraccounts\DTO\UserAccountsDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserInformationInDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserPermissionDTO.cs" />
@@ -93,6 +97,9 @@
     <Compile Include="icom\useraccounts\UserTeamDeleteService.cs" />
     <Compile Include="icom\useraccounts\UserTeamGetService.cs" />
     <Compile Include="icom\useraccounts\UserTeamSaveService.cs" />
+    <Compile Include="icom\userteamview\dto\UserTeamViewDTO.cs" />
+    <Compile Include="icom\userteamview\UserTeamViewGetService.cs" />
+    <Compile Include="icom\userteamview\UserTeamViewSaveService.cs" />
     <Compile Include="icom\views\routeusers\DocumentRouteUsersGetService.cs" />
     <Compile Include="icom\views\routeusers\dto\DocumentRouteUsersDTO.cs" />
     <Compile Include="icom\views\userpermissionview\dto\UserPermissionViewDTO.cs" />

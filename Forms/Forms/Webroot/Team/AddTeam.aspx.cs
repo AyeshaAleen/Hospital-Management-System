@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-using ARS.itinsync.src.session;
+using Forms.itinsync.src.session;
 using Domains.itinsync.icom.interfaces.response;
 using Services.itinsync.icom.team.dto;
 using Services.itinsync.icom.team;
@@ -16,12 +16,10 @@ using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.date;
 using Utils.itinsync.icom.constant.page;
 
-
 using DAO.itinsync.icom.team;
-
 //Created By Qundeel Ch
 
-namespace ARS.Webroot.Desktop.Team
+namespace Forms.Webroot.Team
 {
     public partial class AddTeam : BasePage
     {

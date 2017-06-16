@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Team Search" Language="C#" MasterPageFile="~/Webroot/Desktop/DesktopMaster.master" AutoEventWireup="true" CodeBehind="TeamSearch.aspx.cs" Inherits="ARS.Webroot.Desktop.Team.TeamSearch.TeamSearch" %>
+﻿<%@ Page Title="Team Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="TeamSearch.aspx.cs" Inherits="Forms.Webroot.Team.TeamSearch.TeamSearch" %>
 
-<asp:Content ID="cntTeamSearchHead" ContentPlaceHolderID="DesktopMasterHeader" runat="server">
+<asp:Content ID="cntTeamSearchHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="cntTeamSearchBody" ContentPlaceHolderID="DesktopMasterBody" runat="server">
+<asp:Content ID="cntTeamSearchBody" ContentPlaceHolderID="FormMasterBody" runat="server">
 
     <div class="page-content">
 
@@ -103,6 +103,6 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="cntTeamSearchFooter" ContentPlaceHolderID="DesktopMasterFooter" runat="server">
+<asp:Content ID="cntTeamSearchFooter" ContentPlaceHolderID="FormMasterFoot" runat="server">
 
 </asp:Content>

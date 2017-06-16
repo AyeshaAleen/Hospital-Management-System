@@ -409,7 +409,7 @@ namespace Forms.itinsync.src.session
         {
             Sessions.getSession().ClearSessionKeys();
         }
-        public string trasnlation(string key)
+         public string trasnlation(string key)
         {
             if (key == null || key.Length == 0)
                 return "";

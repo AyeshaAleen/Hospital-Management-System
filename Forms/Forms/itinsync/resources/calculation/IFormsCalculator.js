@@ -109,25 +109,25 @@ function doOperation(value, resultantID, operation)
     if(!fieldCount)
         fieldCount = 0;
 
-    if (operation == FORMS_CALCULATION_PLUS)
+    if (operation.toUpperCase() == FORMS_CALCULATION_PLUS)
     {
         
         resultantObject.value = parseFloat(resultantValue) + parseFloat(value);
     }
     
-    else if (operation == FORMS_CALCULATION_MINUS)
+    else if (operation.toUpperCase() == FORMS_CALCULATION_MINUS)
     {
         resultantObject.value = parseFloat(resultantValue) - parseFloat(value);
     }
-    else if (operation == FORMS_CALCULATION_MULTIPLY)
+    else if (operation.toUpperCase() == FORMS_CALCULATION_MULTIPLY)
     {
         resultantObject.value = parseFloat(resultantValue) * parseFloat(value);
     }
-    else if (operation == FORMS_CALCULATION_DIVIDE)
+    else if (operation.toUpperCase() == FORMS_CALCULATION_DIVIDE)
     {
         resultantObject.value = parseFloat(resultantValue) / parseFloat(value);
     }
-    else if (operation == FORMS_CONTROL_AVERAGE)
+    else if (operation.toUpperCase() == FORMS_CONTROL_AVERAGE)
     {
         var totalfield = document.getElementById("hiddenTotal" + resultantID);
         if (totalfield == null || totalfield == undefined)

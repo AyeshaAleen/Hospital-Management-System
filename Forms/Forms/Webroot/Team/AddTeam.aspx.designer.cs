@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARS.Webroot.Desktop.Team {
+namespace Forms.Webroot.Team {
     
     
     public partial class AddTeam {

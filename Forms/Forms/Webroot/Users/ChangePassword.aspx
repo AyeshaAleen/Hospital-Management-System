@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Change Password" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="ARS.Webroot.Desktop.Users.ChangePassword" %>
+﻿<%@ Page Title="Change Password" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="Forms.Webroot.Users.ChangePassword" %>
 
 <asp:Content ID="cntChangePasswordHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>

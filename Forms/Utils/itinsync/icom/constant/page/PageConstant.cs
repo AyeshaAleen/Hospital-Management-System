@@ -18,8 +18,11 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_LOGPAYMENT_TASK = "BOLogPayment.aspx";
         public static string PAGE_EXIT_TDR = "ExistTDR.aspx";
         public static string PAGE_PERSONAL_INBOX = "/Webroot/Forms/Dashboard/PersonalInbox";
-
-
+        
+        public static string PAGE_AddTeam = "AddTeam.aspx";
+        public static string PAGE_AssignTeam = "AssignTeam.aspx";
+        public static string PAGE_TeamSearch = "TeamSearch/TeamSearch.aspx";
+        
         public static string PAGE_SIO = "/Webroot/Forms/SIO/GeneralSIO";
 
         public static string PAGE_DocumentSection = "/Webroot/Forms/Management/ViewDocumentSection";

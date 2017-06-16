@@ -1,4 +1,4 @@
-﻿<%@ Page Title="User Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserSearch.aspx.cs" Inherits="ARS.Webroot.Desktop.Users.UserSearch" %>
+﻿<%@ Page Title="User Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserSearch.aspx.cs" Inherits="Forms.Webroot.Users.UserSearch" %>
 
 <asp:Content ID="cntUserSearchHeader" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>

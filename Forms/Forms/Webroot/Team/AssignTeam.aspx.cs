@@ -1,4 +1,4 @@
-﻿using ARS.itinsync.src.session;
+﻿using Forms.itinsync.src.session;
 using Domains.itinsync.icom.interfaces.response;
 using Services.itinsync.icom.team;
 using Services.itinsync.icom.team.dto;
@@ -10,7 +10,7 @@ using System;
 using System.Web.UI.WebControls;
 using Utils.itinsync.icom.constant.application;
 
-namespace ARS.Webroot.Desktop.Team
+namespace Forms.Webroot.Team
 {
     public partial class AssignTeam : BasePage
     {

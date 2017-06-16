@@ -64,6 +64,7 @@
     <Compile Include="itinsync\icom\idocument\routeusers\XDocumentRouteUsersDAO.cs" />
     <Compile Include="itinsync\icom\signature\SignatureDAO.cs" />
     <Compile Include="itinsync\icom\store\StoreDAO.cs" />
+    <Compile Include="itinsync\icom\team\TeamDAO.cs" />
     <Compile Include="itinsync\icom\views\document\DocumentContentViewDAO.cs" />
     <Compile Include="itinsync\icom\idocument\content\XDocumentContentDAO.cs" />
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefinationDAO.cs" />

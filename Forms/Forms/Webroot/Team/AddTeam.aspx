@@ -1,7 +1,7 @@
-﻿<%@ Page Title="Add Team" Language="C#" MasterPageFile="~/Webroot/Desktop/DesktopMaster.master" AutoEventWireup="true" CodeBehind="AddTeam.aspx.cs" Inherits="ARS.Webroot.Desktop.Team.AddTeam" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="DesktopMasterHeader" runat="server">
+﻿<%@ Page Title="Add Team" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddTeam.aspx.cs" Inherits="Forms.Webroot.Team.AddTeam" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="DesktopMasterBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="FormMasterBody" runat="server">
   <div class="page-content">
 
         <div class="page-header">
@@ -50,5 +50,5 @@
         <!-- /.row -->
     </div>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="DesktopMasterFooter" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
 </asp:Content>

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="Assign Team" Language="C#" MasterPageFile="~/Webroot/Desktop/DesktopMaster.master" AutoEventWireup="true" CodeBehind="AssignTeam.aspx.cs" Inherits="ARS.Webroot.Desktop.Team.AssignTeam" %>
-<asp:Content ID="AssignTeamHead" ContentPlaceHolderID="DesktopMasterHeader" runat="server">
+﻿<%@ Page Title="Assign Team" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AssignTeam.aspx.cs" Inherits="Forms.Webroot.Team.AssignTeam" %>
+<asp:Content ID="AssignTeamHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
-<asp:Content ID="AssignTeamBody" ContentPlaceHolderID="DesktopMasterBody" runat="server">
+<asp:Content ID="AssignTeamBody" ContentPlaceHolderID="FormMasterBody" runat="server">
     <div class="page-content">
 
         <div class="page-header">
@@ -20,7 +20,7 @@
                             <div class="pull-right tableTools-container"></div>
                         </div>
                         <div class="table-header">
-                             <% Response.Write(trasnlation("Current.Teams")); %>
+                             <% Response.Write(translation("Current.Teams")); %>
                         </div>
 
                         <!-- div.table-responsive -->
@@ -83,5 +83,5 @@
         <!-- /.row -->
     </div>
 </asp:Content>
-<asp:Content ID="AssignTeamFooter" ContentPlaceHolderID="DesktopMasterFooter" runat="server">
+<asp:Content ID="AssignTeamFooter" ContentPlaceHolderID="FormMasterFoot" runat="server">
 </asp:Content>

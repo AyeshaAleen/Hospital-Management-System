@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARS.Webroot.Desktop.Users {
+namespace Forms.Webroot.Users {
     
     
     public partial class ChangePassword {

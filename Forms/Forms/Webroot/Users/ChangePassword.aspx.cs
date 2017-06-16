@@ -1,4 +1,4 @@
-﻿
+﻿using Forms.itinsync.src.session;
 using Domains.itinsync.icom.interfaces.response;
 using Services.itinsync.icom.useraccounts;
 using Services.itinsync.icom.useraccounts.dto;
@@ -10,9 +10,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.SecurityManager;
-using Forms.itinsync.src.session;
 
-namespace ARS.Webroot.Desktop.Users
+using Utils.itinsync.icom.cache.lookup;
+using Utils.itinsync.icom.constant.lookup;
+using Services.itinsync.icom.team.dto;
+using Services.itinsync.icom.team;
+
+namespace Forms.Webroot.Users
 {
     public partial class ChangePassword : BasePage
     {
@@ -23,6 +27,7 @@ namespace ARS.Webroot.Desktop.Users
             {
                 if (hasPermission(PAGEID))
                 {
+
                 }
             }
         }

@@ -1,9 +1,7 @@
-﻿using ARS.itinsync.src.session;
+﻿using Forms.itinsync.src.session;
 using Domains.itinsync.icom.interfaces.response;
-
 using Services.itinsync.icom.team;
 using Services.itinsync.icom.team.dto;
-
 
 using System;
 using System.Web.UI;
@@ -11,11 +9,9 @@ using System.Web.UI.WebControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 
-
-
-namespace ARS.Webroot.Desktop.Team.TeamSearch
+namespace Forms.Webroot.Team.TeamSearch
 {
-    public partial class TeamSearch : BasePage
+    public partial class TeamSearch :BasePage
     {
         private Int32 PAGEID = 1023;
         protected void Page_Load(object sender, EventArgs e)
@@ -24,13 +20,11 @@ namespace ARS.Webroot.Desktop.Team.TeamSearch
         }
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
-          Redirect(PageConstant.PAGE_AddTeam);
+            // Redirect(PageConstant.PAGE_AddTeam);
+            Response.Redirect(PageConstant.PAGE_AddTeam);
         }
         protected void btnClearForm_Click(object sender, EventArgs e)
         {
-
-
-
             txtTeamName.Value = "";
 
         }
@@ -54,7 +48,8 @@ namespace ARS.Webroot.Desktop.Team.TeamSearch
         protected void tblTeam_RowClick(object sender, CommandEventArgs e)
         {
             setSubjectID(Convert.ToString(e.CommandArgument));
-            Redirect(PageConstant.PAGE_AddTeam);
+            // Redirect(PageConstant.PAGE_AddTeam);
+            Response.Redirect(PageConstant.PAGE_AddTeam);
         }
     }
 }

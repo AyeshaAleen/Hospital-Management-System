@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARS.Webroot.Desktop.Team.TeamSearch {
+namespace Forms.Webroot.Team.TeamSearch {
     
     
     public partial class TeamSearch {

@@ -1,26 +1,31 @@
-﻿using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.userteam;
-using domains.itinsync.useraccounts;
+﻿using System;
 using Domains.itinsync.icom.interfaces.response;
-using Services.itinsync.icom.useraccounts.dto;
-using System;
+using Services.itinsync.icom.team.dto;
+using DAO.itinsync.icom.BaseAS.frame;
+using DAO.itinsync.icom.team;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 
-namespace Services.itinsync.icom.useraccounts
+//Created By Qundeel Ch
+
+namespace Services.itinsync.icom.team
 {
-    public class UserTeamSaveService : FrameAS
+    public class TeamSaveService : FrameAS
     {
-        UserTeamDTO dto = null;
+        TeamDTO dto = null;
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
-                UserTeam userteam = new UserTeam();
-                dto = (UserTeamDTO)o;
-                UserTeam up = dto.userteam;
-                if (!UserTeamDAO.getInstance(dbContext).teamExists(dto.userteam.teamID, dto.userteam.userID))
-                    UserTeamDAO.getInstance(dbContext).create(up);
+                dto = (TeamDTO) o;
+                if (dto.team.teamID > 0)
+                {
+                    TeamDAO.getInstance(dbContext).update(dto.team, "");
+                }
+                else
+                {
+                    TeamDAO.getInstance(dbContext).create(dto.team);
+                }
             }
             catch (Exception ex)
             {

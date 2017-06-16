@@ -4,14 +4,16 @@ using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.constant.lookup;
 using Services.itinsync.icom.useraccounts;
-
+using Forms.itinsync.src.session;
 using Utils.itinsync.icom.constant.application;
-
+//using Services.itinsync.icom.vendor;
+//using Services.itinsync.icom.vendor.dto;
+using Services.itinsync.icom.team.dto;
+using Services.itinsync.icom.team;
 using Utils.itinsync.icom.SecurityManager;
 using System.Collections.Generic;
-using Forms.itinsync.src.session;
 
-namespace ARS.Webroot.Desktop.Users
+namespace Forms.Webroot.Users
 {
     public partial class AddUser : BasePage
     {
@@ -48,10 +50,34 @@ namespace ARS.Webroot.Desktop.Users
             ddlTimeZone.DataSource = TimeZoneInfo.GetSystemTimeZones();
             ddlTimeZone.DataBind();
 
-           
+            //VendorDTO dto = new VendorDTO();
+            //dto.header = getHeader();
+            //dto.READBY = ReadByConstant.READBYALL;
+            //IResponseHandler response = new VendorGetService().executeAsPrimary(dto);
+            //if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            //{
+            //    dto = (VendorDTO)response;
+
+            //    ddlvendor.DataSource = dto.vendorList;
+            //    ddlvendor.DataBind();
+            //}
 
         }
-       
+        //private void getVendor()
+        //{
+        //    VendorDTO dto = new VendorDTO();
+        //    dto.header = getHeader();            
+        //    dto.READBY = ReadByConstant.READBYALL;
+        //    IResponseHandler response = new VendorGetService().executeAsPrimary(dto);
+        //    if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+        //    {
+        //        dto = (VendorDTO)response;
+        //        ddlvendor.DataSource = dto.vendorList;
+        //        ddlvendor.DataBind();
+        //    }
+        //    else
+        //        showErrorMessage(response);
+        //}
         
         private void searchUser()
         {

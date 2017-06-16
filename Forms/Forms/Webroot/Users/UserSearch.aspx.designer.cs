@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARS.Webroot.Desktop.Users {
+namespace Forms.Webroot.Users {
     
     
     public partial class UserSearch {
@@ -31,15 +31,6 @@ namespace ARS.Webroot.Desktop.Users {
         protected global::System.Web.UI.WebControls.Button btnSearchUser;
         
         /// <summary>
-        /// btnClearForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClearForm;
-        
-        /// <summary>
         /// btnAddNew control.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace ARS.Webroot.Desktop.Users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNew;
-        
-        /// <summary>
-        /// tblBody control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblBody;
         
         /// <summary>
         /// repeaterUsers control.
