@@ -411,9 +411,9 @@ namespace Forms.itinsync.src.session
         }
         public string trasnlation(string key)
         {
+            if (key == null || key.Length == 0)
+                return "";
             return TranslationManager.trans(key, getUserInformation() == null ? "" : getUserInformation().userAccount.lang);
-
-           
         }
 
         public void DateFormatter(Control parent)
@@ -568,13 +568,13 @@ namespace Forms.itinsync.src.session
         }
         protected void showErrorMessage(string response)
         {
-            HtmlGenericControl alertFailure = (HtmlGenericControl)this.Master.FindControl("alertFailure");
+            HtmlGenericControl alertFailure = (HtmlGenericControl)this.Master.Master.FindControl("alertFailure");
             alertFailure.Visible = true;
             alertFailure.InnerHtml = ApplicationCodes.ERROR_TEXT + response;
         }
         protected void showErrorMessage(IResponseHandler response)
         {
-            HtmlGenericControl alertFailure = (HtmlGenericControl)this.Master.FindControl("alertFailure");
+            HtmlGenericControl alertFailure = (HtmlGenericControl)this.Master.Master.FindControl("alertFailure");
             alertFailure.Visible = true;
             alertFailure.InnerHtml = ApplicationCodes.ERROR_TEXT + response.getErrorBlock().ErrorText;
         }
@@ -632,6 +632,18 @@ namespace Forms.itinsync.src.session
             }
         }
 
+        public void Redirect(Int32 pageNo)
+        {
+
+            string url = getWebPageName(pageNo);
+
+            Redirect(ResolveUrl(url));
+        }
+        public void Redirect(string url)
+        {
+
+            Response.Redirect(ResolveUrl(url));
+        }
 
         public void setRequestedMap(string key, string value)
         {

@@ -29,7 +29,10 @@ namespace Forms.Webroot.Forms
 
             //IResponseHandler response = new PageManagerService().executeAsPrimary();
         }
-
+        //public string translation(string key)
+        //{
+        //   return bp.trasnlation(key);
+        //}
 
     }
 }

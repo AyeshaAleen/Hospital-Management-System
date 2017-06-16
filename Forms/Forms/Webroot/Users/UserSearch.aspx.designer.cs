@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Users {
+namespace ARS.Webroot.Desktop.Users {
     
     
     public partial class UserSearch {
@@ -22,15 +22,6 @@ namespace Forms.Webroot.Users {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserName;
         
         /// <summary>
-        /// txtUserID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserID;
-        
-        /// <summary>
         /// btnSearchUser control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Forms.Webroot.Users {
         protected global::System.Web.UI.WebControls.Button btnSearchUser;
         
         /// <summary>
+        /// btnClearForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClearForm;
+        
+        /// <summary>
         /// btnAddNew control.
         /// </summary>
         /// <remarks>
@@ -47,6 +47,15 @@ namespace Forms.Webroot.Users {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddNew;
+        
+        /// <summary>
+        /// tblBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblBody;
         
         /// <summary>
         /// repeaterUsers control.

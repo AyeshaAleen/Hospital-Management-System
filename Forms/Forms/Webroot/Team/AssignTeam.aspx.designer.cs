@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARS.Webroot.Desktop.Users.UserPermission {
+namespace ARS.Webroot.Desktop.Team {
     
     
-    public partial class UserPermissions {
+    public partial class AssignTeam {
         
         /// <summary>
         /// lblname control.
@@ -31,30 +31,30 @@ namespace ARS.Webroot.Desktop.Users.UserPermission {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tbody1;
         
         /// <summary>
-        /// tblUserPermissions control.
+        /// tblUserTeams control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater tblUserPermissions;
+        protected global::System.Web.UI.WebControls.Repeater tblUserTeams;
         
         /// <summary>
-        /// ddlPermission control.
+        /// ddlTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPermission;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
         
         /// <summary>
-        /// btnAddPermission control.
+        /// btnAddTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPermission;
+        protected global::System.Web.UI.WebControls.Button btnAddTeam;
     }
 }

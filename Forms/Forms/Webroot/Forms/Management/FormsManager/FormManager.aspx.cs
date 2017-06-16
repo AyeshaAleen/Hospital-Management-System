@@ -70,31 +70,35 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 
         protected void savedocument_Click(object sender, EventArgs e)
         {
-
-
-            string source = tableOuterHtml.Value;
-            source = XMLUtils.DecodeXML(source);
-
-            tablecontentDTO dto = new tablecontentDTO();
-            dto.sectionnID = Convert.ToInt32(getSubjectID());
-
-            //Delete existing record if any
-            dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-            dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).name);
-            dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
-
-            IResponseHandler response = new TableContentManageService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            if (!string.IsNullOrEmpty(getSubjectID()))
             {
-                setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID)));
-                tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()), getHeader().lang);
-                showSuccessMessage(response);
+                string source = tableOuterHtml.Value;
+                source = XMLUtils.DecodeXML(source);
+
+                tablecontentDTO dto = new tablecontentDTO();
+                dto.sectionnID = Convert.ToInt32(getSubjectID());
+
+                //Delete existing record if any
+                dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+                dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).name);
+                dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
+
+                IResponseHandler response = new TableContentManageService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID)));
+                    tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()), getHeader().lang);
+                    showSuccessMessage(response);
+                }
+                else
+                {
+                    showErrorMessage(response);
+                }
             }
             else
             {
-                showErrorMessage(response);
+                showErrorMessage("Sessions Expire");
             }
-
         }
 
         protected void Button1_Click(object sender, EventArgs e)

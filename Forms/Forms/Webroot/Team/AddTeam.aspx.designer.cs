@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARS.Webroot.Desktop.Users.UserPermission {
+namespace ARS.Webroot.Desktop.Team {
     
     
-    public partial class UserPermissions {
+    public partial class AddTeam {
         
         /// <summary>
-        /// lblname control.
+        /// txtTeamName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTeamName;
         
         /// <summary>
-        /// Tbody1 control.
+        /// ddlStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tbody1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
-        /// tblUserPermissions control.
+        /// btnUpdateTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater tblUserPermissions;
+        protected global::System.Web.UI.WebControls.Button btnUpdateTeam;
         
         /// <summary>
-        /// ddlPermission control.
+        /// btnClearForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPermission;
-        
-        /// <summary>
-        /// btnAddPermission control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddPermission;
+        protected global::System.Web.UI.WebControls.Button btnClearForm;
     }
 }
