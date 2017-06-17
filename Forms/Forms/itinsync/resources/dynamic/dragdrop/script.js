@@ -177,12 +177,14 @@ function setTranslation() {
     
 }
 
+
 function AddDetail(id) {
 
+    debugger;
+    
+    $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
 
-$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove()
-
-$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
+    $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
 
     $('#tblEditor').find('td input').each(function () {
 
@@ -190,7 +192,7 @@ $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().en
     });
     
 
-    if (document.getElementById(id).getAttribute("type") == "label") {
+    if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading") {
         document.getElementById("points").disabled = true;
         document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = true;
         document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = true;
@@ -212,6 +214,12 @@ $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().en
     var fieldObject = document.getElementById(id);
 
     // getting data from popup and setting it to required field
+    debugger;
+    if (fieldObject.getAttribute("resultantid") != "")
+        document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
+
+    document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").value = fieldObject.getAttribute("resultantid");
+
     document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
     document.getElementById("ControlID").value = id;
     document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
@@ -258,8 +266,8 @@ function SetDetail() {
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
   
-
-    if (document.getElementById(id).getAttribute("type") == "label")
+    
+    if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
 

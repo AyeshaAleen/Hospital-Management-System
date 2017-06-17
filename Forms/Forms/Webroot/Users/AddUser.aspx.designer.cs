@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Users {
+namespace ARS.Webroot.Desktop.Users {
     
     
     public partial class AddUser {

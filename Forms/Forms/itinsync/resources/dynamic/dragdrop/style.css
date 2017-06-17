@@ -21,8 +21,6 @@ body {
     height: 28px;
     line-height: 28px;
     color: #555;
-    border: 1px solid #bebebe;
-    background-color: #dbdbdb;
     /* round corners */
     border-radius: 4px;
     /* opacity */
@@ -30,6 +28,22 @@ body {
     filter: alpha(opacity=90);
 }
 
+.redips-drag-highlight {
+    margin: 2px auto;
+    /* needed when details container is displayed to be wrapped nicely */
+    display: table;
+    text-align: center;
+    width: 120px;
+    height: 28px;
+    background: #b6ff00;
+    line-height: 28px;
+    color: #555;
+    /* round corners */
+    border-radius: 4px;
+    /* opacity */
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
 
 .redips-mark .redips-drag {
     text-align: left !important;

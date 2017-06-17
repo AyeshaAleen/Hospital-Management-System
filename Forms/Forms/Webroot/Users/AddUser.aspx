@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add User" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="Forms.Webroot.Users.AddUser" %>
+﻿<%@ Page Title="Add User" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="ARS.Webroot.Desktop.Users.AddUser" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="cntAddUserHeader" ContentPlaceHolderID="FormMasterHead" runat="server">

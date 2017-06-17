@@ -64,13 +64,14 @@ namespace Utils.itinsync.icom.controls
             }
         }
 
-        public  TableHeaderCell createTableHeader(XDocumentTableContent content)
+
+
+        public TableHeaderCell createTableHeader(XDocumentTableContent content)
         {
             TableHeaderCell tableHeader = new TableHeaderCell();
-
             Label lbl = new Label();
             lbl.ID = content.controlID;
-            //lbl.CssClass = content.cssClass;
+            lbl.CssClass = content.cssClass;
             tableHeader.HorizontalAlign = HorizontalAlign.Center;
             tableHeader.VerticalAlign = VerticalAlign.Middle;
             tableHeader.BackColor = Color.WhiteSmoke;
@@ -82,7 +83,9 @@ namespace Utils.itinsync.icom.controls
 
 
 
-        public  HtmlInputRadioButton createRadioButton(XDocumentTableContent content)
+
+
+        public HtmlInputRadioButton createRadioButton(XDocumentTableContent content)
         {
             HtmlInputRadioButton radio = new HtmlInputRadioButton();
             radio.Name = content.controlName;
@@ -140,6 +143,7 @@ namespace Utils.itinsync.icom.controls
 
             return check;
         }
+     
 
         public  DropDownList createCombo(XDocumentTableContent content,string lang)
         {
@@ -177,6 +181,8 @@ namespace Utils.itinsync.icom.controls
                 return createCombo(content, lang);
             else if (content.controlType == ApplicationCodes.FORMS_CONTROL_CHECKBOX)
                 return createCheckBox(content);
+
+
             else
                 return null;
         }

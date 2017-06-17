@@ -12,6 +12,7 @@ namespace Utils.itinsync.icom.constant.page
         public static Int32 PAGE_EDIT_PERMISSION_WEB_NAME = 262;
         public static Int32 PAGE_EDIT_USER_WEB_NAME = 259;
 
+        public static string PAGE_EDIT_TEAM = "/Team/AssignTeam.aspx";
 
         public static string PAGE_ACTIVATE_TASK = "ActivateTask.aspx";
         public static string PAGE_LOGPAYMENT_TASK = "BOLogPayment.aspx";

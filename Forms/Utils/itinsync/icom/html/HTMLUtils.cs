@@ -18,6 +18,8 @@ using System.Web.UI.HtmlControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.controls;
 using Domains.itinsync.icom.idocument.table.calculation;
+using System.Web.UI.WebControls;
+using Utils.itinsync.icom.cache.translation;
 
 namespace Utils.itinsync.icom.html
 {
@@ -33,7 +35,7 @@ namespace Utils.itinsync.icom.html
             #endregion
 
             XDocumentTable documentTable = new XDocumentTable();
-            
+            int ControlCount = 0;
             #region add Table dto values
 
 
@@ -68,7 +70,7 @@ namespace Utils.itinsync.icom.html
                 {
                     documentTable.trs.Add(tableTR);
 
-
+                  
 
                     foreach (HtmlNode colnode in Rownode.Descendants("td"))
                     {
@@ -90,8 +92,8 @@ namespace Utils.itinsync.icom.html
                             #region add Table Column Content dto values
 
 
-
                             
+
                             foreach (var fieldnode in colnode.ChildNodes)
                             {
                                 if (!string.IsNullOrWhiteSpace(fieldnode.OuterHtml))
@@ -104,7 +106,7 @@ namespace Utils.itinsync.icom.html
                                     {
 
                                         XDocumentTableContent tableContent = new XDocumentTableContent();
-
+                                        
                                         if (type == "checkbox")
                                             tableContent.controlType =ApplicationCodes.FORMS_CONTROL_CHECKBOX;
                                         else if (type == "radio")
@@ -129,7 +131,7 @@ namespace Utils.itinsync.icom.html
                                         
                                         
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
-                                        tableContent.controlID = ControlId + section_id + formname;
+                                        tableContent.controlID = ControlId + ControlCount + section_id + formname;
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
                                         tableContent.mask = fieldnode.ChildNodes[1].GetAttributeValue("imask", "");
                                         tableContent.cssClass = fieldnode.ChildNodes[1].GetAttributeValue("Class", "");
@@ -159,7 +161,7 @@ namespace Utils.itinsync.icom.html
                                         tableTD.fields.Add(tableContent);
                                     }
                                 }
-
+                                ControlCount++;
                             }
                             #endregion
                         }
@@ -197,11 +199,21 @@ namespace Utils.itinsync.icom.html
 
                         foreach (XDocumentTableTD td in tr.tds)
                         {
-                            HtmlTableCell tc = new HtmlTableCell();
-                            tabletr.Cells.Add(tc);
+                            
+
                             foreach (XDocumentTableContent content in td.fields)
                             {
                                 ControlsHelper helper = new ControlsHelper();
+
+                                if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
+                                {
+                                   
+                                    tabletr.Cells.Add(createthColumn(content));
+                                }
+                                else
+                            {
+                            HtmlTableCell tc = new HtmlTableCell();
+                            tabletr.Cells.Add(tc);
 
                                 HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
                                 createDiv.Attributes.Add("class", "redips-drag");
@@ -215,6 +227,7 @@ namespace Utils.itinsync.icom.html
                                 removeDetailSpan(createDiv, content.controlID);
 
                                 tc.Controls.Add(createDiv);
+                            }
                                
                             }
 
@@ -239,6 +252,33 @@ namespace Utils.itinsync.icom.html
             }
 
             return "";
+        }
+
+        public static HtmlTableCell createthColumn(XDocumentTableContent content)
+        {
+            HtmlGenericControl createDiv = new HtmlGenericControl("div");
+
+            HtmlTableCell cell = new HtmlTableCell("th");
+            Label lbl = new Label();
+            lbl.ID = content.controlID;
+            lbl.CssClass = content.cssClass;
+            lbl.Text = TranslationManager.trans(content.translation);
+            createDetailSpan(createDiv, content.controlID);
+            createDiv.Controls.Add(lbl);
+            removeDetailSpan(createDiv, content.controlID);
+
+            cell.Align = "center";
+           
+
+            cell.BgColor = "WhiteSmoke";
+            cell.ColSpan = content.colspan;
+            lbl.Text = TranslationManager.trans(content.translation);
+
+
+            cell.Controls.Add(createDiv);
+         
+            return cell;
+
         }
 
         public static HtmlTableCell createCRUDColumn()

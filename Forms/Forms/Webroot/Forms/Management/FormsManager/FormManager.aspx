@@ -32,32 +32,32 @@
 
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
+                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i> label text</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i>Heading</div>
+                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i> Heading</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i>DropDown</div>
+                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i> DropDown</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
+                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i> TextBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>CheckBox</div>
+                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i> CheckBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Button</div>
+                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i> Radio Button</div>
                                         </td>
                                     </tr>
                                     <%--     <tr>
@@ -119,11 +119,11 @@
                                             <div>
                                                 
                                                 <span onclick="redips.cellDelete(this)" class="rowTool">xc/</span>
-                                                <span onclick="redips.rowDelete(this)" class="rowTool">xr/</span>
+                                                <span onclick="redips.rowDelete(this)" class="rowTool"> xr/</span>
 
-                                                <span onclick="redips.rowInsert(this)" class="rowTool">r+/</span>
+                                                <span onclick="redips.rowInsert(this)" class="rowTool"> r+/</span>
 
-                                                <span onclick="redips.colInsert(this)" class="rowTool">c+</span>
+                                                <span onclick="redips.colInsert(this)" class="rowTool"> c+</span>
                                             </div>
                                         </td>
 
@@ -267,8 +267,7 @@
             </div>
         </div>
     </div>
-
-
+    <input type="hidden" id="PreviousControlID" />
 
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
@@ -287,10 +286,38 @@
                 .replace(/'/g, '&apos;');
         }
 
+        function heighlight() {
+            debugger;
+            alert("hello");
+        }
         $(document).ready(function () {
 
-          
+           
+            $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').on('change', function () {
+                var Controlid = document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").value;
 
+                var PreviousControl = document.getElementById("PreviousControlID").value;
+
+
+                if ($("#" + PreviousControl).parent().hasClass('redips-drag-highlight')) {
+                    $("#" + PreviousControl).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
+
+                }
+               
+
+                if ($("#" + Controlid).parent().hasClass('redips-drag-highlight'))
+                {
+                    $("#" + Controlid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
+
+                }
+                else
+                {
+                    $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
+                }
+            });
+
+
+          
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "") {
                 document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
                 var theTbl = document.getElementById('tblEditor');
@@ -301,9 +328,9 @@
 
         });
     </script>
-    <script>
+   <%-- <script>
         $("#con-modal").draggable({
             handle: ".modal-header"
         });
-    </script>
+    </script>--%>
 </asp:Content>
