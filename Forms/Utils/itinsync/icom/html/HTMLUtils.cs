@@ -128,8 +128,8 @@ namespace Utils.itinsync.icom.html
                                          
                                         string ControlId = fieldnode.ChildNodes[1].GetAttributeValue("id", "").Replace(section_id.ToString()+ formname, string.Empty);
 
-                                        
-                                        
+
+                                        tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = ControlId + ControlCount + section_id + formname;
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");

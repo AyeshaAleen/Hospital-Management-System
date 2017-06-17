@@ -181,7 +181,9 @@ function setTranslation() {
 function AddDetail(id) {
 
     debugger;
-    
+
+  
+
     $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
 
     $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
@@ -238,7 +240,9 @@ function AddDetail(id) {
 function SetDetail() {
 
       var  id = document.getElementById("ControlID").value;
-   
+
+      $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
+
     document.getElementById(id).setAttribute("id", document.getElementById("ControlID").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
@@ -261,7 +265,7 @@ function SetDetail() {
     }
     
 
-   
+    document.getElementById(id).setAttribute("formula", document.getElementById("txtformula").value);
     document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
@@ -270,9 +274,75 @@ function SetDetail() {
     if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
-
+    //setOperationField(id);
 
     $('#con-close-modal').modal('hide');
+}
+
+function setOperationField(id)
+{
+    //debugger;
+    //var formula = id;
+    //$('#tblOperationDetail').find('tr').each(function () {
+    //    $(this).find('td').each(function () {
+
+    //        if ($(this).html() == "MULTIPLY")
+    //            formula +="* ";
+    //        else if ($(this).html() == "PLUS")
+    //            formula += "+ ";
+    //        else if ($(this).html() == "MINUS")
+    //            formula += "- ";
+    //        else if ($(this).html() == "DIVIDE")
+    //            formula += "/ ";
+    //        else if ($(this).html() == "PERCENTAGE")
+    //            formula += "% ";
+
+    //        else
+    //    formula += $(this).html();
+
+    //        document.getElementById("txtformula").value = formula;
+
+    //});
+    //});
+}
+
+function AddOperationDetail() {
+    debugger;
+
+    var operation = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
+    var ControlID = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
+
+    var formula = document.getElementById("txtformula").value;
+
+    if (formula == "")
+        formula = document.getElementById("ControlID").value;
+
+    
+    if (operation.toUpperCase() == "MULTIPLY")
+        formula += "* ";
+    else if (operation.toUpperCase() == "PLUS")
+        formula += "+ ";
+    else if (operation.toUpperCase() == "MINUS")
+        formula += "- ";
+    else if (operation.toUpperCase() == "DIVIDE")
+        formula += "/ ";
+    else if (operation.toUpperCase() == "PERCENTAGE")
+        formula += "% ";
+    //else if (operation.toUpperCase() == "AVERAGE")
+    //    formula += "% ";
+    formula += ControlID;
+
+
+      
+
+    document.getElementById("txtformula").value = formula;
+
+    //var table = document.getElementById("tblOperationDetail");
+    //var row = table.insertRow(1);
+    //var cell1 = row.insertCell(0);
+    //var cell2 = row.insertCell(1);
+    //cell1.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
+    //cell2.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
 }
 
 function fieldClick(event) {
@@ -283,6 +353,7 @@ function fieldClick(event) {
     //redips.divDelete(id);
     //detailWindow();
 }
+
 
 function fieldset(event,divid) {
 

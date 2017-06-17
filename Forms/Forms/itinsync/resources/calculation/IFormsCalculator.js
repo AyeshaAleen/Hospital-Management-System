@@ -130,6 +130,8 @@ function doOperation(value, resultantID, operation)
     else if (operation.toUpperCase() == FORMS_CONTROL_AVERAGE)
     {
         var totalfield = document.getElementById("hiddenTotal" + resultantID);
+
+        //
         if (totalfield == null || totalfield == undefined)
         {
              createHiddenField("hiddenTotal" + resultantID);

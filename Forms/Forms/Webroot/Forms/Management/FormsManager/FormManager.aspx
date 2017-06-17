@@ -244,15 +244,31 @@
                                             </asp:DropDownList>
                                         </div>
                                     </div>
-
+                                  
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Control IDs</label>
+                                            <div class="input-group">
                                             <asp:DropDownList ID="ddlControlID" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                             </asp:DropDownList>
+                                             <span class="input-group-addon btn btn-info" onclick="AddOperationDetail()">Go</span>
                                         </div>
+                                            </div>
                                     </div>
+
+                               <%--     <div class="col-md-12" style="max-height:250px; overflow-y:scroll">
+                                        <table class="table table-hover table-responsive table-bordered" id="tblOperationDetail">
+                                            <tr>
+                                                <th>Operation</th>
+                                                <th>Control ID</th>
+                                            </tr>
+                                            
+                                        </table>
+                                    </div>--%>
+                                     <div class="col-md-12">
+                                    <input type="text" id="txtformula" class="form-control" />
+                                          </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -269,6 +285,8 @@
     </div>
     <input type="hidden" id="PreviousControlID" />
 
+     <input type="hidden" id="FormName" runat="server" />
+     <input type="hidden" id="ControlCount" runat="server" />
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>

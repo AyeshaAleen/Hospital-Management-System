@@ -27,18 +27,20 @@ namespace Utils.itinsync.icom.controls
             if (!string.IsNullOrEmpty(content.isReadonly))
                 txtBox.Attributes.Add("disabled", content.isReadonly);
             txtBox.Attributes.Add("points", content.points);
-            if (content.fieldcalculations.Count > 0)
-            {
+            txtBox.Attributes.Add("formula", content.formula);
+
                 txtBox.Attributes.Add("onchange", "calculation();");
-                if (content.fieldcalculations[0].resultContent != null)
-                {
-                    if (content.fieldcalculations[0].resultContent.controlID != null)
-                        //bcoz i form calculator required proper id
-                        AddResultantID(txtBox, content);
-                    if (content.fieldcalculations[0].operation != null)
-                        txtBox.Attributes.Add("operation", content.fieldcalculations[0].operation);
-                }
-            }
+            //if (content.fieldcalculations.Count > 0)
+            //{
+            //    if (content.fieldcalculations[0].resultContent != null)
+            //    {
+            //        if (content.fieldcalculations[0].resultContent.controlID != null)
+            //            //bcoz i form calculator required proper id
+            //            AddResultantID(txtBox, content);
+            //        if (content.fieldcalculations[0].operation != null)
+            //            txtBox.Attributes.Add("operation", content.fieldcalculations[0].operation);
+            //    }
+            //}
             if (!string.IsNullOrEmpty(content.defaultValue))
                 txtBox.Text = content.defaultValue;
 
@@ -96,16 +98,17 @@ namespace Utils.itinsync.icom.controls
             radio.Attributes.Add("points", content.points);
             if(!string.IsNullOrEmpty(content.isReadonly))
             radio.Attributes.Add("disabled", content.isReadonly);
+            radio.Attributes.Add("formula", content.formula);
+            radio.Attributes.Add("onchange", "calculation();");
+            //if (content.fieldcalculations.Count > 0)
+            //{
+            //    radio.Attributes.Add("onchange", "calculation();");
 
-            if (content.fieldcalculations.Count > 0)
-            {
-                radio.Attributes.Add("onchange", "calculation();");
-
-                //bcoz i form calculator required proper id
-                AddResultantID(radio,content);
+            //    //bcoz i form calculator required proper id
+            //    AddResultantID(radio,content);
                 
-                radio.Attributes.Add("operation", content.fieldcalculations[0].operation);
-            }
+            //    radio.Attributes.Add("operation", content.fieldcalculations[0].operation);
+            //}
             if(!string.IsNullOrEmpty(content.defaultValue))
             radio.Value = content.defaultValue;
 
@@ -131,13 +134,14 @@ namespace Utils.itinsync.icom.controls
                 check.Attributes.Add("disabled", content.isReadonly);
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
-
-            if (content.fieldcalculations.Count > 0)
-            {
-                check.Attributes.Add("onchange", "calculation();");
-                AddResultantID(check, content);
-                check.Attributes.Add("operation", content.fieldcalculations[0].operation);
-            }
+            check.Attributes.Add("formula", content.formula);
+            check.Attributes.Add("onchange", "calculation();");
+            //if (content.fieldcalculations.Count > 0)
+            //{
+            //    check.Attributes.Add("onchange", "calculation();");
+            //    AddResultantID(check, content);
+            //    check.Attributes.Add("operation", content.fieldcalculations[0].operation);
+            //}
             if (!string.IsNullOrEmpty(content.defaultValue))
                 check.Value = content.defaultValue;
 
@@ -156,13 +160,17 @@ namespace Utils.itinsync.icom.controls
                 ddl.Attributes.Add("disabled", content.isReadonly);
 
             ddl.Attributes.Add("imask", content.mask);
+
+            ddl.Attributes.Add("formula", content.formula);
+
             ddl.Attributes.Add("points", content.points);
-            if (content.fieldcalculations.Count > 0)
-            {
-                ddl.Attributes.Add("onchange", "calculation();");
-                AddResultantID(ddl, content);
-                ddl.Attributes.Add("operation", content.fieldcalculations[0].operation);
-            }
+            ddl.Attributes.Add("onchange", "calculation();");
+            //if (content.fieldcalculations.Count > 0)
+            //{
+            //    ddl.Attributes.Add("onchange", "calculation();");
+            //    AddResultantID(ddl, content);
+            //    ddl.Attributes.Add("operation", content.fieldcalculations[0].operation);
+            //}
 
             ddl.DataSource = LookupManager.readbyLookupName(content.lookupName, lang);
 

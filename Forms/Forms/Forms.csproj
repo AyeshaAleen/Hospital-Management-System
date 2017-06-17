@@ -222,6 +222,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Account\Web.config" />
+    <Content Include="itinsync\resources\calculation\IFormDynamicCalculator.js" />
     <Content Include="itinsync\resources\calculation\IFormsCalculator.js" />
     <Content Include="itinsync\resources\css\bootstrap.min.css" />
     <Content Include="itinsync\resources\css\components.css" />
@@ -2928,6 +2929,7 @@
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
     <Content Include="Webroot\Forms\NewForm\Forms.aspx" />
+    <Content Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3468,6 +3470,13 @@
     </Compile>
     <Compile Include="Webroot\Forms\NewForm\Forms.aspx.designer.cs">
       <DependentUpon>Forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.cs">
+      <DependentUpon>PersonalInbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.designer.cs">
+      <DependentUpon>PersonalInbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>
