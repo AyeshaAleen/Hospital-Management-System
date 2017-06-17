@@ -89,6 +89,8 @@
     <Compile Include="icom\useraccounts\DTO\UserAccountsDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserInformationInDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserPermissionDTO.cs" />
+    <Compile Include="icom\useraccounts\UserStoreDeleteService.cs" />
+    <Compile Include="icom\useraccounts\DTO\UserStoreDTO.cs" />
     <Compile Include="icom\useraccounts\DTO\UserTeamDTO.cs" />
     <Compile Include="icom\useraccounts\UserAccountSaveService.cs" />
     <Compile Include="icom\useraccounts\UserAccountsGetService.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="icom\useraccounts\UserInformationServiceGet.cs" />
     <Compile Include="icom\useraccounts\UserPermissionDeleteService.cs" />
     <Compile Include="icom\useraccounts\UserPermissionSaveService.cs" />
+    <Compile Include="icom\useraccounts\UserStoreSaveService.cs" />
     <Compile Include="icom\useraccounts\UserTeamDeleteService.cs" />
     <Compile Include="icom\useraccounts\UserTeamGetService.cs" />
     <Compile Include="icom\useraccounts\UserTeamSaveService.cs" />
@@ -107,6 +110,8 @@
     <Compile Include="icom\views\userpermissionview\dto\UserPermissionViewDTO.cs" />
     <Compile Include="icom\views\userpermissionview\UserPermissionViewGetService.cs" />
     <Compile Include="icom\views\userpermissionview\UserPermissionViewSaveService.cs" />
+    <Compile Include="icom\views\userstoreview\dto\UserStoreViewDTO.cs" />
+    <Compile Include="icom\views\userstoreview\UserStoreViewGetService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -10,6 +10,7 @@ using DAO.itinsync.icom.BaseAS.dbcontext;
 using Domains.itinsync.icom.useraccounts;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.exceptions;
+using Domains.itinsync.useraccounts;
 
 namespace DAO.itinsync.icom.useraccounts
 {
@@ -74,6 +75,21 @@ namespace DAO.itinsync.icom.useraccounts
             foreach (IDomain domain in result)
                 list.Add((UserStore)domain);
             return list;
+        }
+
+        public bool deleteByID(Int32 userStoreID)
+        {
+            UserStore us = new UserStore();
+            string delSQL = string.Format("delete from " + TABLENAME + " where userstoreid = '{0}'", userStoreID);
+            return delete(delSQL);
+        }
+
+        public bool storeExists(Int32 storeid, Int32 userID)
+        {
+            if (executeCount(string.Format("select count(*) as count from " + TABLENAME + " where storeid = '{0}' and userid = '{1}'", storeid, userID)) > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

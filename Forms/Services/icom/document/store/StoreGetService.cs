@@ -24,7 +24,11 @@ namespace Services.icom.document.store
                 dto = (StoreDTO)o;
                 if (dto.store.storeid > 0)
                     dto.store = StoreDAO.getInstance(dbContext).findbyPrimaryKey(dto.store.storeid);
-                else
+
+                else if (dto.READBY == ReadByConstant.READBYUSERNAME)
+                    dto.store = StoreDAO.getInstance(dbContext).findbyName(dto.store.name);
+
+                else if(dto.READBY==ReadByConstant.READBYALL)
                     dto.storelist = StoreDAO.getInstance(dbContext).readAll();
             }
             catch (Exception ex)

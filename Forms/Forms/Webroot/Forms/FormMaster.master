@@ -37,6 +37,9 @@
                              <li>
                                 <a href="../../Team/TeamSearch/TeamSearch.aspx" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
                             </li>
+                            <li>
+                                <a href="../../Store/SearchStore.aspx" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Stores</span> </a>
+                            </li>
                            <%-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
