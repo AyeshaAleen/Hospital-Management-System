@@ -3176,10 +3176,6 @@
     <Content Include="Webroot\Team\AddTeam.aspx" />
     <Content Include="Webroot\Team\AssignTeam.aspx" />
     <Content Include="Webroot\Team\TeamSearch\TeamSearch.aspx" />
-    <Content Include="Webroot\Users\AddUser.aspx" />
-    <Content Include="Webroot\Users\ChangePassword.aspx" />
-    <Content Include="Webroot\Users\UserPermission\UserPermissions.aspx" />
-    <Content Include="Webroot\Users\UserSearch.aspx" />
     <None Include="Properties\PublishProfiles\Forms.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -3577,34 +3573,6 @@
     </Compile>
     <Compile Include="Webroot\testMaster.master.designer.cs">
       <DependentUpon>testMaster.master</DependentUpon>
-    </Compile>
-    <Compile Include="Webroot\Users\AddUser.aspx.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webroot\Users\AddUser.aspx.designer.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Webroot\Users\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webroot\Users\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Webroot\Users\UserPermission\UserPermissions.aspx.cs">
-      <DependentUpon>UserPermissions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webroot\Users\UserPermission\UserPermissions.aspx.designer.cs">
-      <DependentUpon>UserPermissions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Webroot\Users\UserSearch.aspx.cs">
-      <DependentUpon>UserSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Webroot\Users\UserSearch.aspx.designer.cs">
-      <DependentUpon>UserSearch.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
