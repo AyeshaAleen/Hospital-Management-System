@@ -208,7 +208,7 @@ namespace Utils.itinsync.icom.html
                                 if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
                                    
-                                    tabletr.Cells.Add(createthColumn(content));
+                                    tabletr.Cells.Add(createTableHeaderColumn(content));
                                 }
                                 else
                             {
@@ -254,7 +254,7 @@ namespace Utils.itinsync.icom.html
             return "";
         }
 
-        public static HtmlTableCell createthColumn(XDocumentTableContent content)
+        public static HtmlTableCell createTableHeaderColumn(XDocumentTableContent content)
         {
             HtmlGenericControl createDiv = new HtmlGenericControl("div");
 
