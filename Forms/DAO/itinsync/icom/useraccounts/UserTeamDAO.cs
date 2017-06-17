@@ -68,7 +68,7 @@ namespace DAO.itinsync.icom.userteam
         }
         public bool teamExists(Int32 teamID, Int32 userID)
         {
-            if (executeCount(string.Format("select count(*) as count from ars.userteam where teamID = '{0}' and userID = '{1}'", teamID, userID)) > 0)
+            if (executeCount(string.Format("select count(*) as count from " + TABLENAME + " where teamID = '{0}' and userID = '{1}'", teamID, userID)) > 0)
                 return true;
             else
                 return false;
