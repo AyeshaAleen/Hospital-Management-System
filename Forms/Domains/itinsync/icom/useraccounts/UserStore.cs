@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domains.itinsync.icom.useraccounts
+namespace Domains.itinsync.useraccounts
 {
    public class UserStore : System.Attribute, IDomain
     {

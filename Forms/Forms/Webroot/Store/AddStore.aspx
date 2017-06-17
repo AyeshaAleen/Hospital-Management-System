@@ -5,7 +5,10 @@
        <div class="page-content">
 
         <div class="page-header">
-            <h1><% Response.Write(trasnlation("Add.New.User")); %></h1>
+            <h1>
+                <%--<% Response.Write(trasnlation("Add.New.Store")); %>--%>
+                Add New Store
+            </h1>
         </div>
         <!-- /.page-header -->
 
@@ -57,8 +60,7 @@
                         </div>
 
                         <div class="form-group  col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label" id="lblWalmart" runat="server">Walmart *</label>
-
+                           <label class="col-sm-4 control-label" id="lblWalmart" runat="server">Walmart *</label>
                             <div class="col-sm-8">
                                 <input type="text" id="txtWalmart"  runat="server" placeholder="Walmart" class="form-control"  />
                                
@@ -67,19 +69,18 @@
                         </div>
 
                         <div class="form-group  col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label">Fax *</label>
-
+                            <label class="col-sm-4 control-label" id="lblFax" runat="server">Fax *</label>
                             <div class="col-sm-8">
+                                <input type="text" id="txtFax"  runat="server" placeholder="Fax" class="form-control"  />
                                 <%--<asp:DropDownList ID="ddlCountryCode" DataValueField="Code" DataTextField="Text" runat="server" CssClass="chosen-select form-control">
                                 </asp:DropDownList>--%>
                             </div>
                         </div>
 
                          <div class="form-group  col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label">Store No *</label>
-
+                            <label class="col-sm-4 control-label" id="lblStoreNo" runat="server">Store No *</label>
                             <div class="col-sm-8">
-                                
+                                <input type="text" id="txtStoreNo"  runat="server" placeholder="Store No" class="form-control"  />
                             </div>
                         </div>
 

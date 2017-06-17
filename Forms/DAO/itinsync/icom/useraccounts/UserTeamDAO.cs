@@ -10,6 +10,7 @@ using Utils.itinsync.icom;
 using domains.itinsync.useraccounts;
 using System.Reflection;
 
+
 namespace DAO.itinsync.icom.userteam
 {
     public class UserTeamDAO : CRUDBase
