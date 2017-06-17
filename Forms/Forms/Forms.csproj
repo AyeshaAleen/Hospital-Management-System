@@ -3171,6 +3171,8 @@
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons-wind.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.scss" />
+    <Content Include="Webroot\Store\AddStore.aspx" />
+    <Content Include="Webroot\Store\SearchStore.aspx" />
     <Content Include="Webroot\Team\AddTeam.aspx" />
     <Content Include="Webroot\Team\AssignTeam.aspx" />
     <Content Include="Webroot\Team\TeamSearch\TeamSearch.aspx" />
@@ -3526,6 +3528,20 @@
     </Compile>
     <Compile Include="Webroot\Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Store\AddStore.aspx.cs">
+      <DependentUpon>AddStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Store\AddStore.aspx.designer.cs">
+      <DependentUpon>AddStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Store\SearchStore.aspx.cs">
+      <DependentUpon>SearchStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Store\SearchStore.aspx.designer.cs">
+      <DependentUpon>SearchStore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Team\AddTeam.aspx.cs">
       <DependentUpon>AddTeam.aspx</DependentUpon>

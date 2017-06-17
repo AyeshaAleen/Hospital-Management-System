@@ -55,7 +55,7 @@ namespace Forms.Webroot.Users
         {
             setSubjectID(Convert.ToString(e.CommandArgument));
             //Redirect(PageConstant.PAGE_EDIT_TEAM);
-            
+            Response.Redirect(PageConstant.PAGE_AssignTeam);
         }
 
         protected void btnResetPassword_Command(object sender, CommandEventArgs e)

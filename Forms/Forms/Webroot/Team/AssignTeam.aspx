@@ -20,7 +20,7 @@
                             <div class="pull-right tableTools-container"></div>
                         </div>
                         <div class="table-header">
-                             <% Response.Write(translation("Current.Teams")); %>
+                             <% //Response.Write(translation("Current.Teams")); %>
                         </div>
 
                         <!-- div.table-responsive -->

@@ -135,7 +135,7 @@ namespace Forms.Webroot.Users
             dto.useraccounts.userPhone = txtContact.Value;
             dto.useraccounts.role = Convert.ToInt32(ddlUserRole.SelectedValue);
             dto.useraccounts.lang = ddlLang.SelectedValue;
-            dto.useraccounts.vendorID = Convert.ToInt32(ddlvendor.SelectedValue);
+            //dto.useraccounts.vendorID = Convert.ToInt32(ddlvendor.SelectedValue);
             dto.useraccounts.timeZone = ddlTimeZone.SelectedValue;
             return new UserAccountSaveService().executeAsPrimary(dto);
         }

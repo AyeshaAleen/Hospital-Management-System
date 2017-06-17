@@ -80,5 +80,11 @@ namespace DAO.itinsync.icom.store
                 list.Add((Store)domain);
             return list;
         }
+
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where storeid = {0}", ID);
+            return delete(delSQL);
+        }
     }
 }

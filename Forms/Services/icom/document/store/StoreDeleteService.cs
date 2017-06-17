@@ -13,19 +13,17 @@ using Services.icom.document.store.dto;
 
 namespace Services.icom.document.store
 {
-    public class StoreGetService : FrameAS
+    public class StoreDeleteService : FrameAS
     {
         StoreDTO dto = null;
-
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
                 dto = (StoreDTO)o;
                 if (dto.store.storeid > 0)
-                    dto.store = StoreDAO.getInstance(dbContext).findbyPrimaryKey(dto.store.storeid);
-                else
-                    dto.storelist = StoreDAO.getInstance(dbContext).readAll();
+                    StoreDAO.getInstance(dbContext).deleteByID(dto.store.storeid);
+                
             }
             catch (Exception ex)
             {

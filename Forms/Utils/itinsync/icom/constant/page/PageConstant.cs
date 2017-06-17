@@ -18,8 +18,8 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_EXIT_TDR = "ExistTDR.aspx";
         public static string PAGE_PERSONAL_INBOX = "/Webroot/Forms/Dashboard/PersonalInbox";
         
-        public static string PAGE_AddTeam = "AddTeam.aspx";
-        public static string PAGE_AssignTeam = "AssignTeam.aspx";
+        public static string PAGE_AddTeam = "../AddTeam.aspx";
+        public static string PAGE_AssignTeam = "../Team/AssignTeam.aspx";
         public static string PAGE_TeamSearch = "TeamSearch/TeamSearch.aspx";
         
         public static string PAGE_SIO = "/Webroot/Forms/SIO/GeneralSIO";
@@ -34,6 +34,11 @@ namespace Utils.itinsync.icom.constant.page
         public static string PAGE_ADD_USER = "AddUser.aspx";
         public static string PAGE_EDIT_PERMISSION = "UserPermission/UserPermissions.aspx";
         public static string PAGE_EDITUSER = "EditUsers.aspx";
+
+        //
+        public static string PAGE_ADD_STORE = "AddStore.aspx";
+        
+        //
 
         public static string PAGE_EDITPERMISSION = "EditPermission.aspx";
 
