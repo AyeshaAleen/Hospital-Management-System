@@ -286,6 +286,8 @@
     <input type="hidden" id="PreviousControlID" />
 
      <input type="hidden" id="FormName" runat="server" />
+     <input type="hidden" id="SectionName" runat="server" />
+    <input type="hidden" id="sectionID" runat="server" />
      <input type="hidden" id="ControlCount" runat="server" />
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">

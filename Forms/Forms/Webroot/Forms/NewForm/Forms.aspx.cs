@@ -40,6 +40,7 @@ namespace Forms.Webroot.Forms.NewForm
             ddlForms.DataBind();
             StoreDTO dto = new StoreDTO();
             dto.header = getHeader();
+            dto.READBY = ReadByConstant.READBYALL;
             IResponseHandler response = new StoreGetService().executeAsPrimary(dto);
             if(response.getErrorBlock().ErrorCode==ApplicationCodes.ERROR_NO)
             {

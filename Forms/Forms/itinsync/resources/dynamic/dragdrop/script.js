@@ -8,8 +8,10 @@
 
 // define redips object container
 var redips = {};
-
-
+var FORM_NAME = "";
+var CONTROL_COUINT = 0;
+var CURRENTPAGE_CONTEXT = "CommonMasterBody_DynamicFormMasterBody_";
+var SECTIONID = 0;
 // configuration
 redips.configuration = function () {
     redips.components = 'tblComponents';// left table id (table containing components)
@@ -26,6 +28,9 @@ redips.configuration = function () {
         //< button onclick=\"getpopover(this)\" type=\"button\" id=\"bulk_actions_btnsss\" class=\"btn btn-default has-spinner-two\" data-toggle=\"popover\" data-placement=\"bottom\" data-original-title=\"\" data-content=\"wwwwwwwwwwClick any question mark icon to get help and tips with specific tasks\" aria-describedby=\"popover335446789\"> Apply</button>| <span class=\"hRight\" onclick=\"deleteColumn(this)\">x</span>";
    
     redips.component = '<a href="#con-modal" class="hLeft" onclick="AddDetail()">+</a>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+
+   
+    
 };
 
 
@@ -357,19 +362,26 @@ function fieldClick(event) {
 
 function fieldset(event,divid) {
 
- 
+    var generatedcontrolID = "";
+    CONTROL_COUINT  = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
+    FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
+    SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")
     {
-        event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
-        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
-        return "dynamic_" + event[0].getAttribute("type") + divid;
+        event[0].id = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
     else
     {
-        event[0].id = "dynamic_" + event[0].type + divid;
-        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
-        return "dynamic_" + event[0].type + divid;
+        event[0].id = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
+    CONTROL_COUINT++;
+    document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value = CONTROL_COUINT;
+
+    return generatedcontrolID;
    
 }
 
