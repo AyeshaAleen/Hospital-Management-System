@@ -194,6 +194,9 @@
                 <div class="clearfix"></div>
 
                 <div class="col-md-12 m-t-40">
+                    <asp:HiddenField ID="signature1" runat="server" />
+                    <asp:HiddenField ID="signature2" runat="server" />
+                    <%--<input type="text"  id="hfValue" runat="server" class="form-control">--%>
                     <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
                     <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
                     <asp:Button ID="Button1" runat="server" Text="btnnnnnn" CssClass="btn sa-close btn-inverse waves-effect waves-light pull-right" />

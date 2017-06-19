@@ -12,37 +12,11 @@
                
 
 
-                <div class="col-md-6 col-lg-3">
-                    <a href="#">
-                        <div class="widget-bg-color-icon card-box fadeInDown animated">
-                            <div class="bg-icon bg-icon-info pull-left">
-                                <i class="md md-home text-info"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">Desktop</b></h3>
-                                <%--<p class="text-muted">Total Revenue</p>--%>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <a href="">
-                        <div class="widget-bg-color-icon card-box">
-                            <div class="bg-icon bg-icon-pink pull-left">
-                                <i class="md md-search text-pink"></i>
-                            </div>
-                            <div class="text-right">
-                                <h3 class="text-dark"><b class="counter">Search</b></h3>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
+              
+              
 
 
-                <div class="col-lg-6">
+                <div class="col-lg-12">
 
                     <div class="portlet">
                         <!-- /primary heading -->
@@ -73,7 +47,33 @@
                                         </thead>
 
                                         <tbody>
+                                            <asp:Repeater ID="tblDocument" runat="server">
+                                        <ItemTemplate>
                                             <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="tblFormName" Text='<%# Eval("name") %>' />
+                                                </td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="tblUserNama" Text='<%# Eval("name") %>' />
+                                                </td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="tblStartDate" Text='<%# Eval("name") %>' />
+                                                </td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="tblStatus" Text='<%# Eval("name") %>' />
+                                                </td>
+
+                                                <td style="text-align: center;">
+                                                    <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
+                                                        CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
+                                                    </asp:LinkButton>
+                                                </td>
+                                                
+                                            </tr>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                           <%-- <tr>
                                                 <td>Sio
                                                 </td>
 
@@ -89,27 +89,7 @@
                                                     <a href="#" class="table-action-btn"><i class="md md-replay"></i></a>
                                                     <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
                                                 </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>CEV
-                                                </td>
-
-                                                <td>John Doe
-                                                </td>
-                                                <td>05/11/2015
-                                                </td>
-                                                <td>
-                                                    <span class="label label-primary">Pending</span>
-
-                                                </td>
-
-                                                <td>
-                                                    <a href="#" class="table-action-btn"><i class="md md-replay"></i></a>
-                                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
-                                                </td>
-                                            </tr>
-
+                                            </tr>--%>
 
                                         </tbody>
                                     </table>

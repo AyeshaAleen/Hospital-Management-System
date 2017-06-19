@@ -10,8 +10,7 @@
 namespace Forms.Webroot.Forms.Dashboard {
     
     
-    public partial class PersonalInbox
-    {
+    public partial class PersonalInbox {
         
         /// <summary>
         /// validate control.
@@ -21,5 +20,14 @@ namespace Forms.Webroot.Forms.Dashboard {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl validate;
+        
+        /// <summary>
+        /// tblDocument control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater tblDocument;
     }
 }

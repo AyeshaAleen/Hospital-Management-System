@@ -293,7 +293,7 @@
 
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.core.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.app.js") %>"></script>
-
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>
 
     <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.form-pickers.init.js") %>"></script>
     <!-- Button Loaders  -->
