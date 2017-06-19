@@ -92,7 +92,7 @@ namespace Services.itinsync.icom.tablecontent
                 }
                 #endregion
 				
-				docalculation();
+				//docalculation();
             }
             catch (Exception ex)
             {

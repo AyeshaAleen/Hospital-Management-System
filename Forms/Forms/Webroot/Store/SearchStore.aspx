@@ -22,7 +22,7 @@
                             </label>
 
                             <div class="col-sm-8">
-                                <input type="text" id="txtStoreName" runat="server" placeholder="Username" class="form-control" />
+                                <input type="text" id="txtStoreName" runat="server" placeholder="Store Name" class="form-control" />
                             </div>
                         </div>
 

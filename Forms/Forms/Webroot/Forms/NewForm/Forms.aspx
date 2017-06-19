@@ -16,7 +16,6 @@
                 <div class="form-group col-md-5">
                     <label class="control-label">Store</label>
                     <asp:DropDownList ID="ddlStore" class="selectpicker" data-style="btn-white" runat="server" DataTextField="name" DataValueField="storeid" data-live-search="true"></asp:DropDownList>
-                    <%--<select id="ddlForms" class="selectpicker" data-live-search="true" data-style="btn-white" runat="server" DataTextField="name" DataValueField="xDocumentDefinationID" ></select>--%>
                 </div>
                 <div class="form-group col-md-2">
                     <br />

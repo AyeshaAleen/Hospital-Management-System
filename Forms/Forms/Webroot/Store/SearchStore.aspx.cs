@@ -12,6 +12,7 @@ using Services.icom.document.store.dto;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Utils.itinsync.icom.SecurityManager;
+using Domains.itinsync.icom.store;
 
 namespace Forms.Webroot.Store
 {
@@ -30,49 +31,45 @@ namespace Forms.Webroot.Store
         protected void btnClearForm_Click(object sender, EventArgs e) { }
         protected void btnSearchStore_Click(object sender, EventArgs e)
         {
-            StoreDTO dto = new StoreDTO();
-            dto.header = getHeader();
-            dto.store.name = txtStoreName.Value;
-            dto.READBY = ReadByConstant.READBYUSERNAME; 
-
-            IResponseHandler response = new StoreGetService().executeAsPrimary(dto); // Pending
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (StoreDTO)response;
-                repeaterStores.DataSource = dto.storelist;
-                repeaterStores.DataBind();
-            }
-            else
-                showErrorMessage(response);
+            SearchUser();
         }
         protected void tblEditStore_RowClick(object sender, CommandEventArgs e)
         {
+            //int i = ((Domains.itinsync.icom.store.Store)getParentRef()).storeid;
             setSubjectID(Convert.ToString(e.CommandArgument));
             Response.Redirect(PageConstant.PAGE_ADD_STORE);
-
-            //StoreDTO dto = new StoreDTO();
-            //dto.header = getHeader();
-            //dto.store.storeid = Convert.ToInt32(e.CommandArgument);
-            //IResponseHandler response = new StoreSaveService().executeAsPrimary(dto);
-            //if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            //{
-                
-            //}
-            //else
-            //    showErrorMessage(response);
-
+           
         }
         protected void tblDeleteStore_RowClick(object sender, CommandEventArgs e)
         {
-            //setSubjectID(Convert.ToString(e.CommandArgument));
-
             StoreDTO dto = new StoreDTO();
             dto.header = getHeader();
             dto.store.storeid = Convert.ToInt32(e.CommandArgument);
             IResponseHandler response = new StoreDeleteService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                
+                SearchUser();
+                showSuccessMessage(response);
+            }
+            else
+                showErrorMessage(response);
+        }
+
+        void SearchUser()
+        {
+            StoreDTO dto = new StoreDTO();
+            dto.header = getHeader();
+            dto.store.name = txtStoreName.Value;
+            //dto.READBY = ReadByConstant.READBYUSERNAME;
+
+            dto.READBY = (txtStoreName.Value.Length < 1) ? ReadByConstant.READBYALL: ReadByConstant.READBYUSERNAME;
+
+            IResponseHandler response = new StoreGetService().executeAsPrimary(dto); 
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (StoreDTO)response;
+                repeaterStores.DataSource = dto.storelist;
+                repeaterStores.DataBind();
             }
             else
                 showErrorMessage(response);

@@ -67,7 +67,12 @@
                                     </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i> TextArea</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i> Hidden</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -155,7 +160,7 @@
                 <div class="clearfix"></div>
 
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog" style="width:350px">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -244,15 +249,31 @@
                                             </asp:DropDownList>
                                         </div>
                                     </div>
-
+                                  
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Control IDs</label>
+                                            <div class="input-group">
                                             <asp:DropDownList ID="ddlControlID" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                             </asp:DropDownList>
+                                             <span class="input-group-addon btn btn-info" onclick="AddOperationDetail()">Go</span>
                                         </div>
+                                            </div>
                                     </div>
+
+                               <%--     <div class="col-md-12" style="max-height:250px; overflow-y:scroll">
+                                        <table class="table table-hover table-responsive table-bordered" id="tblOperationDetail">
+                                            <tr>
+                                                <th>Operation</th>
+                                                <th>Control ID</th>
+                                            </tr>
+                                            
+                                        </table>
+                                    </div>--%>
+                                     <div class="col-md-12">
+                                    <textarea rows="2" id="txtformula" class="form-control" />
+                                          </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -269,6 +290,10 @@
     </div>
     <input type="hidden" id="PreviousControlID" />
 
+     <input type="hidden" id="FormName" runat="server" />
+     <input type="hidden" id="SectionName" runat="server" />
+    <input type="hidden" id="sectionID" runat="server" />
+     <input type="hidden" id="ControlCount" runat="server" />
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>

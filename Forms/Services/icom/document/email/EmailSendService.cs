@@ -57,33 +57,33 @@ namespace Services.icom.document.email
             {
                 if (route.role == ApplicationCodes.ROUTE_SEND_STORE_ALL_MANAGER)
                 {
-                    List<UserStoreView> userStores = UserStoreViewDAO.getInstance(dbContext).readRole(ApplicationCodes.ROLES_MANAGER);
-                    foreach (UserStoreView userStore in userStores)
+                    List<UserStoreView2> userStores = UserStoreViewDAO2.getInstance(dbContext).readRole(ApplicationCodes.ROLES_MANAGER);
+                    foreach (UserStoreView2 userStore in userStores)
                         userID.Add(userStore.userID);
 
                 }
                 else if (route.role == ApplicationCodes.ROUTE_SEND_STORE_ALL_SUPERVISOR)
                 {
-                    List<UserStoreView> userStores = UserStoreViewDAO.getInstance(dbContext).readRole(ApplicationCodes.ROLES_SUPERVISOR);
-                    foreach (UserStoreView userStore in userStores)
+                    List<UserStoreView2> userStores = UserStoreViewDAO2.getInstance(dbContext).readRole(ApplicationCodes.ROLES_SUPERVISOR);
+                    foreach (UserStoreView2 userStore in userStores)
                         userID.Add(userStore.userID);
                 }
                 else if (route.role == ApplicationCodes.ROUTE_SEND_STORE_MANAGER)
                 {
-                    List<UserStoreView> userStores = UserStoreViewDAO.getInstance(dbContext).readRoleAndStoreNo(ApplicationCodes.ROLES_MANAGER, document.storeid);
-                    foreach (UserStoreView userStore in userStores)
+                    List<UserStoreView2> userStores = UserStoreViewDAO2.getInstance(dbContext).readRoleAndStoreNo(ApplicationCodes.ROLES_MANAGER, document.storeid);
+                    foreach (UserStoreView2 userStore in userStores)
                         userID.Add(userStore.userID);
                 }
                 else if (route.role == ApplicationCodes.ROUTE_SEND_STORE_SUPERVISOR)
                 {
-                    List<UserStoreView> userStores = UserStoreViewDAO.getInstance(dbContext).readRoleAndStoreNo(ApplicationCodes.ROLES_SUPERVISOR, document.storeid);
-                    foreach (UserStoreView userStore in userStores)
+                    List<UserStoreView2> userStores = UserStoreViewDAO2.getInstance(dbContext).readRoleAndStoreNo(ApplicationCodes.ROLES_SUPERVISOR, document.storeid);
+                    foreach (UserStoreView2 userStore in userStores)
                         userID.Add(userStore.userID);
                 }
                 else if (route.role == ApplicationCodes.ROUTE_SEND_STORE_GM)
                 {
-                    List<UserStoreView> userStores = UserStoreViewDAO.getInstance(dbContext).readRoleAndStoreNo(ApplicationCodes.ROLES_GM, document.storeid);
-                    foreach (UserStoreView userStore in userStores)
+                    List<UserStoreView2> userStores = UserStoreViewDAO2.getInstance(dbContext).readRoleAndStoreNo(ApplicationCodes.ROLES_GM, document.storeid);
+                    foreach (UserStoreView2 userStore in userStores)
                         userID.Add(userStore.userID);
                 }
               

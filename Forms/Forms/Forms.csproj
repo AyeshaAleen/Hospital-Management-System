@@ -3478,6 +3478,7 @@
     </Compile>
     <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.cs">
       <DependentUpon>PersonalInbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.designer.cs">
       <DependentUpon>PersonalInbox.aspx</DependentUpon>
@@ -3547,6 +3548,7 @@
     </Compile>
     <Compile Include="Webroot\Store\AssignStore.aspx.cs">
       <DependentUpon>AssignStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Store\AssignStore.aspx.designer.cs">
       <DependentUpon>AssignStore.aspx</DependentUpon>
@@ -3595,24 +3597,28 @@
     </Compile>
     <Compile Include="Webroot\Users\AddUser.aspx.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Users\AddUser.aspx.designer.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Users\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Users\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Users\UserPermission\UserPermissions.aspx.cs">
       <DependentUpon>UserPermissions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Users\UserPermission\UserPermissions.aspx.designer.cs">
       <DependentUpon>UserPermissions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Users\UserSearch.aspx.cs">
       <DependentUpon>UserSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Webroot\Users\UserSearch.aspx.designer.cs">
       <DependentUpon>UserSearch.aspx</DependentUpon>

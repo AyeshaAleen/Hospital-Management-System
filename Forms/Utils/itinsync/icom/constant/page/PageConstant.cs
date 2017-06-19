@@ -38,7 +38,7 @@ namespace Utils.itinsync.icom.constant.page
 
         //
         public static string PAGE_ADD_STORE = "AddStore.aspx";
-        
+        public static string PAGE_Assign_STORE = "../Store/AssignStore.aspx";
         //
 
         public static string PAGE_EDITPERMISSION = "EditPermission.aspx";

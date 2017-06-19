@@ -8,8 +8,10 @@
 
 // define redips object container
 var redips = {};
-
-
+var FORM_NAME = "";
+var CONTROL_COUINT = 0;
+var CURRENTPAGE_CONTEXT = "CommonMasterBody_DynamicFormMasterBody_";
+var SECTIONID = 0;
 // configuration
 redips.configuration = function () {
     redips.components = 'tblComponents';// left table id (table containing components)
@@ -26,6 +28,9 @@ redips.configuration = function () {
         //< button onclick=\"getpopover(this)\" type=\"button\" id=\"bulk_actions_btnsss\" class=\"btn btn-default has-spinner-two\" data-toggle=\"popover\" data-placement=\"bottom\" data-original-title=\"\" data-content=\"wwwwwwwwwwClick any question mark icon to get help and tips with specific tasks\" aria-describedby=\"popover335446789\"> Apply</button>| <span class=\"hRight\" onclick=\"deleteColumn(this)\">x</span>";
    
     redips.component = '<a href="#con-modal" class="hLeft" onclick="AddDetail()">+</a>|<span class="hRight" onclick="deleteColumn(this)">x</span>';
+
+   
+    
 };
 
 
@@ -181,8 +186,10 @@ function setTranslation() {
 function AddDetail(id) {
 
     debugger;
-    
-    $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
+
+  
+
+    //$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
 
     $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
 
@@ -238,7 +245,9 @@ function AddDetail(id) {
 function SetDetail() {
 
       var  id = document.getElementById("ControlID").value;
-   
+
+      $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
+
     document.getElementById(id).setAttribute("id", document.getElementById("ControlID").value);
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
@@ -261,7 +270,7 @@ function SetDetail() {
     }
     
 
-   
+    document.getElementById(id).setAttribute("formula", document.getElementById("txtformula").value);
     document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
     document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
     document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
@@ -270,9 +279,75 @@ function SetDetail() {
     if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
-
+    //setOperationField(id);
 
     $('#con-close-modal').modal('hide');
+}
+
+function setOperationField(id)
+{
+    //debugger;
+    //var formula = id;
+    //$('#tblOperationDetail').find('tr').each(function () {
+    //    $(this).find('td').each(function () {
+
+    //        if ($(this).html() == "MULTIPLY")
+    //            formula +="* ";
+    //        else if ($(this).html() == "PLUS")
+    //            formula += "+ ";
+    //        else if ($(this).html() == "MINUS")
+    //            formula += "- ";
+    //        else if ($(this).html() == "DIVIDE")
+    //            formula += "/ ";
+    //        else if ($(this).html() == "PERCENTAGE")
+    //            formula += "% ";
+
+    //        else
+    //    formula += $(this).html();
+
+    //        document.getElementById("txtformula").value = formula;
+
+    //});
+    //});
+}
+
+function AddOperationDetail() {
+    debugger;
+
+    var operation = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
+    var ControlID = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
+
+    var formula = document.getElementById("txtformula").value;
+
+    if (formula == "")
+        formula = document.getElementById("ControlID").value;
+
+    
+    if (operation.toUpperCase() == "MULTIPLY")
+        formula += "* ";
+    else if (operation.toUpperCase() == "PLUS")
+        formula += "+ ";
+    else if (operation.toUpperCase() == "MINUS")
+        formula += "- ";
+    else if (operation.toUpperCase() == "DIVIDE")
+        formula += "/ ";
+    else if (operation.toUpperCase() == "PERCENTAGE")
+        formula += "% ";
+    //else if (operation.toUpperCase() == "AVERAGE")
+    //    formula += "% ";
+    formula += ControlID;
+
+
+      
+
+    document.getElementById("txtformula").value = formula;
+
+    //var table = document.getElementById("tblOperationDetail");
+    //var row = table.insertRow(1);
+    //var cell1 = row.insertCell(0);
+    //var cell2 = row.insertCell(1);
+    //cell1.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
+    //cell2.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
 }
 
 function fieldClick(event) {
@@ -284,21 +359,29 @@ function fieldClick(event) {
     //detailWindow();
 }
 
+
 function fieldset(event,divid) {
 
- 
+    var generatedcontrolID = "";
+    CONTROL_COUINT  = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
+    FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
+    SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")
     {
-        event[0].id = "dynamic_" + event[0].getAttribute("type") + divid;
-        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
-        return "dynamic_" + event[0].getAttribute("type") + divid;
+        event[0].id = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
     else
     {
-        event[0].id = "dynamic_" + event[0].type + divid;
-        event[0].name = "dynamic_" + event[0].getAttribute("type") + divid;
-        return "dynamic_" + event[0].type + divid;
+        event[0].id = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        event[0].name = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
+    CONTROL_COUINT++;
+    document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value = CONTROL_COUINT;
+
+    return generatedcontrolID;
    
 }
 
