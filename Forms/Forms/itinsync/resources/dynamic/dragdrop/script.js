@@ -241,7 +241,7 @@ function AddDetail(id) {
     $('#con-close-modal').modal('show');
 }
 function SetDetail() {
-
+    debugger;
       var  id = document.getElementById("ControlID").value;
 
       $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
@@ -277,8 +277,7 @@ function SetDetail() {
     if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
         document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
-    //setOperationField(id);
-
+    
     $('#con-close-modal').modal('hide');
 }
 
