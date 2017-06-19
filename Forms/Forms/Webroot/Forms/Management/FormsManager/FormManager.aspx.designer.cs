@@ -31,6 +31,42 @@ namespace Forms.Webroot.Forms.Management.FormsManager {
         protected global::System.Web.UI.WebControls.Button savedocument;
         
         /// <summary>
+        /// ControlCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden ControlCount;
+        
+        /// <summary>
+        /// FormName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden FormName;
+        
+        /// <summary>
+        /// SectionName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden SectionName;
+        
+        /// <summary>
+        /// sectionID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden sectionID;
+        
+        /// <summary>
         /// ddlMask control.
         /// </summary>
         /// <remarks>
@@ -56,15 +92,6 @@ namespace Forms.Webroot.Forms.Management.FormsManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOperation;
-        
-        /// <summary>
-        /// ddlControlID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlControlID;
         
         /// <summary>
         /// tableOuterHtml control.

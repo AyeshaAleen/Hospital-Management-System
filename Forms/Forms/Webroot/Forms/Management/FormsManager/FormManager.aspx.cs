@@ -40,6 +40,10 @@ namespace Forms.Webroot.Forms.Management.FormsManager
            if (!IsPostBack)
             {
                 loadDropDown();
+                FormName.Value = ((XDocumentDefination)getParentRef()).name;
+                SectionName.Value = DocumentManager.getDocumentSection(Convert.ToInt32(getSubjectID())).name;
+                ControlCount.Value = DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString();
+                sectionID.Value = getSubjectID();
             }
         }
         private void loadDropDown()
@@ -52,6 +56,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             //ddlLookupName.DataBind();
             ddlMask.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKMask, getHeader().lang);
             ddlMask.DataBind();
+
             ddlOperation.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKOperation, getHeader().lang);
             ddlOperation.DataBind();
 

@@ -35,7 +35,24 @@ body {
     text-align: center;
     width: 120px;
     height: 28px;
-    background: #b6ff00;
+    background: #bceb8a;
+    line-height: 28px;
+    color: #555;
+    /* round corners */
+    border-radius: 4px;
+    /* opacity */
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+.redips-drag-field-highlight {
+    margin: 2px auto;
+    /* needed when details container is displayed to be wrapped nicely */
+    display: table;
+    text-align: center;
+    width: 120px;
+    height: 28px;
+    background: #e8bdd7;
     line-height: 28px;
     color: #555;
     /* round corners */
@@ -136,7 +153,7 @@ table#tblEditor > tbody > tr > td {
 /* "+" button */
 .hLeft {
     cursor: pointer;
-    color: #469999;
+    color: #5d9cec;
     font-weight: bold;
     width: 10px;
 }
@@ -197,4 +214,10 @@ table#tblEditor > tbody > tr > td {
 }
 table tr td {
     width:160px;
+}
+
+table tr th {
+    background: #8ec7df !important;
+    color:#fff;
+
 }

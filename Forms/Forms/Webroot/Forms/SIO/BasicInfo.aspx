@@ -16,7 +16,7 @@
                         <input type="text" id="txtStore" runat="server" class="form-control" irequired="1" imask="" />
                     </div>
                 </div>
-
+               
                 <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label">Date</label>

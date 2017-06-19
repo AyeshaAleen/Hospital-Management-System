@@ -35,7 +35,7 @@ namespace Utils.itinsync.icom.html
             #endregion
 
             XDocumentTable documentTable = new XDocumentTable();
-            int ControlCount = 0;
+            
             #region add Table dto values
 
 
@@ -80,9 +80,9 @@ namespace Utils.itinsync.icom.html
                             
                             
                             if (colnode.Descendants("h2").SingleOrDefault()!=null)
-                            tableTD.tdType = "601";
+                            tableTD.tdType = ApplicationCodes.FORMS_TABLE_HEADER_TYPE; 
                             else
-                                tableTD.tdType = "600";
+                                tableTD.tdType = ApplicationCodes.FORMS_TABLE_TD_TYPE;
 
                             tableTD.cssClass = colnode.GetAttributeValue("Class", "");
                             tableTR.tds.Add(tableTD);
@@ -126,12 +126,12 @@ namespace Utils.itinsync.icom.html
                                         if (type == "heading")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HEADING;
                                          
-                                        string ControlId = fieldnode.ChildNodes[1].GetAttributeValue("id", "").Replace(section_id.ToString()+ formname, string.Empty);
+                                       
 
-                                        
-                                        
+
+                                        tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
-                                        tableContent.controlID = ControlId + ControlCount + section_id + formname;
+                                        tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
                                         tableContent.mask = fieldnode.ChildNodes[1].GetAttributeValue("imask", "");
                                         tableContent.cssClass = fieldnode.ChildNodes[1].GetAttributeValue("Class", "");
@@ -161,7 +161,7 @@ namespace Utils.itinsync.icom.html
                                         tableTD.fields.Add(tableContent);
                                     }
                                 }
-                                ControlCount++;
+                                
                             }
                             #endregion
                         }
@@ -199,8 +199,6 @@ namespace Utils.itinsync.icom.html
 
                         foreach (XDocumentTableTD td in tr.tds)
                         {
-                            
-
                             foreach (XDocumentTableContent content in td.fields)
                             {
                                 ControlsHelper helper = new ControlsHelper();
@@ -211,23 +209,23 @@ namespace Utils.itinsync.icom.html
                                     tabletr.Cells.Add(createTableHeaderColumn(content));
                                 }
                                 else
-                            {
-                            HtmlTableCell tc = new HtmlTableCell();
-                            tabletr.Cells.Add(tc);
+                                {
+                                    HtmlTableCell tc = new HtmlTableCell();
+                                    tabletr.Cells.Add(tc);
 
-                                HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
-                                createDiv.Attributes.Add("class", "redips-drag");
-                                createDiv.Style.Add("cursor", "move");
-                                createDiv.Style.Add("width", "158px");
+                                    HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
+                                    createDiv.Attributes.Add("class", "redips-drag");
+                                    createDiv.Style.Add("cursor", "move");
+                                    createDiv.Style.Add("width", "158px");
 
 
-                                createDetailSpan(createDiv, content.controlID);
-                                if (helper.addControl(content, lang) != null)
-                                createDiv.Controls.Add( helper.addControl(content, lang));
-                                removeDetailSpan(createDiv, content.controlID);
+                                    createDetailSpan(createDiv, content.controlID);
+                                    if (helper.addControl(content, lang) != null)
+                                    createDiv.Controls.Add( helper.addControl(content, lang));
+                                    removeDetailSpan(createDiv, content.controlID);
 
-                                tc.Controls.Add(createDiv);
-                            }
+                                    tc.Controls.Add(createDiv);
+                                }
                                
                             }
 

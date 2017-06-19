@@ -4,6 +4,8 @@
 
 <html>
 <head runat="server">
+  
+
 
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -43,6 +45,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js") %>"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js") %>"></script>
         <![endif]-->
+
+       
 
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/modernizr.min.js") %>"></script>
     <asp:ContentPlaceHolder ID="CommonMasterhead" runat="server">
@@ -238,11 +242,13 @@
         </footer>
 
     </div>
+   
 
     <script>
         var resizefunc = [];
     </script>
     <!-- jQuery  -->
+    
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/bootstrap.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/detect.js") %>"></script>
