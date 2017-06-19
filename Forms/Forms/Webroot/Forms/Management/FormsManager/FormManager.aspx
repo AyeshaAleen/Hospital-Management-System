@@ -67,7 +67,12 @@
                                     </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i> TextArea</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i> Hidden</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -155,7 +160,7 @@
                 <div class="clearfix"></div>
 
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog" style="width:350px">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -267,7 +272,7 @@
                                         </table>
                                     </div>--%>
                                      <div class="col-md-12">
-                                    <input type="text" id="txtformula" class="form-control" />
+                                    <textarea rows="2" id="txtformula" class="form-control" />
                                           </div>
                                 </div>
                             </div>

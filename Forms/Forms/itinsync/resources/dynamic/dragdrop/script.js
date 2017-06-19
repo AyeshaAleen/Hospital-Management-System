@@ -184,7 +184,7 @@ function AddDetail(id) {
 
   
 
-    $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
+    //$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
 
     $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
 
