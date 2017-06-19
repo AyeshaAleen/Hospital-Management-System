@@ -32,32 +32,32 @@
 
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i> label text</div>
+                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i> Heading</div>
+                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i>Heading</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i> DropDown</div>
+                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i>DropDown</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i> TextBox</div>
+                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i> CheckBox</div>
+                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>CheckBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i> Radio Button</div>
+                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Button</div>
                                         </td>
                                     </tr>
                                     <%--     <tr>
@@ -67,12 +67,12 @@
                                     </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i> TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i> Hidden</div>
+                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i>Hidden</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -116,19 +116,17 @@
 
                                 <tbody>
                                     <tr>
-                                       <td>
-
-                                       </td>
+                                        <td></td>
 
                                         <td id="cellcontrol" class="redips-mark ignore" last="true">
                                             <div>
-                                                
+
                                                 <span onclick="redips.cellDelete(this)" class="rowTool">xc/</span>
-                                                <span onclick="redips.rowDelete(this)" class="rowTool"> xr/</span>
+                                                <span onclick="redips.rowDelete(this)" class="rowTool">xr/</span>
 
-                                                <span onclick="redips.rowInsert(this)" class="rowTool"> r+/</span>
+                                                <span onclick="redips.rowInsert(this)" class="rowTool">r+/</span>
 
-                                                <span onclick="redips.colInsert(this)" class="rowTool"> c+</span>
+                                                <span onclick="redips.colInsert(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
 
@@ -139,6 +137,10 @@
                             <%--<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>--%>
 
                             <asp:Button ID="savedocument" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="savedocument_Click" OnClientClick="getTableContent()" />
+                            <input type="hidden" id="ControlCount" runat="server" />
+                            <input type="hidden" id="FormName" runat="server" />
+                            <input type="hidden" id="SectionName" runat="server" />
+                            <input type="hidden" id="sectionID" runat="server" />
 
 
                             <!-- demo message (needed to display JSON message) -->
@@ -160,7 +162,7 @@
                 <div class="clearfix"></div>
 
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog" style="width:350px">
+                    <div class="modal-dialog" style="width: 350px">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -230,7 +232,7 @@
                                             isRequired
                                         </div>
                                     </div>
-                                      <div class="col-md-6">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="checkbox" id="isReadonly" />
                                             isReadonly
@@ -245,24 +247,24 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Operation</label>
-                                            <asp:DropDownList ID="ddlOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                            </asp:DropDownList>
+                                             <asp:DropDownList ID="ddlOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                                </asp:DropDownList>
+                                         
                                         </div>
                                     </div>
-                                  
+
 
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Control IDs</label>
                                             <div class="input-group">
-                                            <asp:DropDownList ID="ddlControlID" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                            </asp:DropDownList>
-                                             <span class="input-group-addon btn btn-info" onclick="AddOperationDetail()">Go</span>
-                                        </div>
+                                                  <select id="ddlControlID" class="form-control" ></select>
+                                                <span class="input-group-addon btn btn-info" onclick="AddOperationDetail()">Go</span>
                                             </div>
+                                        </div>
                                     </div>
 
-                               <%--     <div class="col-md-12" style="max-height:250px; overflow-y:scroll">
+                                    <%--     <div class="col-md-12" style="max-height:250px; overflow-y:scroll">
                                         <table class="table table-hover table-responsive table-bordered" id="tblOperationDetail">
                                             <tr>
                                                 <th>Operation</th>
@@ -271,9 +273,10 @@
                                             
                                         </table>
                                     </div>--%>
-                                     <div class="col-md-12">
-                                    <textarea rows="2" id="txtformula" class="form-control" />
-                                          </div>
+
+                                    <div class="col-md-12">
+                                        <textarea rows="2" id="txtformula" class="form-control" />
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -281,6 +284,7 @@
                                 <button type="button" class="btn btn-info waves-effect waves-light" onclick="SetDetail()">Set Detail</button>
                                 <input type="text" hidden="hidden" id="tableOuterHtml" runat="server" />
                                 <input type="text" hidden="hidden" id="RequiredFieldID" />
+
                             </div>
                         </div>
                     </div>
@@ -290,10 +294,7 @@
     </div>
     <input type="hidden" id="PreviousControlID" />
 
-     <input type="hidden" id="FormName" runat="server" />
-     <input type="hidden" id="SectionName" runat="server" />
-    <input type="hidden" id="sectionID" runat="server" />
-     <input type="hidden" id="ControlCount" runat="server" />
+
 </asp:Content>
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>
@@ -311,15 +312,12 @@
                 .replace(/'/g, '&apos;');
         }
 
-        function heighlight() {
-            debugger;
-            alert("hello");
-        }
+     
         $(document).ready(function () {
-
-           
-            $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').on('change', function () {
-                var Controlid = document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").value;
+            alert("hello");
+            debugger;
+            $('#ddlControlID').on('change', function () {
+                var Controlid = document.getElementById("ddlControlID").value;
 
                 var PreviousControl = document.getElementById("PreviousControlID").value;
 
@@ -328,21 +326,19 @@
                     $("#" + PreviousControl).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
 
                 }
-               
 
-                if ($("#" + Controlid).parent().hasClass('redips-drag-highlight'))
-                {
+
+                if ($("#" + Controlid).parent().hasClass('redips-drag-highlight')) {
                     $("#" + Controlid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
 
                 }
-                else
-                {
+                else {
                     $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
                 }
             });
 
 
-          
+
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "") {
                 document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
                 var theTbl = document.getElementById('tblEditor');
@@ -353,7 +349,7 @@
 
         });
     </script>
-   <%-- <script>
+    <%-- <script>
         $("#con-modal").draggable({
             handle: ".modal-header"
         });

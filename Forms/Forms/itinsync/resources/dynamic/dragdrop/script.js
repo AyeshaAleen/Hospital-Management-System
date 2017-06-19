@@ -110,7 +110,7 @@ redips.init = function () {
 // callback method is called with XHR and obj object (obj is just passed from ajaxCall to this callback function)
 // error handling is wrapped inside callback function
 redips.handler1 = function (xhr, obj) {
-
+    debugger;
     // prepare title and layout local variables
     var title,
         layout;
@@ -187,29 +187,27 @@ function AddDetail(id) {
 
     debugger;
 
-  
-
-    //$('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove();
-
-    $('#CommonMasterBody_DynamicFormMasterBody_ddlControlID').children().remove().end().append('<option selected value="">Select</option>');
+   
+    //alert(jQuery("#ddlControlID"));
+    $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
 
     $('#tblEditor').find('td input').each(function () {
 
-        $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+        $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
     });
     
 
     if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading") {
         document.getElementById("points").disabled = true;
-        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = true;
-        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = true;
+        document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = true;
+        document.getElementById("ddlControlID").disabled = true;
     }
 
     else
     {
         document.getElementById("points").disabled = false;
-        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlOperation").disabled = false;
-        document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").disabled = false;
+        document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = false;
+        document.getElementById(CURRENTPAGE_CONTEXT+"ddlControlID").disabled = false;
     }
     if (document.getElementById(id).getAttribute("type") == "radio") {
         document.getElementById("ControlName").disabled = false;
@@ -222,10 +220,10 @@ function AddDetail(id) {
 
     // getting data from popup and setting it to required field
     debugger;
-    if (fieldObject.getAttribute("resultantid") != "")
-        document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
+    //if (fieldObject.getAttribute("resultantid") != "")
+    //    document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
 
-    document.getElementById("CommonMasterBody_DynamicFormMasterBody_ddlControlID").value = fieldObject.getAttribute("resultantid");
+    document.getElementById("ddlControlID").value = fieldObject.getAttribute("resultantid");
 
     document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
     document.getElementById("ControlID").value = id;
@@ -264,16 +262,16 @@ function SetDetail() {
        
 
         document.getElementById(id).setAttribute("points", document.getElementById("points").value);
-        document.getElementById(id).setAttribute("Operation", $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text());
-        document.getElementById(id).setAttribute("resultantid", $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text());
+        document.getElementById(id).setAttribute("Operation", $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text());
+        document.getElementById(id).setAttribute("resultantid", $("#" +CURRENTPAGE_CONTEXT+"ddlControlID option:selected").text());
         document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
     }
     
 
     document.getElementById(id).setAttribute("formula", document.getElementById("txtformula").value);
     document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
-    document.getElementById(id).setAttribute("LookupName", $("#CommonMasterBody_DynamicFormMasterBody_ddlLookupName option:selected").text());
-    document.getElementById(id).setAttribute("imask", $("#CommonMasterBody_DynamicFormMasterBody_ddlMask option:selected").text());
+    document.getElementById(id).setAttribute("LookupName", $("#" +CURRENTPAGE_CONTEXT+"ddlLookupName option:selected").text());
+    document.getElementById(id).setAttribute("imask", $("#" +CURRENTPAGE_CONTEXT+"ddlMask option:selected").text());
   
     
     if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
@@ -314,8 +312,8 @@ function setOperationField(id)
 function AddOperationDetail() {
     debugger;
 
-    var operation = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
-    var ControlID = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
+    var operation = $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text();
+    var ControlID = $("#" +CURRENTPAGE_CONTEXT+"ddlControlID option:selected").text();
 
     var formula = document.getElementById("txtformula").value;
 
@@ -361,8 +359,10 @@ function fieldClick(event) {
 
 
 function fieldset(event,divid) {
-
+    debugger;
     var generatedcontrolID = "";
+    var test = CURRENTPAGE_CONTEXT+"ControlCount";
+ 
     CONTROL_COUINT  = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
     FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
     SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;

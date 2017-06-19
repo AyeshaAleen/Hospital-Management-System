@@ -254,7 +254,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.nicescroll.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.scrollTo.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/signature_pad.js") %>"></script>
-    <%--<script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>--%>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>
 
     <!-- Bootstrap Pickers  -->
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/moment/moment.js") %>"></script>
