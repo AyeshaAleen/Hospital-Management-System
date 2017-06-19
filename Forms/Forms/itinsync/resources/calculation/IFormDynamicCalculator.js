@@ -86,11 +86,17 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
             currentObject = controllsObject[count];
 
             var currentID = currentObject.getAttribute("id");
-
+            currentID = currentID.replace(PAGE_CONTEXT, "");
             if (inputObjFormula.includes(currentID))
             {
 
-                inputObjFormula = inputObjFormula.replace(currentID, currentObject.getAttribute("points"));
+                var inputType = this.getInputType(currentObject);
+                var checkOrRadio = ((inputType == 'RADIO') || (inputType == 'CHECKBOX'));
+
+                if (checkOrRadio && !currentObject.checked)
+                    inputObjFormula = inputObjFormula.replace(currentID, "0");
+                else
+                    inputObjFormula = inputObjFormula.replace(currentID, currentObject.getAttribute("points"));
 
 
             }
@@ -135,6 +141,12 @@ function containsVaildParameters(inputObj) {
         var msk = useObjectForParams.getAttribute("imask");
         if (msk)
             return (true);
+
+        var formula = useObjectForParams.getAttribute("formula");
+        if (formula)
+            return (true);
+
+        
 
     }
 

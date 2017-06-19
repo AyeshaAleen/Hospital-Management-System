@@ -119,6 +119,22 @@ namespace Utils.itinsync.icom.cache.document
             }
 
         }
+        public static Int32 getDocumentSectionFieldCount(Int32 documentSectionID, Int32 doumentDefinitionID)
+        {
+            Int32 count = 0;
+            foreach (XDocumentTable documenttable in getDocumentTables(documentSectionID, doumentDefinitionID))
+            {
+                foreach (XDocumentTableTR tr in documenttable.trs)
+                {
+                    foreach (XDocumentTableTD td in tr.tds)
+                    {
+                        count = count + td.fields.Count;
+                    }
+                }
+            }
+            return count;
+
+        }
         public static List<XDocumentSection> getDocumentSections(Int64 doumentDefinitionID)
         {
             if (GlobalStaticCache.documentDefinition.ContainsKey(doumentDefinitionID))
