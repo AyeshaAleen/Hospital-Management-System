@@ -6,7 +6,6 @@
     <script src="../../../../itinsync/resources/dynamic/dragdrop/redips-table-min.js"></script>
     <script src="../../../../itinsync/resources/dynamic/dragdrop/script.js"></script>
 
-
 </asp:Content>
 <asp:Content ID="cntFormsManagerBody" ContentPlaceHolderID="DynamicFormMasterBody" runat="server">
 
