@@ -46,78 +46,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js") %>"></script>
         <![endif]-->
 
-       <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/bootstrap.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/detect.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/fastclick.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.slimscroll.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.blockUI.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/waves.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/wow.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.nicescroll.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.scrollTo.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/signature_pad.js") %>"></script>
-    <%--<script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>--%>
-
-    <!-- Bootstrap Pickers  -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/moment/moment.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/timepicker/bootstrap-timepicker.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/clockpicker/js/bootstrap-clockpicker.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") %>"></script>
-
-    <!-- Forms  -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/switchery/js/switchery.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/multiselect/js/jquery.multi-select.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/jquery-quicksearch/jquery.quicksearch.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/select2/js/select2.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-select/js/bootstrap-select.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js") %>"></script>
-
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/jquery.mockjax.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/jquery.autocomplete.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/countries.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/autocomplete.js") %>"></script>
-
-    <!-- Advance Forms  -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.form-advanced.init.js") %>"></script>
-
-    <!-- Bootstrap DataTable  -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-table/js/bootstrap-table.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.bs-table.js") %>"></script>
-
-
-    <!-- Bootstrap Notification  -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/notifyjs/js/notify.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/notifications/notify-metro.js") %>"></script>
-
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.core.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.app.js") %>"></script>
-
-
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.form-pickers.init.js") %>"></script>
-    <!-- Button Loaders  -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/spin.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.jquery.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/custom.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormsCalculator.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/table/DynamicTable.js") %>"></script>
-
-
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-sweetalert/sweet-alert.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.sweet-alert.init.js") %>"></script>
-
-
-    <!-- Modal-Effect -->
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/custombox.min.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/legacy.min.js") %>"></script>
-
-
+       
 
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/modernizr.min.js") %>"></script>
     <asp:ContentPlaceHolder ID="CommonMasterhead" runat="server">
@@ -320,6 +249,77 @@
     </script>
     <!-- jQuery  -->
     
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/bootstrap.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/detect.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/fastclick.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.slimscroll.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.blockUI.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/waves.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/wow.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.nicescroll.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.scrollTo.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/signature_pad.js") %>"></script>
+    <%--<script src="<%= ResolveClientUrl("~/itinsync/resources/js/app.js") %>"></script>--%>
+
+    <!-- Bootstrap Pickers  -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/moment/moment.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/timepicker/bootstrap-timepicker.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/clockpicker/js/bootstrap-clockpicker.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js") %>"></script>
+
+    <!-- Forms  -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/switchery/js/switchery.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/multiselect/js/jquery.multi-select.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/jquery-quicksearch/jquery.quicksearch.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/select2/js/select2.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-select/js/bootstrap-select.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js") %>"></script>
+
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/jquery.mockjax.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/jquery.autocomplete.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/autocomplete/countries.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/autocomplete.js") %>"></script>
+
+    <!-- Advance Forms  -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.form-advanced.init.js") %>"></script>
+
+    <!-- Bootstrap DataTable  -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-table/js/bootstrap-table.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.bs-table.js") %>"></script>
+
+
+    <!-- Bootstrap Notification  -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/notifyjs/js/notify.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/notifications/notify-metro.js") %>"></script>
+
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.core.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/jquery.app.js") %>"></script>
+
+
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.form-pickers.init.js") %>"></script>
+    <!-- Button Loaders  -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/spin.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.jquery.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/js/custom.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormsCalculator.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/table/DynamicTable.js") %>"></script>
+
+
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-sweetalert/sweet-alert.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/pages/jquery.sweet-alert.init.js") %>"></script>
+
+
+    <!-- Modal-Effect -->
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/custombox.min.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/legacy.min.js") %>"></script>
+
 
     <asp:ContentPlaceHolder ID="CommonMasterFooter" runat="server">
     </asp:ContentPlaceHolder>

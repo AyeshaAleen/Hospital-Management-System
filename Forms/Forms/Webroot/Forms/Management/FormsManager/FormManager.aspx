@@ -274,7 +274,7 @@
                                     </div>--%>
 
                                     <div class="col-md-12">
-                                        <textarea rows="2" id="txtformula" class="form-control" />
+                                        <textarea rows="2" id="txtformula" class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -313,7 +313,6 @@
 
      
         $(document).ready(function () {
-            alert("hello");
             debugger;
             $('#ddlControlID').on('change', function () {
                 var Controlid = document.getElementById("ddlControlID").value;

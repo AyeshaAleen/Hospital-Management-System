@@ -207,7 +207,7 @@ function AddDetail(id) {
     {
         document.getElementById("points").disabled = false;
         document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = false;
-        document.getElementById(CURRENTPAGE_CONTEXT+"ddlControlID").disabled = false;
+        document.getElementById("ddlControlID").disabled = false;
     }
     if (document.getElementById(id).getAttribute("type") == "radio") {
         document.getElementById("ControlName").disabled = false;
@@ -263,7 +263,7 @@ function SetDetail() {
 
         document.getElementById(id).setAttribute("points", document.getElementById("points").value);
         document.getElementById(id).setAttribute("Operation", $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text());
-        document.getElementById(id).setAttribute("resultantid", $("#" +CURRENTPAGE_CONTEXT+"ddlControlID option:selected").text());
+        document.getElementById(id).setAttribute("resultantid", $("#ddlControlID option:selected").text());
         document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
     }
     
@@ -313,7 +313,7 @@ function AddOperationDetail() {
     debugger;
 
     var operation = $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text();
-    var ControlID = $("#" +CURRENTPAGE_CONTEXT+"ddlControlID option:selected").text();
+    var ControlID = $("#ddlControlID option:selected").text();
 
     var formula = document.getElementById("txtformula").value;
 
