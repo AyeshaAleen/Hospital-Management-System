@@ -222,6 +222,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Account\Web.config" />
+    <Content Include="itinsync\resources\calculation\IFormDynamicCalculator.js" />
     <Content Include="itinsync\resources\calculation\IFormsCalculator.js" />
     <Content Include="itinsync\resources\css\bootstrap.min.css" />
     <Content Include="itinsync\resources\css\components.css" />
@@ -2928,6 +2929,7 @@
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
     <Content Include="Webroot\Forms\NewForm\Forms.aspx" />
+    <Content Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3172,10 +3174,15 @@
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.min.scss" />
     <Content Include="itinsync\resources\less\icons\weather-icons\sass\weather-icons.scss" />
     <Content Include="Webroot\Store\AddStore.aspx" />
+    <Content Include="Webroot\Store\AssignStore.aspx" />
     <Content Include="Webroot\Store\SearchStore.aspx" />
     <Content Include="Webroot\Team\AddTeam.aspx" />
     <Content Include="Webroot\Team\AssignTeam.aspx" />
     <Content Include="Webroot\Team\TeamSearch\TeamSearch.aspx" />
+    <Content Include="Webroot\Users\AddUser.aspx" />
+    <Content Include="Webroot\Users\ChangePassword.aspx" />
+    <Content Include="Webroot\Users\UserPermission\UserPermissions.aspx" />
+    <Content Include="Webroot\Users\UserSearch.aspx" />
     <None Include="Properties\PublishProfiles\Forms.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -3469,6 +3476,12 @@
     <Compile Include="Webroot\Forms\NewForm\Forms.aspx.designer.cs">
       <DependentUpon>Forms.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.cs">
+      <DependentUpon>PersonalInbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.designer.cs">
+      <DependentUpon>PersonalInbox.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3532,6 +3545,12 @@
     <Compile Include="Webroot\Store\AddStore.aspx.designer.cs">
       <DependentUpon>AddStore.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\Store\AssignStore.aspx.cs">
+      <DependentUpon>AssignStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Store\AssignStore.aspx.designer.cs">
+      <DependentUpon>AssignStore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\Store\SearchStore.aspx.cs">
       <DependentUpon>SearchStore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3573,6 +3592,30 @@
     </Compile>
     <Compile Include="Webroot\testMaster.master.designer.cs">
       <DependentUpon>testMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\AddUser.aspx.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\AddUser.aspx.designer.cs">
+      <DependentUpon>AddUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\UserPermission\UserPermissions.aspx.cs">
+      <DependentUpon>UserPermissions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\UserPermission\UserPermissions.aspx.designer.cs">
+      <DependentUpon>UserPermissions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\UserSearch.aspx.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Users\UserSearch.aspx.designer.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

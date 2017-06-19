@@ -93,6 +93,7 @@
     <Compile Include="itinsync\icom\useraccounts\UserProfile.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRegion.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserRole.cs" />
+    <Compile Include="itinsync\icom\useraccounts\UserStore.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserTeam.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserVecation.cs" />
     <Compile Include="itinsync\icom\vehicle\Vehicle.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="itinsync\icom\views\session\user\UserInformation.cs" />
     <Compile Include="itinsync\icom\views\user\UserPermissionView.cs" />
     <Compile Include="itinsync\icom\views\user\UserStoreView.cs" />
+    <Compile Include="itinsync\icom\views\user\UserStoreView2.cs" />
     <Compile Include="itinsync\icom\views\user\UserTeamView.cs" />
     <Compile Include="itinsync\interfaces\domain\IDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

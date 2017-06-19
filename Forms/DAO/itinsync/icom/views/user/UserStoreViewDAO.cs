@@ -30,9 +30,13 @@ namespace DAO.itinsync.icom.views.user
         protected override IDomain setResult(DataTable dt, int i)
         {
             UserStoreView userstore = new UserStoreView();
-          
 
-            setPropertiesValue(userstore, dt, i, typeof(UserStoreView.columns));
+            userstore.storeid = Convert.ToInt32(dt.Rows[i][UserStoreView.columns.storeid.ToString()]);
+            userstore.storename = Convert.ToString(dt.Rows[i][UserStoreView.columns.storename.ToString()]);
+            userstore.userid = Convert.ToInt32(dt.Rows[i][UserStoreView.columns.userid.ToString()]);
+            userstore.userstoreid = Convert.ToInt32(dt.Rows[i][UserStoreView.columns.userstoreid.ToString()]);
+
+            //setPropertiesValue(userstore, dt, i, typeof(UserStoreView.columns));
 
             return userstore;
         }
@@ -42,17 +46,9 @@ namespace DAO.itinsync.icom.views.user
             throw new NotImplementedException();
         }
 
-
-        public List<UserStoreView> readRoleAndStoreNo(int role,int storeid)
+        public List<UserStoreView> readbyuserID(Int32 userID)
         {
-            string sql = string.Format("select * From " + TABLENAME + "where userRole = {0} and storeid = '{1}'",role, storeid);
-            return wrap(processResults(sql));
-        }
-
-        public List<UserStoreView> readRole(int role)
-        {
-            string sql = string.Format("select * From " + TABLENAME + "where userRole = {0} ", role);
-            return wrap(processResults(sql));
+            return wrap(processResults("select * From " + TABLENAME + " where userid = " + userID));
         }
 
         private List<UserStoreView> wrap(List<IDomain> result)
