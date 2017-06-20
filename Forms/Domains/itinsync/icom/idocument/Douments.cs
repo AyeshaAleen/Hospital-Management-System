@@ -28,6 +28,7 @@ namespace Domains.itinsync.icom.idocument
         public Int32 vendorid { get; set; }
         public Int32 storeid { get; set; }
         public Int32 Userid { get; set; }
+        public string Users { get; set; }
         public Int32 transID { get; set; }
         public int flow { get; set; }
 

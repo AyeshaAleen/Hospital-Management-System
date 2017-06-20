@@ -11,11 +11,6 @@
 
                
 
-
-              
-              
-
-
                 <div class="col-lg-12">
 
                     <div class="portlet">
@@ -51,21 +46,21 @@
                                         <ItemTemplate>
                                             <tr>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblFormName" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblFormName" Text='<%# Eval("documentName") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblUserNama" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblUserNama" Text='<%# Eval("users") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblStartDate" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblStartDate" Text='<%# Eval("transDate") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblStatus" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblStatus" Text='<%# Eval("status") %>' />
                                                 </td>
 
                                                 <td style="text-align: center;">
                                                     <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentID") ) %>'
                                                         CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
                                                     </asp:LinkButton>
                                                 </td>
