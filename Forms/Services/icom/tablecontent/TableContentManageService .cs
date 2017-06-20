@@ -66,7 +66,7 @@ namespace Services.itinsync.icom.tablecontent
                                 foreach (XDocumentTableContent field in td.fields)
                                 {
                                     XDocumentTableContentDAO.getInstance(dbContext).deleteByID(field.documentTableContentID);
-                                    LookupTransDAO.getInstance(dbContext).deleteBytrans(field.translation);
+                                    //LookupTransDAO.getInstance(dbContext).deleteBytrans(field.translation);
 
                                     field.calculations = XDocumentCalculationDAO.getInstance(dbContext).readbyFieldID(field.documentTableContentID);
                                     foreach (XDocumentCalculation calculation in field.calculations)

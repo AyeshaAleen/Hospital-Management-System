@@ -47,6 +47,15 @@ namespace Utils.itinsync.icom.controls
             return txtBox;
         }
 
+        public TextBox createHiddenField(XDocumentTableContent content)
+        {
+            TextBox txtBox = new TextBox();
+            txtBox.ID = content.controlID;
+            txtBox.CssClass = content.cssClass;
+            txtBox.Attributes.Add("type", "Hidden");
+            return txtBox;
+        }
+
         public  Label createLabel(XDocumentTableContent content)
         {
             if (string.IsNullOrEmpty(content.translation))
@@ -177,6 +186,65 @@ namespace Utils.itinsync.icom.controls
             return ddl;
         }
 
+        public static void createDetailSpan(HtmlGenericControl createDiv, string controlID)
+        {
+            HtmlGenericControl spanAddDetail = new HtmlGenericControl("span");
+            spanAddDetail.Attributes.Add("class", "hLeft");
+            spanAddDetail.Attributes.Add("onclick", "AddDetail('" + controlID + "')");
+            spanAddDetail.InnerHtml = "+";
+            createDiv.Controls.Add(spanAddDetail);
+
+
+        }
+
+        public static void removeDetailSpan(HtmlGenericControl createDiv, string controlID)
+        {
+            HtmlGenericControl spanRemoveDetail = new HtmlGenericControl("span");
+            spanRemoveDetail.Attributes.Add("class", "hRight");
+            spanRemoveDetail.Attributes.Add("onclick", "deleteColumn(this)");
+            spanRemoveDetail.InnerHtml = "x";
+            createDiv.Controls.Add(spanRemoveDetail);
+        }
+
+        public static HtmlTableCell createHTMLTableHeaderColumn(XDocumentTableContent content)
+        {
+            HtmlGenericControl createDiv = new HtmlGenericControl("div");
+            createDiv.Attributes.Add("class", "redips-drag");
+            createDiv.Style.Add("cursor", "move");
+            createDiv.Style.Add("width", "158px");
+
+            //createDiv.Style.Add("class", "form-control");
+            createDiv.Style.Add("background", "whitesmoke");
+
+            HtmlTableCell cell = new HtmlTableCell("th");
+            HtmlGenericControl heading = new HtmlGenericControl("h2");
+
+
+            heading.Attributes.Add("translation", content.translation);
+            heading.Attributes.Add("id", content.controlID);
+            heading.Attributes.Add("name", content.controlName);
+            heading.Attributes.Add("type", "heading");
+            heading.Attributes.Add("defaultValue", TranslationManager.trans(content.translation));
+            heading.InnerText = TranslationManager.trans(content.translation);
+
+            createDetailSpan(createDiv, content.controlID);
+            createDiv.Controls.Add(heading);
+            removeDetailSpan(createDiv, content.controlID);
+
+            cell.Align = "center";
+
+
+            //cell.BgColor = "WhiteSmoke";
+            cell.ColSpan = content.colspan;
+          
+
+
+            cell.Controls.Add(createDiv);
+
+            return cell;
+
+        }
+
         public Control addControl(XDocumentTableContent content,string lang)
         {
             if (content.controlType == ApplicationCodes.FORMS_CONTROL_LABEL)
@@ -189,7 +257,8 @@ namespace Utils.itinsync.icom.controls
                 return createCombo(content, lang);
             else if (content.controlType == ApplicationCodes.FORMS_CONTROL_CHECKBOX)
                 return createCheckBox(content);
-
+            else if (content.controlType == ApplicationCodes.FORMS_CONTROL_HIDDEN)
+                return createHiddenField(content);
 
             else
                 return null;

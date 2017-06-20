@@ -194,6 +194,9 @@ function AddDetail(id) {
     $('#tblEditor').find('td input').each(function () {
 
         $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+
+      
+        
     });
     
 
@@ -221,9 +224,9 @@ function AddDetail(id) {
     // getting data from popup and setting it to required field
     debugger;
     //if (fieldObject.getAttribute("resultantid") != "")
-    //    document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
+        document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
 
-    document.getElementById("ddlControlID").value = fieldObject.getAttribute("resultantid");
+    //document.getElementById("ddlControlID").value = fieldObject.getAttribute("resultantid");
 
     document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
     document.getElementById("ControlID").value = id;
@@ -235,7 +238,7 @@ function AddDetail(id) {
         document.getElementById("isRequired").checked = true;
     else
         document.getElementById("isRequired").checked = false;
-
+    debugger;
     document.getElementById("txtformula").value = fieldObject.getAttribute("formula");
     
     $('#con-close-modal').modal('show');
@@ -362,7 +365,7 @@ function fieldset(event,divid) {
     var generatedcontrolID = "";
     var test = CURRENTPAGE_CONTEXT+"ControlCount";
  
-    CONTROL_COUINT  = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
+    CONTROL_COUINT  = parseInt(document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value)+1;
     FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
     SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")

@@ -105,17 +105,20 @@ namespace Services.itinsync.icom.tablecontent
 
         private void translation(XDocumentTableContent field)
         {
-            dto.lookupTrans.code = field.translation;
-            dto.lookupTrans.value = field.defaultValue;
-            dto.lookupTrans.lang = "en";
-            if (LookupTransDAO.getInstance(dbContext).translationExists(field.defaultValue, "en"))
+            if (!string.IsNullOrEmpty(field.translation))
             {
-                LookupTrans trans= LookupTransDAO.getInstance(dbContext).findbyTranslcation(field.defaultValue, "en");
-                field.translation = trans.code;
-                field.defaultValue = trans.value;
+                dto.lookupTrans.code = field.translation;
+                dto.lookupTrans.value = field.defaultValue;
+                dto.lookupTrans.lang = "en";
+                if (LookupTransDAO.getInstance(dbContext).translationExists(field.defaultValue, "en"))
+                {
+                    LookupTrans trans = LookupTransDAO.getInstance(dbContext).findbyTranslcation(field.defaultValue, "en");
+                    field.translation = trans.code;
+                    field.defaultValue = trans.value;
+                }
+                else
+                    LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
             }
-            else
-                LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
         }
 
         private void docalculation()
