@@ -48,12 +48,6 @@ namespace Forms.Webroot.Forms.Management.FormsManager
         }
         private void loadDropDown()
         {
-            // string m = Enum.GetName(typeof(LookupsConstant)value);
-
-
-
-            //ddlLookupName.DataSource = LookupsConstant;
-            //ddlLookupName.DataBind();
             ddlMask.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKMask, getHeader().lang);
             ddlMask.DataBind();
 

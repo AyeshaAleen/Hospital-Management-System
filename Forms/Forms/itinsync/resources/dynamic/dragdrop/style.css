@@ -217,7 +217,7 @@ table tr td {
 }
 
 table tr th {
-    background: #8ec7df !important;
+    /*background: #8ec7df !important;*/
     color:#fff;
-
+    text-align:center;
 }

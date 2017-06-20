@@ -30,10 +30,12 @@
                              <li>
                                 <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
                             </li>
+
                            
                              <li>
                                 <a href="../../Users/UserSearch.aspx" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
                             </li>
+                       
                              <li>
                                 <a href="../../Team/TeamSearch/TeamSearch.aspx" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
                             </li>
