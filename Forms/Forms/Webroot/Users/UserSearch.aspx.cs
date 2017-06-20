@@ -20,6 +20,7 @@ namespace Forms.Webroot.Users
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
             // Redirect(PageConstant.PAGE_ADD_USER);
+            setSubjectID(0);
             Response.Redirect(PageConstant.PAGE_ADD_USER);
         }
         protected void btnClearForm_Click(object sender, EventArgs e) { }
@@ -66,29 +67,33 @@ namespace Forms.Webroot.Users
         }
         protected void btnResetPassword_Command(object sender, CommandEventArgs e)
         {
-            UserAccountsDTO dto = new UserAccountsDTO();
-            dto.header = getHeader();
-            dto.useraccounts.userID = Convert.ToInt32(e.CommandArgument);
-            dto.READBY = ReadByConstant.READBYID;
-            IResponseHandler responseget = new UserAccountsGetService().executeAsPrimary(dto);
-            if (responseget.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (UserAccountsDTO)responseget;
-                dto.useraccounts.userEmail = dto.useraccounts.userEmail;
-                dto.useraccounts.password = SecurityManager.RandomNumber(10);
-                dto.UPDATEBY = ReadByConstant.READBYUSERID;
-                IResponseHandler response = new UserAccountSaveService().executeAsPrimary(dto);
+            setSubjectID(Convert.ToString(e.CommandArgument));
+           
+            Response.Redirect(PageConstant.PAGE_CHANGE_PASSWORD);
 
-                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-                {
+            //UserAccountsDTO dto = new UserAccountsDTO();
+            //dto.header = getHeader();
+            //dto.useraccounts.userID = Convert.ToInt32(e.CommandArgument);
+            //dto.READBY = ReadByConstant.READBYID;
+            //IResponseHandler responseget = new UserAccountsGetService().executeAsPrimary(dto);
+            //if (responseget.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            //{
+            //    dto = (UserAccountsDTO)responseget;
+            //    dto.useraccounts.userEmail = dto.useraccounts.userEmail;
+            //    dto.useraccounts.password = SecurityManager.RandomNumber(10);
+            //    dto.UPDATEBY = ReadByConstant.READBYUSERID;
+            //    IResponseHandler response = new UserAccountSaveService().executeAsPrimary(dto);
 
-                    showSuccessMessage(response);
-                }
-                else
-                    showErrorMessage(response);
-            }
-            else
-                showErrorMessage(responseget);
+            //    if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            //    {
+
+            //        showSuccessMessage(response);
+            //    }
+            //    else
+            //        showErrorMessage(response);
+            //}
+            //else
+            //    showErrorMessage(responseget);
         }
     }
 }
