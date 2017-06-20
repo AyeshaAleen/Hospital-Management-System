@@ -236,7 +236,7 @@ function AddDetail(id) {
     else
         document.getElementById("isRequired").checked = false;
 
-
+    document.getElementById("txtformula").value = fieldObject.getAttribute("formula");
     
     $('#con-close-modal').modal('show');
 }
