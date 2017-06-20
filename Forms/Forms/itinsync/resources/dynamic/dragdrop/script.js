@@ -225,7 +225,7 @@ function AddDetail(id) {
 
     document.getElementById("ddlControlID").value = fieldObject.getAttribute("resultantid");
 
-    document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
+    document.getElementById("ControlName").value = fieldObject.getAttribute("name");
     document.getElementById("ControlID").value = id;
     document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
     document.getElementById("translation").value = fieldObject.getAttribute("translation");
@@ -236,6 +236,7 @@ function AddDetail(id) {
     else
         document.getElementById("isRequired").checked = false;
 
+    document.getElementById("txtformula").value = fieldObject.getAttribute("formula");
 
     
     $('#con-close-modal').modal('show');
