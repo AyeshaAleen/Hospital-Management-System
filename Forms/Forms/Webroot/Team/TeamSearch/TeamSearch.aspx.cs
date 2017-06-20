@@ -13,7 +13,7 @@ namespace Forms.Webroot.Team.TeamSearch
 {
     public partial class TeamSearch :BasePage
     {
-        private Int32 PAGEID = 1023;
+        private Int32 PAGEID = 1047;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (hasPermission(PAGEID)) { }

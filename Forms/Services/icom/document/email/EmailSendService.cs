@@ -23,8 +23,8 @@ using DAO.itinsync.icom.views.user;
 
 namespace Services.icom.document.email
 {
-    
-   public class EmailSendService : FrameAS
+
+    public class EmailSendService : FrameAS
     {
         private EmailDTO dto;
         protected override IResponseHandler executeBody(object o)
@@ -43,9 +43,6 @@ namespace Services.icom.document.email
                 dto.getErrorBlock().ErrorText = ApplicationCodes.ERROR_TEXT;
                 throw new ItinsyncException(ex, dto.getErrorBlock().ErrorText, dto.getErrorBlock().ErrorCode);
             }
-           
-
-          
         }
 
         private void findRecipient(Douments document)
@@ -86,18 +83,10 @@ namespace Services.icom.document.email
                     foreach (UserStoreView2 userStore in userStores)
                         userID.Add(userStore.userID);
                 }
-              
             }
-
-
             List<XDocumentRouteUsers> users = XDocumentRouteUsersDAO.getInstance(dbContext).findbyDefinitionID(document.documentDefinitionID);
             foreach (XDocumentRouteUsers user in users)
-              userID.Add(user.userid);
-            
-
+                userID.Add(user.userid);
         }
-
-
-
     }
 }

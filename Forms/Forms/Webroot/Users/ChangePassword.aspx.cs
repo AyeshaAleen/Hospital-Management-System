@@ -20,7 +20,7 @@ namespace Forms.Webroot.Users
 {
     public partial class ChangePassword : BasePage
     {
-        private Int32 PAGEID = 1036;
+        private Int32 PAGEID = 1052;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

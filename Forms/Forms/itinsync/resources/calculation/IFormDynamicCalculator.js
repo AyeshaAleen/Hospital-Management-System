@@ -95,6 +95,7 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
 
                 if (checkOrRadio && !currentObject.checked)
                     inputObjFormula = inputObjFormula.replace(currentID, "0");
+                
                 else
                     inputObjFormula = inputObjFormula.replace(currentID, currentObject.getAttribute("points"));
 

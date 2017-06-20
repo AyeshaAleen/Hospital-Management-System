@@ -12,7 +12,7 @@ namespace Forms.Webroot.Users
 {
     public partial class UserSearch : BasePage
     {
-        private Int32 PAGEID = 1022;
+        private Int32 PAGEID = 1053;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) { if (hasPermission(PAGEID)) { } }

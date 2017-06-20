@@ -10,11 +10,12 @@ namespace Domains.itinsync.icom.signature
 {
     public class Signature : System.Attribute, IDomain
     {
-        public enum columns { documentid, signaturestring, trandate, trantime }
+        public enum columns { documentid, signaturetype, signaturestring, trandate, trantime }
         public enum primaryKey { id }
 
         public Int32 id { get; set; }
         public Int32 documentid { get; set; }
+        public string signaturetype { get; set; }
         public string signaturestring { get; set; }
         public string trandate { get; set; }
         public string trantime { get; set; }

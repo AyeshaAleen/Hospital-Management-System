@@ -23,7 +23,7 @@ savePNGButton1.addEventListener("click", function (event) {
     if (signaturePad1.isEmpty()) {
         alert("Please provide signature first.");
     } else {
-        window.open(signaturePad1.toDataURL());
+        document.getElementById("CommonMasterBody_FormMasterBody_signature1").value = signaturePad1.toDataURL();
     }
 });
 
@@ -49,7 +49,7 @@ savePNGButton2.addEventListener("click", function (event) {
     if (signaturePad2.isEmpty()) {
         alert("Please provide signature first.");
     } else {
-        window.open(signaturePad2.toDataURL());
+        document.getElementById("CommonMasterBody_FormMasterBody_signature2").value = signaturePad2.toDataURL();
     }
 });
 

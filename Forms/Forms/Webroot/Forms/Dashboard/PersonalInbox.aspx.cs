@@ -13,5 +13,9 @@ namespace Forms.Webroot.Forms.Dashboard
         {
 
         }
+        protected void btnViewDocument_Command(object sender, CommandEventArgs e)
+        {
+
+        }
     }
 }

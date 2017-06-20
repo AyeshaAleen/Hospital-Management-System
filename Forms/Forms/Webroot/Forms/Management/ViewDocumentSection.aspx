@@ -332,6 +332,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
+       
        <%-- function Clicked(btn) {
             document.getElementById('<%=field.ClientID%>').value = "";
             document.getElementById('<%=ClickedId.ClientID%>').value = "";

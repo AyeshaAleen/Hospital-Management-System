@@ -18,7 +18,7 @@ namespace Forms.Webroot.Store
 {
     public partial class AddStore : BasePage
     {
-        private Int32 PAGEID = 260;
+        private Int32 PAGEID = 1044;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -82,12 +82,7 @@ namespace Forms.Webroot.Store
                     txtFax.Value = dto.store.fax;
                     txtStoreNo.Value = dto.store.storeNo;
                    
-                    //ddlCountryCode.SelectedValue = dto.useraccounts.countryCode;
-                    //ddlCarrier.SelectedValue = dto.useraccounts.MobileProvider;
-                    //txtContact.Value = dto.useraccounts.userPhone;
-                    //ddlUserRole.SelectedValue = Convert.ToString(dto.useraccounts.role);
-                    //ddlLang.SelectedValue = dto.useraccounts.lang;
-                    //ddlTimeZone.SelectedValue = dto.useraccounts.timeZone;
+                    
                 }
                 else
                     showErrorMessage(response);

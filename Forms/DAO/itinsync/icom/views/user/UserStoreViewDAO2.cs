@@ -42,7 +42,6 @@ namespace DAO.itinsync.icom.views.user
             throw new NotImplementedException();
         }
 
-
         public List<UserStoreView2> readRoleAndStoreNo(int role,int storeid)
         {
             string sql = string.Format("select * From " + TABLENAME + "where userRole = {0} and storeid = '{1}'",role, storeid);
