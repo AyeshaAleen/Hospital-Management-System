@@ -34,11 +34,13 @@ namespace Forms.Webroot.Users
 
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Value == getHeader().userinformation.userAccount.password)
+            string oldPass = OldPassword();
+
+            if (oldPass.Length > 0 && txtcurrentpassword.Value == oldPass)
             {
                 UserAccountsDTO dto = new UserAccountsDTO();
                 dto.header = getHeader();
-                dto.useraccounts.userID = getHeader().userID;
+                dto.useraccounts.userID = Convert.ToInt32(getSubjectID());
                 dto.useraccounts.userEmail = getHeader().userinformation.userAccount.userEmail;
                 dto.useraccounts.password = SecurityManager.EncodeString(txtPassword.Value);
                 dto.UPDATEBY = ReadByConstant.READBYUSERID;
@@ -54,6 +56,21 @@ namespace Forms.Webroot.Users
             }
             else
                 showErrorMessage("Password.Not.Match");
+        }
+
+        string OldPassword()
+        {
+            UserAccountsDTO dto = new UserAccountsDTO();
+            dto.header = getHeader();
+            dto.useraccounts.userID = Convert.ToInt32(getSubjectID());
+            dto.READBY = ReadByConstant.READBYID;
+            IResponseHandler response = new UserAccountsGetService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                return SecurityManager.DecodeString(((UserAccountsDTO)response).useraccounts.password).Trim();
+            }
+            else
+                return "";
         }
     }
 }
