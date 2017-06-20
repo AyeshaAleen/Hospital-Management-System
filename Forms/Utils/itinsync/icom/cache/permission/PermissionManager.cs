@@ -16,13 +16,17 @@ namespace Utils.itinsync.icom.cache.permission
            
 
             List<Permission> permissionList = new List<Permission>();
-            foreach (DictionaryEntry entry in GlobalStaticCache.PermissionCacheMap[pageid])
+            if (GlobalStaticCache.PermissionCacheMap.ContainsKey(pageid))
             {
-                Permission permission = new Permission();
-                permission.Code = Convert.ToInt32(entry.Key);
-                permission.text = Convert.ToString(entry.Value);
-                permissionList.Add(permission);
+                foreach (DictionaryEntry entry in GlobalStaticCache.PermissionCacheMap[pageid])
+                {
+                    Permission permission = new Permission();
+                    permission.Code = Convert.ToInt32(entry.Key);
+                    permission.text = Convert.ToString(entry.Value);
+                    permissionList.Add(permission);
+                }
             }
+            
             return permissionList;
         }
         public static List<Permission> readAllPermission()

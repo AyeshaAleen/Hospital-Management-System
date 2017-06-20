@@ -308,7 +308,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.jquery.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/custom.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormsCalculator.js") %>"></script>
+    <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormDynamicCalculator.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/table/DynamicTable.js") %>"></script>
 
 
