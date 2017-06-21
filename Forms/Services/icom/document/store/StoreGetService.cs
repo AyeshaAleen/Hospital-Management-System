@@ -26,7 +26,7 @@ namespace Services.icom.document.store
                     dto.store = StoreDAO.getInstance(dbContext).findbyPrimaryKey(dto.store.storeid);
 
                 else if (dto.READBY == ReadByConstant.READBYUSERNAME)
-                    dto.store = StoreDAO.getInstance(dbContext).findbyName(dto.store.name);
+                    dto.storelist = StoreDAO.getInstance(dbContext).findbyName(dto.store.name);
 
                 else if(dto.READBY==ReadByConstant.READBYALL)
                     dto.storelist = StoreDAO.getInstance(dbContext).readAll();

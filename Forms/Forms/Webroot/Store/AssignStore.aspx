@@ -70,7 +70,8 @@
                             </label>
 
                             <div class="col-sm-8">
-                                <asp:DropDownList ID="ddlStores" DataValueField="storeid" DataTextField="name"  runat="server" CssClass="chosen-select form-control">
+                                <asp:DropDownList ID="ddlStores" DataValueField="storeid" DataTextField="name" SelectionMode="multiple"
+                                    runat="server" CssClass="chosen-select form-control">
                                     
                                 </asp:DropDownList>
                                
