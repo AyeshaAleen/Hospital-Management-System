@@ -31,15 +31,6 @@ namespace Forms.Webroot.Team {
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
-        /// btnUpdateTeam control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateTeam;
-        
-        /// <summary>
         /// btnClearForm control.
         /// </summary>
         /// <remarks>
@@ -47,5 +38,14 @@ namespace Forms.Webroot.Team {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearForm;
+        
+        /// <summary>
+        /// btnUpdateTeam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateTeam;
     }
 }

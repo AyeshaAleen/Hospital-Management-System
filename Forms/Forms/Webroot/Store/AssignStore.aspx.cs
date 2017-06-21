@@ -91,19 +91,22 @@ namespace Forms.Webroot.Store
 
         protected void btnAddStore_Click(object sender, EventArgs e)
         {
-            UserStoreDTO dto = new UserStoreDTO();
-            dto.header = getHeader();
-            if (getSubjectID() != null && getSubjectID().Length > 0)
-                dto.userstore.userid = Convert.ToInt32(getSubjectID());
+            foreach (ListItem item in ddlStores.Items)
+                if (item.Selected)
+                {
+                    UserStoreDTO dto = new UserStoreDTO();
+                    dto.header = getHeader();
+                    if (getSubjectID() != null && getSubjectID().Length > 0)
+                        dto.userstore.userid = Convert.ToInt32(getSubjectID());
 
-            dto.userstore.storeid = Convert.ToInt32(ddlStores.SelectedValue);
-            IResponseHandler response = new UserStoreSaveService().executeAsPrimary(dto);
-           
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-                getUserStores();
-            else
-                showErrorMessage(response);
+                    dto.userstore.storeid = Convert.ToInt32(ddlStores.SelectedValue);
+                    IResponseHandler response = new UserStoreSaveService().executeAsPrimary(dto);
+
+                    if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                        getUserStores();
+                    else
+                        showErrorMessage(response);
+                }
         }
-        
     }
 }

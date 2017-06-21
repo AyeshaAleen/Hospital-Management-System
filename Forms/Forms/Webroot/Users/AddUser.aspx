@@ -1,21 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="Forms.Webroot.Users.AddUser" %>
+﻿<%@ Page Title="Add User" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AddUser.aspx.cs" Inherits="Forms.Webroot.Users.AddUser" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="cntAddUserHeader" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="cntAddUserBody" ContentPlaceHolderID="FormMasterBody" runat="server">
 
-
-    <div class="page-content">
-
-        <div class="page-header">
-            <h1><% Response.Write(trasnlation("Add.New.User")); %></h1>
-        </div>
-        <!-- /.page-header -->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
+ <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title"><b><% Response.Write(trasnlation("Add.New.User")); %></b></h4>
 
                 <div class="row">
                     <div class="col-xs-12">
@@ -134,7 +127,7 @@
 
                         <div class="form-group col-xs-12">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnAddUser" runat="server" Text="Save" class="btn btn-sm btn-primary" OnClick="btnAddUser_Click" />
+                                <asp:Button ID="btnAddUser" runat="server" Text="Save" class="btn btn-info waves-effect waves-light" OnClick="btnAddUser_Click" />
                             </div>
                         </div>
                     </div>

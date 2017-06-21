@@ -1,79 +1,42 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="SearchStore.aspx.cs" Inherits="Forms.Webroot.Store.SearchStore" %>
+﻿<%@ Page Title="Store Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="SearchStore.aspx.cs" Inherits="Forms.Webroot.Store.SearchStore" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormMasterBody" runat="server">
-     <div class="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title"><b><% Response.Write(trasnlation("Store.Search")); %></b></h4>
 
-        <div class="page-header">
-            <h1><% //Response.Write(trasnlation("User Search")); %></h1>
-        </div>
-        <!-- /.page-header -->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
-
-                <div class="row">
-                    <div class="col-xs-12">
+            
                         <div class="form-group col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label">
-                                <% //Response.Write(trasnlation("Username")); %>
-
-                            </label>
-
-                            <div class="col-sm-8">
-                                <input type="text" id="txtStoreName" runat="server" placeholder="Store Name" class="form-control" />
+                                <input type="text" id="txtStoreName" runat="server" placeholder="type store name for search..." class="form-control" />
                             </div>
-                        </div>
+                  
 
-                        <%-- <div class="form-group  col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label"><% Response.Write(trasnlation("User.ID")); %></label>
-
-                            <div class="col-sm-8">
-                                <input type="text" id="txtUserID" runat="server" placeholder="User.ID" class="form-control" />
-                            </div>
-                        </div>--%>
-
-
-
-                        <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-6">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnSearchStore" runat="server" OnClick="btnSearchStore_Click" Text="Search" class="btn btn-sm btn-success" />
-                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-sm btn-primary" />
-                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-sm btn-info" />
+                                <asp:Button ID="btnSearchStore" runat="server" OnClick="btnSearchStore_Click" Text="Search" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-info waves-effect waves-light" />
                             </div>
                         </div>
-                    </div>
-
-                </div>
+      
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="clearfix">
-                            <div class="pull-right tableTools-container"></div>
-                        </div>
-                        <div class="table-header">
 
-                            <%--<% Response.Write(trasnlation("Results.for.User.Search")); %>--%>
-                        </div>
-
-                        <!-- div.table-responsive -->
-
-                        <!-- div.dataTables_borderWrap -->
-                        <div>
-
-                            <table class="table table-striped table-bordered table-hover dynamic-table">
+                            <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                 <thead>
                                     <tr>
-                                        <th>Store Name</th>
-                                        <th>Zip Code</th>
-                                        <th>Website</th>
-                                        <th>Store Link</th>
-                                        <th>Comments</th>
-                                        <th>Walmart</th>
-                                         <th>Fax</th>
-                                        <th>Store No</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th data-field="name" data-sortable="true">Store Name</th>
+                                        <th data-field="code" data-align="center">Zip Code</th>
+                                        <th data-field="web" data-align="center">Website</th>
+                                        <th data-field="link">Store Link</th>
+                                        <th data-field="comment">Comments</th>
+                                        <th data-field="mart" data-align="center">Walmart</th>
+                                        <th data-field="fax" data-align="center">Fax</th>
+                                        <th data-field="no" data-align="center">Store No</th>
+                                        <th data-field="edit" data-align="center">Edit</th>
+                                        <th data-field="delete" data-align="center">Delete</th>
                                     </tr>
                                 </thead>
 
@@ -138,8 +101,6 @@
             </div>
             <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
 </asp:Content>

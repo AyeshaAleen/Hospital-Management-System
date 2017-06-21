@@ -1,28 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserSearch.aspx.cs" Inherits="Forms.Webroot.Users.UserSearch" %>
+﻿<%@ Page Title="User Search" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserSearch.aspx.cs" Inherits="Forms.Webroot.Users.UserSearch" %>
 
 
 <asp:Content ID="cntUserSearchHeader" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="cntUserSearchBody" ContentPlaceHolderID="FormMasterBody" runat="server">
-    <div class="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title"><b><% Response.Write(trasnlation("User.Search")); %></b></h4>
 
-        <div class="page-header">
-            <h1><% Response.Write(trasnlation("User.Search")); %></h1>
-        </div>
-        <!-- /.page-header -->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
 
                 <div class="row">
-                    <div class="col-xs-12">
+                   
                         <div class="form-group col-md-6 col-sm-12">
-                            <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Username")); %></label>
-
-                            <div class="col-sm-8">
-                                <input type="text" id="txtUserName" runat="server" placeholder="Username" class="form-control" />
-                            </div>
+                          
+                                <input type="text" id="txtUserName" runat="server" placeholder="type username for search..." class="form-control" />
+                    
                         </div>
 
                         <%-- <div class="form-group  col-md-6 col-sm-12">
@@ -35,44 +28,33 @@
 
 
 
-                        <div class="form-group col-xs-12">
+                        <div class="form-group col-xs-6">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnSearchUser" runat="server" OnClick="btnSearchUser_Click" Text="Search" class="btn btn-sm btn-success" />
-                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-sm btn-primary" />
-                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-sm btn-info" />
+                                <asp:Button ID="btnSearchUser" runat="server" OnClick="btnSearchUser_Click" Text="Search" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-info waves-effect waves-light" />
                             </div>
                         </div>
-                    </div>
 
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="clearfix">
-                            <div class="pull-right tableTools-container"></div>
-                        </div>
-                        <div class="table-header">
-                            <% Response.Write(trasnlation("Results.for.User.Search")); %>
-                        </div>
+                      
 
-                        <!-- div.table-responsive -->
-
-                        <!-- div.dataTables_borderWrap -->
-                        <div>
-
-                            <table class="table table-striped table-bordered table-hover dynamic-table">
+                            <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                 <thead>
                                     <tr>
-                                        <th><% Response.Write(trasnlation("Name")); %></th>
-                                        <th><% Response.Write(trasnlation("Username")); %></th>
-                                        <th><% Response.Write(trasnlation("Email")); %></th>
-                                        <th><% Response.Write(trasnlation("Contact.No")); %></th>
-                                        <th><% Response.Write(trasnlation("Role")); %></th>
-                                        <th><% Response.Write(trasnlation("Language")); %></th>
-                                         <th><% Response.Write(trasnlation("Change.Password")); %>  </th>
-                                        <th><% Response.Write(trasnlation("Edit")); %>  </th>
-                                        <th><% Response.Write(trasnlation("Permissions")); %>  </th>
-                                        <th><% Response.Write(trasnlation("Teams")); %>  </th>
-                                        <th><% Response.Write(trasnlation("Stores")); %>  </th>
+                                        <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("Name")); %></th>
+                                        <th data-field="uname"><% Response.Write(trasnlation("Username")); %></th>
+                                        <th data-field="email"><% Response.Write(trasnlation("Email")); %></th>
+                                        <th data-field="number" data-align="center"><% Response.Write(trasnlation("Contact.No")); %></th>
+                                        <th data-field="role"><% Response.Write(trasnlation("Role")); %></th>
+                                        <th data-field="language"><% Response.Write(trasnlation("Language")); %></th>
+                                        <th data-field="changepass"><% Response.Write(trasnlation("Change.Password")); %>  </th>
+                                        <th data-field="edit" data-align="center"><% Response.Write(trasnlation("Edit")); %>  </th>
+                                        <th data-field="permission" data-align="center"><% Response.Write(trasnlation("Permissions")); %>  </th>
+                                        <th data-field="teams" data-align="center"><% Response.Write(trasnlation("Teams")); %>  </th>
+                                        <th data-field="stores" data-align="center"><% Response.Write(trasnlation("Stores")); %>  </th>
                                     </tr>
                                 </thead>
 
@@ -136,13 +118,9 @@
                             </table>
 
                         </div>
-                    </div>
                 </div>
-
-
-                <!-- PAGE CONTENT ENDS -->
             </div>
-            <!-- /.col -->
+
         </div>
         <!-- /.row -->
     </div>

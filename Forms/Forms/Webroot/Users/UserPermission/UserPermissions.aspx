@@ -1,42 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserPermissions.aspx.cs" Inherits="Forms.Webroot.Users.UserPermission.UserPermissions" %>
+﻿<%@ Page Title="User Permission" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="UserPermissions.aspx.cs" Inherits="Forms.Webroot.Users.UserPermission.UserPermissions" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormMasterBody" runat="server">
-    <div class="page-content">
-
-        <div class="page-header">
-            <h1 style="text-align:center"><label class="label label-info text-uppercase" runat="server" id="lblname"></label></h1>
-        </div>
-        <!-- /.page-header -->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
+     <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title"><b><label class="label label-info text-uppercase" runat="server" id="lblname"></label></b></h4>
 
                 <div class="row">
                     
                     <div class="col-xs-12">
-                        <div class="clearfix">
-                            <div class="pull-right tableTools-container"></div>
-                        </div>
-                        <div class="table-header">
-                             <% Response.Write(trasnlation("Current Permissions")); %>
-                        </div>
-
-                        <!-- div.table-responsive -->
-
-                        <!-- div.dataTables_borderWrap -->
-                        <div>
-                            <table class="table table-striped table-bordered table-hover dynamic-table" id="tbluserPermission">
+                      
+                            <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center"><% Response.Write(trasnlation("Permissions")); %></th>
-                                        <th style="text-align:center"><% Response.Write(trasnlation("Delete")); %></th>
+                                        <th data-field="permission"><% Response.Write(trasnlation("Permissions")); %></th>
+                                        <th data-field="delete" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                                     </tr>
                                 </thead>
-                                <tbody runat="server" id="Tbody1">
+                                <tbody>
                                     <asp:Repeater ID="tblUserPermissions" runat="server">
                                         <ItemTemplate>
                                             <tr>
@@ -53,8 +37,7 @@
                                     </asp:Repeater>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
+                 
 
                     <div class="col-xs-12">
                         <h1>Add New Permission</h1>
@@ -70,20 +53,18 @@
                         </div>
                     </div>
 
-
-                      <div class="form-group col-xs-12">
+                    <div class="form-group col-xs-12">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnAddPermission" runat="server" OnClick="btnAddPermission_Click" Text="Add.Permission" class="btn btn-sm btn-success" />
+                                <asp:Button ID="btnAddPermission" runat="server" OnClick="btnAddPermission_Click" Text="Add.Permission" class="btn btn-info waves-effect waves-light" />
                             </div>
                         </div>
 
 
                 </div>
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
+         </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
 </asp:Content>

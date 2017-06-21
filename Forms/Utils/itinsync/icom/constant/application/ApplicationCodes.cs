@@ -55,11 +55,10 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string PHONES_CONTACT = "Phones";
         public static readonly string ADDRESS_CONTACT = "Address";
 
-
-      
+        
         public static readonly string DEFAULT_USER_LANG = "en";
         public static readonly string SOURCELOCATION = "C:/DMS/CSV";
-
+        
 
         ///*************Roles******************************///
 

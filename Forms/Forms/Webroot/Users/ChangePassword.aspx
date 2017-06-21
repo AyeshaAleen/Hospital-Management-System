@@ -1,45 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="Forms.Webroot.Users.ChangePassword" %>
+﻿<%@ Page Title="Change Password" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="Forms.Webroot.Users.ChangePassword" %>
 
 
 <asp:Content ID="cntChangePasswordHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="cntChangePasswordBody" ContentPlaceHolderID="FormMasterBody" runat="server">
-    <div class="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title"><b><% Response.Write(trasnlation("Change.Password")); %></b></h4>
 
-        <div class="page-header">
-            <h1><% Response.Write(trasnlation("Change.Password")); %></h1>
-        </div>
-        <!-- /.page-header -->
 
-        <%-- <div class="row">
-            <div class="col-xs-12">--%>
-        <!-- PAGE CONTENT BEGINS -->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="form-group  col-md-6 col-sm-12">
+                <div class="col-md-6 col-md-offset-2 col-sm-12">
+                <div class="form-group">
                     <label class="col-sm-5 control-label"><% Response.Write(trasnlation("Current.Password")); %> *</label>
 
                     <div class="col-sm-7">
                         <input type="password" id="txtcurrentpassword" name="txtPassword" runat="server" required placeholder="at least 6 digits" class="form-control" value="" />
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="form-group  col-md-6 col-sm-12">
+
+                <div class="form-group">
                     <label class="col-sm-5 control-label"><% Response.Write(trasnlation("New.Password")); %> *</label>
 
                     <div class="col-sm-7">
                         <input type="password" id="txtPassword" runat="server" required placeholder="at least 6 digits" class="form-control" />
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="form-group  col-md-6 col-sm-12">
+
+                <div class="form-group">
                     <label class="col-sm-5 control-label"><% Response.Write(trasnlation("Confirm.New.Password")); %> *</label>
 
                     <div class="col-sm-7">
@@ -49,31 +37,21 @@
                     </div>
 
                 </div>
-                 </div>
-        </div>
-          <div class="row">
-            <div class="col-xs-12">
-                 <div class="form-group  col-md-6 col-sm-12">
-                    <%--<label class="col-sm-5 control-label"><% Response.Write(trasnlation("Confirm.New.Password")); %> *</label>--%>
 
-                    <div class="col-sm-12">
-                         <div class="pull-right text-right">
-                         <asp:Button ID="btnChangePassword" runat="server" Text="Change.Password" class="btn btn-sm btn-primary" OnClick="btnChangePassword_Click" />
-                    </div>
-  </div>
-                </div>
 
-               <%-- <div class="form-group col-xs-12">
+                <div class="col-md-12">
                     <div class="pull-right text-right">
-                        <asp:Button ID="btnChangePassword" runat="server" Text="Change.Password" class="btn btn-sm btn-primary" OnClick="btnChangePassword_Click" />
+                        <asp:Button ID="btnChangePassword" runat="server" Text="Change.Password" class="btn btn-info waves-effect waves-light" OnClick="btnChangePassword_Click" />
                     </div>
-                </div>--%>
+                </div>
+</div>
+        <div class="clearfix"></div>
+
+
+
             </div>
-         </div>
-        <!-- PAGE CONTENT ENDS -->
-        <%--  </div>
-        <!-- /.row -->
-    </div>--%>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="cntChangePasswordFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script type="text/javascript">

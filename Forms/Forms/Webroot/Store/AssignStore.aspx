@@ -1,47 +1,25 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AssignStore.aspx.cs" Inherits="Forms.Webroot.Store.AssignStore" %>
+﻿<%@ Page Title="Assign Store" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="AssignStore.aspx.cs" Inherits="Forms.Webroot.Store.AssignStore" %>
 
 <asp:Content ID="AssignTeamHead" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
 <asp:Content ID="AssignTeamBody" ContentPlaceHolderID="FormMasterBody" runat="server">
-    <div class="page-content">
-
-        <div class="page-header">
-            <h1 style="text-align:center"><label class="label label-info text-uppercase" runat="server" id="lblname"></label></h1>
-        </div>
-        <!-- /.page-header -->
-
-        <div class="row">
-            <div class="col-xs-12">
-                <!-- PAGE CONTENT BEGINS -->
-
+     <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <h4 class="m-t-0 header-title"><b><label class="label label-info text-uppercase" runat="server" id="lblname"></label></b></h4>
+           
                 <div class="row">
                     
                     <div class="col-xs-12">
-                        <div class="clearfix">
-                            <div class="pull-right tableTools-container"></div>
-                        </div>
-                        <div class="table-header">
-                             <% //Response.Write(translation("Current.Teams")); %>
-                        </div>
-
-                        <!-- div.table-responsive -->
-
-                        <!-- div.dataTables_borderWrap -->
-                        <div>
-                            <table class="table table-striped table-bordered table-hover dynamic-table" id="tbluserTeam">
+                    
+                           <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center">
-                                           <%-- <% Response.Write(trasnlation("Teams")); %>--%>
-                                            Stores
-                                        </th>
-                                        <th style="text-align:center">
-                                            <% //Response.Write(trasnlation("Delete")); %>
-                                            Delete
-                                        </th>
+                                        <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("Stores")); %></th>
+                                        <th data-field="delete" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                                     </tr>
                                 </thead>
-                                <tbody runat="server" id="Tbody1">
+                                <tbody>
                                     <asp:Repeater ID="tblUserStores" runat="server">
                                         <ItemTemplate>
                                             <tr>
@@ -65,12 +43,12 @@
                         <h1>Add New Store</h1>
                          <div class="form-group  col-md-6 col-sm-12">
                             <label class="col-sm-4 control-label">
-                                <%--<% Response.Write(trasnlation("Teams")); %>--%>
-                                Stores
+                               <% Response.Write(trasnlation("Stores")); %>
+                                
                             </label>
 
                             <div class="col-sm-8">
-                                <asp:DropDownList ID="ddlStores" DataValueField="storeid" DataTextField="name"  runat="server" CssClass="chosen-select form-control">
+                                <asp:DropDownList ID="ddlStores" DataValueField="storeid" DataTextField="name" runat="server" multiple="multiple" CssClass="multi-select" data-plugin="multiselect">
                                     
                                 </asp:DropDownList>
                                
@@ -81,7 +59,7 @@
 
                       <div class="form-group col-xs-12">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnAddStore" runat="server" OnClick="btnAddStore_Click" Text="Add.Store" class="btn btn-sm btn-success" />
+                                <asp:Button ID="btnAddStore" runat="server" OnClick="btnAddStore_Click" Text="Add.Store" class="btn btn-info waves-effect waves-light" />
                             </div>
                         </div>
 
@@ -90,8 +68,7 @@
             </div>
             <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </div>
+
 </asp:Content>
 <asp:Content ID="AssignTeamFooter" ContentPlaceHolderID="FormMasterFoot" runat="server">
 </asp:Content>

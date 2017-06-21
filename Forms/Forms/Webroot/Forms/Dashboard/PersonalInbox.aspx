@@ -4,17 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FormMasterBody" runat="server">
 
-    <div class="row" id="validate" runat="server">
-
-        <div class="col-sm-12">
             <div class="row">
-
-               
-
-
-              
-              
-
 
                 <div class="col-lg-12">
 
@@ -35,14 +25,14 @@
                         <div id="portlet2" class="panel-collapse collapse in">
                             <div class="portlet-body">
                                 <div class="table-responsive">
-                                    <table class="table table-hover mails m-0 table table-actions-bar">
+                                    <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                         <thead>
                                             <tr>
-                                                <th>Form Name</th>
-                                                <th>Submitter Name</th>
-                                                <th>Start Date</th>
-                                                <th>Status</th>
-                                                <th style="min-width: 90px;">Action</th>
+                                                <th data-field="formname" data-sortable="true">Form Name</th>
+                                                <th data-field="submitter" data-sortable="true">Submitter Name</th>
+                                                <th data-field="startdate" data-sortable="true">Start Date</th>
+                                                <th data-field="status" data-align="center">Status</th>
+                                                <th data-field="action" data-align="center">Action</th>
                                             </tr>
                                         </thead>
 
@@ -105,8 +95,6 @@
                
             </div>
 
-        </div>
-    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
 

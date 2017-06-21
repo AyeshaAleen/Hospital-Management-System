@@ -61,9 +61,10 @@ namespace DAO.itinsync.icom.store
             return (Store)processSingleResult("select * From " + TABLENAME + "where storeid = " + storeid);
         }
 
-        public Store findbyName(string storename)
+        public List<Store> findbyName(string storename)
         {
-            return (Store)processSingleResult("select * From " + TABLENAME + "where name = " + storename);
+            //return (Store)processSingleResult("select * From " + TABLENAME + "where name = '" + storename + "'");
+            return wrap(processResults("select * From " + TABLENAME + "where name = '" + storename + "'"));
         }
         public List<Store> readAll()
         {

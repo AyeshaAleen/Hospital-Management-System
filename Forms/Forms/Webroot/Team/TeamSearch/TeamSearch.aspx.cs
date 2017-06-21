@@ -21,6 +21,7 @@ namespace Forms.Webroot.Team.TeamSearch
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
             // Redirect(PageConstant.PAGE_AddTeam);
+            setSubjectID(0);
             Response.Redirect(PageConstant.PAGE_AddTeam);
         }
         protected void btnClearForm_Click(object sender, EventArgs e)
