@@ -34,10 +34,12 @@
                                     <li>
                                 <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
                             </li>
+
                            
                              <li>
                                 <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
                             </li>
+                       
                              <li>
                                 <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
                             </li>

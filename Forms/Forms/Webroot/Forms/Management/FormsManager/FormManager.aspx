@@ -31,32 +31,32 @@
 
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
+                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i> label text</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i>Heading</div>
+                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i> Heading</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i>DropDown</div>
+                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i> DropDown</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
+                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i> TextBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>CheckBox</div>
+                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i> CheckBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Button</div>
+                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i> Radio Button</div>
                                         </td>
                                     </tr>
                                     <%--     <tr>
@@ -66,12 +66,12 @@
                                     </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i> TextArea</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i>Hidden</div>
+                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i> Hidden</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -314,25 +314,35 @@
      
         $(document).ready(function () {
             debugger;
+
+           
             $('#ddlControlID').on('change', function () {
+
+
+                $("#ddlControlID > option").each(function () {
+                    var elemid = $(this).val();
+                    $("#" + elemid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
+
+                });
+
                 var Controlid = document.getElementById("ddlControlID").value;
 
-                var PreviousControl = document.getElementById("PreviousControlID").value;
+                //var PreviousControl = document.getElementById("PreviousControlID").value;
 
 
-                if ($("#" + PreviousControl).parent().hasClass('redips-drag-highlight')) {
-                    $("#" + PreviousControl).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
+                //if ($("#" + PreviousControl).parent().hasClass('redips-drag-highlight')) {
+                //    $("#" + PreviousControl).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
 
-                }
+                //}
 
 
-                if ($("#" + Controlid).parent().hasClass('redips-drag-highlight')) {
-                    $("#" + Controlid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
+                //if ($("#" + Controlid).parent().hasClass('redips-drag-highlight')) {
+                //    $("#" + Controlid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
 
-                }
-                else {
+                //}
+                //else {
                     $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
-                }
+                //}
             });
 
 

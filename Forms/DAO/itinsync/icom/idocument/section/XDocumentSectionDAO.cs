@@ -117,5 +117,10 @@ namespace DAO.itinsync.icom.idocument.section
             string delSQL = string.Format("delete from " + TABLENAME + " where documentsectionid = {0}", SectionId);
             return delete(delSQL);
         }
+        public XDocumentSection readByDefinitionIDWithFlow(Int64 documentDefinitionID, int flow)
+        {
+            string sql = "select * From " + TABLENAME + " where documentdefinitionid=" + documentDefinitionID + " and flow = " + flow;
+            return (XDocumentSection)processSingleResult(sql);
+        }
     }
 }

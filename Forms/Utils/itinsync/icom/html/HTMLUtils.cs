@@ -72,8 +72,10 @@ namespace Utils.itinsync.icom.html
 
                   
 
-                    foreach (HtmlNode colnode in Rownode.Descendants("td"))
+                    foreach (HtmlNode colnode in Rownode.ChildNodes)
                     {
+                        if(colnode.Name=="td"|| colnode.Name=="th")
+                        { 
                         if (colnode.HasChildNodes && !(colnode.GetAttributeValue("last", false)))
                         {
                             XDocumentTableTD tableTD = new XDocumentTableTD();
@@ -125,11 +127,14 @@ namespace Utils.itinsync.icom.html
                                         }
                                         if (type == "heading")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HEADING;
-                                         
-                                       
+                                            if (type == "hidden")
+                                            {
+                                                tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HIDDEN;
+                                            }
 
 
-                                        tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
+
+                                            tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
@@ -165,7 +170,7 @@ namespace Utils.itinsync.icom.html
                             }
                             #endregion
                         }
-                        //}
+                        }
                     }
                 }
             }
@@ -206,7 +211,7 @@ namespace Utils.itinsync.icom.html
                                 if (td.tdType == ApplicationCodes.FORMS_TABLE_HEADER_TYPE)
                                 {
                                    
-                                    tabletr.Cells.Add(createTableHeaderColumn(content));
+                                    tabletr.Cells.Add(ControlsHelper.createHTMLTableHeaderColumn(content));
                                 }
                                 else
                                 {
@@ -219,10 +224,10 @@ namespace Utils.itinsync.icom.html
                                     createDiv.Style.Add("width", "158px");
 
 
-                                    createDetailSpan(createDiv, content.controlID);
+                                    ControlsHelper.createDetailSpan(createDiv, content.controlID);
                                     if (helper.addControl(content, lang) != null)
                                     createDiv.Controls.Add( helper.addControl(content, lang));
-                                    removeDetailSpan(createDiv, content.controlID);
+                                    ControlsHelper.removeDetailSpan(createDiv, content.controlID);
 
                                     tc.Controls.Add(createDiv);
                                 }
@@ -252,32 +257,7 @@ namespace Utils.itinsync.icom.html
             return "";
         }
 
-        public static HtmlTableCell createTableHeaderColumn(XDocumentTableContent content)
-        {
-            HtmlGenericControl createDiv = new HtmlGenericControl("div");
-
-            HtmlTableCell cell = new HtmlTableCell("th");
-            Label lbl = new Label();
-            lbl.ID = content.controlID;
-            lbl.CssClass = content.cssClass;
-            lbl.Text = TranslationManager.trans(content.translation);
-            createDetailSpan(createDiv, content.controlID);
-            createDiv.Controls.Add(lbl);
-            removeDetailSpan(createDiv, content.controlID);
-
-            cell.Align = "center";
-           
-
-            cell.BgColor = "WhiteSmoke";
-            cell.ColSpan = content.colspan;
-            lbl.Text = TranslationManager.trans(content.translation);
-
-
-            cell.Controls.Add(createDiv);
-         
-            return cell;
-
-        }
+     
 
         public static HtmlTableCell createCRUDColumn()
         {
@@ -318,24 +298,6 @@ namespace Utils.itinsync.icom.html
 
         }
 
-        public static void createDetailSpan(HtmlGenericControl createDiv, string controlID)
-        {
-            HtmlGenericControl spanAddDetail = new HtmlGenericControl("span");
-            spanAddDetail.Attributes.Add("class", "hLeft");
-            spanAddDetail.Attributes.Add("onclick", "AddDetail('" + controlID + "')");
-            spanAddDetail.InnerHtml = "+";
-            createDiv.Controls.Add(spanAddDetail);
-
-
-        }
-
-        public static void removeDetailSpan(HtmlGenericControl createDiv, string controlID)
-        {
-            HtmlGenericControl spanRemoveDetail = new HtmlGenericControl("span");
-            spanRemoveDetail.Attributes.Add("class", "hRight");
-            spanRemoveDetail.Attributes.Add("onclick", "deleteColumn(this)");
-            spanRemoveDetail.InnerHtml = "x";
-            createDiv.Controls.Add(spanRemoveDetail);
-        }
+       
     }
 }
