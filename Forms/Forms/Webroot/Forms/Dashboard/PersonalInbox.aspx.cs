@@ -36,7 +36,7 @@ namespace Forms.Webroot.Forms.Dashboard
                 IResponseHandler responseDoc = new DocumentGetService().executeAsPrimary(dtoDoc);
                 if (responseDoc.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
                 {
-                     dtoDoc.documentList = ((DocumentDTO)responseDoc).documentList.Where(x => x.status == ApplicationCodes.DOCUMENT_STATUS_INPROGRESS).ToList();
+                    // dtoDoc.documentList = ((DocumentDTO)responseDoc).documentList.Where(x => x.status == ApplicationCodes.DOCUMENT_STATUS_INPROGRESS).ToList();
                 }
 
                 if (dtoDoc.documentList.Count > 0)
@@ -72,7 +72,6 @@ namespace Forms.Webroot.Forms.Dashboard
 
                 Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
             }
-
         }
     }
 }

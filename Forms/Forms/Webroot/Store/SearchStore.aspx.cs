@@ -26,7 +26,8 @@ namespace Forms.Webroot.Store
         protected void btnAddNew_Click(object sender, EventArgs e)
         {
             // Redirect(PageConstant.PAGE_ADD_USER);
-            Response.Redirect(PageConstant.PAGE_ADD_STORE);
+            setSubjectID(0);
+           Response.Redirect(PageConstant.PAGE_ADD_STORE);
         }
         protected void btnClearForm_Click(object sender, EventArgs e) { }
         protected void btnSearchStore_Click(object sender, EventArgs e)
