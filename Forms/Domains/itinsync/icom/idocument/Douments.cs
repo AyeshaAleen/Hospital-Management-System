@@ -1,5 +1,6 @@
 ﻿using Domains.itinsync.icom.annotation;
 using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.interfaces.document;
 using Domains.itinsync.interfaces.domain;
 using System;
@@ -49,5 +50,6 @@ namespace Domains.itinsync.icom.idocument
 
         //*************Relational Mapping Objects*******************//////
         public XDocumentDefination xdocumentDefinition { get; set; }
+        public XDocumentSection xdocumentSection { get; set; }
     }
 }

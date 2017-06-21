@@ -27,34 +27,51 @@ namespace Forms.Webroot.Forms.Dashboard
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DocumentDTO dtoDoc = new DocumentDTO();
-            dtoDoc.header = getHeader();
-
-            IResponseHandler responseDoc = new DocumentGetService().executeAsPrimary(dtoDoc);
-            if (responseDoc.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            if (!IsPostBack)
             {
-                dtoDoc.documentList = ((DocumentDTO)responseDoc).documentList.Where(x => x.status == ApplicationCodes.DOCUMENT_STATUS_INPROGRESS).ToList();
-            }
+                DocumentDTO dtoDoc = new DocumentDTO();
+                dtoDoc.header = getHeader();
+                dtoDoc.READBY = ReadByConstant.READBYALL;
 
-            UserAccountsDTO dtoUsers = new UserAccountsDTO();
-            dtoUsers.header = getHeader();
+                IResponseHandler responseDoc = new DocumentGetService().executeAsPrimary(dtoDoc);
+                if (responseDoc.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                     dtoDoc.documentList = ((DocumentDTO)responseDoc).documentList.Where(x => x.status == ApplicationCodes.DOCUMENT_STATUS_INPROGRESS).ToList();
+                }
 
-            IResponseHandler responseUsers = new UserAccountsGetService().executeAsPrimary(dtoUsers);
-            if (responseUsers.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dtoUsers = (UserAccountsDTO)responseUsers;
-                
-                foreach (Douments document in dtoDoc.documentList)
-                    document.Users = dtoUsers.userAccountsList.Where(x => x.userID.Equals(document.Userid)).SingleOrDefault().userName;
+                if (dtoDoc.documentList.Count > 0)
+                {
+                    UserAccountsDTO dtoUsers = new UserAccountsDTO();
+                    dtoUsers.header = getHeader();
 
-                tblDocument.DataSource = dtoDoc.documentList;
-                tblDocument.DataBind();
+                    IResponseHandler responseUsers = new UserAccountsGetService().executeAsPrimary(dtoUsers);
+                    if (responseUsers.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                    {
+                        dtoUsers = (UserAccountsDTO)responseUsers;
+
+                        foreach (Douments document in dtoDoc.documentList)
+                            document.Users = dtoUsers.userAccountsList.Where(x => x.userID.Equals(document.Userid)).SingleOrDefault().userName;
+
+                        tblDocument.DataSource = dtoDoc.documentList;
+                        tblDocument.DataBind();
+                    }
+                }
             }
         }
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
         {
+            DocumentDTO dto = new DocumentDTO();
+            dto.header = getHeader();
             
+            dto.document.documentID= Convert.ToInt32(e.CommandArgument);
 
+            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (DocumentDTO)response;
+
+                Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
+            }
 
         }
     }

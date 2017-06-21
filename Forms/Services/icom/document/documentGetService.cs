@@ -7,8 +7,8 @@ using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 using DAO.itinsync.icom.idocument;
 using DAO.itinsync.icom.idocument.definition;
-
-
+using DAO.itinsync.icom.idocument.section;
+using System.Linq;
 
 //Created By Qundeel Ch
 
@@ -23,12 +23,21 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.document.storeid > 0)
+                dto.documentList = DocumentDAO.getInstance(dbContext).readAll();
+
+                if (dto.document.documentID>0)
+                {
+                    dto.document = dto.documentList.SingleOrDefault(x => x.documentID == dto.document.documentID);
+                    dto.document.xdocumentSection = XDocumentSectionDAO.getInstance(dbContext).
+                        readByDefinitionIDWithFlow(dto.document.documentDefinitionID, dto.document.flow);
+                }
+                else if (dto.document.storeid > 0)
                 {
                     dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentDefinitionID(dto.document.documentDefinitionID, dto.document.storeid);
                     dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);
                 }
-                dto.documentList = DocumentDAO.getInstance(dbContext).readAll();
+                //else if (dto.READBY == ReadByConstant.READBYALL)
+                    
             }
             catch (Exception ex)
             {
