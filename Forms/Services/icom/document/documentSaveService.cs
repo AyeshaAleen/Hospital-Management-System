@@ -13,6 +13,8 @@ using Services.itinsync.icom.documents.dto;
 using DAO.itinsync.icom.idocument;
 using DAO.itinsync.icom.idocument.definition;
 using System.Xml;
+using Utils.itinsync.icom.date;
+using Domains.itinsync.icom.idocument;
 
 namespace Services.itinsync.icom.documents
 {
@@ -24,20 +26,12 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-
-                
-
                 if (dto.document.documentID > 0)
                 {
-
-                   
                     DocumentDAO.getInstance(dbContext).update(dto.document, "");
                 }
                 else
                 {
-                  
-                   
-
                     dto.document.documentID = DocumentDAO.getInstance(dbContext).create(dto.document);
                 }
 
@@ -53,36 +47,6 @@ namespace Services.itinsync.icom.documents
             }
             return dto;
         }
-
-
-        private void SetDocumentData(string Data)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(Data);
-
-            XmlDocument docFinal = new XmlDocument();
-            docFinal.LoadXml(dto.document.data);
-            XmlNodeList elemListfinal = docFinal.GetElementsByTagName("GeneralSIO");
-
-            XmlNodeList elemList = doc.GetElementsByTagName("GeneralSIO");
-            if (elemList != null)
-            {
-                XmlNode mynode = elemList.Item(0);
-                XmlNode mynodechild = elemListfinal.Item(0);
-
-                foreach (XmlNode parentnode in mynode.ChildNodes)
-                {
-                    
-                    // setControlValues(parent, childnode.Name, childnode.InnerText);
-
-                   
-                }
-
-                
-              
-            }
-        }
-
 
 
     }

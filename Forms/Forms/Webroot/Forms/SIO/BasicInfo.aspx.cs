@@ -27,7 +27,7 @@ namespace Forms.Webroot.Forms.SIO
     public partial class BasicInfo : BasePage
     {
         private static string dbxml = "";
-        public static string xml = "<SIO></SIO>";
+        public static string xml = "";
         public static int documentid = 0;
         public static int DocumentFlow = 1;
         protected void Page_Load(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!string.IsNullOrEmpty(getXMLSession()))
             {
-                processXML(this, getXMLSession(), "BasicInfo");
+               XMLUtils.processXML(this, getXMLSession(), "BasicInfo");
             }
         }
 

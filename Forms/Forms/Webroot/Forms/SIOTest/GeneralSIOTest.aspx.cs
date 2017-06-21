@@ -17,6 +17,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.date;
+using Utils.itinsync.icom.xml;
+
 namespace Forms.Webroot.Forms.SIOTest
 {
     public partial class GeneralSIOTest : BasePage
@@ -52,7 +54,7 @@ namespace Forms.Webroot.Forms.SIOTest
         {
             if (!string.IsNullOrEmpty(getXMLSession()))
             {
-                processXML(processDynamicDiv, getXMLSession(), "ServiceTime");
+                XMLUtils.processXML(processDynamicDiv, getXMLSession(), "ServiceTime");
             }
         }
     }

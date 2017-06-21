@@ -33,15 +33,37 @@
 
                            
                              <li>
-                                <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
+                                 <a>
+                                <span>Admin Management</span>
+                            </a>
+           
+
+                                 <ul style="position:relative">
+                                <li>
+                                    <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect">
+                                    <i class="ti-user"></i> <span> Manage Users</span>
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect">
+                                    <i class="ti-face-smile"></i> <span> Manage Teams</span>
+                                    </a>
+                                </li>
+                                       <li>
+                                    <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect">
+                                    <i class="ti-face-smile"></i> <span> Manage Stores</span>
+                                    </a>
+                                </li>
+
+                            </ul>
                             </li>
                        
-                             <li>
+                            <%-- <li>
                                 <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
                             </li>
                             <li>
                                 <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Stores</span> </a>
-                            </li>
+                            </li>--%>
                            <%-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">

@@ -224,127 +224,127 @@ namespace Forms.itinsync.src.session
 
        
 
-        public string xmlConversion(Control parent, string outPut)
-        {
+        //public string xmlConversion(Control parent, string outPut)
+        //{
 
-           // Table table = parent.Controls.OfType<Table>().SingleOrDefault();
+        //   // Table table = parent.Controls.OfType<Table>().SingleOrDefault();
 
-            foreach (Control c in parent.Controls)
-            {
-                if ((c.GetType() == typeof(TextBox)))
-                    outPut = outPut + XMLUtils.appendTag(((TextBox)(c)).ID, ((TextBox)(c)).Text);
+        //    foreach (Control c in parent.Controls)
+        //    {
+        //        if ((c.GetType() == typeof(TextBox)))
+        //            outPut = outPut + XMLUtils.appendTag(((TextBox)(c)).ID, ((TextBox)(c)).Text);
 
-                else if ((c.GetType() == typeof(HtmlInputText)))
-                    outPut = outPut + XMLUtils.appendTag(((HtmlInputText)(c)).ID, ((HtmlInputText)(c)).Value);
+        //        else if ((c.GetType() == typeof(HtmlInputText)))
+        //            outPut = outPut + XMLUtils.appendTag(((HtmlInputText)(c)).ID, ((HtmlInputText)(c)).Value);
 
-                else if ((c.GetType() == typeof(DropDownList)))
-                    outPut = outPut + XMLUtils.appendTag(((DropDownList)(c)).ID, ((DropDownList)(c)).SelectedValue);
+        //        else if ((c.GetType() == typeof(DropDownList)))
+        //            outPut = outPut + XMLUtils.appendTag(((DropDownList)(c)).ID, ((DropDownList)(c)).SelectedValue);
 
-                else if ((c.GetType() == typeof(HtmlInputRadioButton)))
-                {
-                    if (((HtmlInputRadioButton)(c)).Checked)
-                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, true);
-                    else
-                        outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, false);
-                }
+        //        else if ((c.GetType() == typeof(HtmlInputRadioButton)))
+        //        {
+        //            if (((HtmlInputRadioButton)(c)).Checked)
+        //                outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, true);
+        //            else
+        //                outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, false);
+        //        }
 
-                //else if ((c.GetType() == typeof(HtmlInputRadioButton)))
-                //    outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, ((HtmlInputRadioButton)(c)).Checked);
+        //        //else if ((c.GetType() == typeof(HtmlInputRadioButton)))
+        //        //    outPut = outPut + XMLUtils.appendTag(((HtmlInputRadioButton)(c)).ID, ((HtmlInputRadioButton)(c)).Checked);
 
-                else if ((c.GetType() == typeof(HtmlSelect)))
-                    outPut = outPut + XMLUtils.appendTag(((HtmlSelect)(c)).ID, ((HtmlSelect)(c)).Value);
+        //        else if ((c.GetType() == typeof(HtmlSelect)))
+        //            outPut = outPut + XMLUtils.appendTag(((HtmlSelect)(c)).ID, ((HtmlSelect)(c)).Value);
 
-                else if ((c.GetType() == typeof(CheckBox)))
-                {
-                    string[] id = c.ClientID.Split('_');
-                    if (((CheckBox)(c)).Checked)
-                        outPut = outPut + XMLUtils.appendTag(id[2], true);
-                    else
-                        outPut = outPut + XMLUtils.appendTag(id[2], false);
-                }
+        //        else if ((c.GetType() == typeof(CheckBox)))
+        //        {
+        //            string[] id = c.ClientID.Split('_');
+        //            if (((CheckBox)(c)).Checked)
+        //                outPut = outPut + XMLUtils.appendTag(id[2], true);
+        //            else
+        //                outPut = outPut + XMLUtils.appendTag(id[2], false);
+        //        }
 
-                else if ((c.GetType() == typeof(HtmlInputCheckBox)))
-                {
-                    if (((HtmlInputCheckBox)(c)).Checked)
-                        outPut = outPut + XMLUtils.appendTag(((HtmlInputCheckBox)(c)).ID, true);
-                    else
-                        outPut = outPut + XMLUtils.appendTag(((HtmlInputCheckBox)(c)).ID, false);
-                }
-
-
+        //        else if ((c.GetType() == typeof(HtmlInputCheckBox)))
+        //        {
+        //            if (((HtmlInputCheckBox)(c)).Checked)
+        //                outPut = outPut + XMLUtils.appendTag(((HtmlInputCheckBox)(c)).ID, true);
+        //            else
+        //                outPut = outPut + XMLUtils.appendTag(((HtmlInputCheckBox)(c)).ID, false);
+        //        }
 
 
-                if (c.HasControls())
-                     outPut = xmlConversion(c, outPut);
+
+
+        //        if (c.HasControls())
+        //             outPut = xmlConversion(c, outPut);
                 
-            }
+        //    }
 
 
-            return outPut;
-        }
+        //    return outPut;
+        //}
 
-        public void processXML(Control parent, string xml, string root)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.LoadXml(xml);
-            XmlNodeList elemList = doc.GetElementsByTagName(root);
-            if (elemList != null)
-            {
-                XmlNode mynode = elemList.Item(0);
-                foreach (XmlNode childnode in mynode.ChildNodes)
-                {
-                   // setControlValues(parent, childnode.Name, childnode.InnerText);
+        //public void processXML(Control parent, string xml, string root)
+        //{
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.LoadXml(xml);
+        //    XmlNodeList elemList = doc.GetElementsByTagName(root);
+        //    if (elemList != null)
+        //    {
+        //        XmlNode mynode = elemList.Item(0);
+        //        foreach (XmlNode childnode in mynode.ChildNodes)
+        //        {
+        //           // setControlValues(parent, childnode.Name, childnode.InnerText);
 
-                   findSetControl( parent.FindControl(childnode.Name), childnode.InnerText);
-                }
-            }
-        }
+        //           findSetControl( parent.FindControl(childnode.Name), childnode.InnerText);
+        //        }
+        //    }
+        //}
 
-        private void findSetControl(Control control,string value)
-        {
-            if (control == null)
-                return;
+        //private void findSetControl(Control control,string value)
+        //{
+        //    if (control == null)
+        //        return;
 
-            if (control.GetType() == typeof(TextBox) )
-            {
-                ((TextBox)control).Text = value;
+        //    if (control.GetType() == typeof(TextBox) )
+        //    {
+        //        ((TextBox)control).Text = value;
              
-            }
+        //    }
 
-            else if (control.GetType() == typeof(HtmlInputText) )
-            {
-                ((HtmlInputText)control).Value = value;
+        //    else if (control.GetType() == typeof(HtmlInputText) )
+        //    {
+        //        ((HtmlInputText)control).Value = value;
                
-            }
+        //    }
 
-            else if (control.GetType() == typeof(HtmlInputText) )
-            {
-                ((DropDownList)control).SelectedValue = value;
+        //    else if (control.GetType() == typeof(HtmlInputText) )
+        //    {
+        //        ((DropDownList)control).SelectedValue = value;
                
-            }
+        //    }
 
-            else if (control.GetType() == typeof(HtmlInputRadioButton) )
-            {
-                if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
-                    ((HtmlInputRadioButton)control).Checked = true;
-                else
-                    ((HtmlInputRadioButton)control).Checked = false;
+        //    else if (control.GetType() == typeof(HtmlInputRadioButton) )
+        //    {
+        //        if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
+        //            ((HtmlInputRadioButton)control).Checked = true;
+        //        else
+        //            ((HtmlInputRadioButton)control).Checked = false;
 
-            }
-            else if (control.GetType() == typeof(HtmlSelect) )
-            {
-                ((HtmlSelect)control).Value = value;
+        //    }
+        //    else if (control.GetType() == typeof(HtmlSelect) )
+        //    {
+        //        ((HtmlSelect)control).Value = value;
                
-            }
-            else if (control.GetType() == typeof(CheckBox) )
-            {
-                if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
-                    ((CheckBox)control).Checked = true;
-                else
-                    ((CheckBox)control).Checked = false;
+        //    }
+        //    else if (control.GetType() == typeof(CheckBox) )
+        //    {
+        //        if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
+        //            ((CheckBox)control).Checked = true;
+        //        else
+        //            ((CheckBox)control).Checked = false;
                 
-            }
-        }
+        //    }
+        //}
 
         //never use this function as it has performance issue 
         public void setControlValues(Control parent, string inputName,string value)
