@@ -27,7 +27,11 @@
                                 <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
                             </li>
 
-                             <li>
+                            
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Admin Penal </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li>
                                 <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
                             </li>
                            
@@ -40,15 +44,8 @@
                             <li>
                                 <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Stores</span> </a>
                             </li>
-                           <%-- <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Dashboard 1</a></li>
-                                    <li><a href="#">Dashboard 2</a></li>
-                                    <li><a href="#">Dashboard 3</a></li>
-                                    <li><a href="#">Dashboard 4</a></li>
                                 </ul>
-                            </li>--%>
+                            </li>
 
 
                         </ul>

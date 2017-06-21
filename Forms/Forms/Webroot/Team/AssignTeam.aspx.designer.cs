@@ -22,15 +22,6 @@ namespace Forms.Webroot.Team {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblname;
         
         /// <summary>
-        /// Tbody1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tbody1;
-        
-        /// <summary>
         /// tblUserTeams control.
         /// </summary>
         /// <remarks>

@@ -1143,7 +1143,7 @@ pre {
   text-align: center;
 }
 .logo i {
-  color: #5fbeaa;
+  color: #fff;
 }
 .logo .icon-c-logo {
   display: none;
@@ -1509,13 +1509,16 @@ body.fixed-left .side-menu.left {
   padding: 15px 20px;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:hover {
-  background: #f4f8fb!important;
+  background: #8ec7df !important;
+  color:#fff !important
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:active {
-  background: #f4f8fb!important;
+  background: #8ec7df!important;
+  color:#fff !important
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:focus {
-  background: #f4f8fb!important;
+  background: #8ec7df!important;
+  color:#fff !important
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a i {
   margin-right: 20px !important;
