@@ -81,13 +81,15 @@ namespace Utils.itinsync.icom.html
                             XDocumentTableTD tableTD = new XDocumentTableTD();
                             
                             
-                            if (colnode.Descendants("h2").SingleOrDefault()!=null)
+                            if (colnode.Descendants("h4").SingleOrDefault()!=null)
                             tableTD.tdType = ApplicationCodes.FORMS_TABLE_HEADER_TYPE; 
                             else
                                 tableTD.tdType = ApplicationCodes.FORMS_TABLE_TD_TYPE;
 
                             tableTD.cssClass = colnode.GetAttributeValue("Class", "");
-                            tableTR.tds.Add(tableTD);
+                                if(colnode.GetAttributeValue("colspan", "")!="0" && colnode.GetAttributeValue("colspan", "") != "")
+                                tableTD.colSpan = colnode.GetAttributeValue("colspan", "");
+                                tableTR.tds.Add(tableTD);
 
                             #endregion
 
@@ -229,6 +231,7 @@ namespace Utils.itinsync.icom.html
                                     createDiv.Controls.Add( helper.addControl(content, lang));
                                     ControlsHelper.removeDetailSpan(createDiv, content.controlID);
 
+                                    tc.ColSpan = content.colspan;
                                     tc.Controls.Add(createDiv);
                                 }
                                
@@ -291,7 +294,7 @@ namespace Utils.itinsync.icom.html
             column.InnerHtml = "/c+";
             createDiv.Controls.Add(column);
 
-
+            crudTD.Attributes.Add("last", "true");
             crudTD.Controls.Add(createDiv);
 
             return crudTD;

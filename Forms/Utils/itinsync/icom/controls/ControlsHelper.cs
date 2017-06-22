@@ -29,7 +29,7 @@ namespace Utils.itinsync.icom.controls
             txtBox.Attributes.Add("points", content.points);
             txtBox.Attributes.Add("formula", content.formula);
 
-                txtBox.Attributes.Add("onchange", "calculation();");
+                txtBox.Attributes.Add("onblur", "calculation();");
             //if (content.fieldcalculations.Count > 0)
             //{
             //    if (content.fieldcalculations[0].resultContent != null)
@@ -213,11 +213,11 @@ namespace Utils.itinsync.icom.controls
             createDiv.Style.Add("cursor", "move");
             createDiv.Style.Add("width", "158px");
 
-            //createDiv.Style.Add("class", "form-control");
-            createDiv.Style.Add("background", "whitesmoke");
+            createDiv.Style.Add("class", "form-control");
+            //createDiv.Style.Add("background", "whitesmoke");
 
             HtmlTableCell cell = new HtmlTableCell("th");
-            HtmlGenericControl heading = new HtmlGenericControl("h2");
+            HtmlGenericControl heading = new HtmlGenericControl("h4");
 
 
             heading.Attributes.Add("translation", content.translation);
@@ -232,7 +232,7 @@ namespace Utils.itinsync.icom.controls
             removeDetailSpan(createDiv, content.controlID);
 
             cell.Align = "center";
-
+            cell.ColSpan = content.colspan;
 
             //cell.BgColor = "WhiteSmoke";
             cell.ColSpan = content.colspan;

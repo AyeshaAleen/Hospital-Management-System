@@ -136,7 +136,7 @@ redips.handler1 = function (xhr, obj) {
         var elemlabel = obj.div.getElementsByTagName("label");
         var elemselect = obj.div.getElementsByTagName("select");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
-        var elemheading = obj.div.getElementsByTagName("h2");
+        var elemheading = obj.div.getElementsByTagName("h4");
         var controlID = "";
         if (eleminput.length > 0)
             controlID = fieldset(eleminput, obj.div.id);
@@ -554,6 +554,7 @@ redips.split = function () {
 
 // insert row (below current row)
 redips.rowInsert = function (el) {
+    debugger;
     var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
         top_row,									// cells reference in top row of the table editor
         nr,											// new table row
@@ -566,6 +567,7 @@ redips.rowInsert = function (el) {
     lc = nr.cells[nr.cells.length - 1];
     // copy last cell content from the top row to the last cell of the newly inserted row
     lc.innerHTML = top_row[top_row.length - 1].innerHTML;
+    lc.setAttribute("last", "true");
     // ignore last cell (attached onmousedown event listener will be removed)
     REDIPS.table.cell_ignore(lc);
 };
