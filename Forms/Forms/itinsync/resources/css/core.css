@@ -1357,12 +1357,12 @@ body.fixed-left .side-menu.left {
   color: #5fbeaa;
 }
 #sidebar-menu ul ul a {
-  color: #75798B;
+  color: #75798B !important;
   display: block;
   padding: 10px 20px 10px 65px;
 }
 #sidebar-menu ul ul a:hover {
-  color: #5fbeaa;
+  color: #fff !important;
 }
 #sidebar-menu ul ul a i {
   margin-right: 5px;
@@ -1494,12 +1494,11 @@ body.fixed-left .side-menu.left {
 #wrapper.enlarged .menu-arrow {
   display: none !important;
 }
-#wrapper.enlarged #sidebar-menu ul ul {
-  border: 2px solid #f4f8fb;
+#wrapper.enlarged #sidebar-menu ul ul { 
   margin-top: -5px;
-  padding-top: 5px;
   z-index: 9999;
   background-color: #ffffff;
+  color:#5fbeaa;
 }
 #wrapper.enlarged .left.side-menu {
   width: 70px;
@@ -1509,16 +1508,16 @@ body.fixed-left .side-menu.left {
   padding: 15px 20px;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:hover {
-  background: #8ec7df !important;
-  color:#fff !important
+  /*background: #8ec7df !important;
+  color:#fff !important*/
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:active {
-  background: #8ec7df!important;
-  color:#fff !important
+  /*background: #8ec7df!important;
+  color:#fff !important*/
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a:focus {
-  background: #8ec7df!important;
-  color:#fff !important
+  /*background: #8ec7df!important;
+  color:#fff !important*/
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu > ul > li > a i {
   margin-right: 20px !important;
@@ -1539,8 +1538,8 @@ body.fixed-left .side-menu.left {
 #wrapper.enlarged .left.side-menu #sidebar-menu ul > li:hover > a {
   position: relative;
   width: 260px;
-  background: #f4f8fb;
-  color: #5fbeaa;
+  background: #6698ca;
+  color: #fff;
   border-color: #5fbeaa;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu ul > li:hover > ul {
@@ -1550,15 +1549,15 @@ body.fixed-left .side-menu.left {
   width: 190px;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu ul > li:hover > ul a {
-  background: #ffffff;
   box-shadow: none;
   padding-left: 15px;
+  color:#fff;
   position: relative;
-  width: 186px;
+  width: 190px;
   z-index: 6;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu ul > li:hover > ul a:hover {
-  color: #5fbeaa;
+  color: #fff;
 }
 #wrapper.enlarged .left.side-menu #sidebar-menu ul > li:hover a span {
   display: inline;

@@ -42,7 +42,8 @@ namespace Forms.Webroot.Forms.Management.FormsManager
                 loadDropDown();
                 FormName.Value = ((XDocumentDefination)getParentRef()).name;
                 SectionName.Value = DocumentManager.getDocumentSection(Convert.ToInt32(getSubjectID())).name;
-                ControlCount.Value = DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString();
+               // string test = DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString();
+                ControlCount.Value = (Convert.ToInt32(DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString())+1).ToString();
                 sectionID.Value = getSubjectID();
             }
         }

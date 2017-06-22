@@ -365,7 +365,7 @@ function fieldset(event,divid) {
     var generatedcontrolID = "";
     var test = CURRENTPAGE_CONTEXT+"ControlCount";
  
-    CONTROL_COUINT  = parseInt(document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value)+1;
+    CONTROL_COUINT  = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
     FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
     SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;
     if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")

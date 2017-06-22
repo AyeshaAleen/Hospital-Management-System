@@ -9,5 +9,6 @@ namespace Domains.itinsync.icom.interfaces.document
     public interface IDocument
     {
         Int32 getParentrefKey();
+        String getParentrefName();
     }
 }

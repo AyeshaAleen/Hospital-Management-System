@@ -46,7 +46,10 @@ namespace Domains.itinsync.icom.idocument
             return documentID;
         }
 
-
+        public string getParentrefName()
+        {
+            return documentName;
+        }
 
         //*************Relational Mapping Objects*******************//////
         public XDocumentDefination xdocumentDefinition { get; set; }
