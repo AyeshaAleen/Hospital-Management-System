@@ -34,7 +34,10 @@ namespace Domains.itinsync.icom.idocument.definition
         {
             return xDocumentDefinationID;
         }
-
+        public string getParentrefName()
+        {
+            return name;
+        }
         //*************Relational Mapping Objects*******************//////
         public List<XDocumentSection> documentSections = new List<XDocumentSection>();
 

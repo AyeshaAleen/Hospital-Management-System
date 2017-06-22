@@ -89,6 +89,7 @@
     <Compile Include="itinsync\icom\useraccounts\UserTeamDAO.cs" />
     <Compile Include="itinsync\icom\useraccounts\UserVecationDAO.cs" />
     <Compile Include="itinsync\icom\views\emailroutingview\EmailRoutingViewDAO.cs" />
+    <Compile Include="itinsync\icom\views\PersonalInboxViewDAO.cs" />
     <Compile Include="itinsync\icom\views\routeusers\XDocumentRouteUsersViewDAO.cs" />
     <Compile Include="itinsync\icom\views\UserPermissionViewDAO.cs" />
     <Compile Include="itinsync\icom\views\UserTeamViewDAO.cs" />
