@@ -32,7 +32,7 @@
                                                 <th data-field="submitter" data-sortable="true">Submitter Name</th>
                                                 <th data-field="startdate" data-sortable="true">Start Date</th>
                                                 <th data-field="status" data-align="center">Status</th>
-                                                <th data-field="action" data-align="center">Action</th>
+                                                <th data-field="actions" data-align="center">Action</th>
                                             </tr>
                                         </thead>
 
@@ -41,21 +41,21 @@
                                         <ItemTemplate>
                                             <tr>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblFormName" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblFormName" Text='<%# Eval("documentName") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblUserNama" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblUserNama" Text='<%# Eval("users") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblStartDate" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblStartDate" Text='<%# Eval("transDate") %>' />
                                                 </td>
                                                 <td>
-                                                    <asp:Label runat="server" ID="tblStatus" Text='<%# Eval("name") %>' />
+                                                    <asp:Label runat="server" ID="tblStatus" Text='<%# Eval("status") %>' />
                                                 </td>
 
                                                 <td style="text-align: center;">
                                                     <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
-                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
+                                                        CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentid") ) %>'
                                                         CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
                                                     </asp:LinkButton>
                                                 </td>
