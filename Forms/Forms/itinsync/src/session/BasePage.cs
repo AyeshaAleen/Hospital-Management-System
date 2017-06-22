@@ -48,7 +48,7 @@ namespace Forms.itinsync.src.session
             if (ui.authorise)
             {
                 //place loginpage id here
-                setSubjectID("");
+                //setSubjectID("");
                 Sessions.getSession().Set(SessionKey.CURRENTPAGE, 0);
                 Sessions.getSession().Set(SessionKey.USERINFORMATION, ui);
                 Sessions.getSession().Set(SessionKey.PAGEVISTSTACK, new List<Int32>());

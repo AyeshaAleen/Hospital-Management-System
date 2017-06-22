@@ -105,6 +105,8 @@
     <Compile Include="icom\userteamview\dto\UserTeamViewDTO.cs" />
     <Compile Include="icom\userteamview\UserTeamViewGetService.cs" />
     <Compile Include="icom\userteamview\UserTeamViewSaveService.cs" />
+    <Compile Include="icom\views\personalinboxview\dto\PersonalInboxViewDTO.cs" />
+    <Compile Include="icom\views\personalinboxview\PersonalInboxViewGetService.cs" />
     <Compile Include="icom\views\routeusers\DocumentRouteUsersGetService.cs" />
     <Compile Include="icom\views\routeusers\dto\DocumentRouteUsersDTO.cs" />
     <Compile Include="icom\views\userpermissionview\dto\UserPermissionViewDTO.cs" />
