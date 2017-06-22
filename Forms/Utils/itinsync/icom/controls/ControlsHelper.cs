@@ -52,7 +52,7 @@ namespace Utils.itinsync.icom.controls
             TextBox txtBox = new TextBox();
             txtBox.ID = content.controlID;
             txtBox.CssClass = content.cssClass;
-            txtBox.Attributes.Add("type", "Hidden");
+            txtBox.Attributes.Add("type", "hidden");
             return txtBox;
         }
 

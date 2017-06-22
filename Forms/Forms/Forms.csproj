@@ -2924,6 +2924,9 @@
     <Content Include="itinsync\resources\css\bootstrap.min.css.map" />
     <Content Include="Webroot\admin\AdminDashboard.aspx" />
     <Content Include="Webroot\CommonMaster.js" />
+    <Content Include="Webroot\Forms\CashAudit\BasicInfo.aspx" />
+    <Content Include="Webroot\Forms\CashAudit\EmployeeGuideLines.aspx" />
+    <Content Include="Webroot\Forms\CashAudit\Selction.aspx" />
     <Content Include="Webroot\Forms\Dashboard\PersonalInbox.aspx" />
     <Content Include="Webroot\Forms\Management\AddForms.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
@@ -3412,6 +3415,27 @@
     </Compile>
     <Compile Include="Webroot\CommonMaster.Master.designer.cs">
       <DependentUpon>CommonMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\CashAudit\BasicInfo.aspx.cs">
+      <DependentUpon>BasicInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\CashAudit\BasicInfo.aspx.designer.cs">
+      <DependentUpon>BasicInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\CashAudit\EmployeeGuideLines.aspx.cs">
+      <DependentUpon>EmployeeGuideLines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\CashAudit\EmployeeGuideLines.aspx.designer.cs">
+      <DependentUpon>EmployeeGuideLines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Webroot\Forms\CashAudit\Selction.aspx.cs">
+      <DependentUpon>Selction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\CashAudit\Selction.aspx.designer.cs">
+      <DependentUpon>Selction.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\Dashboard\DashboardMaster.master.cs">
       <DependentUpon>DashboardMaster.master</DependentUpon>

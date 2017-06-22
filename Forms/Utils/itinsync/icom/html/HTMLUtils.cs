@@ -119,24 +119,18 @@ namespace Utils.itinsync.icom.html
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TAXTBOX;
                                         else if  (type == "label")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_LABEL;
-                                        if (type == "select")
-                                        {
+                                        else  if (type == "select")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_SELECT;
-                                        }
-                                        if (type == "textarea")
-                                        {
+                                        else if (type == "textarea")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TEXTAREA;
-                                        }
-                                        if (type == "heading")
+                                        else if (type == "heading")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HEADING;
-                                            if (type == "hidden")
-                                            {
+                                        else if (type == "hidden")
                                                 tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HIDDEN;
-                                            }
 
 
 
-                                            tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
+                                        tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
