@@ -48,7 +48,7 @@
                             </label>
 
                             <div class="col-sm-8">
-                                <asp:DropDownList ID="ddlStores" DataValueField="storeid" DataTextField="name" runat="server" multiple="multiple" CssClass="multi-select" data-plugin="multiselect">
+                                <asp:DropDownList ID="ddlStores" DataValueField="storeid" DataTextField="name" runat="server" CssClass="select2 select2-multiple" multiple="multiple" data-placeholder="Choose ...">
                                     
                                 </asp:DropDownList>
                                
