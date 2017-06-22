@@ -3441,6 +3441,9 @@
     <Compile Include="Webroot\Forms\FormMaster.master.designer.cs">
       <DependentUpon>FormMaster.master</DependentUpon>
     </Compile>
+    <Compile Include="itinsync\src\session\DocumentBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Webroot\Forms\Management\AddForms.aspx.cs">
       <DependentUpon>AddForms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3628,6 +3631,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="itinsync\resources\plugins\jstree\themes\default\" />
     <Folder Include="itinsync\setting\" />
+    <Folder Include="Webroot\Forms\Generic Functions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">

@@ -18,6 +18,9 @@ using Services.itinsync.icom.documents;
 using Domains.itinsync.icom.pages;
 using Utils.itinsync.icom.cache.pages;
 using Services.icom.document.store;
+using Domains.itinsync.icom.idocument.section;
+using Utils.itinsync.icom.xml;
+using Utils.itinsync.icom;
 
 namespace Forms.Webroot.Forms.NewForm
 {
@@ -59,10 +62,20 @@ namespace Forms.Webroot.Forms.NewForm
             dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
             dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
-            dto.document.data = "<"+dto.document.xdocumentDefinition.name + "></" + dto.document.xdocumentDefinition.name + ">";
+
+            foreach(XDocumentSection section in DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID).documentSections)
+            {
+                dto.document.data += XMLUtils.appendTag(ServiceUtils.trimWhiteSpaces(section.name), "");
+
+            }
+            dto.document.documentName = dto.document.xdocumentDefinition.name;
+          
+            dto.document.data = XMLUtils.XML_START_TAG+dto.document.documentName +XMLUtils.XML_END_TAG + dto.document.data + XMLUtils.XML_START_TAG+"/"+dto.document.documentName+XMLUtils.XML_END_TAG;
+
             dto.document.Userid = getHeader().userID;
             dto.document.storeid = Convert.ToInt32(ddlStore.SelectedValue);
             dto.document.flow = 1;
+            dto.document.status = ApplicationCodes.DOCUMENT_STATUS_INPROGRESS;
             dto.document.documentName = dto.document.xdocumentDefinition.name;
 
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);

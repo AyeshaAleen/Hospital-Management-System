@@ -50,7 +50,7 @@
                                         <th data-field="number" data-align="center"><% Response.Write(trasnlation("Contact.No")); %></th>
                                         <th data-field="role"><% Response.Write(trasnlation("Role")); %></th>
                                         <th data-field="language"><% Response.Write(trasnlation("Language")); %></th>
-                                        <th data-field="changepass"><% Response.Write(trasnlation("Change.Password")); %>  </th>
+                                        <th data-field="changepass" data-align="center"><% Response.Write(trasnlation("Change.Password")); %>  </th>
                                         <th data-field="edit" data-align="center"><% Response.Write(trasnlation("Edit")); %>  </th>
                                         <th data-field="permission" data-align="center"><% Response.Write(trasnlation("Permissions")); %>  </th>
                                         <th data-field="teams" data-align="center"><% Response.Write(trasnlation("Teams")); %>  </th>
