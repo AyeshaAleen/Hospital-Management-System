@@ -112,7 +112,7 @@ namespace Utils.itinsync.icom.xml
         }
 
 
-        public string setTagXML(string tag, string value)
+        public void setTagXML(string tag, string value)
         {
             XmlNode node = xmlDoc.SelectSingleNode("/"+ rootTag+"/"+ tag);
 
@@ -125,10 +125,24 @@ namespace Utils.itinsync.icom.xml
                     node.InnerXml = value;
                 }
             }
-            return "";
+            
         }
 
+        public string getXML()
+        {
+            return xmlDoc.InnerXml;
+        }
+        public string getinnerxml(string tag)
+        {
+            XmlNode node = xmlDoc.SelectSingleNode("/" + tag );
 
+            if (node != null)
+            {
+               return node.InnerXml;
+                
+            }
+            return "";
+        }
 
 
 

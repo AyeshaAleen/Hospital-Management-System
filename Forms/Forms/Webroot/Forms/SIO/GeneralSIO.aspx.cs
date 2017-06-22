@@ -20,100 +20,71 @@ using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument;
 using Utils.itinsync.icom.cache.document;
 
+
 namespace Forms.Webroot.Forms.SIO
 {
-    [Serializable()]
-    public partial class GeneralSIO : BasePage
+    public partial class GeneralSIO : DocumentBasePage
     {
 
         private static string dbxml = "";
-        public static string xml = "<SIO></SIO>";
-        public static int documentid = 0;
-        public static int DocumentFlow = 0;
+        private static string xml = "";
+        private static int documentid = 0;
+        private static int DocumentFlow = 0;
+        private static string CurrentFileName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                CurrentFileName = Path.GetFileName(Request.Path);
                 createControl();
-                
+                loaddata();
             }
         }
-        
+        private void loaddata()
+        {
+            if (!string.IsNullOrEmpty(dbxml))
+            {
+                XMLUtils.processXML(this, dbxml, CurrentFileName);
+            }
+        }
+
         private void createControl()
         {
-            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c=>c.name.Equals("GeneralSIO")).SingleOrDefault();
+            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals("GeneralSIO")).SingleOrDefault();
             dbxml = ((Douments)getParentRef()).data;
             documentid = ((Douments)getParentRef()).documentID;
-            if(Section != null)
+            DocumentFlow = Convert.ToInt32(Section.flow);
+
+            if (Section != null)
             {
-                    Table obj_Table = processDynamicContent(tableDynamic, ((Douments)getParentRef()), Section.documentsectionid);
-                    tableDynamic.EnableViewState = true;
-                    ViewState["tableDynamic"] = true;
+                Table obj_Table = processDynamicContent(tableDynamic, ((Douments)getParentRef()), Section.documentsectionid);
+                tableDynamic.EnableViewState = true;
+                ViewState["tableDynamic"] = true;
             }
-            
+
         }
-
-      
-
-
-       
 
         protected override void LoadViewState(object savedState)
         {
             createControl();
             base.LoadViewState(savedState);
-            
+
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
-          
 
-            xml ="<SIO>" + "<GeneralSIO>" + xmlConversion(this, "") + "</GeneralSIO>" + "</SIO>";
+             xml= XMLUtils.getDynamicXML(CurrentFileName, dbxml, this);
 
-            string db_xml = dbxml;
-            XMLParser xmlparser = new XMLParser(db_xml);
-            db_xml = xmlparser.getTagXML("GeneralSIO");
-
-
-            XMLParser xmlparser_In = new XMLParser(xml);
-
-
-            string invalue = xmlparser_In.getTagXML("GeneralSIO");
-
-
-
-            xmlparser.setTagXML("GeneralSIO", xml);
-
-            string finalxml= xmlparser.getRootTagXML("GeneralSIO");
-            if (!string.IsNullOrEmpty(finalxml))
-                xml = finalxml;
-
-             save_data();
-            
-         
-            
-        }
-
-        private void save_data()
-        {
-
-            //need to move below code in genaric class as we need to call it from various point with same information
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document =(Douments) getParentRef();
-            dto.document.data = xml;
-            dto.document.flow = 1;
-            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
+            IResponseHandler response = saveDocument(xml,documentid,DocumentFlow,ApplicationCodes.DOCUMENT_STATUS_INPROGRESS);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                dto = (DocumentDTO)response;
-                setParentRef(dto.document);
                 Response.Redirect("ServiceTime.aspx");
             }
-
         }
+      
+       
 
     }
 }

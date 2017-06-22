@@ -317,49 +317,19 @@
 
            
             $('#ddlControlID').on('change', function () {
-
-
                 $("#ddlControlID > option").each(function () {
                     var elemid = $(this).val();
                     $("#" + elemid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
-
                 });
-
                 var Controlid = document.getElementById("ddlControlID").value;
 
-                //var PreviousControl = document.getElementById("PreviousControlID").value;
-
-
-                //if ($("#" + PreviousControl).parent().hasClass('redips-drag-highlight')) {
-                //    $("#" + PreviousControl).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
-
-                //}
-
-
-                //if ($("#" + Controlid).parent().hasClass('redips-drag-highlight')) {
-                //    $("#" + Controlid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
-
-                //}
-                //else {
                     $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
-                //}
             });
-
-
 
             if (document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value != "") {
                 document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
                 var theTbl = document.getElementById('tblEditor');
-
             }
-
-
-
         });
     </script>
-    <%-- <script>
-        $("#con-modal").draggable({
-            handle: ".modal-header"
-        });
-    </script>--%>
 </asp:Content>

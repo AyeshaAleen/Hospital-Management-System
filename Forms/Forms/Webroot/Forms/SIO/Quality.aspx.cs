@@ -19,97 +19,75 @@ using Domains.itinsync.icom.idocument.definition;
 using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument;
 
+
 namespace Forms.Webroot.Forms.SIO
 {
     [Serializable()]
-    public partial class Quality : BasePage
+    public partial class Quality :DocumentBasePage
     {
 
         private static string dbxml = "";
-        public static string xml = "";
-        public static int documentid = 0;
-        public static int DocumentFlow = 0;
+        private static string xml = "";
+        private static int documentid = 0;
+        private static int DocumentFlow = 0;
+        private static string CurrentFileName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
-                getDocument();
+                CurrentFileName = Path.GetFileName(Request.Path);
+                CreateControl();
+                loaddata();
 
             }
         }
 
-
-        private void getDocument()
+        private void loaddata()
         {
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID;
-            dto.document.storeid = ((Douments)getParentRef()).storeid;
-            IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            if (!string.IsNullOrEmpty(dbxml))
             {
-                CreateControl(response);
+                XMLUtils.processXML(this, dbxml, CurrentFileName);
             }
         }
 
-        private void CreateControl(IResponseHandler response)
+        private void CreateControl()
         {
-            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals("Quality")).SingleOrDefault();
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals(CurrentFileName)).SingleOrDefault();
+            dbxml = ((Douments)getParentRef()).data;
+            documentid = ((Douments)getParentRef()).documentID;
+            DocumentFlow = Convert.ToInt32(Section.flow);
+
+            if (Section != null)
             {
-                setResponseHandler(response);
-                DocumentDTO dto = (DocumentDTO)response;
-                dbxml = dto.document.data;
-
-                documentid = dto.document.documentID;
-                DocumentFlow = Convert.ToInt32(Section.flow);
-                if (Section != null)
-                {
-                    Table obj_Table = processDynamicContent(tableDynamic, dto.document, Section.documentsectionid);
-                    tableDynamic.EnableViewState = true;
-                    ViewState["tableDynamic"] = true;
-                }
+                Table obj_Table = processDynamicContent(tableDynamic, ((Douments)getParentRef()), Section.documentsectionid);
+                tableDynamic.EnableViewState = true;
+                ViewState["tableDynamic"] = true;
             }
         }
-
-        private void save_data()
-        {
-
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.document.documentDefinitionID = ((Douments)getParentRef()).xdocumentDefinition.xDocumentDefinationID;
-            dto.document.transDate = DateFunctions.getCurrentDateAsString();
-            dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
-            dto.document.data = xml;
-            dto.document.Userid = getHeader().userID;
-            dto.document.storeid = ((Douments)getParentRef()).storeid;
-            dto.document.documentID = documentid;
-            dto.document.flow = DocumentFlow;
-            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
-
-        }
-
-
-
 
         protected override void LoadViewState(object savedState)
         {
-            CreateControl(getResponseHandler());
+            CreateControl();
             base.LoadViewState(savedState);
 
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
         {
+            xml = XMLUtils.getDynamicXML(CurrentFileName, dbxml, this);
 
+            IResponseHandler response =saveDocument(xml, documentid, DocumentFlow, ApplicationCodes.DOCUMENT_STATUS_INPROGRESS);
 
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                Response.Redirect("Cleanliness.aspx");
+            }
 
         }
-
+     
         protected void btnPrevious_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("Service.aspx");
         }
     }
 }
