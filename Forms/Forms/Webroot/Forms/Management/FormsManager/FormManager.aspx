@@ -71,7 +71,7 @@
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="hi1"><i class="ti-write"></i> Hidden</div>
+                                            <div class="redips-drag redips-clone" id="hi1"><i class="glyphicon glyphicon-eye-open"></i> Hidden</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -80,7 +80,8 @@
                         <!-- left container -->
 
                         <!-- right container -->
-                        <div id="right" class="table-responsive col-md-10 col-sm-8 col-xs-6" style="overflow-x: scroll">
+                        <div id="right" class="table-responsive col-md-10 col-sm-8 col-xs-6">
+                            <div class="col-md-12" style="overflow-x: scroll">
                             <!-- toolbox -->
                             <table id="tblToolbox">
                                 <tbody>
@@ -132,6 +133,8 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                                </div>
                             <!-- save button -->
                             <%--<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>--%>
 

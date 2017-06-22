@@ -10,7 +10,7 @@
             <div class="portlet">
                 <div class="portlet-heading portlet-default">
                     <h3 class="portlet-title">
-                        <b><%getParentRef();%></b> <i class="glyphicon glyphicon-arrow-right"></i>Form Sections
+                        <b><% Response.Write(getParentRef().getParentrefKey()); %></b> <i class="glyphicon glyphicon-arrow-right"></i>Form Sections
                     </h3>
                     <div class="portlet-widgets">
                         <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>

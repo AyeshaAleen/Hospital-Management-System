@@ -156,6 +156,8 @@ table#tblEditor > tbody > tr > td {
     color: #5d9cec;
     font-weight: bold;
     width: 10px;
+    display:block;
+    margin:0 auto;
 }
 /* title */
 .hTitle {
@@ -165,6 +167,9 @@ table#tblEditor > tbody > tr > td {
     cursor: pointer;
     color: #FF7575;
     font-weight: bold;
+    
+    display:block;
+    margin:0 auto;
     width: 10px !important;
 }
 
@@ -217,7 +222,7 @@ table tr td {
 }
 
 table tr th {
-    /*background: #8ec7df !important;*/
+    background: #8ec7df !important;
     color:#fff;
     text-align:center;
 }

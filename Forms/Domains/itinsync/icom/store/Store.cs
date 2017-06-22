@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domains.itinsync.icom.store
 {
-    public class Store : System.Attribute, IDomain,IDocument
+    public class Store : System.Attribute, IDomain
     {
 
         public enum columns
@@ -35,9 +35,6 @@ namespace Domains.itinsync.icom.store
         {
             
         }
-        public int getParentrefKey()
-        {
-            return storeid;
-        }
+        
     }
 }
