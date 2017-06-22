@@ -77,14 +77,15 @@ namespace Services.itinsync.icom.tablecontent
                                         translation(field);
                                         field.tdID = td.tdID;
                                         field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
-										
-                                       
-										calculationMap.Add(field.documentTableContentID,field.calculations);
-										fieldMap.Add(field.controlID,field);
-                                        
-                                           
+
+                                        if (field.controlType!=ApplicationCodes.FORMS_CONTROL_LABEL || field.controlType!=ApplicationCodes.FORMS_CONTROL_HEADING)
+                                        {
+                                            calculationMap.Add(field.documentTableContentID, field.calculations);
+                                            fieldMap.Add(field.controlID, field);
+                                        }
+
                                     }
-                              }
+                                }
                                 #endregion
                             }
                         }
