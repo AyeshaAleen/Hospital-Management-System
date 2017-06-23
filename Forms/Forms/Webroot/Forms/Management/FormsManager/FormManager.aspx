@@ -80,10 +80,10 @@
                         <!-- left container -->
 
                         <!-- right container -->
-                        <div id="right" class="table-responsive col-md-10 col-sm-8 col-xs-6">
-                            <div class="col-md-12" style="overflow-x: scroll">
+                        <div id="right" class="col-md-10 col-sm-8 col-xs-6">
+                            <div class="col-md-12">
                             <!-- toolbox -->
-                            <table id="tblToolbox">
+                           <table id="tblToolbox" class="table table-responsive">
                                 <tbody>
                                     <tr>
                                         <td class="redips-mark">
@@ -112,7 +112,7 @@
                                 </tbody>
                             </table>
                             <!-- main table -->
-                            <table id="tblEditor" class="table table-bordered table-responsive">
+                            <table id="tblEditor" class="table table-responsive">
 
                                 <tbody>
                                     <tr>
@@ -126,9 +126,7 @@
 
                                                 <span onclick="redips.rowInsert(this)" class="rowTool">r+/</span>
 
-                                                <%--<span onclick="redips.colInsert(this)" class="rowTool">c+</span>--%>
-
-                                                <span onclick="insertcell(this)" class="rowTool">c+</span>
+                                                <span onclick="redips.colInsert(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
 
