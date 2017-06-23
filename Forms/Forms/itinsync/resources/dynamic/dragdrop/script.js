@@ -572,14 +572,26 @@ redips.rowInsert = function (el) {
     REDIPS.table.cell_ignore(lc);
 };
 
+function insertcell(el)
+{
+    debugger;
+    var row = $("#"+el).findParent('TR', el);
+    var x = row.insertCell(0);
+}
+
+
 redips.colInsert = function (el) {
 
-    var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
-        top_row,									// cells reference in top row of the table editor
-        nr,											// new table row
-        lc;											// last cell in newly inserted row
+    debugger;
+    var row = REDIPS.drag.findParent('TR', el);	// find source row (skip inner row)
+       /* top_row,	*/								// cells reference in top row of the table editor
+       /* nr,	*/										// new table row
+        /*lc;		*/									// last cell in newly inserted row
     // set reference to the top row cells
-    row.insertCell(row.cells -1);
+
+ 
+
+    row.insertCell(row.cells +1);
 };
 
 

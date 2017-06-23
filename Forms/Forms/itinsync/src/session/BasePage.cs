@@ -105,6 +105,7 @@ namespace Forms.itinsync.src.session
                                 else
                                 {
                                     TableCell tc = new TableCell();
+                                    tc.ColumnSpan = content.colspan;
                                     tc.Controls.Add(controlHelper.addControl(content, getHeader().lang));
                                     tabletr.Cells.Add(tc);
                                 }

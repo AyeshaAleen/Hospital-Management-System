@@ -126,7 +126,9 @@
 
                                                 <span onclick="redips.rowInsert(this)" class="rowTool">r+/</span>
 
-                                                <span onclick="redips.colInsert(this)" class="rowTool">c+</span>
+                                                <%--<span onclick="redips.colInsert(this)" class="rowTool">c+</span>--%>
+
+                                                <span onclick="insertcell(this)" class="rowTool">c+</span>
                                             </div>
                                         </td>
 

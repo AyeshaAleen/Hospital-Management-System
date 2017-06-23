@@ -88,6 +88,7 @@ namespace Utils.itinsync.icom.controls
             tableHeader.BackColor = Color.WhiteSmoke;
             tableHeader.ColumnSpan = content.colspan;
             lbl.Text = TranslationManager.trans(content.translation);
+            tableHeader.ColumnSpan = content.colspan;
             tableHeader.Controls.Add(lbl);
             return tableHeader;
         }
