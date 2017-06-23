@@ -322,7 +322,7 @@
             $('#ddlControlID').on('change', function () {
                 $("#ddlControlID > option").each(function () {
                     var elemid = $(this).val();
-                    $("#" + elemid).parent().removeClass('redips-drag-highlight').addClass('redips-drag');
+                    $("#" + elemid).parent().removeClass('redips-drag-highlight').removeClass('redips-drag-field-highlight').addClass('redips-drag');
                 });
                 var Controlid = document.getElementById("ddlControlID").value;
 

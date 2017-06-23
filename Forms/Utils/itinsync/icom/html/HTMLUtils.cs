@@ -140,7 +140,7 @@ namespace Utils.itinsync.icom.html
                                         tableContent.translation= fieldnode.ChildNodes[1].GetAttributeValue("translation", "");
                                         tableContent.points = fieldnode.ChildNodes[1].GetAttributeValue("points", "");
                                         tableContent.defaultValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
-                                        tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("readonly", "");
+                                        tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("disabled", "");
 
 
 
