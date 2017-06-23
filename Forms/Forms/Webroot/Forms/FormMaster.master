@@ -24,7 +24,7 @@
                             </li>
 
                              <li>
-                                <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
+                                <a href="<%= ResolveClientUrl("Dashboard/PersonalInbox.aspx") %>" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
                             </li>
 
                             
