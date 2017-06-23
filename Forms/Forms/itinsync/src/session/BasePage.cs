@@ -779,7 +779,11 @@ namespace Forms.itinsync.src.session
             if (pageVisitedStack == null)
                 pageVisitedStack = new List<Int32>();
 
-            pageVisitedStack.Add(pageNo);
+            if(pageVisitedStack.Count>0 &&  pageVisitedStack[pageVisitedStack.Count-1]!=pageNo)
+            {
+                pageVisitedStack.Add(pageNo);
+            }
+            
 
             Sessions.getSession().Set(SessionKey.PAGEVISTSTACK, pageVisitedStack);
         }

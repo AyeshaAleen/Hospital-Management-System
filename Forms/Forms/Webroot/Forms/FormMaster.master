@@ -31,19 +31,19 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Admin Penal </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li>
+                                    <li style="background:#8ec7df">
                                 <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
                             </li>
 
                            
-                             <li>
+                             <li style="background:#8ec7df">
                                 <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
                             </li>
                        
-                             <li>
+                             <li style="background:#8ec7df">
                                 <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
                             </li>
-                            <li>
+                            <li style="background:#8ec7df">
                                 <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Stores</span> </a>
                             </li>
                                 </ul>
