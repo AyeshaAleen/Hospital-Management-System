@@ -47,7 +47,7 @@ namespace Services.icom.document.email
 
         private void findRecipient(Douments document)
         {
-            string recipient = "";
+           
             List<Int32> userID = new List<Int32>();
             List<XDocumentRoute> routes = XDocumentRouteDAO.getInstance(dbContext).findbyDefinitionID(document.documentDefinitionID);
             foreach (XDocumentRoute route in routes)
