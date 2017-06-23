@@ -1357,7 +1357,6 @@ body.fixed-left .side-menu.left {
   color: #5fbeaa;
 }
 #sidebar-menu ul ul a {
-  color: #75798B !important;
   display: block;
   padding: 10px 20px 10px 65px;
 }
@@ -1497,8 +1496,8 @@ body.fixed-left .side-menu.left {
 #wrapper.enlarged #sidebar-menu ul ul { 
   margin-top: -5px;
   z-index: 9999;
-  background-color: #ffffff;
-  color:#5fbeaa;
+  background-color: #8ec7df;
+  color:#fff !important;
 }
 #wrapper.enlarged .left.side-menu {
   width: 70px;
