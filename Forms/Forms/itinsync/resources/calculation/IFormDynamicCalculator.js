@@ -80,7 +80,7 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
         //"(10+20)"
 
         //(parseint(10)+parseint(20))
-        debugger;
+        var avgCounter = 0;
         for (var count = 0; count < controllsObject.length; count++)
         {
             currentObject = controllsObject[count];
@@ -97,8 +97,12 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
                     inputObjFormula = inputObjFormula.replace(currentID, "0");
 
                 else if (inputType == "TEXT") {
-                    if (currentObject.getAttribute("formula", "").length == 0 && currentObject.value.length>0)
+                    if (currentObject.getAttribute("formula", "").length == 0 && currentObject.value.length > 0)
+                    {
                         inputObjFormula = inputObjFormula.replace(currentID, currentObject.value);
+                        avgCounter++;
+                    }
+                        
                     else
                         inputObjFormula = inputObjFormula.replace(currentID, "0");
                 }
@@ -110,9 +114,12 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
 
             }
         }
-
+        //in case of avg we need to set count
+        if (inputObjFormula.includes("AVG"))
+            inputObjFormula = inputObjFormula.replace("AVG", avgCounter);
         var finalResult = eval(inputObjFormula);
-        inputObj.value = finalResult;
+        if (!isNaN(finalResult ))
+            inputObj.value = finalResult;
     }
 
 
