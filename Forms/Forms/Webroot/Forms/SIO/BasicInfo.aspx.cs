@@ -26,7 +26,7 @@ namespace Forms.Webroot.Forms.SIO
     [Serializable()]
     public partial class BasicInfo : BasePage
     {
-        private static string dbxml = "";
+  
         public static string xml = "";
         public static int documentid = 0;
         public static int DocumentFlow = 1;

@@ -124,13 +124,9 @@ namespace Utils.itinsync.icom.cache.document
             Int32 count = 0;
             foreach (XDocumentTable documenttable in getDocumentTables(documentSectionID, doumentDefinitionID))
             {
-                foreach (XDocumentTableTR tr in documenttable.trs)
-                {
-                    foreach (XDocumentTableTD td in tr.tds)
-                    {
-                        count = count + td.fields.Count;
-                    }
-                }
+                count = Convert.ToInt32(documenttable.trs.Last().tds.Last().fields.Last().controlID.Split('_').Last())+1;
+
+                
             }
             return count;
 

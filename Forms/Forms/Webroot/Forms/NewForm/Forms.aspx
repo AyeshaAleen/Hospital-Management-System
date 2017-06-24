@@ -18,8 +18,8 @@
                     <asp:DropDownList ID="ddlStore" class="selectpicker" data-style="btn-white" runat="server" DataTextField="name" DataValueField="storeid" data-live-search="true"></asp:DropDownList>
                 </div>
                 <div class="form-group col-md-2">
-                    <br />
-                    <button runat="server" id="btnGo" onserverclick="getDocumentDetail" class="btn btn-primary waves-effect">
+                    
+                    <button runat="server" id="btnGo" onserverclick="getDocumentDetail" class="btn btn-sp btn-primary waves-effect">
                         GO <i class='fa fa-arrow-right'></i>
                     </button>
 

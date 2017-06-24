@@ -136,7 +136,7 @@ redips.handler1 = function (xhr, obj) {
         var elemlabel = obj.div.getElementsByTagName("label");
         var elemselect = obj.div.getElementsByTagName("select");
         var elemtextarea = obj.div.getElementsByTagName("textarea");
-        var elemheading = obj.div.getElementsByTagName("h2");
+        var elemheading = obj.div.getElementsByTagName("h4");
         var controlID = "";
         if (eleminput.length > 0)
             controlID = fieldset(eleminput, obj.div.id);
@@ -191,10 +191,13 @@ function AddDetail(id) {
     //alert(jQuery("#ddlControlID"));
     $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
 
-    $('#tblEditor').find('td input').each(function () {
+    $('#tblEditor').find('td').each(function () {
 
-        $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
 
+        $(this).find('input').each(function () {
+            $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+
+        });
       
         
     });
@@ -333,8 +336,8 @@ function AddOperationDetail() {
         formula += "/ ";
     else if (operation.toUpperCase() == "PERCENTAGE")
         formula += "% ";
-    //else if (operation.toUpperCase() == "AVERAGE")
-    //    formula += "% ";
+    else if (operation.toUpperCase() == "AVERAGE")
+        formula += "AVG";
     formula += ControlID;
 
 
@@ -554,6 +557,7 @@ redips.split = function () {
 
 // insert row (below current row)
 redips.rowInsert = function (el) {
+    debugger;
     var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
         top_row,									// cells reference in top row of the table editor
         nr,											// new table row
@@ -566,18 +570,31 @@ redips.rowInsert = function (el) {
     lc = nr.cells[nr.cells.length - 1];
     // copy last cell content from the top row to the last cell of the newly inserted row
     lc.innerHTML = top_row[top_row.length - 1].innerHTML;
+    lc.setAttribute("last", "true");
     // ignore last cell (attached onmousedown event listener will be removed)
     REDIPS.table.cell_ignore(lc);
 };
 
+function insertcell(el)
+{
+    debugger;
+    var row = $("#"+el).findParent('TR', el);
+    var x = row.insertCell(0);
+}
+
+
 redips.colInsert = function (el) {
 
-    var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
-        top_row,									// cells reference in top row of the table editor
-        nr,											// new table row
-        lc;											// last cell in newly inserted row
+    debugger;
+    var row = REDIPS.drag.findParent('TR', el);	// find source row (skip inner row)
+       /* top_row,	*/								// cells reference in top row of the table editor
+       /* nr,	*/										// new table row
+        /*lc;		*/									// last cell in newly inserted row
     // set reference to the top row cells
-    row.insertCell(row.cells -1);
+
+ 
+
+    row.insertCell(row.cells +1);
 };
 
 

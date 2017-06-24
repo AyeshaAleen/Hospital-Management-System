@@ -9,9 +9,9 @@
             <div class="card-box">
                                     
                 <h4 class="m-t-0 header-title"><b>Forms</b></h4>
-                <%--<a class="btn btn-primary waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Forms</a>--%>
+                <%--<a class="btn btn-success waves-effect waves-light pull-right" data-toggle="modal" data-target="#con-close-modal">Add New Forms</a>--%>
                 <asp:Button runat="server" ID="btnAdd"  Text="Add New Forms" data-toggle="modal" data-target="#con-close-modal" OnClientClick="Clicked(this);"
-                    CssClass="btn btn-primary waves-effect waves-light pull-right"
+                    CssClass="btn btn-success waves-effect waves-light pull-right"
                      />
 
                 
@@ -83,7 +83,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                        <asp:Button Text="Save" runat="server" ID="btnSaveDocument" OnClick="btnSaveDocument_Click" class="btn btn-info waves-effect waves-light"></asp:Button>
+                        <asp:Button Text="Save" runat="server" ID="btnSaveDocument" OnClick="btnSaveDocument_Click" class="btn btn-success waves-effect waves-light"></asp:Button>
                     </div>
                 </div>
             </div>

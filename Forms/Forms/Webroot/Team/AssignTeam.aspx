@@ -55,7 +55,7 @@
 
                 <div class="form-group col-xs-12">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnAddTeam" runat="server" OnClick="btnAddTeam_Click" Text="Add.Team" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnAddTeam" runat="server" OnClick="btnAddTeam_Click" Text="Add.Team" class="btn btn-success waves-effect waves-light" />
                             </div>
                         </div>
 

@@ -105,6 +105,7 @@ namespace Forms.itinsync.src.session
                                 else
                                 {
                                     TableCell tc = new TableCell();
+                                    tc.ColumnSpan = content.colspan;
                                     tc.Controls.Add(controlHelper.addControl(content, getHeader().lang));
                                     tabletr.Cells.Add(tc);
                                 }
@@ -778,7 +779,11 @@ namespace Forms.itinsync.src.session
             if (pageVisitedStack == null)
                 pageVisitedStack = new List<Int32>();
 
-            pageVisitedStack.Add(pageNo);
+            if(pageVisitedStack.Count>0 &&  pageVisitedStack[pageVisitedStack.Count-1]!=pageNo)
+            {
+                pageVisitedStack.Add(pageNo);
+            }
+            
 
             Sessions.getSession().Set(SessionKey.PAGEVISTSTACK, pageVisitedStack);
         }

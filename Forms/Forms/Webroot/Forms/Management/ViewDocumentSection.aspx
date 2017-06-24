@@ -10,7 +10,7 @@
             <div class="portlet">
                 <div class="portlet-heading portlet-default">
                     <h3 class="portlet-title">
-                        <b><% Response.Write(getParentRef().getParentrefKey()); %></b> <i class="glyphicon glyphicon-arrow-right"></i>Form Sections
+                        <b><% Response.Write(getParentRef().getParentrefName()); %></b> <i class="glyphicon glyphicon-arrow-right"></i>Form Sections
                     </h3>
                     <div class="portlet-widgets">
                         <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -43,7 +43,7 @@
                                     <asp:DropDownList ID="ddlsectionPagesName" runat="server" CssClass="form-control" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-info waves-effect waves-light btn-sp"></asp:Button>
+                                    <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-success waves-effect waves-light btn-sp"></asp:Button>
                                 </div>
                             </div>
 
@@ -129,7 +129,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
+                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
                         </div>
 
                         <div class="clearfix"></div>
@@ -216,7 +216,7 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddEmailRouting" Text="Add" OnClick="btnAddEmailRouting_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
+                            <asp:Button ID="btnAddEmailRouting" Text="Add" OnClick="btnAddEmailRouting_Click" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
                         </div>
                         <div class="clearfix"></div>
                         <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"
@@ -278,7 +278,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <asp:Button ID="btnAddUserEmailRouting" Text="Add" OnClick="btnAddUserEmailRouting_Click" runat="server" CssClass="btn btn-info waves-effect btn-sp" />
+                        <asp:Button ID="btnAddUserEmailRouting" Text="Add" OnClick="btnAddUserEmailRouting_Click" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
                     </div>
                     <div class="clearfix"></div>
                     <table class="table-bordered table-striped table-hover" data-toggle="table" data-search="true"

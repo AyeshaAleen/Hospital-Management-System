@@ -338,7 +338,7 @@
             templateContent +
           '</div>'+
           '<div class="modal-footer">'+
-            '<a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>'+
+            '<a href="#" class="btn btn-success" data-dismiss="modal">OK</a>'+
           '</div>'+
         '</div>';
         break;

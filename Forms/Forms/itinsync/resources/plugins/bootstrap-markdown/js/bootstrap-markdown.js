@@ -1257,7 +1257,7 @@
           hotkey: 'Ctrl+P',
           title: 'Preview',
           btnText: 'Preview',
-          btnClass: 'btn btn-primary btn-sm',
+          btnClass: 'btn btn-success btn-sm',
           icon: { glyph: 'glyphicon glyphicon-search', fa: 'fa fa-search', 'fa-3': 'icon-search' },
           callback: function(e){
             // Check the preview mode and toggle based on this flag

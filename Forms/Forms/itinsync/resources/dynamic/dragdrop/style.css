@@ -1,10 +1,3 @@
-/*
-
-Darko Bunic
-http://www.redips.net/
-Apr, 2012.
-
-*/
 
 body {
     font-family: arial;
@@ -17,9 +10,6 @@ body {
     /* needed when details container is displayed to be wrapped nicely */
     display: table;
     text-align: center;
-    width: 120px;
-    height: 28px;
-    line-height: 28px;
     color: #555;
     /* round corners */
     border-radius: 4px;
@@ -33,10 +23,7 @@ body {
     /* needed when details container is displayed to be wrapped nicely */
     display: table;
     text-align: center;
-    width: 120px;
-    height: 28px;
     background: #bceb8a;
-    line-height: 28px;
     color: #555;
     /* round corners */
     border-radius: 4px;
@@ -50,10 +37,7 @@ body {
     /* needed when details container is displayed to be wrapped nicely */
     display: table;
     text-align: center;
-    width: 120px;
-    height: 28px;
     background: #e8bdd7;
-    line-height: 28px;
     color: #555;
     /* round corners */
     border-radius: 4px;
@@ -63,7 +47,7 @@ body {
 }
 
 .redips-mark .redips-drag {
-    text-align: left !important;
+    float:left;
 }
 
     .redips-mark .redips-drag i:first-child {
@@ -106,9 +90,10 @@ div#redips-drag table {
 }
 
 table#tblComponents td {
-    height: 34px;
-    width: 80%;
-    border: 1px solid #f6f6f6;
+    background: #ddd none repeat scroll 0 0;
+    border: 2px solid #f6f6f6;
+    padding: 5px 0;
+    width: 90%;
 }
 
 
@@ -122,9 +107,8 @@ table#tblComponents td {
 table#tblEditor > tbody > tr > td {
     border: 1px solid #ddd;
     padding: 0px;
+    min-width:60px;
     text-align: center;
-    height: 35px;
-    /* 		width: 500px; */
 }
 /* style for form elements */
 #tblEditor input {
@@ -161,7 +145,7 @@ table#tblEditor > tbody > tr > td {
 }
 /* title */
 .hTitle {
-    width: 470px;
+    width: 400px;
 }
 /* "X" button */ * .hRight {
     cursor: pointer;
@@ -217,12 +201,9 @@ table#tblEditor > tbody > tr > td {
     font-size: 11px;
     white-space: pre;
 }
-table tr td {
-    width:160px;
-}
 
 table tr th {
-    background: #8ec7df !important;
+    background: #81c868 !important;
     color:#fff;
     text-align:center;
 }

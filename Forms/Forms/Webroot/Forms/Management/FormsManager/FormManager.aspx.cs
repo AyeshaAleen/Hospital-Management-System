@@ -35,6 +35,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
     {
 
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
            if (!IsPostBack)
@@ -42,7 +43,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
                 loadDropDown();
                 FormName.Value = ((XDocumentDefination)getParentRef()).name;
                 SectionName.Value = DocumentManager.getDocumentSection(Convert.ToInt32(getSubjectID())).name;
-               // string test = DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString();
+                string test = (DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID)).ToString();
                 ControlCount.Value = (Convert.ToInt32(DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString())+1).ToString();
                 sectionID.Value = getSubjectID();
             }
@@ -73,7 +74,9 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             if (!string.IsNullOrEmpty(getSubjectID()))
             {
                 string source = tableOuterHtml.Value;
-                source = XMLUtils.DecodeXML(source);
+                
+
+                source = XMLUtils.DecodedFinalXML(source);
 
                 tablecontentDTO dto = new tablecontentDTO();
                 dto.sectionnID = Convert.ToInt32(getSubjectID());

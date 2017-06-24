@@ -81,13 +81,15 @@ namespace Utils.itinsync.icom.html
                             XDocumentTableTD tableTD = new XDocumentTableTD();
                             
                             
-                            if (colnode.Descendants("h2").SingleOrDefault()!=null)
+                            if (colnode.Descendants("h4").SingleOrDefault()!=null)
                             tableTD.tdType = ApplicationCodes.FORMS_TABLE_HEADER_TYPE; 
                             else
                                 tableTD.tdType = ApplicationCodes.FORMS_TABLE_TD_TYPE;
 
                             tableTD.cssClass = colnode.GetAttributeValue("Class", "");
-                            tableTR.tds.Add(tableTD);
+                                if(colnode.GetAttributeValue("colspan", "")!="0" && colnode.GetAttributeValue("colspan", "") != "")
+                                tableTD.colSpan = colnode.GetAttributeValue("colspan", "");
+                                tableTR.tds.Add(tableTD);
 
                             #endregion
 
@@ -117,24 +119,18 @@ namespace Utils.itinsync.icom.html
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TAXTBOX;
                                         else if  (type == "label")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_LABEL;
-                                        if (type == "select")
-                                        {
+                                        else  if (type == "select")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_SELECT;
-                                        }
-                                        if (type == "textarea")
-                                        {
+                                        else if (type == "textarea")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_TEXTAREA;
-                                        }
-                                        if (type == "heading")
+                                        else if (type == "heading")
                                             tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HEADING;
-                                            if (type == "hidden")
-                                            {
+                                        else if (type == "hidden")
                                                 tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HIDDEN;
-                                            }
 
 
 
-                                            tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
+                                        tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");
@@ -144,7 +140,7 @@ namespace Utils.itinsync.icom.html
                                         tableContent.translation= fieldnode.ChildNodes[1].GetAttributeValue("translation", "");
                                         tableContent.points = fieldnode.ChildNodes[1].GetAttributeValue("points", "");
                                         tableContent.defaultValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
-                                        tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("readonly", "");
+                                        tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("disabled", "");
 
 
 
@@ -229,6 +225,7 @@ namespace Utils.itinsync.icom.html
                                     createDiv.Controls.Add( helper.addControl(content, lang));
                                     ControlsHelper.removeDetailSpan(createDiv, content.controlID);
 
+                                    tc.ColSpan = content.colspan;
                                     tc.Controls.Add(createDiv);
                                 }
                                
@@ -291,7 +288,7 @@ namespace Utils.itinsync.icom.html
             column.InnerHtml = "/c+";
             createDiv.Controls.Add(column);
 
-
+            crudTD.Attributes.Add("last", "true");
             crudTD.Controls.Add(createDiv);
 
             return crudTD;

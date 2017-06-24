@@ -32,7 +32,11 @@ namespace Forms.Webroot.Forms.Management
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
                 doLoad();
+               // setSubjectID()
+            }
+                
         }
 
         private void doLoad()
