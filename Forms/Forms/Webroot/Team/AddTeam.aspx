@@ -27,8 +27,8 @@
 
                 <div class="form-group col-xs-12">
                     <div class="pull-right text-right">
-                        <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-info waves-effect waves-light" />
-                        <asp:Button ID="btnUpdateTeam" runat="server" OnClick="btnUpdateTeam_Click" Text="Save" class="btn btn-info waves-effect waves-light" />
+                        <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-success waves-effect waves-light" />
+                        <asp:Button ID="btnUpdateTeam" runat="server" OnClick="btnUpdateTeam_Click" Text="Save" class="btn btn-success waves-effect waves-light" />
                     </div>
                 </div>
                     </div>

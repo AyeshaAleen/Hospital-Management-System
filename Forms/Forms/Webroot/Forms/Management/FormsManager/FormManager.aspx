@@ -13,7 +13,7 @@
 
         <div class="col-sm-12">
             <div class="card-box">
-                <a href="../ViewDocumentSection.aspx" class="btn btn-primary pull-right">Back</a>
+                <a href="../ViewDocumentSection.aspx" class="btn btn-success pull-right">Back</a>
 
                 <h4 class="m-t-0 header-title"><b>Forms Manager</b></h4>
                 <div class="row">
@@ -87,8 +87,8 @@
                                 <tbody>
                                     <tr>
                                         <td class="redips-mark">
-                                            <input type="button" value="Merge" class="btn btn-primary" onclick="redips.merge()" title="Merge marked cells horizontally" />
-                                            <input type="button" value="Split" class="btn btn-primary" onclick="redips.split()" title="Split marked cells horizontally" />
+                                            <input type="button" value="Merge" class="btn btn-success" onclick="redips.merge()" title="Merge marked cells horizontally" />
+                                            <input type="button" value="Split" class="btn btn-success" onclick="redips.split()" title="Split marked cells horizontally" />
                                         </td>
                                         <td class="redips-mark"></td>
 
@@ -138,7 +138,7 @@
                             <!-- save button -->
                             <%--<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>--%>
 
-                            <asp:Button ID="savedocument" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="savedocument_Click" OnClientClick="getTableContent()" />
+                            <asp:Button ID="savedocument" CssClass="btn btn-success" runat="server" Text="Save" OnClick="savedocument_Click" OnClientClick="getTableContent()" />
                             <input type="hidden" id="ControlCount" runat="server" />
                             <input type="hidden" id="FormName" runat="server" />
                             <input type="hidden" id="SectionName" runat="server" />
@@ -169,7 +169,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                 <h4 class="modal-title">Add Field Detail</h4>
-                                <%--<button value="Delete" class="btn btn-info" onclick="deleteColumn()">Delete</button>--%>
+                                <%--<button value="Delete" class="btn btn-success" onclick="deleteColumn()">Delete</button>--%>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -261,7 +261,7 @@
                                             <label class="control-label">Control IDs</label>
                                             <div class="input-group">
                                                   <select id="ddlControlID" class="form-control" ></select>
-                                                <span class="input-group-addon btn btn-info" onclick="AddOperationDetail()">Go</span>
+                                                <span class="input-group-addon btn btn-success" onclick="AddOperationDetail()">Go</span>
                                             </div>
                                         </div>
                                     </div>
@@ -283,7 +283,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" onclick="SetDetail()">Set Detail</button>
+                                <button type="button" class="btn btn-success waves-effect waves-light" onclick="SetDetail()">Set Detail</button>
                                 <input type="text" hidden="hidden" id="tableOuterHtml" runat="server" />
                                 <input type="text" hidden="hidden" id="RequiredFieldID" />
 

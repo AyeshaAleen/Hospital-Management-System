@@ -75,7 +75,7 @@
 
                 <div class="col-xs-12">
                     <div class="pull-right text-right">
-                        <asp:Button ID="btnAddStore" runat="server" Text="Save" class="btn btn-info waves-effect waves-light" OnClick="btnAddStore_Click" />
+                        <asp:Button ID="btnAddStore" runat="server" Text="Save" class="btn btn-success waves-effect waves-light" OnClick="btnAddStore_Click" />
                     </div>
                 </div>
                 <div class="clearfix"></div>

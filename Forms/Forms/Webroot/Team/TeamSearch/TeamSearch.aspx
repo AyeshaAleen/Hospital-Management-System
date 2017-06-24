@@ -17,9 +17,9 @@
 
                         <div class="form-group col-md-6 col-sm-12">
                             <div class="text-right">
-                                <asp:Button ID="btnSearchTeam" runat="server" OnClick="btnSearchTeam_Click" Text="Search" class="btn btn-info waves-effect waves-light" />
-                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-info waves-effect waves-light" />
-                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnSearchTeam" runat="server" OnClick="btnSearchTeam_Click" Text="Search" class="btn btn-success waves-effect waves-light" />
+                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-success waves-effect waves-light" />
+                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-success waves-effect waves-light" />
                             </div>
                         </div>
 

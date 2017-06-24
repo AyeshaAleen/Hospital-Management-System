@@ -30,9 +30,9 @@
 
                         <div class="form-group col-xs-6">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnSearchUser" runat="server" OnClick="btnSearchUser_Click" Text="Search" class="btn btn-info waves-effect waves-light" />
-                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-info waves-effect waves-light" />
-                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnSearchUser" runat="server" OnClick="btnSearchUser_Click" Text="Search" class="btn btn-success waves-effect waves-light" />
+                                <asp:Button ID="btnClearForm" runat="server" Text="Clear" OnClick="btnClearForm_Click" class="btn btn-success waves-effect waves-light" />
+                                <asp:Button ID="btnAddNew" runat="server" Text="Add.New" OnClick="btnAddNew_Click" class="btn btn-success waves-effect waves-light" />
                             </div>
                         </div>
 

@@ -55,7 +55,7 @@
 
                     <div class="form-group col-xs-12">
                             <div class="pull-right text-right">
-                                <asp:Button ID="btnAddPermission" runat="server" OnClick="btnAddPermission_Click" Text="Add.Permission" class="btn btn-info waves-effect waves-light" />
+                                <asp:Button ID="btnAddPermission" runat="server" OnClick="btnAddPermission_Click" Text="Add.Permission" class="btn btn-success waves-effect waves-light" />
                             </div>
                         </div>
 

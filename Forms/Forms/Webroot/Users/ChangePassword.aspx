@@ -41,7 +41,7 @@
 
                 <div class="col-md-12">
                     <div class="pull-right text-right">
-                        <asp:Button ID="btnChangePassword" runat="server" Text="Change.Password" class="btn btn-info waves-effect waves-light" OnClick="btnChangePassword_Click" />
+                        <asp:Button ID="btnChangePassword" runat="server" Text="Change.Password" class="btn btn-success waves-effect waves-light" OnClick="btnChangePassword_Click" />
                     </div>
                 </div>
 </div>
