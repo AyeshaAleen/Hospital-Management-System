@@ -58,6 +58,15 @@ namespace Utils.itinsync.icom.xml
 
         }
 
+
+        public static string DecodedFinalXML(string xml)
+        {
+            string finalxml = "";
+            finalxml = xml.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("\"", "&quot;").Replace("'", "&apos;");
+            finalxml=finalxml.Replace("&amp;", "&").Replace("&lt;", "<").Replace("&gt;", ">").Replace("&quot;", "\"").Replace("&apos;", "'");
+            return finalxml;
+        }
+
         public static string getDynamicXML(string CurrentTagName, string dbxml, Control parent)
         {
           string  xml =  appendTag(CurrentTagName, xmlConversion(parent, ""));

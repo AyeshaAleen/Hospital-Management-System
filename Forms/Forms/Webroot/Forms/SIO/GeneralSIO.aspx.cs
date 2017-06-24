@@ -50,7 +50,7 @@ namespace Forms.Webroot.Forms.SIO
 
         private void createControl()
         {
-            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals("GeneralSIO")).SingleOrDefault();
+            XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals(CurrentFileName)).SingleOrDefault();
             dbxml = ((Douments)getParentRef()).data;
             documentid = ((Douments)getParentRef()).documentID;
             DocumentFlow = Convert.ToInt32(Section.flow);

@@ -12,6 +12,7 @@ using Utils.itinsync.icom.cache.lookup;
 using Utils.itinsync.icom.cache.translation;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.cache.document;
+using Utils.itinsync.icom.xml;
 
 namespace Utils.itinsync.icom.controls
 {
@@ -43,7 +44,8 @@ namespace Utils.itinsync.icom.controls
             //}
             if (!string.IsNullOrEmpty(content.defaultValue))
                 txtBox.Text = content.defaultValue;
-
+            if (!string.IsNullOrEmpty(content.defaultValue))
+                txtBox.Attributes.Add("defaultValue", content.defaultValue);
             return txtBox;
         }
 
@@ -67,14 +69,35 @@ namespace Utils.itinsync.icom.controls
                 lbl.Attributes.Add("id", content.controlID);
                 lbl.Attributes.Add("name", content.controlName);
                 lbl.Attributes.Add("type", "label");
-                lbl.Attributes.Add("defaultValue", TranslationManager.trans(content.translation));
-                lbl.Text = TranslationManager.trans(content.translation);
-                
+
+              
+                string trans = XMLUtils.DecodeXML(content.translation);
+                lbl.Attributes.Add("defaultValue", TranslationManager.trans(trans));
+                //
+                lbl.Text = TranslationManager.trans(trans);
+
+
 
                 return lbl;
             }
         }
 
+        //public HtmlGenericControl createHTMLLabel(XDocumentTableContent content)
+        //{
+        //    if (string.IsNullOrEmpty(content.translation))
+        //        return null;
+        //    else
+        //    {
+        //        HtmlGenericControl lbl = new HtmlGenericControl("label");
+        //        lbl.Attributes.Add("translation", content.translation);
+        //        lbl.Attributes.Add("id", content.controlID);
+        //        lbl.Attributes.Add("name", content.controlName);
+        //        lbl.Attributes.Add("type", "label");
+        //        lbl.Attributes.Add("defaultValue", TranslationManager.trans(content.translation));
+        //        lbl.Attributes.Add("Text", TranslationManager.trans(content.translation));
+        //        return lbl;
+        //    }
+        //}
 
 
         public TableHeaderCell createTableHeader(XDocumentTableContent content)
@@ -121,6 +144,7 @@ namespace Utils.itinsync.icom.controls
             //}
             if(!string.IsNullOrEmpty(content.defaultValue))
             radio.Value = content.defaultValue;
+            radio.Attributes.Add("defaultValue", content.defaultValue);
 
             return radio;
         }

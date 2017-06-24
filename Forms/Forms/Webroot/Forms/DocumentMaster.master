@@ -76,7 +76,7 @@
                                         <asp:Repeater ID="tblSectionTab" runat="server">
                                             <ItemTemplate>
                                                    
-                                        <a href=<%# Eval("Webname") %> id="PageTab" class="tag" runat="server"><%# Eval("name") %></a>
+                                        <a id="PageTab" class="tag" runat="server"><%# Eval("name") %></a>
 
                                                     
                                             </ItemTemplate>

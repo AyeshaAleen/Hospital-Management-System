@@ -191,10 +191,13 @@ function AddDetail(id) {
     //alert(jQuery("#ddlControlID"));
     $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
 
-    $('#tblEditor').find('td input').each(function () {
+    $('#tblEditor').find('td').each(function () {
 
-        $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
 
+        $(this).find('input').each(function () {
+            $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+
+        });
       
         
     });
@@ -333,8 +336,8 @@ function AddOperationDetail() {
         formula += "/ ";
     else if (operation.toUpperCase() == "PERCENTAGE")
         formula += "% ";
-    //else if (operation.toUpperCase() == "AVERAGE")
-    //    formula += "% ";
+    else if (operation.toUpperCase() == "AVERAGE")
+        formula += "AVG";
     formula += ControlID;
 
 

@@ -74,7 +74,9 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             if (!string.IsNullOrEmpty(getSubjectID()))
             {
                 string source = tableOuterHtml.Value;
-                source = XMLUtils.DecodeXML(source);
+                
+
+                source = XMLUtils.DecodedFinalXML(source);
 
                 tablecontentDTO dto = new tablecontentDTO();
                 dto.sectionnID = Convert.ToInt32(getSubjectID());
