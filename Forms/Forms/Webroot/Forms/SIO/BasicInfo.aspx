@@ -159,9 +159,7 @@
                                 <div class="left">
                                     <button type="button" class="btn btn-inverse btn-custom waves-effect waves-light" data-action="clear1">Clear</button>
                                 </div>
-                                <div class="right">
-                                    <button type="button" class="btn btn-inverse btn-custom waves-effect waves-light" data-action="save-png1">Save</button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -181,9 +179,7 @@
                                 <div class="left">
                                     <button type="button" class="btn btn-inverse btn-custom waves-effect waves-light" data-action="clear2">Clear</button>
                                 </div>
-                                <div class="right">
-                                    <button type="button" class="btn btn-inverse btn-custom waves-effect waves-light" data-action="save-png2">Save</button>
-                                </div>
+                                
                             </div>
                         </div>
 
@@ -198,7 +194,7 @@
                     <asp:HiddenField ID="signature2" runat="server" />
                     <%--<input type="text"  id="hfValue" runat="server" class="form-control">--%>
                     <asp:Button ID="btnPrevious" runat="server" Text="Previous"  OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return validate();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClientClick="return getSign();" OnClick="btnSubmit_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
                     <asp:Button ID="Button1" runat="server" Text="btnnnnnn" CssClass="btn sa-close btn-inverse waves-effect waves-light pull-right" />
                 </div>
 
@@ -208,5 +204,12 @@
     </div>
 </asp:Content>
 <asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
-    
+    <script>
+        function getSign() {
+            
+            document.getElementById("CommonMasterBody_FormMasterBody_signature1").value = signaturePad1.toDataURL();
+
+            document.getElementById("CommonMasterBody_FormMasterBody_signature2").value = signaturePad2.toDataURL();
+        }
+    </script>
 </asp:Content>

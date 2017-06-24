@@ -35,6 +35,7 @@ namespace Forms.Webroot.Forms.SIO
         {
             if (!IsPostBack)
             {
+                documentid = Convert.ToInt32(getSubjectID());
                 CurrentFileName = Path.GetFileName(Request.Path);
                 CreateControl();
                 loaddata();

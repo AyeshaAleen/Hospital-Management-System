@@ -11,6 +11,9 @@
 
 
                 <div class="col-md-6 col-md-offset-2 col-sm-12">
+                    <div id="currentUser" runat="server" visible="true">
+
+                    
                 <div class="form-group">
                     <label class="col-sm-5 control-label"><% Response.Write(trasnlation("Current.Password")); %> *</label>
 
@@ -44,6 +47,22 @@
                         <asp:Button ID="btnChangePassword" runat="server" Text="Change.Password" class="btn btn-info waves-effect waves-light" OnClick="btnChangePassword_Click" />
                     </div>
                 </div>
+
+                    </div>
+
+
+                    <div id="adminUser" runat="server" visible="false">
+
+                        <div class="form-group">
+                        <h3><asp:Label ID="password" style="text-decoration:double;" runat="server"></asp:Label></h3>
+                </div>
+
+                        <div class="col-md-12">
+                        <asp:Button ID="btnGeneratePassword" runat="server" Text="Generate Password" class="btn btn-info waves-effect waves-light" OnClick="btnGeneratePassword_Click" />
+                </div>
+
+                    </div>
+
 </div>
         <div class="clearfix"></div>
 
@@ -57,13 +76,14 @@
     <script type="text/javascript">
 
         function checkPassword() {
-            var txtPassword = document.getElementById('CommonMasterBody_DesktopMasterBody_txtPassword').value;
-            var txtConfirmPassword = document.getElementById('CommonMasterBody_DesktopMasterBody_txtConfirmPassword').value;
+            debugger;
+            var txtPassword = document.getElementById('CommonMasterBody_FormMasterBody_txtPassword').value;
+            var txtConfirmPassword = document.getElementById('CommonMasterBody_FormMasterBody_txtConfirmPassword').value;
 
             if ($.trim(txtConfirmPassword) != "") {
                 if (txtPassword != txtConfirmPassword) {
 
-                    document.getElementById('CommonMasterBody_DesktopMasterBody_txtConfirmPassword').value = "";
+                    document.getElementById('CommonMasterBody_FormMasterBody_txtConfirmPassword').value = "";
                     document.getElementById("PasswordErrormsg").style.visibility = '';
 
                     return false;
@@ -75,6 +95,6 @@
             }
 
         }
-
+        
     </script>
 </asp:Content>

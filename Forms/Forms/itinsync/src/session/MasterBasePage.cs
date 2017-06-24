@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using Domains.itinsync.icom.interfaces.document;
+using Utils.itinsync.icom.constant.application;
+using Domains.itinsync.icom.header;
 
 namespace Forms.itinsync.src.session
 {
@@ -105,11 +107,19 @@ namespace Forms.itinsync.src.session
         {
             return bp.isSessionExist();
         }
-
-       
-
         
-       
-     
+
+        public Header getHeader()
+        {
+            Header header = new Header();
+            header.userID = getUserID();
+            header.currentPageNo = bp.getCurrentPage();
+            header.previousPageNo = getLastVisitedURLCode();
+            header.userinformation = bp.getUserInformation();
+            header.parentRef = getParentRef();
+            header.lang = bp.getUserInformation() == null || bp.getUserInformation().userAccount == null ? ApplicationCodes.DEFAULT_USER_LANG : bp.getUserInformation().userAccount.lang;
+
+            return header;
+        }
     }
 }

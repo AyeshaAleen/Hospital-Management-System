@@ -5,53 +5,77 @@ function resizeCanvas(canvas) {
     canvas.getContext("2d").scale(ratio, ratio);
 }
 
-//PAD 1 STARTS
 var wrapper1 = document.getElementById("signature-pad-1"),
-	clearButton1 = wrapper1.querySelector("[data-action=clear1]"),
-    savePNGButton1 = wrapper1.querySelector("[data-action=save-png1]"),
+    clearButton1 = wrapper1.querySelector("[data-action=clear1]"),
     canvas1 = wrapper1.querySelector("canvas"),
     signaturePad1;
 
-resizeCanvas(canvas1);
-signaturePad1 = new SignaturePad(canvas1);
+    resizeCanvas(canvas1);
+    signaturePad1 = new SignaturePad(canvas1);
 
 clearButton1.addEventListener("click", function (event) {
     signaturePad1.clear();
 });
 
-savePNGButton1.addEventListener("click", function (event) {
-    if (signaturePad1.isEmpty()) {
-        alert("Please provide signature first.");
-    } else {
-        document.getElementById("CommonMasterBody_FormMasterBody_signature1").value = signaturePad1.toDataURL();
-    }
-});
+var wrapper2 = document.getElementById("signature-pad-2"),
+     clearButton2 = wrapper2.querySelector("[data-action=clear2]"),
+        canvas2 = wrapper2.querySelector("canvas"),
+        signaturePad2;
+
+    resizeCanvas(canvas2);
+    signaturePad2 = new SignaturePad(canvas2);
+
+    clearButton2.addEventListener("click", function (event) {
+        signaturePad2.clear();
+    });
+        
+////PAD 1 STARTS
+//var wrapper1 = document.getElementById("signature-pad-1"),
+//	clearButton1 = wrapper1.querySelector("[data-action=clear1]"),
+//    //savePNGButton1 = wrapper1.querySelector("[data-action=save-png1]"),
+//    canvas1 = wrapper1.querySelector("canvas"),
+//    signaturePad1;
+
+//resizeCanvas(canvas1);
+//signaturePad1 = new SignaturePad(canvas1);
+
+//clearButton1.addEventListener("click", function (event) {
+//    signaturePad1.clear();
+//});
+
+//savePNGButton1.addEventListener("click", function (event) {
+//    if (signaturePad1.isEmpty()) {
+//        alert("Please provide signature first.");
+//    } else {
+//        document.getElementById("CommonMasterBody_FormMasterBody_signature1").value = signaturePad1.toDataURL();
+//    }
+//});
 
 
 
 //PAD 1 ENDS
 
 //PAD 2 STARTS
-var wrapper2 = document.getElementById("signature-pad-2"),
-	clearButton2 = wrapper2.querySelector("[data-action=clear2]"),
-    savePNGButton2 = wrapper2.querySelector("[data-action=save-png2]"),
-    canvas2 = wrapper2.querySelector("canvas"),
-    signaturePad2;
+//var wrapper2 = document.getElementById("signature-pad-2"),
+//	clearButton2 = wrapper2.querySelector("[data-action=clear2]"),
+//    savePNGButton2 = wrapper2.querySelector("[data-action=save-png2]"),
+//    canvas2 = wrapper2.querySelector("canvas"),
+//    signaturePad2;
 
-resizeCanvas(canvas2);
-signaturePad2 = new SignaturePad(canvas2);
+//resizeCanvas(canvas2);
+//signaturePad2 = new SignaturePad(canvas2);
 
-clearButton2.addEventListener("click", function (event) {
-    signaturePad2.clear();
-});
+//clearButton2.addEventListener("click", function (event) {
+//    signaturePad2.clear();
+//});
 
-savePNGButton2.addEventListener("click", function (event) {
-    if (signaturePad2.isEmpty()) {
-        alert("Please provide signature first.");
-    } else {
-        document.getElementById("CommonMasterBody_FormMasterBody_signature2").value = signaturePad2.toDataURL();
-    }
-});
+//savePNGButton2.addEventListener("click", function (event) {
+//    if (signaturePad2.isEmpty()) {
+//        alert("Please provide signature first.");
+//    } else {
+//        document.getElementById("CommonMasterBody_FormMasterBody_signature2").value = signaturePad2.toDataURL();
+//    }
+//});
 
 
 //PAD 2 ENDS

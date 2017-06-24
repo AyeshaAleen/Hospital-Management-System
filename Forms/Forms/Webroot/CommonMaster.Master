@@ -17,7 +17,7 @@
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-select/css/bootstrap-select.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" ) %>" rel="stylesheet" />
 
-    <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-table/css/bootstrap-table.min.css" ) %>" rel="stylesheet" />
+    <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstChangerap-table/css/bootstrap-table.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/css/ladda-themeless.min.css" ) %>" rel="stylesheet" />
 
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/timepicker/bootstrap-timepicker.min.css" ) %>" rel="stylesheet" />
@@ -50,7 +50,7 @@
 
 </head>
 <body class="widescreen fixed-left-void">
-
+    <form id="forms" class="form-horizontal" runat="server" role="form">
         <!-- Begin page -->
         <div id="wrapper" class="enlarged forced">
 
@@ -89,26 +89,36 @@
                             <span class="clearfix"></span>
                         </div>
                          
-                        <form role="search" class="navbar-left app-search pull-left hidden-xs">
+                        <div role="search" class="navbar-left app-search pull-left hidden-xs">
                             <input type="text" placeholder="Search..." class="form-control">
                             <a href="#"><i class="fa fa-search"></i></a>
 
-                        </form>
+                        </div>
 
 
                         <ul class="nav navbar-nav navbar-right pull-right">
                             <li class="dropdown top-menu-item-xs">
                                 <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                    Activity<span class="badge badge-xs badge-danger">3</span>
+                                    Activity<span class="badge badge-xs badge-danger">
+                                        <asp:Label runat="server" ID="lblNew" /> 
+                                            </span>
                                 </a>
+                                <%--<form role="button" class="navbar-left app-search pull-left hidden-xs" runat="server">
+                                    <asp:LinkButton runat="server" ID="btndocumentlink"></asp:LinkButton>
+                                        </form>--%>
                                 <ul class="dropdown-menu dropdown-menu-lg">
                                     <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Activity</li>
 
+                                    <li class="list-group slimscroll-noti notification-list">
                                     <asp:Repeater ID="tblDocument" runat="server">
                                         <ItemTemplate>
-                                    <li class="list-group slimscroll-noti notification-list">
                                         <!-- list item-->
-                                        <a href="javascript:void(0);" class="list-group-item">
+                                       <asp:LinkButton ID="btnViewDocument"
+                                            runat="server" CssClass="list-group-item"
+                                           CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentid") ) %>'
+                                           CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View"
+                                           >
+                                        <%--<a href="aa" class="list-group-item">--%>
                                             <div class="media">
                                                 <div class="pull-left p-r-10">
                                                     <em class="fa fa-diamond noti-primary"></em>
@@ -117,22 +127,25 @@
                                                     <h5 class="media-heading">
                                                         <asp:Label runat="server" ID="tblFormName" Text='<%# Eval("documentName") %>' /> 
                                                         <i class="fa fa-arrow-right"></i> 
-                                                        lbl section
+                                                        <asp:Label runat="server" ID="tblSectionName" Text='<%# Eval("sectionname") %>' />
 
                                                     </h5>
                                                     <p class="m-0">
-                                                        <small>lbl date</small>
+                                                        <small>
+                                                            <asp:Label runat="server" ID="tblStartDate" Text='<%# DateFunctions.formatDateInternalToExternal(Eval("transDate").ToString()) %>' />
+
+                                                        </small>
                                                     </p>
                                                 </div>
                                             </div>
-                                        </a>
-                                        
-                                    </li>
+                                        <%--</a>--%>
+                                       </asp:LinkButton>
                                     </ItemTemplate>
                                     </asp:Repeater>
 
+                                    </li>
                                     <li>
-                                        <a href="Forms/Dashboard/PersonalInbox.aspx" class="list-group-item text-right">
+                                        <a href="<%= ResolveClientUrl("Forms/Dashboard/PersonalInbox.aspx")%>" class="list-group-item text-right">
                                             <small class="font-600">See all Activities</small>
                                         </a>
                                     </li>
@@ -152,7 +165,11 @@
                                 
                                 <ul class="dropdown-menu">
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-10 text-custom"></i>Profile</a></li>
-                                    <li><a href="<%= ResolveClientUrl("Users/ChangePassword.aspx")%>"><i class="ti-settings m-r-10 text-custom"></i>Change Password</a></li>
+                                    <li>
+                                        <%--<a href="<%= ResolveClientUrl("Users/ChangePassword.aspx")%>"><i class="ti-settings m-r-10 text-custom"></i>Change Password</a>--%>
+                                        <asp:LinkButton runat="server" ID="btnchangepassword" OnClick="btnchangepassword_Click"><i class="ti-settings m-r-10 text-custom"></i> Change Password</asp:LinkButton>
+
+                                    </li>
                                     <li><a href="javascript:void(0)"><i class="ti-lock m-r-10 text-custom"></i>Lock screen</a></li>
                                     <li class="divider"></li>
                                     <li><a href="<%= ResolveClientUrl("~/Webroot/Login/Login.aspx") %>"><i class="ti-power-off m-r-10 text-danger"></i>Logout</a></li>
@@ -164,21 +181,21 @@
                 </div>
             </div>
         </div>
-        <form id="forms" class="form-horizontal" runat="server" role="form">
+        
 
             <div id="formValidate">
 
                 <asp:ContentPlaceHolder ID="CommonMasterBody" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </form>
+       
 
         <footer class="footer">
             &copy; <%: DateTime.Now.Year %>. <a href="#">Itinsync Forms</a>
         </footer>
 
     </div>
-   
+    </form>
 
     <script>
         var resizefunc = [];

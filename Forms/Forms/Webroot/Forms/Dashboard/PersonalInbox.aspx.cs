@@ -47,14 +47,16 @@ namespace Forms.Webroot.Forms.Dashboard
         {
             DocumentDTO dto = new DocumentDTO();
             dto.header = getHeader();
-            
-            dto.document.documentID= Convert.ToInt32(e.CommandArgument);
+
+            dto.document.documentID = Convert.ToInt32(e.CommandArgument);
 
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
-
+                dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
+                //setSubjectID(Convert.ToInt32(e.CommandArgument));
+                setParentRef(dto.document);
                 Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
             }
         }

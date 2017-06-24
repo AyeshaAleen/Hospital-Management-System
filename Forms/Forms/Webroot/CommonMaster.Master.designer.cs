@@ -22,6 +22,15 @@ namespace Forms.Webroot {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder CommonMasterhead;
         
         /// <summary>
+        /// forms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm forms;
+        
+        /// <summary>
         /// alertSuccess control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace Forms.Webroot {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl alertFailure;
         
         /// <summary>
+        /// lblNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNew;
+        
+        /// <summary>
         /// tblDocument control.
         /// </summary>
         /// <remarks>
@@ -49,13 +67,13 @@ namespace Forms.Webroot {
         protected global::System.Web.UI.WebControls.Repeater tblDocument;
         
         /// <summary>
-        /// forms control.
+        /// btnchangepassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm forms;
+        protected global::System.Web.UI.WebControls.LinkButton btnchangepassword;
         
         /// <summary>
         /// CommonMasterBody control.
