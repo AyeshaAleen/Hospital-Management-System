@@ -69,14 +69,9 @@ namespace Utils.itinsync.icom.xml
 
         public static string getDynamicXML(string CurrentTagName, string dbxml, Control parent)
         {
-          string  xml =  appendTag(CurrentTagName, xmlConversion(parent, ""));
-            
-
-           
+            string  xml =  appendTag(CurrentTagName, xmlConversion(parent, ""));
             XMLParser xmlparser = new XMLParser(dbxml);
-            //db_xml = xmlparser.getTagXML(CurrentFileName);
             XMLParser xmlparser_In = new XMLParser(xml);
-            //string invalue = xmlparser_In.getTagXML(CurrentFileName);
             xmlparser.setTagXML(CurrentTagName, xmlparser_In.getinnerxml(CurrentTagName));
             return xmlparser.getXML();
 

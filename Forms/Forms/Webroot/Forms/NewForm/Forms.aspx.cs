@@ -21,16 +21,16 @@ using Services.icom.document.store;
 using Domains.itinsync.icom.idocument.section;
 using Utils.itinsync.icom.xml;
 using Utils.itinsync.icom;
+using Domains.itinsync.icom.idocument;
 
 namespace Forms.Webroot.Forms.NewForm
 {
     //Work by Qundeel Ch
-    public partial class Forms : BasePage
+    public partial class Forms : DocumentBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-
             {
               
                 getDocument_Store();
@@ -70,7 +70,8 @@ namespace Forms.Webroot.Forms.NewForm
             }
             dto.document.documentName = dto.document.xdocumentDefinition.name;
           
-            dto.document.data = XMLUtils.XML_START_TAG+dto.document.documentName +XMLUtils.XML_END_TAG + dto.document.data + XMLUtils.XML_START_TAG+"/"+dto.document.documentName+XMLUtils.XML_END_TAG;
+            dto.document.data = XMLUtils.appendTag(dto.document.documentName, dto.document.data);
+            
 
             dto.document.Userid = getHeader().userID;
             dto.document.storeid = Convert.ToInt32(ddlStore.SelectedValue);
@@ -85,7 +86,9 @@ namespace Forms.Webroot.Forms.NewForm
             {
                 dto = (DocumentDTO)response;
                 setParentRef(dto.document);
-                PageName getPageDetail = PageManager.readbyPageID(dto.document.xdocumentDefinition.documentSections.First().pageID);
+                setSection(((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.flow.Equals(1)).SingleOrDefault());
+
+                PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
                 Response.Redirect(getPageDetail.webName);
             }
             

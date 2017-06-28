@@ -164,7 +164,7 @@ namespace Forms.Webroot.Forms.Management
 
             dtoIn.documentSection.name = field.Value;
             dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); 
-            dtoIn.documentSection.flow = (tblDocument.Controls.Count + 1).ToString();
+            dtoIn.documentSection.flow = tblDocument.Controls.Count + 1;
             dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
 
             IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);

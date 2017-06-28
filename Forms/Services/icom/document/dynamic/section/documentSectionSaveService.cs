@@ -32,7 +32,7 @@ namespace Services.itinsync.icom.document.dynamic.section
                 }
                 else
                 {
-                    dto.documentSection.flow = (XDocumentSectionDAO.getInstance(dbContext).LastFlowID(dto.documentSection.documentdefinitionid)+1).ToString();
+                    dto.documentSection.flow = (XDocumentSectionDAO.getInstance(dbContext).LastFlowID(dto.documentSection.documentdefinitionid)+1);
                     XDocumentSectionDAO.getInstance(dbContext).create(dto.documentSection);
                 }
 

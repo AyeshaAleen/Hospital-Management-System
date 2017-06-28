@@ -62,7 +62,7 @@ namespace DAO.itinsync.icom.idocument.section
             //    return GlobalStaticCache.documentDefinition[documentDefinitionID.ToString()].tolist();
             //}
 
-            string sql = "select * From " + TABLENAME + " where documentdefinitionid=" + documentDefinitionID;
+            string sql = "select * From " + TABLENAME + " where documentdefinitionid=" + documentDefinitionID +" order by flow";
             return wrap(processResults(sql));
         }
         protected override string updateQuery(object o, string where)

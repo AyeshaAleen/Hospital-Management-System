@@ -233,6 +233,7 @@
     <Content Include="itinsync\resources\css\signature-pad.css" />
     <Content Include="itinsync\resources\css\typicons.css" />
     <Content Include="itinsync\resources\css\variables.css" />
+    <Content Include="itinsync\resources\dynamic\conditions\IFormDynamicCondition.js" />
     <Content Include="itinsync\resources\dynamic\dragdrop\header.js" />
     <Content Include="itinsync\resources\dynamic\dragdrop\redips-drag-min.js" />
     <Content Include="itinsync\resources\dynamic\dragdrop\redips-drag-source.js" />
@@ -2933,6 +2934,7 @@
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
     <Content Include="Webroot\Forms\NewForm\Forms.aspx" />
     <Content Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx" />
+    <Content Include="Webroot\Forms\section\Section.aspx" />
     <Content Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx" />
     <Content Include="Webroot\Forms\SIO\BasicInfo.aspx" />
     <Content Include="Webroot\Forms\SIO\Cleanliness.aspx" />
@@ -3510,6 +3512,13 @@
     <Compile Include="Webroot\Forms\Personal Inbox\PersonalInbox.aspx.designer.cs">
       <DependentUpon>PersonalInbox.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Webroot\Forms\section\Section.aspx.cs">
+      <DependentUpon>Section.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Forms\section\Section.aspx.designer.cs">
+      <DependentUpon>Section.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Webroot\Forms\SIOTest\GeneralSIOTest.aspx.cs">
       <DependentUpon>GeneralSIOTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3655,7 +3664,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="itinsync\resources\plugins\jstree\themes\default\" />
     <Folder Include="itinsync\setting\" />
-    <Folder Include="Webroot\Forms\Generic Functions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
