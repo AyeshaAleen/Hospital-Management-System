@@ -1,13 +1,15 @@
 ﻿var formValidationMasks = new Array();
-var FORMS_CALCULATION_PLUS = "PLUS";
-var FORMS_CALCULATION_MINUS = "MINUS";
-var FORMS_CALCULATION_MULTIPLY = "MULTIPLY";
-var FORMS_CALCULATION_DIVIDE = "DIVIDE";
-var FORMS_CONTROL_PERCENTAGE = "PERCENTAGE ";
-var FORMS_CONTROL_AVERAGE = "AVERAGE";
+var FORMS_CONTROL_EQUAL = "=";
+var FORMS_CONTROL_GREATER = ">";
+var FORMS_CONTROL_LESS = "<";
+var FORMS_CONTROL_GREATEREQUAL = ">=";
+var FORMS_CONTROL_LESSEQUAL = "<=";
+var FORMS_CONTROL_NOTEQUAL = "!=";
+var OPERATION_TOKEN = [FORMS_CONTROL_EQUAL, FORMS_CONTROL_GREATER, FORMS_CONTROL_LESS, FORMS_CONTROL_GREATEREQUAL, FORMS_CONTROL_LESSEQUAL, FORMS_CONTROL_NOTEQUAL];
 var PAGE_CONTEXT = "CommonMasterBody_DocumnetMasterBody_";
 var controllsObject = new Array();
-function calculation() {
+
+function conditions() {
     id = "forms";
     isForm = true;
 
@@ -35,13 +37,13 @@ function calculation() {
     var inputFields = theDiv.getElementsByTagName('INPUT');
     var selectBoxes = theDiv.getElementsByTagName('SELECT');
 
-    this.initInputFields(inputFields, idDiv, false);
+    this.initInputConditionFields(inputFields, idDiv, false);
 
 
 
 }
 
-function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
+function initInputConditionFields(inputFields, idDiv, bIgnoreSkipValidation) {
     debugger;
 
     
@@ -65,62 +67,65 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
 
         if (!inputObjName)
             continue;
+        
+        inputObjCondition = inputObj.getAttribute('condition');
+        if (!inputObjCondition)
+            continue;
         //Dynalic_radio1 = object 
-        controllsObject.push(inputObj)
-       
-       // controllsObject[inputObjName] = inputObj;
+        controllsObject.push(inputObj);
+        
+    }
 
-        if (checkOrRadio && !inputObj.checked) {
-            continue;
-        }
-        inputObjFormula = inputObj.getAttribute('formula');
-        if (!inputObjFormula)
-            continue;
-        //((10 + dynamic_radio2+ dynamic_radio3 +dynamic_radio4)/4100)
-        //"(10+20)"
+    for (var count = 0; count < controllsObject.length; count++) {
+        currentConditionObj = controllsObject[count];
+        var conditionInputType = this.getInputType(inputObj);
+        var conditionCheckOrRadio = ((inputType == 'RADIO') || (inputType == 'CHECKBOX'));
+        var condition = currentConditionObj.getAttribute("condition");
+        
 
-        //(parseint(10)+parseint(20))
-        var avgCounter = 0;
-        for (var count = 0; count < controllsObject.length; count++)
+        for (var j = 0; j < inputFields.length; j++)
         {
-            currentObject = controllsObject[count];
-
+            var currentObject = inputFields[j];
             var currentID = currentObject.getAttribute("id");
             currentID = currentID.replace(PAGE_CONTEXT, "");
-            if (inputObjFormula.includes(currentID))
+            
+            if (condition.includes(currentID))
             {
-
                 var inputType = this.getInputType(currentObject);
                 var checkOrRadio = ((inputType == 'RADIO') || (inputType == 'CHECKBOX'));
 
                 if (checkOrRadio && !currentObject.checked)
-                    inputObjFormula = inputObjFormula.replace(currentID, "0");
+                    condition = condition.replace(currentID, "0");
 
                 else if (inputType == "TEXT") {
-                    if (currentObject.getAttribute("formula", "").length == 0 && currentObject.value.length > 0)
-                    {
-                        inputObjFormula = inputObjFormula.replace(currentID, currentObject.value);
-                        avgCounter++;
+                    if (currentObject.value.length > 0) {
+                        condition = condition.replace(currentID, currentObject.value);
+                       
                     }
-                        
+
                     else
-                        inputObjFormula = inputObjFormula.replace(currentID, "0");
+                        condition = condition.replace(currentID, "0");
                 }
-                    
-
                 else
-                    inputObjFormula = inputObjFormula.replace(currentID, currentObject.getAttribute("points"));
+                    condition = condition.replace(currentID, currentObject.getAttribute("points"));
+            }
 
+        }
 
+        var finalResult = eval(condition);
+
+        if (finalResult)
+        {
+            if (conditionCheckOrRadio) {
+                currentConditionObj.checked = true;
+            }
+            else {
+                currentConditionObj.value = currentConditionObj.getAttribute("points");
             }
         }
-        //in case of avg we need to set count
-        if (inputObjFormula.includes("AVG"))
-            inputObjFormula = inputObjFormula.replace("AVG", avgCounter);
-        var finalResult = eval(inputObjFormula);
-        if (!isNaN(finalResult ))
-            inputObj.value = finalResult;
-    }
+        
+     }
+   
 
 
 }
