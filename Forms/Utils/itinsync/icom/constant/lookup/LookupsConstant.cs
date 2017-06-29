@@ -46,6 +46,7 @@ namespace Utils.itinsync.icom.constant.lookup
 
         public static readonly string LKInvoiceType = "LKInvoiceType";
         public static readonly string LKInvoiceStatus = "LKInvoiceStatus";
+        public static readonly string LKCondition = "LKCondition";
 
         public static readonly string LKUnit = "LKUnit";
 

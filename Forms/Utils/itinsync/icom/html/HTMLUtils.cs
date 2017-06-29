@@ -129,8 +129,8 @@ namespace Utils.itinsync.icom.html
                                                 tableContent.controlType = ApplicationCodes.FORMS_CONTROL_HIDDEN;
 
 
-
-                                        tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
+                                            tableContent.conditions = fieldnode.ChildNodes[1].GetAttributeValue("condition", "");
+                                            tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
                                         tableContent.isRequired = fieldnode.ChildNodes[1].GetAttributeValue("irequired", "");

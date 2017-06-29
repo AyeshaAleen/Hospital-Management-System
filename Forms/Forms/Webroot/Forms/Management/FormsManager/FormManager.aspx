@@ -266,6 +266,13 @@
                                         </div>
                                     </div>
 
+
+                                    <div class="col-md-12">
+                                        <textarea rows="2" id="txtformula" class="form-control"></textarea>
+                                    </div>
+
+
+                                    
                                     <%--     <div class="col-md-12" style="max-height:250px; overflow-y:scroll">
                                         <table class="table table-hover table-responsive table-bordered" id="tblOperationDetail">
                                             <tr>
@@ -276,9 +283,37 @@
                                         </table>
                                     </div>--%>
 
-                                    <div class="col-md-12">
-                                        <textarea rows="2" id="txtformula" class="form-control"></textarea>
+
+                                     <div class="col-md-12" style="border-top: 1px solid #ccc">
+                                        <br />
+                                        <h3>Condition</h3>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Conditional Operation</label>
+                                             <asp:DropDownList ID="ddlConditionOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                                </asp:DropDownList>
+                                         
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Control IDs</label>
+                                            <div class="input-group">
+                                                  <select id="ddlConditionalControlID" class="form-control" ></select>
+                                                <span class="input-group-addon btn btn-success" onclick="AddConditionDetail()">Go</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        <textarea rows="2" id="txtcondition" class="form-control"></textarea>
+                                    </div>
+
+
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -334,6 +369,16 @@
                 document.getElementById("tblEditor").innerHTML = document.getElementById("CommonMasterBody_DynamicFormMasterBody_tableOuterHtml").value;
                 var theTbl = document.getElementById('tblEditor');
             }
+
+            $('#ddlConditionalControlID').on('change', function () {
+                $("#ddlConditionalControlID > option").each(function () {
+                    var elemid = $(this).val();
+                    $("#" + elemid).parent().removeClass('redips-drag-highlight').removeClass('redips-drag-field-highlight').addClass('redips-drag');
+                });
+                var Controlid = document.getElementById("ddlConditionalControlID").value;
+
+                $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
+            });
         });
     </script>
 </asp:Content>

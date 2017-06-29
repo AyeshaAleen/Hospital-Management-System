@@ -30,7 +30,16 @@ namespace Utils.itinsync.icom.controls
             txtBox.Attributes.Add("points", content.points);
             txtBox.Attributes.Add("formula", content.formula);
 
-                txtBox.Attributes.Add("onblur", "calculation();");
+            string conditions = "";
+            if (!string.IsNullOrEmpty(content.conditions))
+            {
+                conditions = XMLUtils.DecodeXML(content.conditions);
+            }
+
+            txtBox.Attributes.Add("condition", conditions);
+            
+
+            txtBox.Attributes.Add("onblur", "calculation();conditions();");
             //if (content.fieldcalculations.Count > 0)
             //{
             //    if (content.fieldcalculations[0].resultContent != null)
@@ -132,7 +141,16 @@ namespace Utils.itinsync.icom.controls
             if(!string.IsNullOrEmpty(content.isReadonly))
             radio.Attributes.Add("disabled", content.isReadonly);
             radio.Attributes.Add("formula", content.formula);
-            radio.Attributes.Add("onchange", "calculation();");
+
+            string conditions = "";
+            if (!string.IsNullOrEmpty(content.conditions))
+            {
+                conditions = XMLUtils.DecodeXML(content.conditions);
+            }
+
+            radio.Attributes.Add("condition", conditions);
+
+            radio.Attributes.Add("onchange", "calculation();conditions();");
             //if (content.fieldcalculations.Count > 0)
             //{
             //    radio.Attributes.Add("onchange", "calculation();");
@@ -169,7 +187,16 @@ namespace Utils.itinsync.icom.controls
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
             check.Attributes.Add("formula", content.formula);
-            check.Attributes.Add("onchange", "calculation();");
+
+            string conditions = "";
+            if (!string.IsNullOrEmpty(content.conditions))
+            {
+                conditions = XMLUtils.DecodeXML(content.conditions);
+            }
+
+            check.Attributes.Add("condition", conditions);
+
+            check.Attributes.Add("onchange", "calculation();conditions();");
             //if (content.fieldcalculations.Count > 0)
             //{
             //    check.Attributes.Add("onchange", "calculation();");
@@ -195,10 +222,17 @@ namespace Utils.itinsync.icom.controls
 
             ddl.Attributes.Add("imask", content.mask);
 
+            string conditions = "";
+            if (!string.IsNullOrEmpty(content.conditions))
+            {
+                conditions = XMLUtils.DecodeXML(content.conditions);
+            }
+
+            ddl.Attributes.Add("condition", conditions);
             ddl.Attributes.Add("formula", content.formula);
 
             ddl.Attributes.Add("points", content.points);
-            ddl.Attributes.Add("onchange", "calculation();");
+            ddl.Attributes.Add("onchange", "calculation();conditions();");
             //if (content.fieldcalculations.Count > 0)
             //{
             //    ddl.Attributes.Add("onchange", "calculation();");

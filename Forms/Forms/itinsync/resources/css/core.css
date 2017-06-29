@@ -1150,10 +1150,10 @@ pre {
   display: none;
 }
 .navbar-default {
-  background-color: #81c868;
-  border-radius: 0px;
-  border: none;
-  margin-bottom: 0px;
+    background-color: #016714;
+    border-radius: 0px;
+    border: none;
+    margin-bottom: 0px;
 }
 .navbar-default .navbar-nav > .open > a {
   background-color: rgba(255, 255, 255, 0.1);
@@ -1460,7 +1460,7 @@ body.fixed-left .side-menu.left {
 .side-menu-sm {
   width: 110px;
   text-align: center;
-  background:#81c868 !important;
+  background:#016714 !important;
 }
 .side-menu-sm #sidebar-menu > ul > li > a > i {
   display: block;

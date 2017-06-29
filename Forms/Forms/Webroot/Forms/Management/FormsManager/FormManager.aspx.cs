@@ -57,6 +57,10 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             ddlOperation.DataBind();
 
 
+            ddlConditionOperation.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKCondition, getHeader().lang);
+            ddlConditionOperation.DataBind();
+
+
             ddlLookupName.DataSource = LookupManager.readLookups(getHeader().lang);
             ddlLookupName.DataBind();
 
