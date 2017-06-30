@@ -187,13 +187,12 @@ function getTargetCell(targetCell) {
 }
 
 
-function setTranslation() {
+function setTranslation()
+{
 
-
-    var input = $("#defaultValue").val();
+    var input = iGetControlValue("defaultValue");
     var output = input.split(" ").join('.');
-    $("#translation").val(output);
-  
+    iFillControl("translation", output);
     
 }
 
@@ -202,7 +201,7 @@ function AddDetail(id) {
 
     debugger;
 
-   
+   //Need to revise below logic
     //alert(jQuery("#ddlControlID"));
     $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
     $("#ddlConditionalControlID").children().remove().end().append('<option selected value="">Select</option>');
@@ -220,117 +219,117 @@ function AddDetail(id) {
         
     });
 
-   
+    //get object 
+    var fieldObject          = iGetObject(id);
+    var controlType          = iGetAttribute(id, "type");
+    var condition            = iGetAttribute(fieldObject, "condition");
+    var resultantid          = iGetAttribute(fieldObject, "resultantid");
+    var Reftranslation       = iGetAttribute(fieldObject, "Reftranslation");
+    var refcontrol           = iGetAttribute(fieldObject, "refcontrol");
+    var cssClass             = iGetAttribute(fieldObject, "cssClass");
+    var translation          = iGetAttribute(fieldObject, "translation");
+    var points               = iGetAttribute(fieldObject, "points");
+    var defaultValue         = iGetAttribute(fieldObject, "defaultValue");
+    var formula              = iGetAttribute(fieldObject, "formula");
+    var irequired            = iGetAttribute(fieldObject, "irequired");
+    var txtBroughtForward    = iGetControlValue("txtBroughtForward")
+    var isLabel              = (controlType == "label" || controlType == "heading") ? true : false;
+    var isNotRadio              = controlType != "radio"  ? true : false;
+    
+    iFillControl("PreviousControlID", resultantid);
+    iFillControl("txtcondition", condition);
+    iFillControl("txtBroughtForward", Reftranslation);
+    iFillControl("ControlName", fieldObject.name);
+    iFillControl("ControlID", id);
+    iFillControl("cssClass", cssClass);
+    iFillControl("translation", translation);
+    iFillControl("points", points);
+    iFillControl("defaultValue", defaultValue);
+    iFillControl("txtformula", formula);
+    iFillControl("isRequired", irequired);
+    // mark fields are readonly
+    iDisableControl("points", isLabel);
+    iDisableControl("ddlControlID", isLabel);
+    iDisableControl("ddlConditionalControlID", isLabel);
+    iDisableControl(CURRENTPAGE_CONTEXT + "ddlOperation", isLabel);
+    iDisableControl(CURRENTPAGE_CONTEXT + "ddlConditionOperation", isLabel);
+    iDisableControl("ControlName", isNotRadio);
 
-
-    if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading") {
-        document.getElementById("points").disabled = true;
-        document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = true;
-        document.getElementById("ddlControlID").disabled = true;
-        document.getElementById("ddlConditionalControlID").disabled = true;
-        document.getElementById(CURRENTPAGE_CONTEXT +"ddlConditionOperation").disabled = true;
+    //set combo value
+    setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls", refcontrol);
+    //Need to revise this logic
+    if (txtBroughtForward != "")
+    {
+        iFillControl("chkisBroughtForward", true);
+        iDisableControl("txtBroughtForward", false);
     }
-
     else
     {
-        document.getElementById("points").disabled = false;
-        document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = false;
-        document.getElementById("ddlControlID").disabled = false;
-        document.getElementById("ddlConditionalControlID").disabled = false;
-        document.getElementById(CURRENTPAGE_CONTEXT +"ddlConditionOperation").disabled = false;
-        
-    }
-    if (document.getElementById(id).getAttribute("type") == "radio") {
-        document.getElementById("ControlName").disabled = false;
-    }
-    else
-        document.getElementById("ControlName").disabled = true;
+        iFillControl("chkisBroughtForward", false);
+        iDisableControl("txtBroughtForward", true);
+     }
 
-    //this is required object which contain all information regarding object
-    var fieldObject = document.getElementById(id);
-
-    // getting data from popup and setting it to required field
-    debugger;
-    //if (fieldObject.getAttribute("resultantid") != "")
-        document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
-
-    //document.getElementById("ddlControlID").value = fieldObject.getAttribute("resultantid");
-
-        document.getElementById("txtcondition").value = fieldObject.getAttribute("condition");
-
-        document.getElementById("txtBroughtForward").value = fieldObject.getAttribute("Reftranslation");
-
-        if (document.getElementById("txtBroughtForward") != "")
-        {
-            $("#chkisBroughtForward").checked = true;
-            document.getElementById("txtBroughtForward").disabled = false;
-        }
-        else
-        {
-            $("#chkisBroughtForward").checked = false;
-            document.getElementById("txtBroughtForward").disabled = true;
-        }
-
-
-        document.getElementById("ControlName").value = fieldObject.name;
-    document.getElementById("ControlID").value = id;
-    document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
-    document.getElementById("translation").value = fieldObject.getAttribute("translation");
-    document.getElementById("points").value = fieldObject.getAttribute("points");
-    document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
-    if (fieldObject.getAttribute("irequired") == "true")
-        document.getElementById("isRequired").checked = true;
-    else
-        document.getElementById("isRequired").checked = false;
-    debugger;
-    document.getElementById("txtformula").value = fieldObject.getAttribute("formula");
-    
+       
     $('#con-close-modal').modal('show');
 }
+
+
+
 function SetDetail() {
     debugger;
-      var  id = document.getElementById("ControlID").value;
+    
 
-      $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
+    var id                      = iGetControlValue("ControlID");
+    var ControlName             = iGetControlValue("ControlName");
+    var cssClass                = iGetControlValue("cssClass");
+    var translation             = iGetControlValue("translation");
+    var txtBroughtForward       = iGetControlValue("txtBroughtForward");
+    var points                  = iGetControlValue("points");
+    var isRequired              = iGetControlValue("isRequired");
+    var isReadonly              = iGetControlValue("isReadonly");
+    var txtformula              = iGetControlValue("txtformula");
+    var txtcondition            = iGetControlValue("txtcondition");
+    var defaultValue            = iGetControlValue("defaultValue");
+    var controlType             = iGetAttribute(id, "type");
+    var refcontrol              = iGetAttribute(id, "refcontrol");
+    var ddlLookupName           = getComboText(CURRENTPAGE_CONTEXT + "ddlLookupName");
+    var ddlForwardedControls    = getComboText(CURRENTPAGE_CONTEXT + "ddlForwardedControls");
+    var ddlMask                 = getComboText(CURRENTPAGE_CONTEXT + "ddlMask");
+    var isLabel                 = (controlType == "label" || controlType == "heading") ? true : false;
+    var isNotRadio              = controlType != "radio" ? true : false;
+  
 
-    document.getElementById(id).setAttribute("id", document.getElementById("ControlID").value);
-    document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
-    document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
-    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
 
-    document.getElementById(id).setAttribute("refcontrol", $("#" + CURRENTPAGE_CONTEXT + "ddlForwardedControls option:selected").val());
+    $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
 
-    document.getElementById(id).setAttribute("Reftranslation", document.getElementById("txtBroughtForward").value);
+    iSetAttribute(id, "id", id);
+    iSetAttribute(id, "name", ControlName);
+    iSetAttribute(id, "Class", cssClass);
+    iSetAttribute(id, "translation", translation);
+    iSetAttribute(id, "refcontrol", ddlForwardedControls);
+    iSetAttribute(id, "Reftranslation", txtBroughtForward);
+    iSetAttribute(id, "formula", txtformula);
+    iSetAttribute(id, "condition", txtcondition);
+    iSetAttribute(id, "defaultValue", defaultValue);
+    
+    setSelectedComboValue(CURRENTPAGE_CONTEXT+"ddlForwardedControls", refcontrol);
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlLookupName", ddlLookupName);
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlMask", ddlMask);
 
-    if ($("#isReadonly").is(':checked')) {
-        document.getElementById(id).setAttribute("disabled", "disabled");
-    }
+     if (isReadonly)
+        iSetAttribute(id, "disabled", "disabled");
+     else
+         iSetAttribute(id, "disabled", ""); //document.getElementById(id).removeAttribute("disabled", "");
+       
+    
+    
+    if (isLabel)
+        iGetObject(id).innerHTML = defaultValue;
     else
     {
-        document.getElementById(id).removeAttribute("disabled", "");
+        iSetAttribute(id, "points", points);
+        iSetAttribute(id, "irequired", isRequired);
     }
-    if (document.getElementById(id).getAttribute("type") != "label")
-    {
-       
-
-        document.getElementById(id).setAttribute("points", document.getElementById("points").value);
-        //document.getElementById(id).setAttribute("Operation", $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text());
-        //document.getElementById(id).setAttribute("resultantid", $("#ddlControlID option:selected").text());
-        document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
-    }
-
-    $("#ddlForwardedControls").val(fieldObject.getAttribute("refcontrol"));
-
-    document.getElementById(id).setAttribute("formula", document.getElementById("txtformula").value);
-    document.getElementById(id).setAttribute("condition", document.getElementById("txtcondition").value);
-
-    document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
-    document.getElementById(id).setAttribute("LookupName", $("#" +CURRENTPAGE_CONTEXT+"ddlLookupName option:selected").text());
-    document.getElementById(id).setAttribute("imask", $("#" +CURRENTPAGE_CONTEXT+"ddlMask option:selected").text());
-  
-    
-    if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
-        document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
     
     $('#con-close-modal').modal('hide');
@@ -338,41 +337,19 @@ function SetDetail() {
 
 function setOperationField(id)
 {
-    //debugger;
-    //var formula = id;
-    //$('#tblOperationDetail').find('tr').each(function () {
-    //    $(this).find('td').each(function () {
-
-    //        if ($(this).html() == "MULTIPLY")
-    //            formula +="* ";
-    //        else if ($(this).html() == "PLUS")
-    //            formula += "+ ";
-    //        else if ($(this).html() == "MINUS")
-    //            formula += "- ";
-    //        else if ($(this).html() == "DIVIDE")
-    //            formula += "/ ";
-    //        else if ($(this).html() == "PERCENTAGE")
-    //            formula += "% ";
-
-    //        else
-    //    formula += $(this).html();
-
-    //        document.getElementById("txtformula").value = formula;
-
-    //});
-    //});
+   
 }
 
 function AddOperationDetail() {
     debugger;
 
-    var operation = $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text();
-    var ControlID = $("#ddlControlID option:selected").text();
+    var operation = getComboText(CURRENTPAGE_CONTEXT + "ddlOperation");
+    var ControlID = getComboText("ddlControlID");
 
-    var formula = document.getElementById("txtformula").value;
+    var formula = iGetControlValue("txtformula");
 
     if (formula == "")
-        formula = document.getElementById("ControlID").value;
+        formula = iGetControlValue("ControlID");
 
     
     if (operation.toUpperCase() == "MULTIPLY")
@@ -390,27 +367,19 @@ function AddOperationDetail() {
     formula += ControlID;
 
 
-      
-
-    document.getElementById("txtformula").value = formula;
-
-    //var table = document.getElementById("tblOperationDetail");
-    //var row = table.insertRow(1);
-    //var cell1 = row.insertCell(0);
-    //var cell2 = row.insertCell(1);
-    //cell1.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
-    //cell2.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
+    iFillControl("txtformula", formula);
 }
 
 
 function AddConditionDetail() {
     debugger;
+    var operation = getComboText(CURRENTPAGE_CONTEXT + "ddlConditionOperation");
+    var ControlID = getComboText("ddlConditionalControlID");
+    var condition = iGetControlValue("txtcondition");
 
-    var operation = $("#" + CURRENTPAGE_CONTEXT + "ddlConditionOperation option:selected").text();
-    var ControlID = $("#ddlConditionalControlID option:selected").text();
-    var condition = document.getElementById("txtcondition").value;
     condition += ControlID + operation;
-    document.getElementById("txtcondition").value = condition;
+    iFillControl("txtcondition", condition);
+  
 }
 
 
@@ -427,22 +396,23 @@ function fieldClick(event) {
 function fieldset(event, divid, targetCell) {
     debugger;
     var generatedcontrolID = "";
-    var ControlName = ""; 
-    var controlType = event[0].getAttribute("type");
-    CONTROL_COUINT = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
-    FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
-    SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;
-    
+    var ControlName = "";
 
-    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading") {
-        ControlName = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
-        generatedcontrolID = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+    var controlType = iGetAttribute(event[0], "type");//.getAttribute("type");
+    CONTROL_COUINT  = iGetControlValue(CURRENTPAGE_CONTEXT + "ControlCount");
+    FORM_NAME       = iGetControlValue(CURRENTPAGE_CONTEXT + "FormName");  
+    SECTIONID       = iGetControlValue(CURRENTPAGE_CONTEXT + "sectionID");  
+
+
+    if (controlType == "label" || controlType == "select" || controlType == "textarea" || controlType == "heading") {
+        ControlName = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
 
     else
     {
-        ControlName = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
-        generatedcontrolID = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        ControlName = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
         
     //in case of radio button and its second column then set name of previous droped radio button
@@ -456,7 +426,9 @@ function fieldset(event, divid, targetCell) {
     
 
     CONTROL_COUINT++;
-    document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value = CONTROL_COUINT;
+    iFillControl(CURRENTPAGE_CONTEXT + "ControlCount", CONTROL_COUINT);
+
+  
 
     return generatedcontrolID;
    

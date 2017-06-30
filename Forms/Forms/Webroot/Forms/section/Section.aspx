@@ -10,7 +10,7 @@
         <div class="col-sm-12">
             <div class="card-box">
            
-              <h4 class="m-t-0 header-title" id="sectionHeading" runat="server"><b>General SIO</b></h4>
+              <h4 class="m-t-0 header-title" id="sectionHeading" runat="server"><b></b></h4>
             
         
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table" CssClass="table table-bordered table-hover">
