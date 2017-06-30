@@ -30,5 +30,6 @@ namespace Domains.itinsync.icom.idocument.section
 
         public List<XDocumentTable> documentTable = new List<XDocumentTable>();
 
+        public int fieldcount { get; set; }
     }
 }

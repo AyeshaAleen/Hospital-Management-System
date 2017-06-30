@@ -30,6 +30,18 @@ namespace Utils.itinsync.icom.controls
             txtBox.Attributes.Add("points", content.points);
             txtBox.Attributes.Add("formula", content.formula);
 
+            if(content.ReferredContent!=null && content.ReferredContent.controlID!=null && content.ReferredContent.controlID.Length>0)
+            {
+                txtBox.Attributes.Add("Reftranslation", content.ReferredContent.translation);
+            }
+
+
+            if (content.refcontrolID != null  && content.refcontrolID.Length > 0)
+            {
+                txtBox.Attributes.Add("refcontrol", content.refcontrolID);
+            }
+
+
             string conditions = "";
             if (!string.IsNullOrEmpty(content.conditions))
             {
@@ -142,6 +154,11 @@ namespace Utils.itinsync.icom.controls
             radio.Attributes.Add("disabled", content.isReadonly);
             radio.Attributes.Add("formula", content.formula);
 
+            if (content.ReferredContent != null && content.ReferredContent.controlID != null && content.ReferredContent.controlID.Length > 0)
+            {
+                radio.Attributes.Add("Reftranslation", content.ReferredContent.translation);
+            }
+
             string conditions = "";
             if (!string.IsNullOrEmpty(content.conditions))
             {
@@ -188,6 +205,11 @@ namespace Utils.itinsync.icom.controls
             check.Attributes.Add("points", content.points);
             check.Attributes.Add("formula", content.formula);
 
+            if (content.ReferredContent != null && content.ReferredContent.controlID != null && content.ReferredContent.controlID.Length > 0)
+            {
+                check.Attributes.Add("Reftranslation", content.ReferredContent.translation);
+            }
+
             string conditions = "";
             if (!string.IsNullOrEmpty(content.conditions))
             {
@@ -221,6 +243,11 @@ namespace Utils.itinsync.icom.controls
                 ddl.Attributes.Add("disabled", content.isReadonly);
 
             ddl.Attributes.Add("imask", content.mask);
+
+            if (content.ReferredContent != null && content.ReferredContent.controlID != null && content.ReferredContent.controlID.Length > 0)
+            {
+                ddl.Attributes.Add("Reftranslation", content.ReferredContent.translation);
+            }
 
             string conditions = "";
             if (!string.IsNullOrEmpty(content.conditions))

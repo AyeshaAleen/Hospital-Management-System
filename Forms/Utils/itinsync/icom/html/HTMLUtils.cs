@@ -20,12 +20,14 @@ using Utils.itinsync.icom.controls;
 using Domains.itinsync.icom.idocument.table.calculation;
 using System.Web.UI.WebControls;
 using Utils.itinsync.icom.cache.translation;
+using Domains.itinsync.icom.idocument.referedcontent;
+using Utils.itinsync.icom.cache.document;
 
 namespace Utils.itinsync.icom.html
 {
     public static class HTMLUtils
     {
-        public static XDocumentTable  HtmlParse(string html, int section_id,string formname)
+        public static XDocumentTable  HtmlParse(string html, int section_id,string formname,long DefinitionID)
         {
               #region add Load Html
           
@@ -53,9 +55,12 @@ namespace Utils.itinsync.icom.html
 
             List<HtmlNode> rowcount = table.Descendants("tr").ToList();
 
+            int row = 1;
+            
 
             foreach (HtmlNode Rownode in rowcount)
             {
+                int column = 1;
 
                 XDocumentTableTR tableTR = new XDocumentTableTR();
 
@@ -110,7 +115,8 @@ namespace Utils.itinsync.icom.html
                                     {
 
                                         XDocumentTableContent tableContent = new XDocumentTableContent();
-                                        
+
+                                            XDocumentReferedContent referreddocumentcontent = new XDocumentReferedContent();
                                         if (type == "checkbox")
                                             tableContent.controlType =ApplicationCodes.FORMS_CONTROL_CHECKBOX;
                                         else if (type == "radio")
@@ -130,6 +136,9 @@ namespace Utils.itinsync.icom.html
 
 
                                             tableContent.conditions = fieldnode.ChildNodes[1].GetAttributeValue("condition", "");
+
+                                            
+
                                             tableContent.formula = fieldnode.ChildNodes[1].GetAttributeValue("formula", "");
                                         tableContent.controlName = fieldnode.ChildNodes[1].GetAttributeValue("name", "");
                                         tableContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
@@ -141,24 +150,41 @@ namespace Utils.itinsync.icom.html
                                         tableContent.points = fieldnode.ChildNodes[1].GetAttributeValue("points", "");
                                         tableContent.defaultValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
                                         tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("disabled", "");
-
-
+                                            tableContent.rows = row;
+                                            tableContent.cells = column;
+                                            tableContent.sequence = Convert.ToInt64(fieldnode.ChildNodes[1].GetAttributeValue("id", "").Split('_').Last());
 
                                         tableContent.colspan = Convert.ToInt32(colnode.GetAttributeValue("Colspan", null));
 
-                                        //fieldcalculation.documentcontentID= fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
-                                        if (fieldnode.ChildNodes[1].GetAttributeValue("Operation", "") != "")
-                                        {
-                                            XDocumentCalculation fieldcalculation = new XDocumentCalculation();
-                                            string resultContentAttribute = fieldnode.ChildNodes[1].GetAttributeValue("resultantid", "").Replace(section_id.ToString() + formname, string.Empty);
+                                            tableContent.refcontrolID = fieldnode.ChildNodes[1].GetAttributeValue("refcontrol", "");
+
+                                            //fieldcalculation.documentcontentID= fieldnode.ChildNodes[1].GetAttributeValue("id", "") + section_id + "formname";
+                                            //if (fieldnode.ChildNodes[1].GetAttributeValue("Operation", "") != "")
+                                            //{
+                                            //    XDocumentCalculation fieldcalculation = new XDocumentCalculation();
+                                            //    string resultContentAttribute = fieldnode.ChildNodes[1].GetAttributeValue("resultantid", "").Replace(section_id.ToString() + formname, string.Empty);
 
 
-                                            fieldcalculation.resultContentAttribute = resultContentAttribute + section_id + formname;
-                                            fieldcalculation.operation = fieldnode.ChildNodes[1].GetAttributeValue("Operation", "");
+                                            //    fieldcalculation.resultContentAttribute = resultContentAttribute + section_id + formname;
+                                            //    fieldcalculation.operation = fieldnode.ChildNodes[1].GetAttributeValue("Operation", "");
 
-                                            //dto.documentTableContentlist.Add(dto.documentTableContent);
-                                            tableContent.calculations.Add(fieldcalculation);
-                                        }
+                                            //    //dto.documentTableContentlist.Add(dto.documentTableContent);
+                                            //    tableContent.calculations.Add(fieldcalculation);
+                                            //}
+
+
+                                            if (fieldnode.ChildNodes[1].GetAttributeValue("Reftranslation", "")!="")
+                                            {
+                                                tableContent.ReferredContent.controlID = fieldnode.ChildNodes[1].GetAttributeValue("id", "");
+                                                tableContent.ReferredContent.translation = fieldnode.ChildNodes[1].GetAttributeValue("Reftranslation", "");
+                                                tableContent.ReferredContent.documentdefinitionID = DefinitionID;
+                                                tableContent.ReferredContent.documentsectionID = section_id;
+
+                                                
+                                            }
+
+
+
                                         tableTD.fields.Add(tableContent);
                                     }
                                 }
@@ -166,8 +192,10 @@ namespace Utils.itinsync.icom.html
                             }
                             #endregion
                         }
+                            column++;
                         }
                     }
+                    row++;
                 }
             }
 

@@ -314,6 +314,39 @@
                                     </div>
 
 
+                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="checkbox" id="chkisBroughtForward" />
+                                            isBroughtForward
+                                        </div>
+                                    </div>
+                                     
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Ref Label IDs</label>
+                                            <div class="input-group">
+                                                  <select id="ddlRefLabelID" class="form-control" ></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Ref Translation</label>
+                                            <input type="text" id="txtBroughtForward" disabled class="form-control" />
+                                        </div>
+                                    </div>
+
+                                          <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Forwarded Controls</label>
+                                            <asp:DropDownList ID="ddlForwardedControls" runat="server" CssClass="form-control" DataValueField="controlID" DataTextField="translation">
+                                                </asp:DropDownList>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -379,6 +412,38 @@
 
                 $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
             });
+
+            $('#ddlRefLabelID').on('change', function () {
+                $("#ddlRefLabelID > option").each(function () {
+                    var elemid = $(this).val();
+                    $("#" + elemid).parent().removeClass('redips-drag-highlight').removeClass('redips-drag-field-highlight').addClass('redips-drag');
+                });
+                var Controlid = document.getElementById("ddlRefLabelID").value;
+
+                $("#" + Controlid).parent().addClass('redips-drag-highlight').removeClass('redips-drag');
+
+                document.getElementById("txtBroughtForward").value = document.getElementById(Controlid).getAttribute("translation");
+            });
+
+            $("#chkisBroughtForward").change(function () {
+                if ($("#chkisBroughtForward").is(':checked')) {
+                    document.getElementById("txtBroughtForward").disabled = false;
+   
+                debugger;
+                $('#tblEditor').find('span, label, h4').each(function () {
+                    var id = $(this).attr('id');
+                    if (id) {
+                            $("#ddlRefLabelID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+                    }
+                });
+                }
+
+                else {
+                    document.getElementById("txtBroughtForward").disabled = true;
+                $("#ddlRefLabelID").children().remove().end().append('<option selected value="">Select</option>');
+                }
+            });
+
         });
     </script>
 </asp:Content>

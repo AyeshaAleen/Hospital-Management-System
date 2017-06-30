@@ -22,6 +22,7 @@ using Domains.itinsync.icom.idocument.table.calculation;
 using DAO.itinsync.icom.idocument.table.calculation;
 using Domains.itinsync.icom.lookup.lookuptrans;
 using System.Collections.Generic;
+using Domains.itinsync.icom.idocument.referedcontent;
 
 namespace Services.itinsync.icom.tablecontent
 {
@@ -76,7 +77,11 @@ namespace Services.itinsync.icom.tablecontent
                                     {
                                         translation(field);
                                         field.tdID = td.tdID;
+                                       
                                         field.documentTableContentID = XDocumentTableContentDAO.getInstance(dbContext).create(field);
+
+                                        SavereferredContent(field);
+
 
                                         if (field.controlType!=ApplicationCodes.FORMS_CONTROL_LABEL || field.controlType!=ApplicationCodes.FORMS_CONTROL_HEADING)
                                         {
@@ -104,6 +109,15 @@ namespace Services.itinsync.icom.tablecontent
             return dto;
         }
 
+        private void SavereferredContent(XDocumentTableContent field)
+        {
+            if (field.ReferredContent != null && field.ReferredContent.controlID!=null && field.ReferredContent.controlID.Length>0)
+            {
+                field.ReferredContent.documentcontentID = field.documentTableContentID;
+                XDocumentReferedContentDAO.getInstance(dbContext).create(field.ReferredContent);
+            } 
+
+            }
         private void translation(XDocumentTableContent field)
         {
             if (!string.IsNullOrEmpty(field.translation))

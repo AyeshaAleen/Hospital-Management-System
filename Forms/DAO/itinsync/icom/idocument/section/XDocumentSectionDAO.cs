@@ -108,7 +108,7 @@ namespace DAO.itinsync.icom.idocument.section
         public int LastFlowID(Int32 DefinationId)
         {
             string sql = "select max(flow) From " + TABLENAME + " where documentdefinitionid = "+ DefinationId;
-            return MaxValue(sql);
+            return maxResult(sql);
             //return (XDocumentSection)processSingleResult(sql);
         }
 

@@ -62,6 +62,13 @@ namespace DAO.itinsync.icom.document.documentdefinitionview
             return (documentcontent)processSingleResult(READ);
         }
 
+        public int readSequenceBySectionId(Int32 sectionid)
+        {
+
+            string READ = string.Format("select max(sequence) as maxResult from " + TABLENAME + "where documentsectionid=" + sectionid);
+            return maxResult(READ);
+        }
+
         public List<documentcontent> readyAll()
         {
             string READ = string.Format("Select * from " + TABLENAME);

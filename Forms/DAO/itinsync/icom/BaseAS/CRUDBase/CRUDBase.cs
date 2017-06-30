@@ -170,14 +170,21 @@ namespace DAO.itinsync.icom.BaseAS.CRUDBase
             return 0;
         }
 
-        protected int MaxValue(string sql)
+        protected Int32 maxResult(string sql)
         {
             if (connection != null)
             {
                 MySqlCommand ccmd = new MySqlCommand(sql, connection);
                 ccmd.Transaction = sqlTran;
-                int rowsAffected = Convert.ToInt32(ccmd.ExecuteScalar());
-                return rowsAffected;
+                DataTable dt = FillDataTable(sql);
+
+                if (!string.IsNullOrEmpty(dt.Rows[0]["maxResult"].ToString()))
+                {
+                    
+                   return  Convert.ToInt32(dt.Rows[0]["maxResult"]);
+                }
+                else
+                    return 0;
             }
             return 0;
         }

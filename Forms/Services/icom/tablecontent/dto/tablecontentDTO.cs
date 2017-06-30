@@ -14,6 +14,7 @@ using Domains.itinsync.icom.idocument.table.content;
 using Domains.itinsync.icom.idocument.table.calculation;
 using System;
 using Domains.itinsync.icom.lookup.lookuptrans;
+using Domains.itinsync.icom.idocument.referedcontent;
 
 namespace Services.itinsync.icom.tablecontent.dto
 {
@@ -35,7 +36,7 @@ namespace Services.itinsync.icom.tablecontent.dto
         public List<XDocumentCalculation> documentCalculationlist = new List<XDocumentCalculation>();
 
         public LookupTrans lookupTrans = new LookupTrans();
-
+       
 
         public List<XDocumentTable> documentTablelist = new List<XDocumentTable>();
 

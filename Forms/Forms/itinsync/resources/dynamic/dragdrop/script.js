@@ -206,6 +206,7 @@ function AddDetail(id) {
     //alert(jQuery("#ddlControlID"));
     $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
     $("#ddlConditionalControlID").children().remove().end().append('<option selected value="">Select</option>');
+    $("#ddlRefLabelID").children().remove().end().append('<option selected value="">Select</option>');
 
     $('#tblEditor').find('td').each(function () {
 
@@ -215,7 +216,7 @@ function AddDetail(id) {
             $("#ddlConditionalControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
 
         });
-      
+        
         
     });
 
@@ -257,6 +258,20 @@ function AddDetail(id) {
 
         document.getElementById("txtcondition").value = fieldObject.getAttribute("condition");
 
+        document.getElementById("txtBroughtForward").value = fieldObject.getAttribute("Reftranslation");
+
+        if (document.getElementById("txtBroughtForward") != "")
+        {
+            $("#chkisBroughtForward").checked = true;
+            document.getElementById("txtBroughtForward").disabled = false;
+        }
+        else
+        {
+            $("#chkisBroughtForward").checked = false;
+            document.getElementById("txtBroughtForward").disabled = true;
+        }
+
+
         document.getElementById("ControlName").value = fieldObject.name;
     document.getElementById("ControlID").value = id;
     document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
@@ -282,6 +297,11 @@ function SetDetail() {
     document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
     document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
     document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
+
+    document.getElementById(id).setAttribute("refcontrol", $("#" + CURRENTPAGE_CONTEXT + "ddlForwardedControls option:selected").val());
+
+    document.getElementById(id).setAttribute("Reftranslation", document.getElementById("txtBroughtForward").value);
+
     if ($("#isReadonly").is(':checked')) {
         document.getElementById(id).setAttribute("disabled", "disabled");
     }
@@ -298,7 +318,8 @@ function SetDetail() {
         //document.getElementById(id).setAttribute("resultantid", $("#ddlControlID option:selected").text());
         document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
     }
-    
+
+    $("#ddlForwardedControls").val(fieldObject.getAttribute("refcontrol"));
 
     document.getElementById(id).setAttribute("formula", document.getElementById("txtformula").value);
     document.getElementById(id).setAttribute("condition", document.getElementById("txtcondition").value);

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domains.itinsync.icom.idocument.referedcontent;
 
 namespace Domains.itinsync.icom.idocument.table.content
 {
@@ -12,7 +13,7 @@ namespace Domains.itinsync.icom.idocument.table.content
 
     {
         public enum columns { tdID, controlType, controlName, controlID, mask, isRequired, translation, cssClass, hight, width,
-            sequence , lookupName, colspan, defaultValue, points, isReadonly, formula, conditions
+            sequence , lookupName, colspan, defaultValue, points, isReadonly, formula, conditions, rows, cells, refcontrolID
         }
         public enum primaryKey { documentTableContentID }
         public Int32 documentTableContentID { get; set; }
@@ -31,22 +32,31 @@ namespace Domains.itinsync.icom.idocument.table.content
         public string formula { get; set; }
 
         public string conditions { get; set; }
+        public string refcontrolID { get; set; }
+
 
         public string hight { get; set; }
         public string width { get; set; }
-        public string sequence { get; set; }
+        public long sequence { get; set; }
         public string lookupName { get; set; }
         public string tdType { get; set; }
         public string defaultValue { get; set; }
-        
+
+        public long rows { get; set; }
+        public long cells { get; set; }
+
+
         public object getKey() { return documentTableContentID; }
 
         public void setTransID(object transID)
         {
 
         }
+
         //*************Relational Mapping Objects*******************//////
         public List<XDocumentCalculation> calculations = new List<XDocumentCalculation>();
+
+        public XDocumentReferedContent ReferredContent = new XDocumentReferedContent();
 
         public List<XDocumentCalculation> fieldcalculations =new List<XDocumentCalculation>();
     }

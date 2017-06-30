@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domains.itinsync.icom.idocument.referedcontent;
 
 namespace Domains.itinsync.icom.idocument.definition
 {
@@ -40,7 +41,7 @@ namespace Domains.itinsync.icom.idocument.definition
         }
         //*************Relational Mapping Objects*******************//////
         public List<XDocumentSection> documentSections = new List<XDocumentSection>();
-
+        public List<XDocumentReferedContent> documentRefferedContent = new List<XDocumentReferedContent>();
         public List<XDocumentRoute> roleRoute = new List<XDocumentRoute>();
         public List<XDocumentRouteUsersView> routeUsers = new List<XDocumentRouteUsersView>();
     }

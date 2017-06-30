@@ -58,6 +58,7 @@
     <Compile Include="itinsync\icom\BaseAS\dbcontext\DBContext.cs" />
     <Compile Include="itinsync\icom\BaseAS\frame\FrameAS.cs" />
     <Compile Include="itinsync\icom\BusinessTranscation\BusinessTranscationDAO.cs" />
+    <Compile Include="itinsync\icom\idocument\referedcontent\XDocumentReferedContentDAO.cs" />
     <Compile Include="itinsync\icom\idocument\route\XDocumentRouteDAO.cs" />
     <Compile Include="itinsync\icom\idocument\role\XDocumentRoleDAO.cs" />
     <Compile Include="itinsync\icom\idocument\routeusers\XDocumentRouteUsersDAO.cs" />

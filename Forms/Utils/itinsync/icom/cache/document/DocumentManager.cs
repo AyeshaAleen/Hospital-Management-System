@@ -121,14 +121,7 @@ namespace Utils.itinsync.icom.cache.document
         }
         public static Int32 getDocumentSectionFieldCount(Int32 documentSectionID, Int32 doumentDefinitionID)
         {
-            Int32 count = 0;
-            foreach (XDocumentTable documenttable in getDocumentTables(documentSectionID, doumentDefinitionID))
-            {
-                count = Convert.ToInt32(documenttable.trs.Last().tds.Last().fields.Last().controlID.Split('_').Last())+1;
-
-                
-            }
-            return count;
+            return getDocumentSection(documentSectionID).fieldcount+1;
 
         }
         public static List<XDocumentSection> getDocumentSections(Int64 doumentDefinitionID)
