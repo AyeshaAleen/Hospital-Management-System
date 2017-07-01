@@ -215,6 +215,16 @@ function AddDetail(id) {
             $("#ddlConditionalControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
 
         });
+
+
+        $(this).find('span, label, h4').each(function ()
+        {
+            var id = $(this).attr('id');
+            if (id) {
+                $("#ddlRefLabelID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+            }
+
+        });
         
         
     });
@@ -258,16 +268,7 @@ function AddDetail(id) {
     //set combo value
     setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls", refcontrol);
     //Need to revise this logic
-    if (txtBroughtForward != "")
-    {
-        iFillControl("chkisBroughtForward", true);
-        iDisableControl("txtBroughtForward", false);
-    }
-    else
-    {
-        iFillControl("chkisBroughtForward", false);
-        iDisableControl("txtBroughtForward", true);
-     }
+   
 
        
     $('#con-close-modal').modal('show');
@@ -293,7 +294,7 @@ function SetDetail() {
     var controlType             = iGetAttribute(id, "type");
     var refcontrol              = iGetAttribute(id, "refcontrol");
     var ddlLookupName           = getComboText(CURRENTPAGE_CONTEXT + "ddlLookupName");
-    var ddlForwardedControls    = getComboText(CURRENTPAGE_CONTEXT + "ddlForwardedControls");
+    var ddlForwardedControls    = getComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls");
     var ddlMask                 = getComboText(CURRENTPAGE_CONTEXT + "ddlMask");
     var isLabel                 = (controlType == "label" || controlType == "heading") ? true : false;
     var isNotRadio              = controlType != "radio" ? true : false;

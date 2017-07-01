@@ -45,83 +45,76 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
     debugger;
 
     
-
-    for (var i = 0; i < inputFields.length; i++) {
+    controllsObject = new Array();
+    for (var i = 0; i < inputFields.length; i++) 
+    {
         var inputObj = inputFields[i];
         // Is it one of our validations
-        if (!this.containsVaildParameters(inputObj)) continue;
+        if (!this.containsVaildParametersCalculation(inputObj)) continue;
 
-        // Get the type
-        var inputType = this.getInputType(inputObj);
-        var checkOrRadio = ((inputType == 'RADIO') || (inputType == 'CHECKBOX'));
-
-
-        // Get the id
-        var inputObjName = inputObj.getAttribute('id');
-        if (checkOrRadio)
-            inputObjName = inputObj.getAttribute('id');
-        if (inputObjName == null)
-            inputObjName = inputObj.getAttribute('name');
-
-        if (!inputObjName)
-            continue;
-        //Dynalic_radio1 = object 
-        controllsObject.push(inputObj)
-       
-       // controllsObject[inputObjName] = inputObj;
-
-        if (checkOrRadio && !inputObj.checked) {
-            continue;
-        }
         inputObjFormula = inputObj.getAttribute('formula');
         if (!inputObjFormula)
             continue;
-        //((10 + dynamic_radio2+ dynamic_radio3 +dynamic_radio4)/4100)
-        //"(10+20)"
+         //Dynalic_radio1 = object 
+        controllsObject.push(inputObj);
+    }
 
-        //(parseint(10)+parseint(20))
-        var avgCounter = 0;
-        for (var count = 0; count < controllsObject.length; count++)
+    for (var i = 0; i < controllsObject.length; i++)
+    {
+        currentObject = controllsObject[i];
+        var currentID = currentObject.getAttribute("id");
+        currentID = currentID.replace(PAGE_CONTEXT, "");
+        inputObjFormula = currentObject.getAttribute('formula');
+       var  avgCounter=0;
+        for (var j = 0; j < inputFields.length; j++)
         {
-            currentObject = controllsObject[count];
+            var inputObj = inputFields[j];
+            
 
-            var currentID = currentObject.getAttribute("id");
-            currentID = currentID.replace(PAGE_CONTEXT, "");
-            if (inputObjFormula.includes(currentID))
+            if (inputObj.id == PAGE_CONTEXT + "dynamic_textSIO2_29" || inputObj.id == PAGE_CONTEXT + "dynamic_textSIO2_9")
             {
+                debugger;
+            }
+            if (!this.containsVaildParametersCalculation(inputObj)) continue;
 
-                var inputType = this.getInputType(currentObject);
+            
+            var currentID = inputObj.getAttribute("id");
+            currentID = currentID.replace(PAGE_CONTEXT, "");
+
+            if (inputObjFormula.includes(currentID)) {
+
+                var inputType = this.getInputType(inputObj);
                 var checkOrRadio = ((inputType == 'RADIO') || (inputType == 'CHECKBOX'));
 
-                if (checkOrRadio && !currentObject.checked)
+                if (checkOrRadio && !inputObj.checked)
                     inputObjFormula = inputObjFormula.replace(currentID, "0");
 
                 else if (inputType == "TEXT") {
-                    if (currentObject.getAttribute("formula", "").length == 0 && currentObject.value.length > 0)
-                    {
-                        inputObjFormula = inputObjFormula.replace(currentID, currentObject.value);
+                    if (inputObj.getAttribute("formula", "").length == 0 && inputObj.value.length > 0) {
+                        inputObjFormula = inputObjFormula.replace(currentID, inputObj.value);
                         avgCounter++;
                     }
-                        
+
                     else
                         inputObjFormula = inputObjFormula.replace(currentID, "0");
                 }
-                    
+
 
                 else
-                    inputObjFormula = inputObjFormula.replace(currentID, currentObject.getAttribute("points"));
+                    inputObjFormula = inputObjFormula.replace(currentID, inputObj.getAttribute("points"));
 
 
             }
         }
+
         //in case of avg we need to set count
         if (inputObjFormula.includes("AVG"))
             inputObjFormula = inputObjFormula.replace("AVG", avgCounter);
         var finalResult = eval(inputObjFormula);
-        if (!isNaN(finalResult ))
-            inputObj.value = finalResult;
-    }
-
+        if (!isNaN(finalResult))
+            currentObject.value = finalResult;
+        
+     }
 
 }
 
@@ -134,7 +127,7 @@ function getInputType(inputObj) {
     return (type);
 }
 
-function containsVaildParameters(inputObj) {
+function containsVaildParametersCalculation(inputObj) {
     // If we are a radio or checkbox then ask our parents
     var tagName = inputObj.tagName.toUpperCase();
     var type = this.getInputType(inputObj);
@@ -162,7 +155,9 @@ function containsVaildParameters(inputObj) {
         if (formula)
             return (true);
 
-        
+        var req = useObjectForParams.getAttribute("irequired");
+        if (req)
+            return (true);
 
     }
 

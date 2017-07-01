@@ -28,10 +28,52 @@
                 
 
            <div class="clearfix"></div>
-            </div>
+                
+          </div>
         </div>
+
+         <div id="hiddenFieldDiv" style="display:none" runat="server"></div>
     </div>
      <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"   OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
 
     <div id="hiddenDiv" style="display:none"></div>
+
+    <script>
+
+            debugger;
+            var id = "forms";
+           var isForm = true;
+
+            this.isThisForm = isForm;
+            this.formFieldsObjects = new Array();
+            this.toplevelId = id;
+            this.initted = false;
+
+           
+
+            var theDiv;
+            var idDiv = this.toplevelId;
+            if (this.isThisForm)
+                theDiv = document.forms[idDiv];
+            else
+                theDiv = document.getElementById(idDiv);
+
+            // Get all the components
+            var inputfrwdFields = theDiv.getElementsByTagName('INPUT');
+
+            for (var i = 0; i < inputfrwdFields.length; i++) {
+                var inputfrwdObj = inputfrwdFields[i];
+               
+
+                var inputrefControl = inputfrwdObj.getAttribute('refcontrol');
+                if (!inputrefControl)
+                    continue;
+                debugger;
+                inputfrwdObj.value = document.getElementById("CommonMasterBody_DocumnetMasterBody_hidden" + inputrefControl).value;
+                
+            }
+
+       
+    </script>
 </asp:Content>
+

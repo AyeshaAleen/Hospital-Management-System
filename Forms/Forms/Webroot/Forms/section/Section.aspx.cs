@@ -40,7 +40,9 @@ namespace Forms.Webroot.Forms.section
             processDynamicContent(tableDynamic, ((Douments)getParentRef()), getSection().documentsectionid);
             tableDynamic.EnableViewState = true;
             ViewState["tableDynamic"] = true;
-            
+
+            processForwardedFields(hiddenFieldDiv, ((Douments)getParentRef()));
+
 
         }
 

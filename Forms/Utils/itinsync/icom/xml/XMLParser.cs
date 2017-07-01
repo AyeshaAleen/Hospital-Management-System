@@ -41,7 +41,7 @@ namespace Utils.itinsync.icom.xml
 
         public string getTagValue(string tagName)
         {
-            XmlNodeList nodeList=  xmlDoc.DocumentElement.SelectNodes(tagName);
+            XmlNodeList nodeList=  xmlDoc.DocumentElement.SelectNodes("/"+rootTag+"/" +tagName);
 
          
                     foreach (XmlNode node in nodeList)

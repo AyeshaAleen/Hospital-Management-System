@@ -135,17 +135,7 @@ namespace Utils.itinsync.icom.cache.document
             }
 
         }
-        public static XDocumentSection getDocumentSectionID(Int32 sectionID)
-        {
-            if (GlobalStaticCache.documentSection.ContainsKey(sectionID))
-                return GlobalStaticCache.documentSection[sectionID];
-            else
-            {
-                // write code to reload data
-                return null;
-            }
-
-        }
+       
 
 
         public static List<XDocumentTable> getDocumentTables(Int32 documentSectionID, Int32 doumentDefinitionID)

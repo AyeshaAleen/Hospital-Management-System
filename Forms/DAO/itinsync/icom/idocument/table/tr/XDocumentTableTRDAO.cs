@@ -78,7 +78,7 @@ namespace DAO.itinsync.icom.idocument.table.tr
             XDocumentTable objdocumenttable = DocumentManager.getDocumentTableID(tableID);
             if (objdocumenttable != null)
             {
-                XDocumentSection objdocumentsection = DocumentManager.getDocumentSectionID(objdocumenttable.documentsectionid);
+                XDocumentSection objdocumentsection = DocumentManager.getDocumentSection(objdocumenttable.documentsectionid);
                 if (objdocumentsection != null)
                 {
                     List<XDocumentTableTR> objdocumenttabletr = DocumentManager.getDocumentTablesTRS(objdocumenttable.documentTableID, objdocumenttable.documentsectionid, objdocumentsection.documentdefinitionid);

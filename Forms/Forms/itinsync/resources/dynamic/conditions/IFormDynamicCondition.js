@@ -52,7 +52,7 @@ function initInputConditionFields(inputFields, idDiv, bIgnoreSkipValidation) {
     for (var i = 0; i < inputFields.length; i++) {
         var inputObj = inputFields[i];
         // Is it one of our validations
-        if (!this.containsVaildParameters(inputObj)) continue;
+        if (!this.containsVaildParametersCondition(inputObj)) continue;
 
         // Get the type
         var inputType = this.getInputType(inputObj);
@@ -87,7 +87,7 @@ function initInputConditionFields(inputFields, idDiv, bIgnoreSkipValidation) {
         for (var j = 0; j < inputFields.length; j++)
         {
             var currentObject = inputFields[j];
-            if (!this.containsVaildParameters(currentObject)) continue;
+            if (!this.containsVaildParametersCondition(currentObject)) continue;
 
             var currentID = currentObject.getAttribute("id");
             currentID = currentID.replace(PAGE_CONTEXT, "");
@@ -155,7 +155,7 @@ function getInputType(inputObj) {
     return (type);
 }
 
-function containsVaildParameters(inputObj) {
+function containsVaildParametersCondition(inputObj) {
     // If we are a radio or checkbox then ask our parents
     var tagName = inputObj.tagName.toUpperCase();
     var type = this.getInputType(inputObj);
@@ -188,6 +188,8 @@ function containsVaildParameters(inputObj) {
 
         if (condition)
             return (true);
+
+
 
     }
 
