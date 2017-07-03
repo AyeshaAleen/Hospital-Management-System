@@ -80,27 +80,27 @@ var wrapper2 = document.getElementById("signature-pad-2"),
 
 //PAD 2 ENDS
 
-//PAD 3 STARTS
-var wrapper3 = document.getElementById("signature-pad-3"),
-	clearButton3 = wrapper3.querySelector("[data-action=clear3]"),
-    savePNGButton3 = wrapper3.querySelector("[data-action=save-png3]"),
-    canvas3 = wrapper3.querySelector("canvas"),
-    signaturePad3;
+////PAD 3 STARTS
+//var wrapper3 = document.getElementById("signature-pad-3"),
+//	clearButton3 = wrapper3.querySelector("[data-action=clear3]"),
+//    savePNGButton3 = wrapper3.querySelector("[data-action=save-png3]"),
+//    canvas3 = wrapper3.querySelector("canvas"),
+//    signaturePad3;
 
-resizeCanvas(canvas3);
-signaturePad3 = new SignaturePad(canvas3);
+//resizeCanvas(canvas3);
+//signaturePad3 = new SignaturePad(canvas3);
 
-clearButton3.addEventListener("click", function (event) {
-    signaturePad3.clear();
-});
+//clearButton3.addEventListener("click", function (event) {
+//    signaturePad3.clear();
+//});
 
-savePNGButton3.addEventListener("click", function (event) {
-    if (signaturePad3.isEmpty()) {
-        alert("Please provide signature first.");
-    } else {
-        window.open(signaturePad3.toDataURL());
-    }
-});
+//savePNGButton3.addEventListener("click", function (event) {
+//    if (signaturePad3.isEmpty()) {
+//        alert("Please provide signature first.");
+//    } else {
+//        window.open(signaturePad3.toDataURL());
+//    }
+//});
 
 
 //PAD 3 ENDS
