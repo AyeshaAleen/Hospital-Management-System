@@ -313,13 +313,6 @@
                                         <textarea rows="2" id="txtcondition" class="form-control"></textarea>
                                     </div>
 
-
-                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <input type="checkbox" id="chkisBroughtForward" />
-                                            isBroughtForward
-                                        </div>
-                                    </div>
                                      
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -333,7 +326,7 @@
                                       <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Ref Translation</label>
-                                            <input type="text" id="txtBroughtForward" disabled class="form-control" />
+                                            <input type="text" id="txtBroughtForward"  class="form-control" />
                                         </div>
                                     </div>
 
@@ -425,24 +418,7 @@
                 document.getElementById("txtBroughtForward").value = document.getElementById(Controlid).getAttribute("translation");
             });
 
-            $("#chkisBroughtForward").change(function () {
-                if ($("#chkisBroughtForward").is(':checked')) {
-                    document.getElementById("txtBroughtForward").disabled = false;
-   
-                debugger;
-                $('#tblEditor').find('span, label, h4').each(function () {
-                    var id = $(this).attr('id');
-                    if (id) {
-                            $("#ddlRefLabelID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
-                    }
-                });
-                }
-
-                else {
-                    document.getElementById("txtBroughtForward").disabled = true;
-                $("#ddlRefLabelID").children().remove().end().append('<option selected value="">Select</option>');
-                }
-            });
+            
 
         });
     </script>

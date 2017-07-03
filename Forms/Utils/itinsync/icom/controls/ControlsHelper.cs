@@ -76,6 +76,7 @@ namespace Utils.itinsync.icom.controls
             txtBox.ID = content.controlID;
             txtBox.CssClass = content.cssClass;
             txtBox.Attributes.Add("type", "hidden");
+            txtBox.Text = content.defaultValue;
             return txtBox;
         }
 

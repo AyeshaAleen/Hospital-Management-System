@@ -12,7 +12,7 @@ namespace Domains.itinsync.icom.idocument.referedcontent
         public enum columns { documentsectionID, controlID, translation, documentdefinitionID, documentcontentID }
         public enum primaryKey { referedContentID }
         public Int32 referedContentID { get; set; }
-        public Int64 documentsectionID { get; set; }
+        public Int32 documentsectionID { get; set; }
         public string controlID { get; set; }
         public string translation { get; set; }
 
