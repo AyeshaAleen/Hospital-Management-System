@@ -17,7 +17,7 @@
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-select/css/bootstrap-select.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" ) %>" rel="stylesheet" />
 
-    <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstChangerap-table/css/bootstrap-table.min.css" ) %>" rel="stylesheet" />
+    <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-table/css/bootstrap-table.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/css/ladda-themeless.min.css" ) %>" rel="stylesheet" />
 
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/timepicker/bootstrap-timepicker.min.css" ) %>" rel="stylesheet" />
@@ -83,9 +83,9 @@
                 <div class="container">
                     <div class="">
                         <div class="pull-left">
-                            <button class="button-menu-mobile open-left waves-effect waves-light">
+                            <span class="button-menu-mobile open-left waves-effect waves-light">
                                 <i class="md md-menu"></i>
-                            </button>
+                            </span>
                             <span class="clearfix"></span>
                         </div>
                          
@@ -261,9 +261,8 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/js/ladda.jquery.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/custom.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/validate/IValidation.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormDynamicCalculator.js") %>"></script>
-     <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/conditions/IFormDynamicCondition.js") %>"></script>
-    <script src="<%= ResolveClientUrl("~/itinsync/resources/controls/IFormControls.js") %>"></script>
+   <%-- <script src="<%= ResolveClientUrl("~/itinsync/resources/calculation/IFormDynamicCalculator.js") %>"></script>
+     <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/conditions/IFormDynamicCondition.js") %>"></script>--%>
 
  
     <script src="<%= ResolveClientUrl("~/itinsync/resources/dynamic/table/DynamicTable.js") %>"></script>
