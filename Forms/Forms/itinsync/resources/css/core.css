@@ -811,7 +811,7 @@ label {
 .nav.nav-tabs + .tab-content {
   background: #ffffff;
   margin-bottom: 30px;
-  padding: 30px;
+  padding: 30px 0;
 }
 .tabs-vertical-env {
   margin-bottom: 30px;
@@ -839,27 +839,28 @@ label {
   white-space: nowrap;
 }
 .nav.nav-tabs > li.active > a {
-  background-color: #ffffff;
+  background-color: #41aa4a;
+  color:#fff !important;
   border: 0;
 }
 .nav.nav-tabs > li > a,
 .nav.tabs-vertical > li > a {
-  background-color: transparent;
+  background-color: #016714;
   border-radius: 0;
   border: none;
-  color: #505461 !important;
+  color: #fff !important;
   cursor: pointer;
-  line-height: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
-  letter-spacing: 0.03em;
+  line-height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .nav.nav-tabs > li > a:hover,
 .nav.tabs-vertical > li > a:hover {
-  color: #41aa4a !important;
+    color: #fff !important;
+    background-color: #41aa4a;
 }
 .tab-content {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -887,7 +888,7 @@ label {
 .tabs-vertical > li.active > a,
 .tabs-vertical > li.active > a:focus,
 .tabs-vertical > li.active > a:hover {
-  color: #41aa4a !important;
+  color: #fff !important;
 }
 /* List group */
 .list-group-item {
