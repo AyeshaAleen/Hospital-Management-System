@@ -37,6 +37,8 @@ using HtmlAgilityPack;
 using System.IO;
 using Utils.itinsync.icom.controls;
 using Domains.itinsync.icom.interfaces.document;
+using Domains.itinsync.icom.idocument.referedcontent;
+using Utils.itinsync.icom.cache.document;
 
 namespace Forms.itinsync.src.session
 {
@@ -89,7 +91,7 @@ namespace Forms.itinsync.src.session
                         TableRow tabletr = new TableRow();
 
                         tabletr.CssClass = tr.cssClass;
-                        tabletr.BorderWidth = 10;
+                        //tabletr.BorderWidth = 10;
                         
                         foreach (XDocumentTableTD td in tr.tds)
                         {
@@ -120,6 +122,28 @@ namespace Forms.itinsync.src.session
             }
 
             return parentTable;
+        }
+        protected void processForwardedFields(Control parent, Douments documents)
+        {
+
+            foreach (XDocumentReferedContent referedContent in documents.xdocumentDefinition.documentRefferedContent)
+            {
+                XDocumentSection section = DocumentManager.getDocumentSection(referedContent.documentsectionID);
+                XMLParser xmlParser = new XMLParser(((Douments)getParentRef()).data);
+                string tagXML =  xmlParser.getTagXML(section.name);
+                xmlParser = new XMLParser(tagXML);
+               string fieldValue = xmlParser.getTagValue(referedContent.controlID);
+
+                ControlsHelper controlHelper = new ControlsHelper();
+                XDocumentTableContent content = new XDocumentTableContent();
+                content.controlID = "hidden"+referedContent.controlID;
+                content.defaultValue = fieldValue;
+                parent.Controls.Add(controlHelper.createHiddenField(content));
+
+                
+
+                
+            }
         }
 
 

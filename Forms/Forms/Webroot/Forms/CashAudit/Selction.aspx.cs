@@ -43,7 +43,7 @@ namespace Forms.Webroot.Forms.CashAudit
             XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals("Selction")).SingleOrDefault();
             dbxml = ((Douments)getParentRef()).data;
             documentid = ((Douments)getParentRef()).documentID;
-            DocumentFlow = Convert.ToInt32(Section.flow);
+            DocumentFlow = Section.flow;
 
             if (Section != null)
             {

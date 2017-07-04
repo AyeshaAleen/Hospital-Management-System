@@ -128,9 +128,10 @@ namespace DAO.itinsync.icom.idocument.definition
                 documentDefinition.documentSections = XDocumentSectionDAO.getInstance(currentDBContext).readyByDocumentDefinitionID(documentDefinition.xDocumentDefinationID);
                 documentDefinition.roleRoute = XDocumentRouteDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
                 documentDefinition.routeUsers = XDocumentRouteUsersViewDAO.getInstance(currentDBContext).findbyDefinitionID(documentDefinition.xDocumentDefinationID);
-
+                documentDefinition.documentRefferedContent =  XDocumentReferedContentDAO.getInstance(currentDBContext).readbyDefinitionID(documentDefinition.xDocumentDefinationID);
                 foreach (XDocumentSection section in documentDefinition.documentSections)
                 {
+                   section.fieldcount = DocumentContentViewDAO.getDefInstance(currentDBContext).readSequenceBySectionId(section.documentsectionid);
                     section.documentTable = XDocumentTableDAO.getInstance(currentDBContext).readbySectionID(section.documentsectionid);
 
                     foreach (XDocumentTable table in section.documentTable)
@@ -147,22 +148,25 @@ namespace DAO.itinsync.icom.idocument.definition
 
                                 foreach (XDocumentTableContent content in td.fields)
                                 {
-                                    content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyResultantID(content.documentTableContentID);
-                                    content.fieldcalculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyContentID(content.documentTableContentID);
+                                    //content.calculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyResultantID(content.documentTableContentID);
+                                    //content.fieldcalculations = XDocumentCalculationDAO.getInstance(currentDBContext).readbyContentID(content.documentTableContentID);
 
-                                    foreach (XDocumentCalculation calculation in content.calculations)
-                                    {
-                                        calculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.documentcontentID);
-                                        calculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.resultContentID);
-                                        GlobalStaticCache.documentCalculation.Add(calculation.xdocumentcalculationID, calculation);
-                                    }
+                                    //foreach (XDocumentCalculation calculation in content.calculations)
+                                    //{
+                                    //    calculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.documentcontentID);
+                                    //    calculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(calculation.resultContentID);
+                                    //    GlobalStaticCache.documentCalculation.Add(calculation.xdocumentcalculationID, calculation);
+                                    //}
 
-                                    foreach (XDocumentCalculation fieldcalculation in content.fieldcalculations)
-                                    {
-                                        fieldcalculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.documentcontentID);
-                                        fieldcalculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.resultContentID);
+                                    //foreach (XDocumentCalculation fieldcalculation in content.fieldcalculations)
+                                    //{
+                                    //    fieldcalculation.fieldContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.documentcontentID);
+                                    //    fieldcalculation.resultContent = XDocumentTableContentDAO.getInstance(currentDBContext).findByPrimaryKey(fieldcalculation.resultContentID);
                                        
-                                    }
+                                    //}
+
+                                    content.ReferredContent = XDocumentReferedContentDAO.getInstance(currentDBContext).readbyDocumentContentID(content.documentTableContentID);
+
 
                                     if (GlobalStaticCache.documentContent.ContainsKey(content.documentTableContentID)==false)
                                     {

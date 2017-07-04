@@ -19,17 +19,20 @@ namespace Forms.Webroot
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            PersonalInboxViewDTO dto = new PersonalInboxViewDTO();
-            dto.header = dto.getHeader();
-            dto.personalinboxview.userid = getUserID();
-            dto.personalinboxview.status = ApplicationCodes.DOCUMENT_STATUS_INPROGRESS;
-
-            IResponseHandler response = new PersonalInboxViewGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            if (!IsPostBack)
             {
-                tblDocument.DataSource = dto.personalinboxviewList;
-                lblNew.Text = dto.personalinboxviewList.Count.ToString();
-                tblDocument.DataBind();
+                PersonalInboxViewDTO dto = new PersonalInboxViewDTO();
+                dto.header = dto.getHeader();
+                dto.personalinboxview.userid = getUserID();
+                dto.personalinboxview.status = ApplicationCodes.DOCUMENT_STATUS_INPROGRESS;
+
+                IResponseHandler response = new PersonalInboxViewGetService().executeAsPrimary(dto);
+                if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+                {
+                    tblDocument.DataSource = dto.personalinboxviewList;
+                    lblNew.Text = dto.personalinboxviewList.Count.ToString();
+                    tblDocument.DataBind();
+                }
             }
         }
 

@@ -12,6 +12,10 @@ var FORM_NAME = "";
 var CONTROL_COUINT = 0;
 var CURRENTPAGE_CONTEXT = "CommonMasterBody_DynamicFormMasterBody_";
 var SECTIONID = 0;
+var targetCellControl;
+
+
+
 // configuration
 redips.configuration = function () {
     redips.components = 'tblComponents';// left table id (table containing components)
@@ -71,8 +75,9 @@ redips.init = function () {
     };
 
     // event handler invoked before DIV element is dropped to the table cell
-    rd.event.droppedBefore = function (targetCell) {
-
+    rd.event.droppedBefore = function(targetCell) {
+        debugger;
+        //var test = targetCell.parentNode;
         // set new width to the dropped DIV element
         var width = targetCell.offsetWidth;
         // set width and reset height value
@@ -80,7 +85,8 @@ redips.init = function () {
         rd.obj.style.height = '';
     };
     // event handler invoked in a moment when DIV element is dropped to the table
-    rd.event.dropped = function (targetCell) {
+    rd.event.dropped = function(targetCell) {
+
         var st,		// source table
             id;		// DIV id
         // deselect target cell id needed
@@ -93,7 +99,7 @@ redips.init = function () {
             // define id of dropped DIV element (only first three characters because cloned element will have addition in id)
             id = rd.obj.id.substring(0, 3);
 
-
+            setTargetCell(targetCell);
             //			rd.obj.style.borderColor = 'white';
             // send AJAX request (input parameter is field id)
             // div property is reference to the object where AJAX output will be displayed (inside dropped DIV element) 
@@ -109,7 +115,7 @@ redips.init = function () {
 // AJAX handler - display response from redips.ajaxField in div.innerHTML
 // callback method is called with XHR and obj object (obj is just passed from ajaxCall to this callback function)
 // error handling is wrapped inside callback function
-redips.handler1 = function (xhr, obj) {
+redips.handler1 = function(xhr, obj) {
     debugger;
     // prepare title and layout local variables
     var title,
@@ -139,15 +145,15 @@ redips.handler1 = function (xhr, obj) {
         var elemheading = obj.div.getElementsByTagName("h4");
         var controlID = "";
         if (eleminput.length > 0)
-            controlID = fieldset(eleminput, obj.div.id);
+            controlID = fieldset(eleminput, obj.div.id, getTargetCell());
         if (elemlabel.length > 0)
-            controlID=   fieldset(elemlabel, obj.div.id);
+            controlID = fieldset(elemlabel, obj.div.id, getTargetCell());
         if (elemtextarea.length > 0)
-            controlID = fieldset(elemtextarea, obj.div.id);
+            controlID = fieldset(elemtextarea, obj.div.id, getTargetCell());
         if (elemheading.length > 0)
-            controlID= fieldset(elemheading, obj.div.id);
+            controlID = fieldset(elemheading, obj.div.id, getTargetCell());
         if (elemselect.length > 0)
-            controlID = fieldset(elemselect, obj.div.id);
+            controlID = fieldset(elemselect, obj.div.id, getTargetCell());
 
         var popupHTML = layout[0];
         var params = "AddDetail('" + controlID + "')";
@@ -171,14 +177,22 @@ function deleteColumn(elem) {
     var divelement = $(elem).parent().remove();
 }
 
+function setTargetCell(targetCell)
+{
+    targetCellControl = targetCell;
+}
 
-function setTranslation() {
+function getTargetCell(targetCell) {
+    return targetCellControl;
+}
 
 
-    var input = $("#defaultValue").val();
+function setTranslation()
+{
+
+    var input = iGetControlValue("defaultValue");
     var output = input.split(" ").join('.');
-    $("#translation").val(output);
-  
+    iFillControl("translation", output);
     
 }
 
@@ -187,101 +201,146 @@ function AddDetail(id) {
 
     debugger;
 
-   
+   //Need to revise below logic
     //alert(jQuery("#ddlControlID"));
     $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
+    $("#ddlConditionalControlID").children().remove().end().append('<option selected value="">Select</option>');
+    $("#ddlRefLabelID").children().remove().end().append('<option selected value="">Select</option>');
 
     $('#tblEditor').find('td').each(function () {
 
 
         $(this).find('input').each(function () {
             $("#ddlControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+            $("#ddlConditionalControlID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
 
         });
-      
+
+
+        $(this).find('span, label, h4').each(function ()
+        {
+            var id = $(this).attr('id');
+            if (id) {
+                $("#ddlRefLabelID").append($("<option id='opt'></option>").val($(this).attr('id')).html($(this).attr('id')));
+            }
+
+        });
+        
         
     });
+
+    //get object 
+    var fieldObject          = iGetObject(id);
+    var controlType          = iGetAttribute(id, "type");
+    var condition            = iGetAttribute(fieldObject, "condition");
+    var resultantid          = iGetAttribute(fieldObject, "resultantid");
+    var Reftranslation       = iGetAttribute(fieldObject, "Reftranslation");
+    var refcontrol           = iGetAttribute(fieldObject, "refcontrol");
+    var cssClass = iGetAttribute(fieldObject, "ddlcssClass");
+    var translation          = iGetAttribute(fieldObject, "translation");
+    var points               = iGetAttribute(fieldObject, "points");
+    var defaultValue         = iGetAttribute(fieldObject, "defaultValue");
+    var formula              = iGetAttribute(fieldObject, "formula");
+    var irequired            = iGetAttribute(fieldObject, "irequired");
+    var txtBroughtForward    = iGetControlValue("txtBroughtForward")
+    var ddlMask                = iGetAttribute(fieldObject,"imask")
+    var ddlLookupName        = iGetAttribute(fieldObject,"imask")
+    var isLabel              = (controlType == "label" || controlType == "heading") ? true : false;
+    var isNotRadio              = controlType != "radio"  ? true : false;
     
+    iFillControl("PreviousControlID", resultantid);
+    iFillControl("txtcondition", condition);
+    iFillControl("txtBroughtForward", Reftranslation);
+    iFillControl("ControlName", fieldObject.name);
+    iFillControl("ControlID", id);
+    //iFillControl("cssClass", cssClass);
 
-    if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading") {
-        document.getElementById("points").disabled = true;
-        document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = true;
-        document.getElementById("ddlControlID").disabled = true;
-    }
 
-    else
-    {
-        document.getElementById("points").disabled = false;
-        document.getElementById(CURRENTPAGE_CONTEXT+"ddlOperation").disabled = false;
-        document.getElementById("ddlControlID").disabled = false;
-    }
-    if (document.getElementById(id).getAttribute("type") == "radio") {
-        document.getElementById("ControlName").disabled = false;
-    }
-    else
-        document.getElementById("ControlName").disabled = true;
+   
 
-    //this is required object which contain all information regarding object
-    var fieldObject = document.getElementById(id);
+    iFillControl("translation", translation);
+    iFillControl("points", points);
+    iFillControl("defaultValue", defaultValue);
+    iFillControl("txtformula", formula);
+    iFillControl("isRequired", irequired);
+    // mark fields are readonly
+    iDisableControl("points", isLabel);
+    iDisableControl("ddlControlID", isLabel);
+    iDisableControl("ddlConditionalControlID", isLabel);
+    iDisableControl(CURRENTPAGE_CONTEXT + "ddlOperation", isLabel);
+    iDisableControl(CURRENTPAGE_CONTEXT + "ddlConditionOperation", isLabel);
+    iDisableControl("ControlName", isNotRadio);
 
-    // getting data from popup and setting it to required field
-    debugger;
-    //if (fieldObject.getAttribute("resultantid") != "")
-        document.getElementById("PreviousControlID").value = fieldObject.getAttribute("resultantid");
+    //set combo value
+    setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls", refcontrol);
+    //Need to revise this logic
 
-    //document.getElementById("ddlControlID").value = fieldObject.getAttribute("resultantid");
+    setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlcssClass", cssClass);
 
-    document.getElementById("ControlName").value = fieldObject.getAttribute("name");;
-    document.getElementById("ControlID").value = id;
-    document.getElementById("cssClass").value = fieldObject.getAttribute("cssClass");
-    document.getElementById("translation").value = fieldObject.getAttribute("translation");
-    document.getElementById("points").value = fieldObject.getAttribute("points");
-    document.getElementById("defaultValue").value = fieldObject.getAttribute("defaultValue");
-    if (fieldObject.getAttribute("irequired") == "true")
-        document.getElementById("isRequired").checked = true;
-    else
-        document.getElementById("isRequired").checked = false;
-    debugger;
-    document.getElementById("txtformula").value = fieldObject.getAttribute("formula");
-    
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlLookupName", ddlLookupName);
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlMask", ddlMask);
+
+       
     $('#con-close-modal').modal('show');
 }
+
+
+
 function SetDetail() {
     debugger;
-      var  id = document.getElementById("ControlID").value;
+    
 
-      $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
+    var id                      = iGetControlValue("ControlID");
+    var ControlName             = iGetControlValue("ControlName");
+    var cssClass                = iGetControlValue(CURRENTPAGE_CONTEXT +"ddlcssClass");
+    var translation             = iGetControlValue("translation");
+    var txtBroughtForward       = iGetControlValue("txtBroughtForward");
+    var points                  = iGetControlValue("points");
+    var isRequired              = iGetControlValue("isRequired");
+    var isReadonly              = iGetControlValue("isReadonly");
+    var txtformula              = iGetControlValue("txtformula");
+    var txtcondition            = iGetControlValue("txtcondition");
+    var defaultValue            = iGetControlValue("defaultValue");
+    var controlType             = iGetAttribute(id, "type");
+    var refcontrol              = iGetAttribute(id, "refcontrol");
+    var ddlLookupName           = getComboText(CURRENTPAGE_CONTEXT + "ddlLookupName");
+    var ddlForwardedControls    = getComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls");
+    var ddlMask                 = getComboText(CURRENTPAGE_CONTEXT + "ddlMask");
+    var isLabel                 = (controlType == "label" || controlType == "heading") ? true : false;
+    var isNotRadio              = controlType != "radio" ? true : false;
+  
 
-    document.getElementById(id).setAttribute("id", document.getElementById("ControlID").value);
-    document.getElementById(id).setAttribute("name", document.getElementById("ControlName").value);
-    document.getElementById(id).setAttribute("Class", document.getElementById("cssClass").value);
-    document.getElementById(id).setAttribute("translation", document.getElementById("translation").value);
-    if ($("#isReadonly").is(':checked')) {
-        document.getElementById(id).setAttribute("disabled", "disabled");
-    }
+
+    $("#" + id).parent().addClass('redips-drag-field-highlight').removeClass('redips-drag');
+
+    iSetAttribute(id, "id", id);
+    iSetAttribute(id, "name", ControlName);
+    iSetAttribute(id, "Class", cssClass);
+    iSetAttribute(id, "translation", translation);
+    iSetAttribute(id, "refcontrol", ddlForwardedControls);
+    iSetAttribute(id, "Reftranslation", txtBroughtForward);
+    iSetAttribute(id, "formula", txtformula);
+    iSetAttribute(id, "condition", txtcondition);
+    iSetAttribute(id, "defaultValue", defaultValue);
+    
+    setSelectedComboValue(CURRENTPAGE_CONTEXT+"ddlForwardedControls", refcontrol);
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlLookupName", ddlLookupName);
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlMask", ddlMask);
+
+     if (isReadonly)
+        iSetAttribute(id, "disabled", "disabled");
+     else
+         iSetAttribute(id, "disabled", ""); //document.getElementById(id).removeAttribute("disabled", "");
+       
+    
+    
+    if (isLabel)
+        iGetObject(id).innerHTML = defaultValue;
     else
     {
-        document.getElementById(id).removeAttribute("disabled", "");
+        iSetAttribute(id, "points", points);
+        iSetAttribute(id, "irequired", isRequired);
     }
-    if (document.getElementById(id).getAttribute("type") != "label")
-    {
-       
-
-        document.getElementById(id).setAttribute("points", document.getElementById("points").value);
-        document.getElementById(id).setAttribute("Operation", $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text());
-        document.getElementById(id).setAttribute("resultantid", $("#ddlControlID option:selected").text());
-        document.getElementById(id).setAttribute("irequired", document.getElementById("isRequired").checked);
-    }
-    
-
-    document.getElementById(id).setAttribute("formula", document.getElementById("txtformula").value);
-    document.getElementById(id).setAttribute("defaultValue", document.getElementById("defaultValue").value);
-    document.getElementById(id).setAttribute("LookupName", $("#" +CURRENTPAGE_CONTEXT+"ddlLookupName option:selected").text());
-    document.getElementById(id).setAttribute("imask", $("#" +CURRENTPAGE_CONTEXT+"ddlMask option:selected").text());
-  
-    
-    if (document.getElementById(id).getAttribute("type") == "label" || document.getElementById(id).getAttribute("type") == "heading" )
-        document.getElementById(id).innerHTML = document.getElementById("defaultValue").value;
 
     
     $('#con-close-modal').modal('hide');
@@ -289,41 +348,19 @@ function SetDetail() {
 
 function setOperationField(id)
 {
-    //debugger;
-    //var formula = id;
-    //$('#tblOperationDetail').find('tr').each(function () {
-    //    $(this).find('td').each(function () {
-
-    //        if ($(this).html() == "MULTIPLY")
-    //            formula +="* ";
-    //        else if ($(this).html() == "PLUS")
-    //            formula += "+ ";
-    //        else if ($(this).html() == "MINUS")
-    //            formula += "- ";
-    //        else if ($(this).html() == "DIVIDE")
-    //            formula += "/ ";
-    //        else if ($(this).html() == "PERCENTAGE")
-    //            formula += "% ";
-
-    //        else
-    //    formula += $(this).html();
-
-    //        document.getElementById("txtformula").value = formula;
-
-    //});
-    //});
+   
 }
 
 function AddOperationDetail() {
     debugger;
 
-    var operation = $("#" +CURRENTPAGE_CONTEXT+"ddlOperation option:selected").text();
-    var ControlID = $("#ddlControlID option:selected").text();
+    var operation = getComboText(CURRENTPAGE_CONTEXT + "ddlOperation");
+    var ControlID = getComboText("ddlControlID");
 
-    var formula = document.getElementById("txtformula").value;
+    var formula = iGetControlValue("txtformula");
 
     if (formula == "")
-        formula = document.getElementById("ControlID").value;
+        formula = iGetControlValue("ControlID");
 
     
     if (operation.toUpperCase() == "MULTIPLY")
@@ -341,17 +378,21 @@ function AddOperationDetail() {
     formula += ControlID;
 
 
-      
-
-    document.getElementById("txtformula").value = formula;
-
-    //var table = document.getElementById("tblOperationDetail");
-    //var row = table.insertRow(1);
-    //var cell1 = row.insertCell(0);
-    //var cell2 = row.insertCell(1);
-    //cell1.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlOperation option:selected").text();
-    //cell2.innerHTML = $("#CommonMasterBody_DynamicFormMasterBody_ddlControlID option:selected").text();
+    iFillControl("txtformula", formula);
 }
+
+
+function AddConditionDetail() {
+    debugger;
+    var operation = getComboText(CURRENTPAGE_CONTEXT + "ddlConditionOperation");
+    var ControlID = getComboText("ddlConditionalControlID");
+    var condition = iGetControlValue("txtcondition");
+
+    condition += ControlID + operation;
+    iFillControl("txtcondition", condition);
+  
+}
+
 
 function fieldClick(event) {
 
@@ -363,33 +404,74 @@ function fieldClick(event) {
 }
 
 
-function fieldset(event,divid) {
+function fieldset(event, divid, targetCell) {
     debugger;
     var generatedcontrolID = "";
-    var test = CURRENTPAGE_CONTEXT+"ControlCount";
- 
-    CONTROL_COUINT  = document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value;
-    FORM_NAME = document.getElementById(CURRENTPAGE_CONTEXT + "FormName").value;
-    SECTIONID = document.getElementById(CURRENTPAGE_CONTEXT + "sectionID").value;
-    if (event[0].getAttribute("type") == "label" || event[0].getAttribute("type") == "select" || event[0].getAttribute("type") == "textarea" || event[0].getAttribute("type") == "heading")
-    {
-        event[0].id = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
-        event[0].name = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
-        generatedcontrolID = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+    var ControlName = "";
+
+    var controlType = iGetAttribute(event[0], "type");//.getAttribute("type");
+    CONTROL_COUINT  = iGetControlValue(CURRENTPAGE_CONTEXT + "ControlCount");
+    FORM_NAME       = iGetControlValue(CURRENTPAGE_CONTEXT + "FormName");  
+    SECTIONID       = iGetControlValue(CURRENTPAGE_CONTEXT + "sectionID");  
+
+
+    if (controlType == "label" || controlType == "select" || controlType == "textarea" || controlType == "heading") {
+        ControlName = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
+
     else
     {
-        event[0].id = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
-        event[0].name = "dynamic_" + event[0].getAttribute("type") + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
-        generatedcontrolID = "dynamic_" + event[0].type + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        ControlName = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
+        generatedcontrolID = "dynamic_" + controlType + FORM_NAME + SECTIONID + "_" + CONTROL_COUINT;
     }
+        
+    //in case of radio button and its second column then set name of previous droped radio button
+    if (controlType == "radio")
+        setRadioGroupName(targetCell, ControlName);
+
+
+
+    event[0].id = generatedcontrolID;
+    event[0].name = ControlName;
+    
+
     CONTROL_COUINT++;
-    document.getElementById(CURRENTPAGE_CONTEXT + "ControlCount").value = CONTROL_COUINT;
+    iFillControl(CURRENTPAGE_CONTEXT + "ControlCount", CONTROL_COUINT);
+
+  
 
     return generatedcontrolID;
    
 }
+function setRadioGroupName(targetCell,controlName)
+{
+    debugger;
+    var row = targetCell.parentNode;
+    if (row.cells.length > 0)
+    {
 
+        for (var cellCount = 0; cellCount < row.cells.length; cellCount++)
+        {
+           
+            var controlTypes = row.cells[cellCount].getElementsByTagName("input");
+
+            for (var controlcount = 0; controlcount < controlTypes.length; controlcount++)
+            {
+                var controlType = controlTypes[controlcount]; 
+
+                if (controlType.type == "radio") {
+                    controlType.name = controlName;
+                }
+
+            }
+           
+        }
+            
+    }
+    return null;
+
+}
 
 
 // delete DIV element from table editor
@@ -628,3 +710,7 @@ if (window.addEventListener) {
 else if (window.attachEvent) {
     window.attachEvent('onload', redips.init);
 }
+
+
+
+

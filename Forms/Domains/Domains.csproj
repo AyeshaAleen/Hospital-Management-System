@@ -54,6 +54,7 @@
     <Compile Include="itinsync\icom\idocument\content\XDocumentContent.cs" />
     <Compile Include="itinsync\icom\idocument\definition\XDocumentDefination.cs" />
     <Compile Include="itinsync\icom\idocument\Douments.cs" />
+    <Compile Include="itinsync\icom\idocument\referedcontent\XDocumentReferedContent.cs" />
     <Compile Include="itinsync\icom\idocument\route\XDocumentRoute.cs" />
     <Compile Include="itinsync\icom\idocument\role\XDocumentRole.cs" />
     <Compile Include="itinsync\icom\idocument\section\XDocumentSection.cs" />

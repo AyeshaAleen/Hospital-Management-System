@@ -99,6 +99,8 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string DOCUMENT_STATUS_INPROGRESS = "201";
         public static readonly string DOCUMENT_STATUS_COMPLETE = "202";
 
+        public static readonly string DOCUMENT_STATUS_ACTIVE = "Active";
+        public static readonly string DOCUMENT_STATUS_DEACTIVE = "DeActive";
 
         ///**************INVOICE STATUS CODES*************///
         public static readonly string INVOICE_STATUS_NEW = "0";

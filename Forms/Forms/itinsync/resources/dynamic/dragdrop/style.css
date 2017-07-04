@@ -204,6 +204,11 @@ table#tblEditor > tbody > tr > td {
 
 table tr th {
     background: #81c868 !important;
-    color:#fff;
+    color:#fff !important;
     text-align:center;
+}
+
+table tr th .hLeft, table tr th .hRight, table tr th h4 {  
+    color:#fff !important;
+    text-shadow: 1px 0 2px #999;
 }

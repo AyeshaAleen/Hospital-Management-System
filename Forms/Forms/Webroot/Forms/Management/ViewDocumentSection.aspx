@@ -1,4 +1,7 @@
-﻿<%@ Page Title="Forms Sections Management" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ViewDocumentSection.aspx.cs" Inherits="Forms.Webroot.Forms.Management.ViewDocumentSection" %>
+﻿
+<%@ Page Title="Forms Sections Management" Language="C#" MasterPageFile="~/Webroot/Forms/FormMaster.master" AutoEventWireup="true" CodeBehind="ViewDocumentSection.aspx.cs" 
+  MaintainScrollPositionOnPostback="true" Inherits="Forms.Webroot.Forms.Management.ViewDocumentSection" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="FormMasterHead" runat="server">
 </asp:Content>
@@ -75,11 +78,14 @@
                                                     </asp:LinkButton>
                                                 </td>
                                                 <td style="text-align: center;">
-                                                    <asp:LinkButton ID="btnEditDocument" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
+                                                 
+                                                    <asp:LinkButton ID="btnDeleteDocument" runat="server" Text='<%# Eval("status") %>'
                                                         CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' ToolTip="Delete"
+                                                        CommandName='Reset' 
                                                        OnCommand="btnDeleteDocument_Command">
                                                     </asp:LinkButton>
+                                               
+                                                     
                                                 </td>
                                             </tr>
                                         </ItemTemplate>
@@ -129,7 +135,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
+                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" OnClientClick="return false;" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
                         </div>
 
                         <div class="clearfix"></div>

@@ -121,14 +121,7 @@ namespace Utils.itinsync.icom.cache.document
         }
         public static Int32 getDocumentSectionFieldCount(Int32 documentSectionID, Int32 doumentDefinitionID)
         {
-            Int32 count = 0;
-            foreach (XDocumentTable documenttable in getDocumentTables(documentSectionID, doumentDefinitionID))
-            {
-                count = Convert.ToInt32(documenttable.trs.Last().tds.Last().fields.Last().controlID.Split('_').Last())+1;
-
-                
-            }
-            return count;
+            return getDocumentSection(documentSectionID).fieldcount+1;
 
         }
         public static List<XDocumentSection> getDocumentSections(Int64 doumentDefinitionID)
@@ -142,17 +135,7 @@ namespace Utils.itinsync.icom.cache.document
             }
 
         }
-        public static XDocumentSection getDocumentSectionID(Int32 sectionID)
-        {
-            if (GlobalStaticCache.documentSection.ContainsKey(sectionID))
-                return GlobalStaticCache.documentSection[sectionID];
-            else
-            {
-                // write code to reload data
-                return null;
-            }
-
-        }
+       
 
 
         public static List<XDocumentTable> getDocumentTables(Int32 documentSectionID, Int32 doumentDefinitionID)

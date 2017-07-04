@@ -28,14 +28,12 @@ namespace Forms.Webroot.Forms.SIO
 
         private static string dbxml = "";
         private static string xml = "";
-        private static int documentid = 0;
         private static int DocumentFlow = 0;
         private static string CurrentFileName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                documentid = Convert.ToInt32(getSubjectID());
                 CurrentFileName = Path.GetFileName(Request.Path);
                 CreateControl();
                 loaddata();
@@ -56,7 +54,7 @@ namespace Forms.Webroot.Forms.SIO
 
             XDocumentSection Section = ((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.name.Equals(CurrentFileName)).SingleOrDefault();
             dbxml = ((Douments)getParentRef()).data;
-            documentid = ((Douments)getParentRef()).documentID;
+            
             DocumentFlow = Convert.ToInt32(Section.flow);
 
             if (Section != null)
@@ -78,7 +76,7 @@ namespace Forms.Webroot.Forms.SIO
         {
             xml = XMLUtils.getDynamicXML(CurrentFileName, dbxml, this);
 
-            IResponseHandler response =saveDocument(xml, documentid, DocumentFlow, ApplicationCodes.DOCUMENT_STATUS_INPROGRESS);
+            IResponseHandler response =saveDocument(xml, ((Douments)getParentRef()).documentID, DocumentFlow, ApplicationCodes.DOCUMENT_STATUS_INPROGRESS);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {

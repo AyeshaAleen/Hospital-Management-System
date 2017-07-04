@@ -12,6 +12,7 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Utils.itinsync.icom.cache.document;
 using Services.itinsync.icom.document.dynamic.definition;
+using Domains.itinsync.icom.idocument.definition;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -47,8 +48,9 @@ namespace Forms.Webroot.Forms.Management
             IResponseHandler response= DbOperation();
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                showSuccessMessage(response);
                 LoadForm();
+                showSuccessMessage(response);
+             
             }
             else
                 showErrorMessage(response);
@@ -59,7 +61,7 @@ namespace Forms.Webroot.Forms.Management
             dto = new DocumentDTO();
             dto.header = getHeader();
             //if (documentID > 0) dto.header = getHeader(); else getHeader();
-            if (TxtEditDocumentId.Value != null)
+            if (!string.IsNullOrEmpty(TxtEditDocumentId.Value))
                 dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(TxtEditDocumentId.Value);
             dto.documentDefination.name = TxtDocumentName.Value;
 

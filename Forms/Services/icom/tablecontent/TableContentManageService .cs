@@ -23,6 +23,7 @@ using DAO.itinsync.icom.lookuptrans;
 using Services.itinsync.icom.cache.task.taskdefinition;
 using Services.itinsync.icom.cache;
 using Services.icom.cache.frame;
+using Domains.itinsync.icom.idocument.referedcontent;
 
 namespace Services.itinsync.icom.tablecontent
 {
@@ -68,14 +69,22 @@ namespace Services.itinsync.icom.tablecontent
                                     XDocumentTableContentDAO.getInstance(dbContext).deleteByID(field.documentTableContentID);
                                     //LookupTransDAO.getInstance(dbContext).deleteBytrans(field.translation);
 
-                                    field.calculations = XDocumentCalculationDAO.getInstance(dbContext).readbyFieldID(field.documentTableContentID);
-                                    foreach (XDocumentCalculation calculation in field.calculations)
-                                    {
-                                        XDocumentCalculationDAO.getInstance(dbContext).deleteByID(calculation.xdocumentcalculationID);
+                                    //field.calculations = XDocumentCalculationDAO.getInstance(dbContext).readbyFieldID(field.documentTableContentID);
+                                    //foreach (XDocumentCalculation calculation in field.calculations)
+                                    //{
+                                    //    XDocumentCalculationDAO.getInstance(dbContext).deleteByID(calculation.xdocumentcalculationID);
 
-                                    }
-                                   
+                                    //}
+
+                                    field.ReferredContent = XDocumentReferedContentDAO.getInstance(dbContext).readbyDocumentContentID(field.documentTableContentID);
                                     
+                                    if(field.ReferredContent!=null && field.ReferredContent.referedContentID>0)
+                                        XDocumentReferedContentDAO.getInstance(dbContext).deleteByID(field.ReferredContent.referedContentID);
+
+           
+
+
+
                                 }
                                
 

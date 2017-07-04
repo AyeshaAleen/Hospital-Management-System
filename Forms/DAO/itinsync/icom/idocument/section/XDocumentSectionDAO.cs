@@ -62,7 +62,7 @@ namespace DAO.itinsync.icom.idocument.section
             //    return GlobalStaticCache.documentDefinition[documentDefinitionID.ToString()].tolist();
             //}
 
-            string sql = "select * From " + TABLENAME + " where documentdefinitionid=" + documentDefinitionID;
+            string sql = "select * From " + TABLENAME + " where documentdefinitionid=" + documentDefinitionID +" order by flow";
             return wrap(processResults(sql));
         }
         protected override string updateQuery(object o, string where)
@@ -107,8 +107,8 @@ namespace DAO.itinsync.icom.idocument.section
 
         public int LastFlowID(Int32 DefinationId)
         {
-            string sql = "select max(flow) From " + TABLENAME + " where documentdefinitionid = "+ DefinationId;
-            return MaxValue(sql);
+            string sql = "select max(flow) as maxResult From " + TABLENAME + " where documentdefinitionid = "+ DefinationId;
+            return maxResult(sql);
             //return (XDocumentSection)processSingleResult(sql);
         }
 

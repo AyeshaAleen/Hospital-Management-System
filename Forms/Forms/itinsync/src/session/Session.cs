@@ -57,6 +57,11 @@ namespace Forms.itinsync.src.session
             /// </summary>
             RESPONSEHANDLER,
 
+            /// <summary>
+            /// SECTION
+            /// </summary>
+            SECTION,
+
 
 
         }

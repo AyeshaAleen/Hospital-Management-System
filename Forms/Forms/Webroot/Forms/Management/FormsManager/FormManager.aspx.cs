@@ -28,6 +28,7 @@ using Utils.itinsync.icom.xml;
 using Utils.itinsync.icom;
 using Utils.itinsync.icom.html;
 using Utils.itinsync.icom.cache.document;
+using Domains.itinsync.icom.idocument.referedcontent;
 
 namespace Forms.Webroot.Forms.Management.FormsManager
 {
@@ -43,8 +44,8 @@ namespace Forms.Webroot.Forms.Management.FormsManager
                 loadDropDown();
                 FormName.Value = ((XDocumentDefination)getParentRef()).name;
                 SectionName.Value = DocumentManager.getDocumentSection(Convert.ToInt32(getSubjectID())).name;
-                string test = (DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID)).ToString();
-                ControlCount.Value = (Convert.ToInt32(DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString())+1).ToString();
+                
+                ControlCount.Value = (Convert.ToInt32(DocumentManager.getDocumentSectionFieldCount(Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).xDocumentDefinationID).ToString())).ToString();
                 sectionID.Value = getSubjectID();
             }
         }
@@ -57,8 +58,22 @@ namespace Forms.Webroot.Forms.Management.FormsManager
             ddlOperation.DataBind();
 
 
+            ddlConditionOperation.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKCondition, getHeader().lang);
+            ddlConditionOperation.DataBind();
+
+
             ddlLookupName.DataSource = LookupManager.readLookups(getHeader().lang);
             ddlLookupName.DataBind();
+
+            List<XDocumentReferedContent> refcontentlist = new List<XDocumentReferedContent>();
+            refcontentlist.Add(new XDocumentReferedContent());
+            refcontentlist.AddRange(((XDocumentDefination)getParentRef()).documentRefferedContent);
+
+            ddlForwardedControls.DataSource = refcontentlist;
+            ddlForwardedControls.DataBind();
+
+            ddlcssClass.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKCSSClass, getHeader().lang);
+            ddlcssClass.DataBind();
 
 
         }
@@ -83,7 +98,7 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 
                 //Delete existing record if any
                 dto.documentdefinitionID = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-                dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).name);
+                dto.documentTableParse = HTMLUtils.HtmlParse(source, Convert.ToInt32(getSubjectID()), ((XDocumentDefination)getParentRef()).name,dto.documentdefinitionID);
                 dto.documentTable.documentsectionid = Convert.ToInt32(getSubjectID());
 
                 IResponseHandler response = new TableContentManageService().executeAsPrimary(dto);
@@ -91,6 +106,9 @@ namespace Forms.Webroot.Forms.Management.FormsManager
                 {
                     setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(((XDocumentDefination)getParentRef()).xDocumentDefinationID)));
                     tableOuterHtml.Value = HTMLUtils.HTMLTable((XDocumentDefination)getParentRef(), Convert.ToInt32(getSubjectID()), getHeader().lang);
+
+                    loadDropDown();
+
                     showSuccessMessage(response);
                 }
                 else
