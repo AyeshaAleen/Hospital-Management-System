@@ -23,7 +23,7 @@ namespace Domains.itinsync.icom.idocument.definition
         public Int64 vendorid { get; set; }
         public String storage { get; set; }
         public String email { get; set; }
-        public string QMode { get; set; }
+        
         public object getKey() { return xDocumentDefinationID; }
 
         public void setTransID(object transID)

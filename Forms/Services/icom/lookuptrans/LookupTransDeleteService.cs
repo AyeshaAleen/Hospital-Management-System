@@ -3,36 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAO.itinsync.icom.BaseAS.frame;
-using DAO.itinsync.icom.signature;
+using Services.icom.lookuptrans.dto;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
-using Services.icom.signature.dto;
-using Domains.itinsync.icom.signature;
+using DAO.itinsync.icom.lookup.trans;
+using DAO.itinsync.icom.BaseAS.frame;
 
-namespace Services.icom.signature
+namespace Services.icom.lookuptrans
 {
-    public class SignatureSaveService : FrameAS
+    public class LookupTransDeleteService : FrameAS
     {
-        SignatureDTO dto = null;
+        LookupTransDTO dto = null;
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
-                dto = (SignatureDTO)o;
-                if (dto.signature.id > 0)
+                dto = (LookupTransDTO)o;
+                if (dto.lookupTrans.lookupTransID > 0)
                 {
-
-                    SignatureDAO.getInstance(dbContext).update(dto.signature, "");
+                    LookupTransDAO.getInstance(dbContext).deleteByID(dto.lookupTrans.lookupTransID);
                 }
-                else
-                {
-                    foreach (Signature signature in dto.signaturelist)
-                    {
-                        SignatureDAO.getInstance(dbContext).create(signature);
-                    }
-                }
+               
             }
             catch (Exception ex)
             {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domains.itinsync.icom.annotation;
 
 namespace Domains.itinsync.icom.lookup.trans
 {
@@ -16,10 +17,10 @@ namespace Domains.itinsync.icom.lookup.trans
         }
         public enum primaryKey
         {
-            id
+            lookupTransID
         }
 
-        public int id { get; set; }
+        public int lookupTransID { get; set; }
 
         public string code { get; set; }
 
@@ -28,7 +29,7 @@ namespace Domains.itinsync.icom.lookup.trans
 
         public object getKey()
         {
-            throw new NotImplementedException();
+            return lookupTransID;
         }
         public void setTransID(object transID)
         {

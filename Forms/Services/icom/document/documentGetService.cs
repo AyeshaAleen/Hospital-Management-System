@@ -23,15 +23,18 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-                dto.documentList = DocumentDAO.getInstance(dbContext).readAll();
+                //  dto.documentList = DocumentDAO.getInstance(dbContext).readAll();
 
-                if (dto.document.documentID>0)
-                {
-                    dto.document = dto.documentList.SingleOrDefault(x => x.documentID == dto.document.documentID);
-                    dto.document.xdocumentSection = XDocumentSectionDAO.getInstance(dbContext).
-                        readByDefinitionIDWithFlow(dto.document.documentDefinitionID, dto.document.flow);
-                }
-                else if (dto.document.storeid > 0)
+                dto.document = DocumentDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentID);
+
+                //if (dto.document.documentID>0)
+                //{
+                //    dto.document = dto.documentList.SingleOrDefault(x => x.documentID == dto.document.documentID);
+                //    dto.documentSection = XDocumentSectionDAO.getInstance(dbContext).
+                //        readByDefinitionIDWithFlow(dto.document.documentDefinitionID, dto.document.flow);
+                //}
+                //else 
+                if (dto.document.storeid > 0)
                 {
                     dto.document = DocumentDAO.getInstance(dbContext).readybyDocumentDefinitionID(dto.document.documentDefinitionID, dto.document.storeid);
                     dto.document.xdocumentDefinition = XDocumentDefinationDAO.getInstance(dbContext).findbyPrimaryKey(dto.document.documentDefinitionID);

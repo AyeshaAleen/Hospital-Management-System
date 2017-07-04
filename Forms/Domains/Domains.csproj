@@ -80,6 +80,11 @@
     <Compile Include="itinsync\icom\payment\Batch.cs" />
     <Compile Include="itinsync\icom\payment\Payment.cs" />
     <Compile Include="itinsync\icom\permission\Permission.cs" />
+    <Compile Include="itinsync\icom\report\definition\XReportDefinition.cs" />
+    <Compile Include="itinsync\icom\report\table\content\XReportTableContent.cs" />
+    <Compile Include="itinsync\icom\report\table\td\XReportTableTD.cs" />
+    <Compile Include="itinsync\icom\report\table\tr\XReportTableTR.cs" />
+    <Compile Include="itinsync\icom\report\table\XReportTable.cs" />
     <Compile Include="itinsync\icom\role\Role.cs" />
     <Compile Include="itinsync\icom\signature\Signature.cs" />
     <Compile Include="itinsync\icom\store\Store.cs" />
