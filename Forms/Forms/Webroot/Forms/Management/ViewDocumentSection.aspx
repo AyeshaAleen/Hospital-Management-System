@@ -269,21 +269,27 @@
                     <div class="clearfix"></div>
 
 
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">User Route</label>
                             <asp:DropDownList ID="ddlUserRouting" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Users</label>
                             <asp:DropDownList ID="ddlUsers" runat="server" CssClass="form-control" DataValueField="userID" DataTextField="userName">
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                        <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Users</label>
+                            <input type="text" class="form-control" id="txtUserEmail" runat="server" placeholder="User Email">
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
                         <asp:Button ID="btnAddUserEmailRouting" Text="Add" OnClick="btnAddUserEmailRouting_Click" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
                     </div>
                     <div class="clearfix"></div>

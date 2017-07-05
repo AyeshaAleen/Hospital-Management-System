@@ -11,7 +11,7 @@ namespace Domains.itinsync.icom.idocument.routeusers
 {
     public class XDocumentRouteUsers : System.Attribute, IDomain
     {
-        public enum columns { xdocumentdefinitionid, userid,role }
+        public enum columns { xdocumentdefinitionid, userid,role,useremail }
         public enum primaryKey { id }
 
         public Int32 id { get; set; }
@@ -23,6 +23,7 @@ namespace Domains.itinsync.icom.idocument.routeusers
 
         public Int32 role { get; set; }
         public string role_Text { get; set; }
+        public string useremail { get; set; }
         public object getKey() { return id; }
 
         public void setTransID(object transID)
