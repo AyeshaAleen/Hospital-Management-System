@@ -60,7 +60,7 @@ namespace Forms.Webroot.Forms.Dashboard
                 setParentRef(dto.document);
                 if ((Douments)getParentRef()!=null)
                 setSection(((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.flow.Equals(dto.document.flow)).SingleOrDefault());
-                Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
+                Response.Redirect(getWebPageName(dto.document.xdocumentDefinition.documentSection.pageID));
             }
         }
     }

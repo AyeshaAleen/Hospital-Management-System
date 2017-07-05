@@ -155,7 +155,7 @@ namespace Utils.itinsync.icom.xml
                         //foreach (Control c in parent.Controls)
                         //{
                             //if(c.HasControls())
-                            findSetControl(c.FindControl(childnode.Name), childnode.InnerText);
+                            findSetControl(parent.FindControl(childnode.Name), childnode.InnerText);
                        // }
                     }
                 }
