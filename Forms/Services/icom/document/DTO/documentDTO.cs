@@ -10,7 +10,8 @@ using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.idocument.route;
 using Domains.itinsync.icom.idocument.routeusers;
-
+using Domains.itinsync.icom.pages;
+using Domains.itinsync.icom.signature;
 namespace Services.itinsync.icom.documents.dto
 {
     public class DocumentDTO : IRequestHandler, IResponseHandler
