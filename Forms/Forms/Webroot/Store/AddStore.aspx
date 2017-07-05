@@ -10,7 +10,7 @@
 
 
                 <div class="form-group col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label">Store Name *</label>
+                    <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Store.Name")); %> *</label>
 
                     <div class="col-sm-8">
                         <input type="text" id="txtStoreName" runat="server" required placeholder="Store Name" class="form-control" />
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-group col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label">Zip Code *</label>
+                    <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Zip.Code")); %> *</label>
 
                     <div class="col-sm-8">
                         <input type="text" id="txtZipCode" runat="server" placeholder="Zip Code" class="form-control" />
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="form-group col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label">Website *</label>
+                    <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Website")); %> *</label>
 
                     <div class="col-sm-8">
                         <input type="text" id="txtWebSite" runat="server" placeholder="Website" class="form-control" />
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="form-group  col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label">Store Link *</label>
+                    <label class="col-sm-4 control-label"><% Response.Write(trasnlation("Store.Link")); %> *</label>
 
                     <div class="col-sm-8">
                         <input type="text" id="txtStoreLink" runat="server" placeholder="Store Link" class="form-control" />
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="form-group  col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label" id="lblComments" runat="server">Comments *</label>
+                    <label class="col-sm-4 control-label" id="lblComments" runat="server"><% Response.Write(trasnlation("Comments")); %> *</label>
 
                     <div class="col-sm-8">
                         <input type="text" id="txtComments" runat="server" placeholder="Comments" class="form-control" />
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="form-group  col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label" id="lblWalmart" runat="server">Walmart *</label>
+                    <label class="col-sm-4 control-label" id="lblWalmart" runat="server"><% Response.Write(trasnlation("Walmart")); %> *</label>
                     <div class="col-sm-8">
                         <input type="text" id="txtWalmart" runat="server" placeholder="Walmart" class="form-control" />
 
@@ -60,14 +60,14 @@
                 </div>
 
                 <div class="form-group  col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label" id="lblFax" runat="server">Fax *</label>
+                    <label class="col-sm-4 control-label" id="lblFax" runat="server"><% Response.Write(trasnlation("Fax")); %> *</label>
                     <div class="col-sm-8">
                         <input type="text" id="txtFax" runat="server" placeholder="Fax" class="form-control" />
                     </div>
                 </div>
 
                 <div class="form-group  col-md-6 col-sm-12">
-                    <label class="col-sm-4 control-label" id="lblStoreNo" runat="server">Store No *</label>
+                    <label class="col-sm-4 control-label" id="lblStoreNo" runat="server"><% Response.Write(trasnlation("Store.No")); %> *</label>
                     <div class="col-sm-8">
                         <input type="text" id="txtStoreNo" runat="server" placeholder="Store No" class="form-control" />
                     </div>

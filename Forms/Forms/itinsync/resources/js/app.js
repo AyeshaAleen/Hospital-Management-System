@@ -15,6 +15,7 @@ var wrapper1 = document.getElementById("signature-pad-1"),
 
 clearButton1.addEventListener("click", function (event) {
     signaturePad1.clear();
+    document.getElementById("CommonMasterBody_FormMasterBody_signature1").value = "";
 });
 
 var wrapper2 = document.getElementById("signature-pad-2"),
@@ -27,6 +28,7 @@ var wrapper2 = document.getElementById("signature-pad-2"),
 
     clearButton2.addEventListener("click", function (event) {
         signaturePad2.clear();
+        document.getElementById("CommonMasterBody_FormMasterBody_signature2").value = "";
     });
         
 ////PAD 1 STARTS

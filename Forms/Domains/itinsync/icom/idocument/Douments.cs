@@ -32,7 +32,7 @@ namespace Domains.itinsync.icom.idocument
         public string Users { get; set; }
         public Int32 transID { get; set; }
         public int flow { get; set; }
-
+        
         public string type { get; set; }
         public string extension { get; set; }
         public object getKey() { return documentID; }
@@ -53,6 +53,6 @@ namespace Domains.itinsync.icom.idocument
 
         //*************Relational Mapping Objects*******************//////
         public XDocumentDefination xdocumentDefinition { get; set; }
-        public XDocumentSection xdocumentSection { get; set; }
+      //  public XDocumentSection xdocumentSection { get; set; }
     }
 }

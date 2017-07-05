@@ -59,7 +59,7 @@ namespace Forms.Webroot
                 dto = (DocumentDTO)response;
                 //setSubjectID(Convert.ToString(e.CommandArgument));
                 dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
-                Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
+                Response.Redirect(getWebPageName(dto.documentSection.pageID));
             }
         }
     }

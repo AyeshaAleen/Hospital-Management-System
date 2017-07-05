@@ -16,35 +16,35 @@
                     <div id="sidebar-menu">
                         <ul>
                              <li>
-                                <a href="<%= ResolveClientUrl("NewForm/Forms.aspx") %>" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
+                                <a href="<%= ResolveClientUrl("NewForm/Forms.aspx") %>" class="waves-effect"><i class="ti-file"></i> <span> <% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
                             </li>
 
                              <li>
-                                <a href="<%= ResolveClientUrl("Management/AddForms.aspx") %>" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
+                                <a href="<%= ResolveClientUrl("Management/AddForms.aspx") %>" class="waves-effect"><i class="ti-files"></i> <span> <% Response.Write(trasnlation("Form.Manager")); %></span> </a>
                             </li>
 
                              <li>
-                                <a href="<%= ResolveClientUrl("Dashboard/PersonalInbox.aspx") %>" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
+                                <a href="<%= ResolveClientUrl("Dashboard/PersonalInbox.aspx") %>" class="waves-effect"><i class="icon-drawar"></i> <span> <% Response.Write(trasnlation("Personal.Inbox")); %></span> </a>
                             </li>
 
                             
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Admin Penal </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-panel"></i> <span> <% Response.Write(trasnlation("Admin.Panel")); %> </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li>
-                                <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
+                                <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i> <span> <% Response.Write(trasnlation("Team.Inbox")); %></span> </a>
                             </li>
 
                            
                              <li>
-                                <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
+                                <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-id-badge"></i> <span> <% Response.Write(trasnlation("Manage.Users")); %></span> </a>
                             </li>
                        
                              <li>
-                                <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
+                                <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ion-android-contacts"></i> <span> <% Response.Write(trasnlation("Manage.Teams")); %></span> </a>
                             </li>
                             <li>
-                                <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Stores</span> </a>
+                                <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="md md-store-mall-directory"></i> <span> <% Response.Write(trasnlation("Manage.Stores")); %></span> </a>
                             </li>
                                 </ul>
                             </li>
@@ -80,7 +80,7 @@
                                     </div>
                                 </div>--%>
                              <div class="btn-group pull-right m-t-15">
-                                    <a href="javascript: history.go(-1)" class="btn btn-success waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </a>
+                                    <a href="javascript: history.go(-1)" class="btn btn-success waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span> <% Response.Write(trasnlation("Back")); %> </a>
                                     
                                 </div>
 
