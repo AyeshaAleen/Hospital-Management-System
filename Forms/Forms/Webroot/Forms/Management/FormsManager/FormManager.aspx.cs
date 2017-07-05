@@ -71,7 +71,9 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 
             ddlForwardedControls.DataSource = refcontentlist;
             ddlForwardedControls.DataBind();
-           
+
+            ddlcssClass.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKCSSClass, getHeader().lang);
+            ddlcssClass.DataBind();
 
 
         }

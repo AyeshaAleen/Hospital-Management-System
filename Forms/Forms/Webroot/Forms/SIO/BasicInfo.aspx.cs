@@ -57,32 +57,45 @@ namespace Forms.Webroot.Forms.SIO
             dto.document.storeid = ((Douments)getParentRef()).storeid;
             dto.document.documentID = documentid;
             dto.document.flow = DocumentFlow;
+
+
+            dto.signature.documentid = documentid;
+
+            dto.signature.trandate = DateFunctions.getCurrentDateAsString();
+            dto.signature.trantime = DateFunctions.getCurrentTimeInMillis();
+
+            dto.signature.signaturestring = signature1.Value.Replace("data:image/png;base64,", "");
+            dto.signature.signaturetype = "Shift Manager";
+            dto.signaturelist.Add(dto.signature);
+
+            dto.signature.signaturestring = signature2.Value.Replace("data:image/png;base64,", "");
+            dto.signature.signaturetype = "Completed By";
+            dto.signaturelist.Add(dto.signature);
+
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                SaveSignature(signature1.Value,"");
-                SaveSignature(signature2.Value, "");
 
                 showSuccessMessage(response);
             }
             else
                 showErrorMessage(response);
         }
-        
-        IResponseHandler SaveSignature(string signaturestring, string signaturetype)
-        {
-            SignatureDTO dto = new SignatureDTO();
-            dto.header = getHeader();
 
-            dto.signature.documentid = documentid;
-            dto.signature.signaturestring = signaturestring.Replace("data:image/png;base64,", "");
-            dto.signature.signaturetype = signaturetype;
-            dto.signature.trandate= DateFunctions.getCurrentDateAsString();
-            dto.signature.trantime= DateFunctions.getCurrentTimeInMillis();
+        //IResponseHandler SaveSignature(string signaturestring, string signaturetype)
+        //{
+        //    SignatureDTO dto = new SignatureDTO();
+        //    dto.header = getHeader();
 
-            return new SignatureSaveService().executeAsPrimary(dto);
-        }
+        //    dto.signature.documentid = documentid;
+        //    dto.signature.signaturestring = signaturestring.Replace("data:image/png;base64,", "");
+        //    dto.signature.signaturetype = signaturetype;
+        //    dto.signature.trandate = DateFunctions.getCurrentDateAsString();
+        //    dto.signature.trantime = DateFunctions.getCurrentTimeInMillis();
+
+        //    return new SignatureSaveService().executeAsPrimary(dto);
+        //}
         protected void btnNext_Click(object sender, EventArgs e)
         {
             
@@ -96,8 +109,7 @@ namespace Forms.Webroot.Forms.SIO
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            SaveSignature(signature1.Value, "");
-            SaveSignature(signature2.Value, "");
+            save_data();
         }
     }
 }

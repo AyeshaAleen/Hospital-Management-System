@@ -1,34 +1,35 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Webroot/CommonMaster.Master" AutoEventWireup="true" CodeBehind="DocumentMaster.master.cs" Inherits="Forms.Webroot.Forms.DocumentMaster" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="CommonMasterhead" runat="server">
     <asp:ContentPlaceHolder ID="DocumnetMasterHead" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CommonMasterBody" runat="server">
-     <!-- ========== Left Sidebar Start ========== -->
-     
+    <!-- ========== Left Sidebar Start ========== -->
 
-            <div class="left side-menu side-menu-sm">
-                <div class="sidebar-inner slimscrollleft">
-                    <!--- Divider -->
-                    <div id="sidebar-menu">
-                        <ul>
-                             <li>
-                                <a href="../NewForm/Forms.aspx" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
-                            </li>
 
-                             <li>
-                                <a href="../Management/AddForms.aspx" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
-                            </li>
+    <div class="left side-menu side-menu-sm">
+        <div class="sidebar-inner slimscrollleft">
+            <!--- Divider -->
+            <div id="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="../NewForm/Forms.aspx" class="waves-effect"><i class="ti-file"></i><span>Add New Form</span> </a>
+                    </li>
 
-                             <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
-                            </li>
+                    <li>
+                        <a href="../Management/AddForms.aspx" class="waves-effect"><i class="ti-files"></i><span>Form Manager</span> </a>
+                    </li>
 
-                             <li>
-                                <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
-                            </li>
+                    <li>
+                        <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-dashboard"></i><span>Personal Inbox</span> </a>
+                    </li>
 
-                           <%-- <li class="has_sub">
+                    <li>
+                        <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i><span>Team Inbox</span> </a>
+                    </li>
+
+                    <%-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="#">Dashboard 1</a></li>
@@ -37,28 +38,26 @@
                                     <li><a href="#">Dashboard 4</a></li>
                                 </ul>
                             </li>--%>
-
-
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+                </ul>
+                <div class="clearfix"></div>
             </div>
-			<!-- Left Sidebar End -->
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- Left Sidebar End -->
 
-            <!-- ============================================================== -->
-			<!-- Start right Content here -->
-			<!-- ============================================================== -->
-			<div class="content-page">
-				<!-- Start content -->
-				<div class="content">
-					<div class="container">
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
 
-						<!-- Page-Title -->
-						<div class="row">
-							<div class="col-sm-12">
-                                <%--<div class="btn-group pull-right m-t-15">
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <%--<div class="btn-group pull-right m-t-15">
                                     <button type="button" class="btn btn-inverse waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span><a href="#"></a> Back </button>
                                     
                                 </div>
@@ -66,40 +65,38 @@
 								<h4 class="page-title"><%: Page.Title %></h4>
 								<ol class="breadcrumb" id="breadcrumblist">	</ol>--%>
 
-                                 
 
-                                <div class="card-box">
-                                    
-                                    <h4 class="m-t-0 header-title"><b>SIO</b></h4>
-                                    <div class="row">
-                                        
-                                        <asp:Repeater ID="tblSectionTab" runat="server">
-                                            <ItemTemplate>
-                                                   
-                                        <a id="PageTab" class="tag" runat="server"><%# Eval("name") %></a>
 
-                                                    
-                                            </ItemTemplate>
-                                            </asp:Repeater>
-                                              
-                                    </div>
+                        <div class="card-box">
 
-                                </div>    
-							</div>
-						</div>
-						
-                        <asp:ContentPlaceHolder ID="DocumnetMasterBody" runat="server">
+                            <h4 class="m-t-0 header-title"><b>SIO</b></h4>
+                            <div class="row">
 
-                        </asp:ContentPlaceHolder>
+                                <asp:Repeater ID="tblSectionTab" runat="server">
+                                    <ItemTemplate>
+                                        <a id="A2" runat="server" class="tag"><%# Eval("name")%></a>
+                                    </ItemTemplate>
+                                </asp:Repeater>
 
-            		</div> <!-- container -->
-                               
-                </div> <!-- content -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <asp:ContentPlaceHolder ID="DocumnetMasterBody" runat="server">
+                </asp:ContentPlaceHolder>
 
             </div>
-            <!-- ============================================================== -->
-            <!-- End Right content here -->
-            <!-- ============================================================== -->
+            <!-- container -->
+
+        </div>
+        <!-- content -->
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="CommonMasterFooter" runat="server">

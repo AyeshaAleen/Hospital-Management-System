@@ -10,6 +10,7 @@ using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.idocument.route;
 using Domains.itinsync.icom.idocument.routeusers;
+using Domains.itinsync.icom.signature;
 
 namespace Services.itinsync.icom.documents.dto
 {
@@ -36,6 +37,9 @@ namespace Services.itinsync.icom.documents.dto
 
         public XDocumentRouteUsers documentRouteUsers = new XDocumentRouteUsers();
         public List<XDocumentRouteUsers> documentRouteUserslist = new List<XDocumentRouteUsers>();
+
+        public Signature signature = new Signature();
+        public List<Signature> signaturelist = new List<Signature>();
 
         public List<Douments> documentList = new List<Douments>();
         public ErrorBlock errorBlock = new ErrorBlock();

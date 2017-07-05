@@ -24,6 +24,8 @@ using Services.itinsync.icom.document.dynamic.section;
 using Services.itinsync.icom.document.dynamic.definition;
 using System.Data;
 using Utils.itinsync.icom.cache.document;
+using Domains.itinsync.icom.idocument.section;
+using System.Web.Services;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -147,9 +149,23 @@ namespace Forms.Webroot.Forms.Management
 
             dtoIn.documentSection.documentsectionid = Convert.ToInt32(e.CommandArgument);
 
-            IResponseHandler response = new DocumentSectionDeleteService().executeAsPrimary(dtoIn);
+                XDocumentSection getSectionStatus = DocumentManager.getDocumentSection(Convert.ToInt32(e.CommandArgument));
+            dtoIn.documentSection.pageID = getSectionStatus.pageID;
+            dtoIn.documentSection.flow = getSectionStatus.flow;
+            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+
+            if (getSectionStatus.status == ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
+            {
+           
+                dtoIn.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_DEACTIVE;
+            }
+            else
+                dtoIn.documentSection.status=ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
+
+                IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
+
                 showSuccessMessage(response);
                 doLoad();
             }
@@ -157,6 +173,7 @@ namespace Forms.Webroot.Forms.Management
                 showErrorMessage(response);
         }
 
+       
         protected void btnSaveSection_Click(object sender, EventArgs e)
         {
             DocumentDTO dtoIn = new DocumentDTO();
@@ -166,7 +183,7 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); 
             dtoIn.documentSection.flow = tblDocument.Controls.Count + 1;
             dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-
+            dtoIn.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
             IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {

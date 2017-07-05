@@ -20,6 +20,8 @@ using Services.icom.views.personalinboxview;
 using System.Data;
 using Utils.itinsync.icom.cache.document;
 using Domains.itinsync.icom.views.personalinbox;
+using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.section;
 
 namespace Forms.Webroot.Forms.Dashboard
 {
@@ -55,9 +57,11 @@ namespace Forms.Webroot.Forms.Dashboard
             {
                 dto = (DocumentDTO)response;
                 dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
-                //setSubjectID(Convert.ToInt32(e.CommandArgument));
+                
+                XDocumentSection section = dto.document.xdocumentDefinition.documentSections.Where(u => u.documentdefinitionid == dto.document.xdocumentDefinition.xDocumentDefinationID && Convert.ToInt32(u.flow) == dto.document.flow).SingleOrDefault();
+                
                 setParentRef(dto.document);
-                Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
+                Response.Redirect(getWebPageName(section.pageID));
             }
         }
     }

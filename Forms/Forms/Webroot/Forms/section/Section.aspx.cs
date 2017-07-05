@@ -63,6 +63,7 @@ namespace Forms.Webroot.Forms.section
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
+
                 Response.Redirect(getPageDetail.webName);
             }
         }

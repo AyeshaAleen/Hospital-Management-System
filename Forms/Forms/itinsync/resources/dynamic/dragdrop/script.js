@@ -236,13 +236,15 @@ function AddDetail(id) {
     var resultantid          = iGetAttribute(fieldObject, "resultantid");
     var Reftranslation       = iGetAttribute(fieldObject, "Reftranslation");
     var refcontrol           = iGetAttribute(fieldObject, "refcontrol");
-    var cssClass             = iGetAttribute(fieldObject, "cssClass");
+    var cssClass = iGetAttribute(fieldObject, "ddlcssClass");
     var translation          = iGetAttribute(fieldObject, "translation");
     var points               = iGetAttribute(fieldObject, "points");
     var defaultValue         = iGetAttribute(fieldObject, "defaultValue");
     var formula              = iGetAttribute(fieldObject, "formula");
     var irequired            = iGetAttribute(fieldObject, "irequired");
     var txtBroughtForward    = iGetControlValue("txtBroughtForward")
+    var ddlMask                = iGetAttribute(fieldObject,"imask")
+    var ddlLookupName        = iGetAttribute(fieldObject,"imask")
     var isLabel              = (controlType == "label" || controlType == "heading") ? true : false;
     var isNotRadio              = controlType != "radio"  ? true : false;
     
@@ -251,7 +253,11 @@ function AddDetail(id) {
     iFillControl("txtBroughtForward", Reftranslation);
     iFillControl("ControlName", fieldObject.name);
     iFillControl("ControlID", id);
-    iFillControl("cssClass", cssClass);
+    //iFillControl("cssClass", cssClass);
+
+
+   
+
     iFillControl("translation", translation);
     iFillControl("points", points);
     iFillControl("defaultValue", defaultValue);
@@ -268,7 +274,11 @@ function AddDetail(id) {
     //set combo value
     setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls", refcontrol);
     //Need to revise this logic
-   
+
+    setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlcssClass", cssClass);
+
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlLookupName", ddlLookupName);
+    setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlMask", ddlMask);
 
        
     $('#con-close-modal').modal('show');
@@ -282,7 +292,7 @@ function SetDetail() {
 
     var id                      = iGetControlValue("ControlID");
     var ControlName             = iGetControlValue("ControlName");
-    var cssClass                = iGetControlValue("cssClass");
+    var cssClass                = iGetControlValue(CURRENTPAGE_CONTEXT +"ddlcssClass");
     var translation             = iGetControlValue("translation");
     var txtBroughtForward       = iGetControlValue("txtBroughtForward");
     var points                  = iGetControlValue("points");

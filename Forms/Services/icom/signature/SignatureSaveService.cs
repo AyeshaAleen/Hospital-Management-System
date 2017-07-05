@@ -9,6 +9,7 @@ using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using Services.icom.signature.dto;
+using Domains.itinsync.icom.signature;
 
 namespace Services.icom.signature
 {
@@ -22,11 +23,15 @@ namespace Services.icom.signature
                 dto = (SignatureDTO)o;
                 if (dto.signature.id > 0)
                 {
+
                     SignatureDAO.getInstance(dbContext).update(dto.signature, "");
                 }
                 else
                 {
-                    SignatureDAO.getInstance(dbContext).create(dto.signature);
+                    foreach (Signature signature in dto.signaturelist)
+                    {
+                        SignatureDAO.getInstance(dbContext).create(signature);
+                    }
                 }
             }
             catch (Exception ex)

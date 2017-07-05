@@ -62,6 +62,12 @@
     <Compile Include="itinsync\icom\idocument\route\XDocumentRouteDAO.cs" />
     <Compile Include="itinsync\icom\idocument\role\XDocumentRoleDAO.cs" />
     <Compile Include="itinsync\icom\idocument\routeusers\XDocumentRouteUsersDAO.cs" />
+    <Compile Include="itinsync\icom\lookup\trans\LookupTransDAO.cs" />
+    <Compile Include="itinsync\icom\report\definition\XReportDefinitionDAO.cs" />
+    <Compile Include="itinsync\icom\report\table\content\XReportTableContentDAO.cs" />
+    <Compile Include="itinsync\icom\report\table\td\XReportTableTDDAO.cs" />
+    <Compile Include="itinsync\icom\report\table\tr\XReportTableTRDAO.cs" />
+    <Compile Include="itinsync\icom\report\table\XReportTableDAO.cs" />
     <Compile Include="itinsync\icom\signature\SignatureDAO.cs" />
     <Compile Include="itinsync\icom\store\StoreDAO.cs" />
     <Compile Include="itinsync\icom\team\TeamDAO.cs" />

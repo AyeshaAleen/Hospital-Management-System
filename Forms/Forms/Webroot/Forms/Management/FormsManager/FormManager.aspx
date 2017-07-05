@@ -238,7 +238,11 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Css Class</label>
-                                                    <input type="text" id="cssClass" class="form-control" />
+                                                    <%--<input type="text" id="cssClass" class="form-control" />--%>
+
+                                                     <asp:DropDownList ID="ddlcssClass" runat="server" CssClass="form-control"  DataValueField="Code" DataTextField="Text">
+                                                    </asp:DropDownList>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6">

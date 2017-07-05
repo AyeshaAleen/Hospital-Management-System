@@ -206,10 +206,14 @@
 <asp:Content ID="cntBasicInfoFoot" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
         function getSign() {
-            
+            debugger;
             document.getElementById("CommonMasterBody_FormMasterBody_signature1").value = signaturePad1.toDataURL();
 
             document.getElementById("CommonMasterBody_FormMasterBody_signature2").value = signaturePad2.toDataURL();
+
+            //if (!validate() || document.getElementById("CommonMasterBody_FormMasterBody_signature1").value == ""
+            //    || document.getElementById("CommonMasterBody_FormMasterBody_signature2").value) return false;
+            //else return true;
         }
     </script>
 </asp:Content>

@@ -10,6 +10,8 @@ using Domains.itinsync.icom.idocument.definition;
 using Forms.itinsync.src.session;
 using Utils.itinsync.icom.cache.pages;
 using Domains.itinsync.icom.idocument;
+using Domains.itinsync.icom.idocument.section;
+using static Forms.itinsync.src.session.Session;
 
 namespace Forms.Webroot.Forms
 {
@@ -18,7 +20,8 @@ namespace Forms.Webroot.Forms
         protected void Page_Load(object sender, EventArgs e)
         {
             if (getParentRef() != null)
-            { 
+            {
+               var test= getSection().name;
                 DataTable dt_PageDetail = new DataTable();
                 dt_PageDetail.Columns.Add("name");
                 dt_PageDetail.Columns.Add("Webname");
@@ -34,6 +37,11 @@ namespace Forms.Webroot.Forms
 
 
             }
+        }
+
+        public XDocumentSection getSection()
+        {
+            return (XDocumentSection)Sessions.getSession().Get(SessionKey.SECTION);
         }
     }
 }

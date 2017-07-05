@@ -235,6 +235,7 @@ function iGetControlValue(id)
     return retVal;
 }
 function iGetObject(obj) {
+    debugger;
     if (typeof (obj) == "string") {
         obj = document.getElementById(obj);
     }

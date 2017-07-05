@@ -10,7 +10,7 @@ namespace Domains.itinsync.icom.idocument.section
 {
     public class XDocumentSection : System.Attribute, IDomain
     {
-        public enum columns { name, pageID, flow, documentdefinitionid }
+        public enum columns { name, pageID, flow, documentdefinitionid, status }
         public enum primaryKey { documentsectionid }
         public Int32 documentsectionid { get; set; }
         public String name { get; set; }
@@ -19,6 +19,7 @@ namespace Domains.itinsync.icom.idocument.section
         public Int32 documentdefinitionid { get; set; }
         public object getKey() { return documentsectionid; }
 
+        public String status { get; set; }
         public void setTransID(object transID)
         {
 

@@ -70,6 +70,10 @@
     <Compile Include="icom\document\DTO\documentDTO.cs" />
     <Compile Include="icom\document\DocumentSaveService.cs" />
     <Compile Include="icom\document\DocumentGetService.cs" />
+    <Compile Include="icom\lookuptrans\dto\LookupTransDTO.cs" />
+    <Compile Include="icom\lookuptrans\LookupTransGetService.cs" />
+    <Compile Include="icom\lookuptrans\LookupTransDeleteService.cs" />
+    <Compile Include="icom\lookuptrans\LookupTransSaveService.cs" />
     <Compile Include="icom\Permission\dto\PermissionDTO.cs" />
     <Compile Include="icom\Permission\PermissionGetService.cs" />
     <Compile Include="icom\signature\dto\SignatureDTO.cs" />
@@ -134,7 +138,6 @@
     <Folder Include="icom\cache\documentdefinition\manager\" />
     <Folder Include="icom\documentcalculation\" />
     <Folder Include="icom\document\dynamic\content\" />
-    <Folder Include="icom\lookuptrans\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
