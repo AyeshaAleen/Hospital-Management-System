@@ -12,11 +12,12 @@
                    
                  </asp:Table>
 
-             
+             <div class="clearfix"></div>
 
                 <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
                 <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click" CssClass="btn btn-inverse waves-effect waves-light pull-right" />
-            </div>
+           <div class="clearfix"></div>
+                 </div>
         </div>
     </div>
 </asp:Content>

@@ -10,7 +10,8 @@
             <div class="portlet">
                 <div class="portlet-heading portlet-default">
                     <h3 class="portlet-title">
-                        <b><% Response.Write(getParentRef().getParentrefName()); %></b> <i class="glyphicon glyphicon-arrow-right"></i>Form Sections
+                        <b><% Response.Write(getParentRef().getParentrefName()); %></b> 
+                        <i class="glyphicon glyphicon-arrow-right"></i><% Response.Write(trasnlation("Form.Sections")); %>
                     </h3>
                     <div class="portlet-widgets">
                         <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -35,11 +36,11 @@
 
 
                                 <div class="form-group col-md-5">
-                                    <label for="field-1" class="control-label">Form Name</label>
+                                    <label for="field-1" class="control-label"><% Response.Write(trasnlation("Form.Name")); %></label>
                                     <input type="text" class="form-control" id="field" runat="server" placeholder="Form Name">
                                 </div>
                                 <div class="form-group col-md-5">
-                                    <label for="field-1" class="control-label">Pages</label>
+                                    <label for="field-1" class="control-label"><% Response.Write(trasnlation("Pages")); %></label>
                                     <asp:DropDownList ID="ddlsectionPagesName" runat="server" CssClass="form-control" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
                                 </div>
                                 <div class="form-group col-md-2">
@@ -54,9 +55,9 @@
                                 data-page-size="10" data-pagination="true">
                                 <thead>
                                     <tr>
-                                        <th data-field="name" data-sortable="true">Section Name</th>
-                                        <th data-field="View" data-align="center">View</th>
-                                        <th data-field="Delete" data-align="center">Delete</th>
+                                        <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("Section.Name")); %></th>
+                                        <th data-field="View" data-align="center"><% Response.Write(trasnlation("View")); %></th>
+                                        <th data-field="Delete" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                                     </tr>
                                 </thead>
 
@@ -107,7 +108,7 @@
         <div class="col-lg-12">
             <div class="portlet">
                 <div class="portlet-heading portlet-default">
-                    <h3 class="portlet-title">Form Association
+                    <h3 class="portlet-title"><% Response.Write(trasnlation("Form.Association")); %>
                     </h3>
                     <div class="portlet-widgets">
                         <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -123,7 +124,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">User Role</label>
+                                <label class="control-label"><% Response.Write(trasnlation("User.Role")); %></label>
                                 <asp:DropDownList ID="ddlUserRole" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                 </asp:DropDownList>
                             </div>
@@ -138,9 +139,9 @@
                             data-page-size="10" data-pagination="true">
                             <thead>
                                 <tr>
-                                    <th data-field="name" data-sortable="true">User Role</th>
+                                    <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("User.Role")); %></th>
                                     <%--<th data-field="Edit" data-align="center">Edit</th>--%>
-                                    <th data-field="action" data-align="center">Delete</th>
+                                    <th data-field="action" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                                 </tr>
                             </thead>
 
@@ -185,7 +186,7 @@
         <div class="col-lg-12">
             <div class="portlet">
                 <div class="portlet-heading portlet-default">
-                    <h3 class="portlet-title">Email Routing
+                    <h3 class="portlet-title"><% Response.Write(trasnlation("Email.Routing")); %>
                         
                     </h3>
                     <div class="portlet-widgets">
@@ -209,7 +210,7 @@
                         
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label">Route</label>
+                                <label class="control-label"><% Response.Write(trasnlation("Route")); %></label>
                                 <asp:DropDownList ID="ddlEmailRouting" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                                 </asp:DropDownList>
                             </div>
@@ -224,8 +225,8 @@
                             data-page-size="10" data-pagination="true">
                             <thead>
                                 <tr>
-                                    <th data-field="name" data-sortable="true">Route</th>
-                                    <th data-field="action" data-align="center">Delete</th>
+                                    <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("Route")); %></th>
+                                    <th data-field="action" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                                 </tr>
                             </thead>
 
@@ -256,7 +257,7 @@
 
    <hr />
                       <div class="portlet-heading portlet-default heading-sp">  
-                    <h3 class="portlet-title">User Email Routing </h3>
+                    <h3 class="portlet-title"><% Response.Write(trasnlation("User.Email.Routing")); %> </h3>
                    
                 </div>
                    
@@ -265,14 +266,14 @@
 
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label class="control-label">User Route</label>
+                            <label class="control-label"><% Response.Write(trasnlation("User.Route")); %></label>
                             <asp:DropDownList ID="ddlUserRouting" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
                             </asp:DropDownList>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="form-group">
-                            <label class="control-label">Users</label>
+                            <label class="control-label"><% Response.Write(trasnlation("Users")); %></label>
                             <asp:DropDownList ID="ddlUsers" runat="server" CssClass="form-control" DataValueField="userID" DataTextField="userName">
                             </asp:DropDownList>
                         </div>
@@ -286,9 +287,9 @@
                         data-page-size="10" data-pagination="true">
                         <thead>
                             <tr>
-                                <th data-field="name" data-sortable="true">Route</th>
-                                <th data-field="users" data-sortable="true">Users</th>
-                                <th data-field="delete" data-align="center">Delete</th>
+                                <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("Route")); %></th>
+                                <th data-field="users" data-sortable="true"><% Response.Write(trasnlation("Users")); %></th>
+                                <th data-field="delete" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                             </tr>
                         </thead>
 

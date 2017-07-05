@@ -35,7 +35,7 @@
 
                     <div class="col-sm-7">
                         <input type="password" id="txtConfirmPassword" name="txtConfirmPassword" required runat="server" placeholder="******" class="form-control" onblur="checkPassword()" />
-                        <span class="col-sm-8" id="PasswordErrormsg" style="color: red; visibility: hidden">! Password Not Match
+                        <span class="col-sm-8" id="PasswordErrormsg" style="color: red; visibility: hidden"><% Response.Write(trasnlation("Password.Not.Matched")); %> 
                         </span>
                     </div>
 
@@ -58,7 +58,7 @@
                 </div>
 
                         <div class="col-md-12">
-                        <asp:Button ID="btnGeneratePassword" runat="server" Text="Generate Password" class="btn btn-info waves-effect waves-light" OnClick="btnGeneratePassword_Click" />
+                        <asp:Button ID="btnGeneratePassword" runat="server" Text="Generate.Password" class="btn btn-info waves-effect waves-light" OnClick="btnGeneratePassword_Click" />
                 </div>
 
                     </div>

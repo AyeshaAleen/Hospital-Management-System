@@ -16,15 +16,6 @@
                 <asp:Table ID="tableDynamic" runat="server" data-toggle="table" CssClass="table table-bordered table-hover">
                    
                 </asp:Table>
-             
-           
-
-
-              
-             
-                   
-                  <div class="clearfix"></div>
-               
                 
 
            <div class="clearfix"></div>

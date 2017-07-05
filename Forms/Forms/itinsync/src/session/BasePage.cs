@@ -91,7 +91,7 @@ namespace Forms.itinsync.src.session
                         TableRow tabletr = new TableRow();
 
                         tabletr.CssClass = tr.cssClass;
-                        tabletr.BorderWidth = 10;
+                        //tabletr.BorderWidth = 10;
                         
                         foreach (XDocumentTableTD td in tr.tds)
                         {

@@ -27,16 +27,16 @@
                             <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                 <thead>
                                     <tr>
-                                        <th data-field="name" data-sortable="true">Store Name</th>
-                                        <th data-field="code" data-align="center">Zip Code</th>
-                                        <th data-field="web" data-align="center">Website</th>
-                                        <th data-field="link">Store Link</th>
-                                        <th data-field="comment">Comments</th>
-                                        <th data-field="mart" data-align="center">Walmart</th>
-                                        <th data-field="fax" data-align="center">Fax</th>
-                                        <th data-field="no" data-align="center">Store No</th>
-                                        <th data-field="edit" data-align="center">Edit</th>
-                                        <th data-field="delete" data-align="center">Delete</th>
+                                        <th data-field="name" data-sortable="true"><% Response.Write(trasnlation("Store.Name")); %></th>
+                                        <th data-field="code" data-align="center"><% Response.Write(trasnlation("Zip.Code")); %></th>
+                                        <th data-field="web" data-align="center"><% Response.Write(trasnlation("Website")); %></th>
+                                        <th data-field="link"><% Response.Write(trasnlation("Store.Link")); %></th>
+                                        <th data-field="comment"><% Response.Write(trasnlation("Comments")); %></th>
+                                        <th data-field="mart" data-align="center"><% Response.Write(trasnlation("Walmart")); %></th>
+                                        <th data-field="fax" data-align="center"><% Response.Write(trasnlation("Fax")); %></th>
+                                        <th data-field="no" data-align="center"><% Response.Write(trasnlation("Store.No")); %></th>
+                                        <th data-field="edit" data-align="center"><% Response.Write(trasnlation("Edit")); %></th>
+                                        <th data-field="delete" data-align="center"><% Response.Write(trasnlation("Delete")); %></th>
                                     </tr>
                                 </thead>
 

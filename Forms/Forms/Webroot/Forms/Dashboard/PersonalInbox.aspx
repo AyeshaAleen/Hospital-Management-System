@@ -5,13 +5,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FormMasterBody" runat="server">
 
             <div class="row">
-
+                
                 <div class="col-lg-12">
 
                     <div class="portlet">
                         <!-- /primary heading -->
                         <div class="portlet-heading">
-                            <h3 class="portlet-title text-dark text-uppercase">Activity
+                            <h3 class="portlet-title text-dark text-uppercase"><% Response.Write(trasnlation("Activity")); %>
                             </h3>
                             <div class="portlet-widgets">
                                 <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
@@ -28,11 +28,11 @@
                                     <table class="table-bordered table-striped" data-toggle="table" data-search="true" data-page-list="[10, 20, 50, 100]" data-page-size="10" data-pagination="true">
                                         <thead>
                                             <tr>
-                                                <th data-field="formname" data-sortable="true">Form Name</th>
-                                                <th data-field="startdate" data-sortable="true">Start Date</th>
-                                                <th data-field="status" data-align="center">Status</th>
-                                                <th data-field="submitter" data-sortable="true">Submitter Name</th>
-                                                <th data-field="actions" data-align="center">Action</th>
+                                                <th data-field="formname" data-sortable="true"><% Response.Write(trasnlation("Form.Name")); %></th>
+                                                <th data-field="startdate" data-sortable="true"><% Response.Write(trasnlation("Start.Date")); %></th>
+                                                <th data-field="status" data-align="center"><% Response.Write(trasnlation("Status")); %></th>
+                                                <th data-field="submitter" data-sortable="true"><% Response.Write(trasnlation("Submitter.Name")); %></th>
+                                                <th data-field="actions" data-align="center"><% Response.Write(trasnlation("Action")); %></th>
                                             </tr>
                                         </thead>
 

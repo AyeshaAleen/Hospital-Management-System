@@ -31,32 +31,32 @@
 
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>label text</div>
+                                            <div class="redips-drag redips-clone" id="ca1"><i class="glyphicon glyphicon-text-width"></i>&nbsp;label text</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i>Heading</div>
+                                            <div class="redips-drag redips-clone" id="ha1"><i class="glyphicon glyphicon-header"></i>&nbsp;Heading</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i>DropDown</div>
+                                            <div class="redips-drag redips-clone" id="dp1"><i class="glyphicon glyphicon-list-alt"></i>&nbsp;DropDown</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>TextBox</div>
+                                            <div class="redips-drag redips-clone" id="tx1"><i class="md md-textsms"></i>&nbsp;TextBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>CheckBox</div>
+                                            <div class="redips-drag redips-clone" id="ch1"><i class="glyphicon glyphicon-check"></i>&nbsp;CheckBox</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>Radio Button</div>
+                                            <div class="redips-drag redips-clone" id="rs1"><i class="glyphicon glyphicon-ok-circle"></i>&nbsp;Radio Button</div>
                                         </td>
                                     </tr>
                                     <%--     <tr>
@@ -66,12 +66,17 @@
                                     </tr>--%>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>TextArea</div>
+                                            <div class="redips-drag redips-clone" id="ta1"><i class="ti-write"></i>&nbsp;TextArea</div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="redips-mark">
-                                            <div class="redips-drag redips-clone" id="hi1"><i class="glyphicon glyphicon-eye-open"></i>Hidden</div>
+                                            <div class="redips-drag redips-clone" id="hi1"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Hidden</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="redips-mark">
+                                            <div class="redips-drag redips-clone" id="sg1"><i class="md md-gesture"></i>&nbsp;Signature</div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -111,6 +116,7 @@
 
                                     </tbody>
                                 </table>
+                                <div style="overflow-x:scroll">
                                 <!-- main table -->
                                 <table id="tblEditor" class="table table-responsive">
 
@@ -134,7 +140,7 @@
                                     </tbody>
                                 </table>
 
-                            </div>
+                            </div></div>
                             <!-- save button -->
                             <%--<input type="button" value="Save" class="button sButton" onclick="redips.save()" title="Save form" /><span id="sMessage"></span>--%>
 
