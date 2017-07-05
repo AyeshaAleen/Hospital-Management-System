@@ -82,7 +82,7 @@ redips.init = function () {
 //			rd.obj.style.borderColor = 'white';
 			// send AJAX request (input parameter is field id)
 			// div property is reference to the object where AJAX output will be displayed (inside dropped DIV element) 
-            debugger;
+            
 			rd.ajaxCall(redips.ajaxField + '?id=' + id, redips.handler1, {div: rd.obj});
 		}
 	};

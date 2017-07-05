@@ -12,6 +12,7 @@ using Utils.itinsync.icom.cache.pages;
 using Domains.itinsync.icom.idocument;
 using Domains.itinsync.icom.idocument.section;
 using static Forms.itinsync.src.session.Session;
+using Utils.itinsync.icom.constant.application;
 
 namespace Forms.Webroot.Forms
 {
@@ -27,6 +28,7 @@ namespace Forms.Webroot.Forms
                 dt_PageDetail.Columns.Add("Webname");
                 foreach (var section in ((Douments)getParentRef()).xdocumentDefinition.documentSections)
                 {
+                    if(section.status==ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
                     dt_PageDetail.Rows.Add(section.name, PageManager.readbyPageID(section.pageID).webName);
                 }
 

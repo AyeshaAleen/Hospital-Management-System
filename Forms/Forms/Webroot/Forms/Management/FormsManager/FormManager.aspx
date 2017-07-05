@@ -399,7 +399,7 @@
 <asp:Content ID="cntFormsManagerFoot" ContentPlaceHolderID="DynamicFormMasterFooter" runat="server">
     <script>
         function getTableContent() {
-            debugger;
+            
             var outerHTML = document.getElementById("tblEditor").outerHTML;
             outerHTML = decodehtml(outerHTML);
             document.getElementById('CommonMasterBody_DynamicFormMasterBody_tableOuterHtml').value = outerHTML;
@@ -415,7 +415,7 @@
 
 
         $(document).ready(function () {
-            debugger;
+            
 
 
             $('#ddlControlID').on('change', function () {

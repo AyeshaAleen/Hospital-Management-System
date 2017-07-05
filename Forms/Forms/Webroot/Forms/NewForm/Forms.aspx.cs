@@ -65,6 +65,7 @@ namespace Forms.Webroot.Forms.NewForm
 
             foreach(XDocumentSection section in DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID).documentSections)
             {
+                if(section.status==ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
                 dto.document.data += XMLUtils.appendTag(ServiceUtils.trimWhiteSpaces(section.name), "");
 
             }
@@ -76,7 +77,7 @@ namespace Forms.Webroot.Forms.NewForm
             dto.document.Userid = getHeader().userID;
             dto.document.storeid = Convert.ToInt32(ddlStore.SelectedValue);
             dto.document.flow = 1;
-            dto.document.status = ApplicationCodes.DOCUMENT_STATUS_INPROGRESS;
+            dto.document.status = ApplicationCodes.DOCUMENT_STATUS_START;
             dto.document.documentName = dto.document.xdocumentDefinition.name;
 
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);

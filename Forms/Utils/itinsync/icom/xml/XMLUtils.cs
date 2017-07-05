@@ -150,7 +150,13 @@ namespace Utils.itinsync.icom.xml
                     {
                         // setControlValues(parent, childnode.Name, childnode.InnerText);
 
-                        findSetControl(parent.FindControl(childnode.Name), childnode.InnerText);
+                        //Control test = parent.FindControl(childnode.Name);
+
+                        //foreach (Control c in parent.Controls)
+                        //{
+                            //if(c.HasControls())
+                            findSetControl(c.FindControl(childnode.Name), childnode.InnerText);
+                       // }
                     }
                 }
             }
@@ -161,45 +167,47 @@ namespace Utils.itinsync.icom.xml
             if (control == null)
                 return;
 
+
             if (control.GetType() == typeof(TextBox))
-            {
-                ((TextBox)control).Text = value;
+                {
+                    ((TextBox)control).Text = value;
 
-            }
+                }
 
-            else if (control.GetType() == typeof(HtmlInputText))
-            {
-                ((HtmlInputText)control).Value = value;
+                else if (control.GetType() == typeof(HtmlInputText))
+                {
+                    ((HtmlInputText)control).Value = value;
 
-            }
+                }
 
-            else if (control.GetType() == typeof(HtmlInputText))
-            {
-                ((DropDownList)control).SelectedValue = value;
+                else if (control.GetType() == typeof(HtmlInputText))
+                {
+                    ((DropDownList)control).SelectedValue = value;
 
-            }
+                }
 
-            else if (control.GetType() == typeof(HtmlInputRadioButton))
-            {
-                if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
-                    ((HtmlInputRadioButton)control).Checked = true;
-                else
-                    ((HtmlInputRadioButton)control).Checked = false;
+                else if (control.GetType() == typeof(HtmlInputRadioButton))
+                {
+                    if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
+                        ((HtmlInputRadioButton)control).Checked = true;
+                    else
+                        ((HtmlInputRadioButton)control).Checked = false;
 
-            }
-            else if (control.GetType() == typeof(HtmlSelect))
-            {
-                ((HtmlSelect)control).Value = value;
+                }
+                else if (control.GetType() == typeof(HtmlSelect))
+                {
+                    ((HtmlSelect)control).Value = value;
 
-            }
-            else if (control.GetType() == typeof(CheckBox))
-            {
-                if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
-                    ((CheckBox)control).Checked = true;
-                else
-                    ((CheckBox)control).Checked = false;
+                }
+                else if (control.GetType() == typeof(CheckBox))
+                {
+                    if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
+                        ((CheckBox)control).Checked = true;
+                    else
+                        ((CheckBox)control).Checked = false;
 
-            }
+                }
+                
         }
 
     }

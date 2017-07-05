@@ -51,6 +51,7 @@
     <Compile Include="icom\cache\task\taskdefinition\TaskDefinitionManagerService.cs" />
     <Compile Include="icom\document\dynamic\definition\DocumentDefinitionGetService.cs" />
     <Compile Include="icom\document\dynamic\definition\DocumentDefinitionSaveService.cs" />
+    <Compile Include="icom\document\dynamic\page\DocumentPageSaveService.cs" />
     <Compile Include="icom\document\dynamic\role\DocumentRoleDeleteService.cs" />
     <Compile Include="icom\document\dynamic\role\DocumentRoleGetService.cs" />
     <Compile Include="icom\document\dynamic\role\DocumentRoleSaveService.cs" />

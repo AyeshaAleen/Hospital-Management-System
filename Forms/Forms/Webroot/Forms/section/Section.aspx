@@ -40,7 +40,7 @@
 
     <script>
 
-            debugger;
+            
             var id = "forms";
            var isForm = true;
 
@@ -68,7 +68,7 @@
                 var inputrefControl = inputfrwdObj.getAttribute('refcontrol');
                 if (!inputrefControl)
                     continue;
-                debugger;
+                
                 inputfrwdObj.value = document.getElementById("CommonMasterBody_DocumnetMasterBody_hidden" + inputrefControl).value;
                 
             }

@@ -42,7 +42,7 @@ function calculation() {
 }
 
 function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
-    debugger;
+    
 
     
     controllsObject = new Array();
@@ -73,7 +73,7 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation) {
 
             if (inputObj.id == PAGE_CONTEXT + "dynamic_textSIO2_29" || inputObj.id == PAGE_CONTEXT + "dynamic_textSIO2_9")
             {
-                debugger;
+                
             }
             if (!this.containsVaildParametersCalculation(inputObj)) continue;
 

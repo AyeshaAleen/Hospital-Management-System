@@ -10,6 +10,7 @@ using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument.role;
 using Domains.itinsync.icom.idocument.route;
 using Domains.itinsync.icom.idocument.routeusers;
+using Domains.itinsync.icom.pages;
 
 namespace Services.itinsync.icom.documents.dto
 {
@@ -25,7 +26,7 @@ namespace Services.itinsync.icom.documents.dto
 
         public List<XDocumentSection> documentSectionlist = new List<XDocumentSection>();
         public XDocumentSection documentSection = new XDocumentSection();
-
+        public PageName page = new PageName();
         public documentcontent documentcontentview = new documentcontent();
 
         public XDocumentRole documentRole = new XDocumentRole();

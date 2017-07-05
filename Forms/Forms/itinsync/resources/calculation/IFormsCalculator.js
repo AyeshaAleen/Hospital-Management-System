@@ -44,7 +44,7 @@ function calculation  ()
 
 function initInputFields(inputFields, idDiv, bIgnoreSkipValidation)
 {
-    debugger;
+    
 
     for (var i = 0; i < inputFields.length; i++)
     {
@@ -96,7 +96,7 @@ function initInputFields(inputFields, idDiv, bIgnoreSkipValidation)
 
 function doOperation(value, resultantID, operation)
 {
-    debugger;
+    
 
     var resultantObject = document.getElementById(PAGE_CONTEXT + resultantID);
     var fieldCount = resultantObject.getAttribute("fieldCount");

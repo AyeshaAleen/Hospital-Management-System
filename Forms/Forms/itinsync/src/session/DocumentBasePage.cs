@@ -39,7 +39,19 @@ namespace Forms.itinsync.src.session
             {
                 setParentRef(dto.document);
                 XDocumentDefination documentDefinition = ((Douments)getParentRef()).xdocumentDefinition;
-                setSection(documentDefinition.documentSections.Where(c => c.flow.Equals(getSection().flow + 1)).SingleOrDefault());
+
+                for(int i=1;i<= documentDefinition.documentSections.Count;i++)
+                {
+                XDocumentSection section = documentDefinition.documentSections.Where(c => c.flow.Equals(getSection().flow + i)).SingleOrDefault();
+                    if(section.status==ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
+                    {
+                        setSection(section);
+                        break;
+                    }
+                }
+                
+
+                //setSection(documentDefinition.documentSections.Where(c => c.flow.Equals(getSection().flow + 1)).SingleOrDefault());
 
             }
             return response;

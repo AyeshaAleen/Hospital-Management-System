@@ -20,11 +20,13 @@ using Services.icom.views.personalinboxview;
 using System.Data;
 using Utils.itinsync.icom.cache.document;
 using Domains.itinsync.icom.views.personalinbox;
+using Domains.itinsync.icom.idocument;
 
 namespace Forms.Webroot.Forms.Dashboard
 {
-    public partial class PersonalInbox : BasePage
+    public partial class PersonalInbox : DocumentBasePage
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -55,8 +57,9 @@ namespace Forms.Webroot.Forms.Dashboard
             {
                 dto = (DocumentDTO)response;
                 dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
-                //setSubjectID(Convert.ToInt32(e.CommandArgument));
                 setParentRef(dto.document);
+                if ((Douments)getParentRef()!=null)
+                setSection(((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.flow.Equals(dto.document.flow)).SingleOrDefault());
                 Response.Redirect(getWebPageName(dto.document.xdocumentSection.pageID));
             }
         }

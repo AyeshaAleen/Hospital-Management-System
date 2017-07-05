@@ -76,7 +76,7 @@
     <script type="text/javascript">
 
         function checkPassword() {
-            debugger;
+            
             var txtPassword = document.getElementById('CommonMasterBody_FormMasterBody_txtPassword').value;
             var txtConfirmPassword = document.getElementById('CommonMasterBody_FormMasterBody_txtConfirmPassword').value;
 
