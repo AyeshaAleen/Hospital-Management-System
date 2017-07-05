@@ -1,5 +1,5 @@
 ﻿function validate() {
-debugger;
+
     var validator = new IValidation("forms", true)
     validator.initValidation();
     return iFormIsValid(validator);
@@ -8,7 +8,7 @@ debugger;
 }
 
 function GenerateTags() {
-    debugger;
+    
     var Tags = "";
     if (validate()) {
 

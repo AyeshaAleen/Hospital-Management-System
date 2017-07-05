@@ -245,7 +245,7 @@ namespace Utils.itinsync.icom.html
                                     HtmlGenericControl createDiv = new HtmlGenericControl("DIV");
                                     createDiv.Attributes.Add("class", "redips-drag");
                                     createDiv.Style.Add("cursor", "move");
-                                    createDiv.Style.Add("width", "158px");
+                                   // createDiv.Style.Add("width", "158px");
 
 
                                     ControlsHelper.createDetailSpan(createDiv, content.controlID);

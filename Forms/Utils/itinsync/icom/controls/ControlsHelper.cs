@@ -298,9 +298,9 @@ namespace Utils.itinsync.icom.controls
             HtmlGenericControl createDiv = new HtmlGenericControl("div");
             createDiv.Attributes.Add("class", "redips-drag");
             createDiv.Style.Add("cursor", "move");
-            createDiv.Style.Add("width", "158px");
+            //createDiv.Style.Add("width", "158px");
 
-            createDiv.Style.Add("class", "form-control");
+            //createDiv.Style.Add("class", "form-control");
             //createDiv.Style.Add("background", "whitesmoke");
 
             HtmlTableCell cell = new HtmlTableCell("th");

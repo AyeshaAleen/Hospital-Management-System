@@ -45,7 +45,7 @@ function conditions() {
 }
 
 function initInputConditionFields(inputFields, idDiv, bIgnoreSkipValidation) {
-    debugger;
+    
 
     
 

@@ -41,6 +41,7 @@ namespace Domains.itinsync.icom.idocument.definition
         }
         //*************Relational Mapping Objects*******************//////
         public List<XDocumentSection> documentSections = new List<XDocumentSection>();
+        public XDocumentSection documentSection = new XDocumentSection();
         public List<XDocumentReferedContent> documentRefferedContent = new List<XDocumentReferedContent>();
         public List<XDocumentRoute> roleRoute = new List<XDocumentRoute>();
         public List<XDocumentRouteUsersView> routeUsers = new List<XDocumentRouteUsersView>();

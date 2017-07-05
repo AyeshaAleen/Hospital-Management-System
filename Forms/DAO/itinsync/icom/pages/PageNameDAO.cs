@@ -19,7 +19,7 @@ namespace DAO.itinsync.icom.pages
         }
         protected override string createQuery(object o)
         {
-            throw new NotImplementedException();
+            return "INSERT INTO " + TABLENAME + preparedCreateQuery(o, typeof(PageName.columns));
         }
         public  PageName findbyPrimaryKey(Int32 primaryKey)
         {

@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domains.itinsync.icom.interfaces.document;
 
 namespace Domains.itinsync.icom.idocument.section
 {
-    public class XDocumentSection : System.Attribute, IDomain
+    public class XDocumentSection : System.Attribute, IDomain, IDocument
     {
         public enum columns { name, pageID, flow, documentdefinitionid, status }
         public enum primaryKey { documentsectionid }
@@ -25,6 +26,15 @@ namespace Domains.itinsync.icom.idocument.section
 
         }
 
+        public int getParentrefKey()
+        {
+            return documentsectionid;
+        }
+
+        public string getParentrefName()
+        {
+            return name;
+        }
 
 
         //*************Relational Mapping Objects*******************//////

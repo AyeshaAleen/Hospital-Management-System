@@ -14,6 +14,8 @@ namespace Utils.itinsync.icom.constant.page
 
         public static string PAGE_EDIT_TEAM = "/Team/AssignTeam.aspx";
 
+        public static string PAGE_DOCUMENT_SECTION = "/Webroot/Forms/section/Section.aspx";
+
         public static string PAGE_ACTIVATE_TASK = "ActivateTask.aspx";
         public static string PAGE_LOGPAYMENT_TASK = "BOLogPayment.aspx";
         public static string PAGE_EXIT_TDR = "ExistTDR.aspx";

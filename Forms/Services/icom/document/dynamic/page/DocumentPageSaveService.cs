@@ -14,10 +14,12 @@ using DAO.itinsync.icom.idocument;
 using DAO.itinsync.icom.idocument.section;
 using Services.itinsync.icom.cache;
 using Services.icom.cache.frame;
+using DAO.itinsync.icom.pages;
+using Services.itinsync.icom.document.dynamic.section;
 
-namespace Services.itinsync.icom.document.dynamic.section
+namespace Services.itinsync.icom.document.dynamic.page
 {
-    public class DocumentSectionSaveService : FrameASCache
+    public class DocumentPageSaveService : FrameASCache
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -25,17 +27,18 @@ namespace Services.itinsync.icom.document.dynamic.section
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentDefination.documentSection.documentsectionid > 0)
+                if (dto.page.pageID > 0)
                 {
-                    
-                    XDocumentSectionDAO.getInstance(dbContext).update(dto.documentDefination.documentSection, "");
+
+                    PageNameDAO.getInstance(dbContext).update(dto.page, "");
                 }
                 else
                 {
-                    dto.documentSection.flow = (XDocumentSectionDAO.getInstance(dbContext).LastFlowID(dto.documentDefination.documentSection.documentdefinitionid)+1);
-                    XDocumentSectionDAO.getInstance(dbContext).create(dto.documentSection);
+
+                   dto.documentDefination.documentSection.pageID= PageNameDAO.getInstance(dbContext).create(dto.page);
                 }
 
+                new DocumentSectionSaveService().executeAsSecondary(dto, dbContext);
 
             }
             catch (Exception ex)
