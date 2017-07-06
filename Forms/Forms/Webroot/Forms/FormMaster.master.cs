@@ -13,12 +13,12 @@ namespace Forms.Webroot.Forms
 {
     public partial class FormMaster : MasterBasePage
     {
-        BasePage bp = new BasePage();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             loadPageCache();
             //string test = getLastURL();
-
+         
         }
         private void loadPageCache()
         {

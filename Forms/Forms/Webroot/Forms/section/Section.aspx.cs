@@ -25,13 +25,16 @@ namespace Forms.Webroot.Forms.section
             {
                 sectionHeading.InnerText = getSection().name;
                 createControl();
-                
+                getSectionContentData();
+
+                if (getSection().flow > 1)
+                    btnPrevious.Visible = true;
             }
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            getSectionContentData();
+            //getSectionContentData();
         }
         private void getSectionContentData()
         {
@@ -47,15 +50,13 @@ namespace Forms.Webroot.Forms.section
             ViewState["tableDynamic"] = true;
 
             processForwardedFields(hiddenFieldDiv, ((Douments)getParentRef()));
-
-
         }
 
         protected override void LoadViewState(object savedState)
         {
             createControl();
             base.LoadViewState(savedState);
-
+           
         }
 
         protected void btnNext_Click(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace Forms.Webroot.Forms.section
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
-
+                
                 Response.Redirect(getPageDetail.webName);
             }
         }

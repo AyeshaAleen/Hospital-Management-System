@@ -74,7 +74,7 @@
 
                                 <asp:Repeater ID="tblSectionTab" runat="server">
                                     <ItemTemplate>
-                                        <a id="A2" runat="server" class="tag"><%# Eval("name")%></a>
+                                        <a id="A2" runat="server"  class="tag"><%# Eval("name")%></a>
                                     </ItemTemplate>
                                 </asp:Repeater>
 

@@ -13,7 +13,7 @@
               <h4 class="m-t-0 header-title" id="sectionHeading" runat="server"><b></b></h4>
             
         
-                <asp:Table ID="tableDynamic" runat="server" data-toggle="table" CssClass="table table-bordered table-hover">
+                <asp:Table ID="tableDynamic" runat="server" data-toggle="table" BorderStyle="None" style="border:none">
                    
                 </asp:Table>
              
@@ -24,7 +24,7 @@
 
          <div id="hiddenFieldDiv" style="display:none" runat="server"></div>
     </div>
-     <asp:Button ID="btnPrevious" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
+     <asp:Button ID="btnPrevious" visible="false" runat="server" Text="Previous" OnClick="btnPrevious_Click" CssClass="btn btn-inverse waves-effect waves-light" />
      <asp:Button ID="btnNext" runat="server" Text="Next" OnClick="btnNext_Click"   OnClientClick="return validate();" CssClass="btn btn-inverse waves-effect waves-light pull-right"/>
      
     <div id="hiddenDiv" style="display:none"></div>

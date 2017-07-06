@@ -387,7 +387,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success waves-effect waves-light" onclick="SetDetail()">Set Detail</button>
+                                <button type="button" class="btn btn-success waves-effect waves-light" onclick="SetDetail()">Save Detail</button>
                                 <input type="text" hidden="hidden" id="tableOuterHtml" runat="server" />
                                 <input type="text" hidden="hidden" id="RequiredFieldID" />
 
