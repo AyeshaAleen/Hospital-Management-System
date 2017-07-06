@@ -26,6 +26,9 @@ namespace Forms.Webroot.Forms.section
                 sectionHeading.InnerText = getSection().name;
                 createControl();
                 getSectionContentData();
+
+                if (getSection().flow > 1)
+                    btnPrevious.Visible = true;
             }
         }
 
@@ -66,7 +69,7 @@ namespace Forms.Webroot.Forms.section
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
-
+                
                 Response.Redirect(getPageDetail.webName);
             }
         }
