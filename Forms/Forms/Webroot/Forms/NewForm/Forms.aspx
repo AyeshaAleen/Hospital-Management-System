@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Forms.aspx.cs" Inherits="Forms.Webroot.Forms.NewForm.Forms" %>
 <!DOCTYPE html>
-<html>
+<html style="background:none;">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +39,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js") %>"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js") %>"></script>
         <![endif]-->
-
+    <style>
+        .datepicker {
+            top:0px !important;
+            left:140px !important;
+        }
+    </style>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/modernizr.min.js") %>"></script>
 
 </head>

@@ -69,5 +69,6 @@ namespace Utils.itinsync.icom.constant.lookup
 
         public static readonly string LKSignatureType = "LKSignatureType";
 
+        public static readonly string LKDocumentStatus = "LKDocumentStatus";
     }
 }
