@@ -20,13 +20,13 @@ namespace Forms.Webroot.Users
 {
     public partial class ChangePassword : BasePage
     {
-        private Int32 PAGEID = 1052;
+        private Int32 PAGEID = 1036;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //if (hasPermission(PAGEID))
-                //{
+                if (hasPermission(PAGEID))
+                {
                     if (getSubjectID() == "0")
                     {
                         currentUser.Visible = true;
@@ -39,7 +39,7 @@ namespace Forms.Webroot.Users
 
                         password.Text ="Current Password : "+ OldPassword(Convert.ToInt32(getSubjectID()));
                     }
-              //  }
+                }
             }
         }
 
@@ -72,7 +72,6 @@ namespace Forms.Webroot.Users
             IResponseHandler response = new UserAccountsGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-
                 return SecurityManager.DecodeString(((UserAccountsDTO)response).useraccounts.password).Trim();
             }
             else
@@ -85,9 +84,6 @@ namespace Forms.Webroot.Users
             dto.header = getHeader();
             dto.useraccounts.userID = userid;
             dto.useraccounts.password = SecurityManager.EncodeString(password);
-            //dto.useraccounts.userID = Convert.ToInt32(getSubjectID());
-            //dto.useraccounts.userEmail = getHeader().userinformation.userAccount.userEmail;
-            //dto.useraccounts.password = SecurityManager.EncodeString(txtPassword.Value);
             dto.UPDATEBY = ReadByConstant.READBYUSERID;
             return new UserAccountSaveService().executeAsPrimary(dto);
         }
