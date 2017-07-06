@@ -18,7 +18,7 @@ namespace Forms.Webroot.Store
 {
     public partial class SearchStore : BasePage
     {
-        private Int32 PAGEID = 1046;
+        private Int32 PAGEID = 1049;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) { if (hasPermission(PAGEID)) { } }

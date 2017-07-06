@@ -246,7 +246,7 @@ function AddDetail(id) {
     var ddlMask                = iGetAttribute(fieldObject,"imask")
     var ddlLookupName        = iGetAttribute(fieldObject,"imask")
     var isLabel              = (controlType == "label" || controlType == "heading") ? true : false;
-    var isNotRadio              = controlType != "radio"  ? true : false;
+    var isNotRadio           = controlType != "radio" && controlType != "checkbox"  ? true : false;
     
     iFillControl("PreviousControlID", resultantid);
     iFillControl("txtcondition", condition);
@@ -307,7 +307,7 @@ function SetDetail() {
     var ddlForwardedControls    = getComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls");
     var ddlMask                 = getComboText(CURRENTPAGE_CONTEXT + "ddlMask");
     var isLabel                 = (controlType == "label" || controlType == "heading") ? true : false;
-    var isNotRadio              = controlType != "radio" ? true : false;
+    var isNotRadio              = controlType != "radio" && controlType != "checkbox" ? true : false;
   
 
 
@@ -329,8 +329,8 @@ function SetDetail() {
 
      if (isReadonly)
         iSetAttribute(id, "disabled", "disabled");
-     else
-         iSetAttribute(id, "disabled", ""); //document.getElementById(id).removeAttribute("disabled", "");
+     //else
+     //    iSetAttribute(id, "disabled", ""); //document.getElementById(id).removeAttribute("disabled", "");
        
     
     
