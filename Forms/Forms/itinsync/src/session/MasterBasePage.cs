@@ -11,7 +11,7 @@ namespace Forms.itinsync.src.session
 {
     public class MasterBasePage : System.Web.UI.MasterPage
     {
-        BasePage bp = new BasePage();
+        protected BasePage bp = new BasePage();
         public void goBack()
         {
             bp.goBack();

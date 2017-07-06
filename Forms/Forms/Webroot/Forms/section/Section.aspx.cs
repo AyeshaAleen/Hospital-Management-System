@@ -25,13 +25,13 @@ namespace Forms.Webroot.Forms.section
             {
                 sectionHeading.InnerText = getSection().name;
                 createControl();
-                
+                getSectionContentData();
             }
         }
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            getSectionContentData();
+            //getSectionContentData();
         }
         private void getSectionContentData()
         {
@@ -47,15 +47,13 @@ namespace Forms.Webroot.Forms.section
             ViewState["tableDynamic"] = true;
 
             processForwardedFields(hiddenFieldDiv, ((Douments)getParentRef()));
-
-
         }
 
         protected override void LoadViewState(object savedState)
         {
             createControl();
             base.LoadViewState(savedState);
-
+           
         }
 
         protected void btnNext_Click(object sender, EventArgs e)

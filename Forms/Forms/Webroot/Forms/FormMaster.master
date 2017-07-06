@@ -15,10 +15,13 @@
                     <!--- Divider -->
                     <div id="sidebar-menu">
                         <ul>
-                             <li>
+                           <%--  <li>
                                 <a href="#custom-modal" data-animation="slidetogether" data-plugin="custommodal" data-overlaySpeed="100" data-overlayColor="#36404a" class="waves-effect"><i class="ti-file"></i> <span> <% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
-                            </li>
+                            </li>--%>
 
+                            <li>
+                                <a href="<%= ResolveClientUrl("NewForm/Forms.aspx") %>" class="waves-effect"><i class="ti-files"></i> <span> <% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
+                            </li>
                              <li>
                                 <a href="<%= ResolveClientUrl("Management/AddForms.aspx") %>" class="waves-effect"><i class="ti-files"></i> <span> <% Response.Write(trasnlation("Form.Manager")); %></span> </a>
                             </li>
