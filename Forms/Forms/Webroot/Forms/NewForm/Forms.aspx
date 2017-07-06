@@ -56,7 +56,8 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label"><% Response.Write(trasnlation("Date")); %></label>
-                        <input class="form-control datepicker-autoclose" placeholder="mm/dd/yyyy" id="txtDate" runat="server" type="text">
+                        <%--<input type="text" id="txtFormDate" runat="server" />--%>
+                        <input type="text" id="txtFormDate" class="form-control datepicker-autoclose" placeholder="mm/dd/yyyy"  runat="server" >
                     </div>
                     <div class="form-group col-md-6">
                     

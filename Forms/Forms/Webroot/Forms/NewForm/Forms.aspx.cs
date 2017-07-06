@@ -60,7 +60,10 @@ namespace Forms.Webroot.Forms.NewForm
             dto.header = getHeader();
             dto.document.documentDefinitionID = Convert.ToInt32(ddlForms.SelectedValue);
             dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
-            dto.document.transDate = DateFunctions.getCurrentDateAsString();
+            if(!string.IsNullOrEmpty(txtFormDate.Value))
+            dto.document.transDate = DateFunctions.formatDateAsString(txtFormDate.Value);
+            else
+                dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
 
             foreach (XDocumentSection section in DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID).documentSections)
@@ -90,7 +93,9 @@ namespace Forms.Webroot.Forms.NewForm
                 setSection(((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.flow.Equals(1)).SingleOrDefault());
 
                 PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
-                Response.Redirect(getPageDetail.webName);
+
+                ClientScript.RegisterStartupScript(GetType(), "Load", "<script type='text/javascript'>window.parent.location.href = '"+ getPageDetail.webName + "'; </script>");
+                //Response.Redirect(getPageDetail.webName);
             }
         }
     }

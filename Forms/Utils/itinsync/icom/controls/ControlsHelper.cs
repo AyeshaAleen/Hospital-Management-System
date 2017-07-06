@@ -205,7 +205,7 @@ namespace Utils.itinsync.icom.controls
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
             check.Attributes.Add("formula", content.formula);
-
+            
             if (content.ReferredContent != null && content.ReferredContent.controlID != null && content.ReferredContent.controlID.Length > 0)
             {
                 check.Attributes.Add("Reftranslation", content.ReferredContent.translation);

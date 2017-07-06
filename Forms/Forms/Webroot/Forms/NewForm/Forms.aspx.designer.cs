@@ -40,13 +40,13 @@ namespace Forms.Webroot.Forms.NewForm {
         protected global::System.Web.UI.WebControls.DropDownList ddlStore;
         
         /// <summary>
-        /// txtDate control.
+        /// txtFormDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtFormDate;
         
         /// <summary>
         /// btnGo control.

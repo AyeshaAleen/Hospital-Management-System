@@ -18,11 +18,12 @@ namespace Forms.Webroot.Forms
 {
     public partial class DocumentMaster : MasterBasePage
     {
+        public static string DocumentName = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (getParentRef() != null)
             {
-               var test= getSection().name;
+               var DocumentName = ((Douments)getParentRef()).xdocumentDefinition.name;
                 DataTable dt_PageDetail = new DataTable();
                 dt_PageDetail.Columns.Add("name");
                 dt_PageDetail.Columns.Add("Webname");
