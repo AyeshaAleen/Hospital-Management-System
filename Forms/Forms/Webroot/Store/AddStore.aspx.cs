@@ -18,7 +18,7 @@ namespace Forms.Webroot.Store
 {
     public partial class AddStore : BasePage
     {
-        private Int32 PAGEID = 1044;
+        private Int32 PAGEID = 1047;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

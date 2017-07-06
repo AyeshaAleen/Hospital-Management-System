@@ -16,7 +16,7 @@ namespace Forms.Webroot.Users
 {
     public partial class AddUser : BasePage
     {
-        private Int32 PAGEID = 1051;
+        private Int32 PAGEID = 260;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

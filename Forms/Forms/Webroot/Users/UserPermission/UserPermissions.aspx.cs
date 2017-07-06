@@ -12,7 +12,7 @@ namespace Forms.Webroot.Users.UserPermission
 {
     public partial class UserPermissions : BasePage
     {
-        private int PAGEID = 1050;
+        private int PAGEID = 1028;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

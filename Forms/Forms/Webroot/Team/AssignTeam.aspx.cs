@@ -14,7 +14,7 @@ namespace Forms.Webroot.Team
 {
     public partial class AssignTeam : BasePage
     {
-        private int PAGEID = 1049;
+        private int PAGEID = 1029;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

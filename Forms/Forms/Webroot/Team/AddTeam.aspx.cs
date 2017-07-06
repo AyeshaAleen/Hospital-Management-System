@@ -23,7 +23,7 @@ namespace Forms.Webroot.Team
 {
     public partial class AddTeam : BasePage
     {
-        private Int32 PAGEID = 1048;
+        private Int32 PAGEID = 1024;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
