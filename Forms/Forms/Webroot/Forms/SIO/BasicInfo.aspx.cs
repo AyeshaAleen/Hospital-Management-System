@@ -20,6 +20,7 @@ using Domains.itinsync.icom.idocument.section;
 using Domains.itinsync.icom.idocument;
 using Services.icom.signature.dto;
 using Services.icom.signature;
+using Services.icom.document;
 
 namespace Forms.Webroot.Forms.SIO
 {
@@ -58,44 +59,28 @@ namespace Forms.Webroot.Forms.SIO
             dto.document.documentID = documentid;
             dto.document.flow = DocumentFlow;
 
-
             dto.signature.documentid = documentid;
 
             dto.signature.trandate = DateFunctions.getCurrentDateAsString();
             dto.signature.trantime = DateFunctions.getCurrentTimeInMillis();
 
             dto.signature.signaturestring = signature1.Value.Replace("data:image/png;base64,", "");
-            dto.signature.signaturetype = "Shift Manager";
+            dto.signature.signaturetype = ApplicationCodes.FORMS_SIGNATURE_TYPE_MANAGER;
             dto.signaturelist.Add(dto.signature);
 
             dto.signature.signaturestring = signature2.Value.Replace("data:image/png;base64,", "");
-            dto.signature.signaturetype = "Completed By";
+            dto.signature.signaturetype = ApplicationCodes.FORMS_SIGNATURE_TYPE_COMPLETEDBY;
             dto.signaturelist.Add(dto.signature);
 
-            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
+            IResponseHandler response = new DocumentCompletionService().executeAsPrimary(dto);
 
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-
                 showSuccessMessage(response);
             }
             else
                 showErrorMessage(response);
         }
-
-        //IResponseHandler SaveSignature(string signaturestring, string signaturetype)
-        //{
-        //    SignatureDTO dto = new SignatureDTO();
-        //    dto.header = getHeader();
-
-        //    dto.signature.documentid = documentid;
-        //    dto.signature.signaturestring = signaturestring.Replace("data:image/png;base64,", "");
-        //    dto.signature.signaturetype = signaturetype;
-        //    dto.signature.trandate = DateFunctions.getCurrentDateAsString();
-        //    dto.signature.trantime = DateFunctions.getCurrentTimeInMillis();
-
-        //    return new SignatureSaveService().executeAsPrimary(dto);
-        //}
         protected void btnNext_Click(object sender, EventArgs e)
         {
             

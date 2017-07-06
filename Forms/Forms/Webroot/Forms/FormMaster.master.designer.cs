@@ -31,6 +31,33 @@ namespace Forms.Webroot.Forms {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder FormMasterBody;
         
         /// <summary>
+        /// ddlForms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlForms;
+        
+        /// <summary>
+        /// ddlStore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStore;
+        
+        /// <summary>
+        /// txtDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDate;
+        
+        /// <summary>
         /// FormMasterFoot control.
         /// </summary>
         /// <remarks>

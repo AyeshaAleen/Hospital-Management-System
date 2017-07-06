@@ -15,7 +15,7 @@ using Services.icom.lookuptrans.dto;
 using Services.icom.lookuptrans;
 using System.IO;
 
-namespace Forms.Webroot.Forms.Lookup
+namespace Forms.Webroot.Lookup.LookupTran
 {
     public partial class LookupTrans : BasePage
     {
@@ -24,26 +24,12 @@ namespace Forms.Webroot.Forms.Lookup
             if (!Page.IsPostBack)
                 getLookupTrans();
         }
-
+        
         protected void btnAddLookup_Click(object sender, EventArgs e)
         {
-            LookupTransDTO dto = new LookupTransDTO();
-            dto.header = getHeader();
-            dto.lookupTrans.lang = dto.header.lang;
-            dto.lookupTrans.value = txtLookupName.Value;
-            dto.lookupTrans.code = dto.lookupTrans.value.Replace(" ", ".");
-
-            IResponseHandler response = new LookupTransSaveService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (LookupTransDTO)response;
-                getLookupTrans();
-                showSuccessMessage(response);
-            }
-            else
-                showErrorMessage(response);
+            saveLookupTrans();
         }
-        protected void tblLookup_RowClick(object sender, CommandEventArgs e)
+        protected void tblLookupDelete_RowClick(object sender, CommandEventArgs e)
         {
             LookupTransDTO dto = new LookupTransDTO();
             dto.header = getHeader();
@@ -59,18 +45,37 @@ namespace Forms.Webroot.Forms.Lookup
             else
                 showErrorMessage(response);
         }
-
         void getLookupTrans()
         {
             LookupTransDTO dto = new LookupTransDTO();
             dto.header = getHeader();
-            
+
             IResponseHandler response = new LookupTransGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (LookupTransDTO)response;
                 repeaterLookupTrans.DataSource = dto.lookupTranslist;
                 repeaterLookupTrans.DataBind();
+            }
+            else
+                showErrorMessage(response);
+        }
+        void saveLookupTrans()
+        {
+            LookupTransDTO dto = new LookupTransDTO();
+            dto.header = getHeader();
+            dto.lookupTrans.lookupTransID = Convert.ToInt32(txtLookupID.Value);
+            dto.lookupTrans.lang = dto.header.lang;
+            dto.lookupTrans.value = txtLookupName.Value;
+            dto.lookupTrans.code = txtLookupCode.Value;
+
+            IResponseHandler response = new LookupTransSaveService().executeAsPrimary(dto);
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
+            {
+                dto = (LookupTransDTO)response;
+                getLookupTrans();
+                txtLookupName.Value = txtLookupCode.Value = "";
+                showSuccessMessage(response);
             }
             else
                 showErrorMessage(response);

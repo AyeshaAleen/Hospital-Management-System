@@ -20,13 +20,13 @@ using Services.icom.views.personalinboxview;
 using System.Data;
 using Utils.itinsync.icom.cache.document;
 using Domains.itinsync.icom.views.personalinbox;
-using Domains.itinsync.icom.idocument;
+using Domains.itinsync.icom.idocument.definition;
+using Domains.itinsync.icom.idocument.section;
 
 namespace Forms.Webroot.Forms.Dashboard
 {
     public partial class PersonalInbox : DocumentBasePage
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -57,11 +57,15 @@ namespace Forms.Webroot.Forms.Dashboard
             {
                 dto = (DocumentDTO)response;
                 dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
+
+                XDocumentSection section = dto.document.xdocumentDefinition.documentSections.Where(u => u.documentdefinitionid == dto.document.xdocumentDefinition.xDocumentDefinationID && Convert.ToInt32(u.flow) == dto.document.flow).SingleOrDefault();
+
                 setParentRef(dto.document);
-                if ((Douments)getParentRef()!=null)
-                setSection(((Douments)getParentRef()).xdocumentDefinition.documentSections.Where(c => c.flow.Equals(dto.document.flow)).SingleOrDefault());
-                Response.Redirect(getWebPageName(dto.document.xdocumentDefinition.documentSection.pageID));
+                setSection(section);
+                Response.Redirect(getWebPageName(section.pageID));
             }
+            else
+                showErrorMessage(response);
         }
     }
 }

@@ -256,10 +256,11 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.documentRouteUsers.xdocumentdefinitionid = getParentRef().getParentrefKey();
-                dto.documentRouteUsers.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
-                dto.documentRouteUsers.userid = Convert.ToInt32(ddlUsers.SelectedValue);
+            dto.documentRouteUsers.role = Convert.ToInt32(ddlUserRouting.SelectedValue);
+            dto.documentRouteUsers.userid = Convert.ToInt32(ddlUsers.SelectedValue);
+            dto.documentRouteUsers.useremail = txtUserEmail.Value;
 
-                IResponseHandler response = new DocumentRouteUsersSaveService().executeAsPrimary(dto);
+            IResponseHandler response = new DocumentRouteUsersSaveService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 showSuccessMessage(response);
@@ -267,11 +268,7 @@ namespace Forms.Webroot.Forms.Management
             }
             else
                 showErrorMessage(response);
-
-            
         }
-
-    
         protected void btnAddEmailRouting_Click(object sender, EventArgs e)
         {
             DocumentDTO dto = new DocumentDTO();

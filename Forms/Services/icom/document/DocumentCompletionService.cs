@@ -1,5 +1,4 @@
-﻿
-using DAO.itinsync.icom.BaseAS.frame;
+﻿using DAO.itinsync.icom.BaseAS.frame;
 using DAO.itinsync.icom.useraccounts;
 using Domains.itinsync.icom.interfaces.response;
 using Services.itinsync.icom.useraccounts.dto;
@@ -15,10 +14,11 @@ using DAO.itinsync.icom.idocument.definition;
 using System.Xml;
 using Utils.itinsync.icom.date;
 using Domains.itinsync.icom.idocument;
+using Services.icom.signature;
 
-namespace Services.itinsync.icom.documents
+namespace Services.icom.document
 {
-    public class DocumentSaveService : FrameAS
+    public class DocumentCompletionService : FrameAS
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -34,6 +34,8 @@ namespace Services.itinsync.icom.documents
                 {
                     dto.document.documentID = DocumentDAO.getInstance(dbContext).create(dto.document);
                 }
+
+                 new SignatureSaveService().executeAsSecondary(dto, dbContext);
             }
             catch (Exception ex)
             {
@@ -43,7 +45,5 @@ namespace Services.itinsync.icom.documents
             }
             return dto;
         }
-
-
     }
 }

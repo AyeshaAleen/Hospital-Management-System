@@ -14,10 +14,14 @@ namespace Utils.itinsync.icom.constant.application
 
 
         ///***************Table TD constant***********///
-        public static readonly string FORMS_TABLE_TD_TYPE= "600";
+        public static readonly string FORMS_TABLE_TD_TYPE = "600";
         public static readonly string FORMS_TABLE_HEADER_TYPE = "601";
         public static readonly string FORMS_TABLE_FOOTER_TYPE = "602";
 
+
+        ///***************SignatureType  constant***********///
+        public static readonly string FORMS_SIGNATURE_TYPE_MANAGER = "6000";
+        public static readonly string FORMS_SIGNATURE_TYPE_COMPLETEDBY = "6001";
 
         ///***************ControlType constant***********///
         public static readonly string FORMS_CONTROL_BUTTON= "0";

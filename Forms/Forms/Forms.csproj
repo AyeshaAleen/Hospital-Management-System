@@ -2930,7 +2930,7 @@
     <Content Include="Webroot\Forms\CashAudit\EmployeeGuideLines.aspx" />
     <Content Include="Webroot\Forms\CashAudit\Selction.aspx" />
     <Content Include="Webroot\Forms\Dashboard\PersonalInbox.aspx" />
-    <Content Include="Webroot\Forms\Lookup\LookupTrans.aspx" />
+    <Content Include="Webroot\Lookup\LookupTran\LookupTrans.aspx" />
     <Content Include="Webroot\Forms\Management\AddForms.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
     <Content Include="Webroot\Forms\Management\FormsManager\FormManager.aspx" />
@@ -3470,11 +3470,11 @@
     <Compile Include="itinsync\src\session\DocumentBasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webroot\Forms\Lookup\LookupTrans.aspx.cs">
+    <Compile Include="Webroot\Lookup\LookupTran\LookupTrans.aspx.cs">
       <DependentUpon>LookupTrans.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Webroot\Forms\Lookup\LookupTrans.aspx.designer.cs">
+    <Compile Include="Webroot\Lookup\LookupTran\LookupTrans.aspx.designer.cs">
       <DependentUpon>LookupTrans.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Forms\Management\AddForms.aspx.cs">
