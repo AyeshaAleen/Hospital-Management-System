@@ -17,7 +17,7 @@ namespace Domains.itinsync.icom.views.personalinbox
         public string sectionname { get; set; }
         public string transdate { get; set; }
 
-        [LookupAttribute(lookupName = "LKTaskStatus", relatedTag = "status_Text")]
+        [LookupAttribute(lookupName = "LKDocumentStatus", relatedTag = "status_Text")]
         public string status { get; set; }
 
         public string status_Text { get; set; }

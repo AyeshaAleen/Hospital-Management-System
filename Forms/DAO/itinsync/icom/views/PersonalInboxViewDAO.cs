@@ -46,7 +46,7 @@ namespace DAO.itinsync.icom.views
         }
         public List<PersonalInboxView> readByUseridWithStatus(int userID, string status)
         {
-            string READ = string.Format("Select * from " + TABLENAME + " where userID = " + userID + " and status = " + status);
+            string READ = string.Format("Select * from " + TABLENAME + " where userID = " + userID + " and status = '" + status+"'");
             return wrap(processResults(READ));
         }
     }
