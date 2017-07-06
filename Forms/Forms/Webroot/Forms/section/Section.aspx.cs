@@ -24,10 +24,14 @@ namespace Forms.Webroot.Forms.section
             {
                 sectionHeading.InnerText = getSection().name;
                 createControl();
-                getSectionContentData();
+                
             }
         }
 
+        protected void Page_LoadComplete(object sender, EventArgs e)
+        {
+            getSectionContentData();
+        }
         private void getSectionContentData()
         {
             if (!string.IsNullOrEmpty(((Douments)getParentRef()).data))

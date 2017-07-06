@@ -57,7 +57,7 @@ redips.init = function () {
     rd.dropMode = 'single';
     // event handler invoked on click on DIV element
     rd.event.clicked = function () {
-        //debugger;
+        //
         var div,	// DIV element reference
             i;		// loop variable
         // loop goes through all DIV elements inside table editor
@@ -76,7 +76,7 @@ redips.init = function () {
 
     // event handler invoked before DIV element is dropped to the table cell
     rd.event.droppedBefore = function(targetCell) {
-        debugger;
+        
         //var test = targetCell.parentNode;
         // set new width to the dropped DIV element
         var width = targetCell.offsetWidth;
@@ -116,7 +116,7 @@ redips.init = function () {
 // callback method is called with XHR and obj object (obj is just passed from ajaxCall to this callback function)
 // error handling is wrapped inside callback function
 redips.handler1 = function(xhr, obj) {
-    debugger;
+    
     // prepare title and layout local variables
     var title,
         layout;
@@ -199,7 +199,7 @@ function setTranslation()
 
 function AddDetail(id) {
 
-    debugger;
+    
 
    //Need to revise below logic
     //alert(jQuery("#ddlControlID"));
@@ -287,7 +287,7 @@ function AddDetail(id) {
 
 
 function SetDetail() {
-    debugger;
+    
     
 
     var id                      = iGetControlValue("ControlID");
@@ -352,7 +352,7 @@ function setOperationField(id)
 }
 
 function AddOperationDetail() {
-    debugger;
+    
 
     var operation = getComboText(CURRENTPAGE_CONTEXT + "ddlOperation");
     var ControlID = getComboText("ddlControlID");
@@ -383,7 +383,7 @@ function AddOperationDetail() {
 
 
 function AddConditionDetail() {
-    debugger;
+    
     var operation = getComboText(CURRENTPAGE_CONTEXT + "ddlConditionOperation");
     var ControlID = getComboText("ddlConditionalControlID");
     var condition = iGetControlValue("txtcondition");
@@ -405,7 +405,7 @@ function fieldClick(event) {
 
 
 function fieldset(event, divid, targetCell) {
-    debugger;
+    
     var generatedcontrolID = "";
     var ControlName = "";
 
@@ -446,7 +446,7 @@ function fieldset(event, divid, targetCell) {
 }
 function setRadioGroupName(targetCell,controlName)
 {
-    debugger;
+    
     var row = targetCell.parentNode;
     if (row.cells.length > 0)
     {
@@ -476,7 +476,7 @@ function setRadioGroupName(targetCell,controlName)
 
 // delete DIV element from table editor
 redips.divDelete = function (el) {
-    debugger;
+    
     var div = REDIPS.drag.findParent('DIV', el),	// set reference to the DIV element
         rcell = el.parentNode.cells[1],				// set reference to the right cell of DIV element header
         name = rcell.innerText || rcell.textContent;// set name in a cross-browser manner
@@ -492,7 +492,7 @@ redips.divDelete = function (el) {
 
 // method shows/hides details of DIV elements sent as input parameter 
 redips.details = function (el, type) {
-    debugger;
+    
     var divDrag = REDIPS.drag.findParent('DIV', el),	// find parent DIV element
         tbl = divDrag.childNodes[0],	// first child node is table
         div = divDrag.childNodes[1],	// second child node is hidden DIV (with containing component details)
@@ -639,7 +639,7 @@ redips.split = function () {
 
 // insert row (below current row)
 redips.rowInsert = function (el) {
-    debugger;
+    
     var row = REDIPS.drag.findParent('TR', el),	// find source row (skip inner row)
         top_row,									// cells reference in top row of the table editor
         nr,											// new table row
@@ -659,7 +659,7 @@ redips.rowInsert = function (el) {
 
 function insertcell(el)
 {
-    debugger;
+    
     var row = $("#"+el).findParent('TR', el);
     var x = row.insertCell(0);
 }
@@ -667,7 +667,7 @@ function insertcell(el)
 
 redips.colInsert = function (el) {
 
-    debugger;
+    
     var row = REDIPS.drag.findParent('TR', el);	// find source row (skip inner row)
        /* top_row,	*/								// cells reference in top row of the table editor
        /* nr,	*/										// new table row

@@ -8,6 +8,8 @@ using Domains.itinsync.icom.lookup.trans;
 using Domains.itinsync.interfaces.domain;
 using System.Data;
 using DAO.itinsync.icom.BaseAS.dbcontext;
+using Utils.itinsync.icom;
+using Utils.itinsync.icom.exceptions;
 
 namespace DAO.itinsync.icom.lookup.trans
 {
@@ -36,7 +38,32 @@ namespace DAO.itinsync.icom.lookup.trans
         }
         protected override string updateQuery(object o, string where)
         {
-            throw new NotImplementedException();
+            List<LookupTrans> results = new List<LookupTrans>();
+            if (where.Length > 0)
+                results = readWhere(where);
+            else
+                results.Add(findbyPrimaryKey(((LookupTrans)o).lookupTransID));
+            foreach (LookupTrans lk in results)
+            {
+                string whereClause = " update " + TABLENAME + " set ";
+                whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(LookupTrans.columns));
+                if (whereClause.Contains("="))//update on the base of primary key column
+                    update(ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(LookupTrans.primaryKey.lookupTransID.ToString(), lk.lookupTransID)));
+            }
+            return "";
+        }
+
+        private List<LookupTrans> readWhere(string where)
+        {
+            if (where == null || where.Length == 0)
+                throw new ItinsyncException(new Exception());
+            string SQL = string.Format("Select * from " + TABLENAME + where);
+            return wrap(processResults(SQL));
+        }
+        public LookupTrans findbyPrimaryKey(Int32 id)
+        {
+            string sql = "select * From " + TABLENAME + " where lookupTransID = " + id;
+            return (LookupTrans)processSingleResult(sql);
         }
         private List<LookupTrans> wrap(List<IDomain> result)
         {

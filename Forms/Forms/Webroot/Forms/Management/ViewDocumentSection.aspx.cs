@@ -26,6 +26,7 @@ using System.Data;
 using Utils.itinsync.icom.cache.document;
 using Domains.itinsync.icom.idocument.section;
 using System.Web.Services;
+using Services.itinsync.icom.document.dynamic.page;
 
 namespace Forms.Webroot.Forms.Management
 {
@@ -69,9 +70,12 @@ namespace Forms.Webroot.Forms.Management
             dto.header = getHeader();
 
             IResponseHandler response = new UserAccountsGetService().executeAsPrimary(dto);
-
-            ddlUsers.DataSource = ((UserAccountsDTO)response).userAccountsList;
-            ddlUsers.DataBind();
+            if(response.getErrorBlock().ErrorCode==ApplicationCodes.ERROR_NO)
+            {
+                ddlUsers.DataSource = ((UserAccountsDTO)response).userAccountsList;
+                ddlUsers.DataBind();
+            }
+           
         }
         void LoadUserRoleTbl()
         {
@@ -83,6 +87,7 @@ namespace Forms.Webroot.Forms.Management
                 dto = (DocumentDTO)response;
                 tblUserRole.DataSource = dto.documentRolelist;
                 tblUserRole.DataBind();
+                //loadUsersUpdatePanel.Update();
             }
         }
 
@@ -150,22 +155,22 @@ namespace Forms.Webroot.Forms.Management
             dtoIn.documentSection.documentsectionid = Convert.ToInt32(e.CommandArgument);
 
                 XDocumentSection getSectionStatus = DocumentManager.getDocumentSection(Convert.ToInt32(e.CommandArgument));
-            dtoIn.documentSection.pageID = getSectionStatus.pageID;
-            dtoIn.documentSection.flow = getSectionStatus.flow;
-            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+            dtoIn.documentDefination.documentSection.pageID = getSectionStatus.pageID;
+            dtoIn.documentDefination.documentSection.flow = getSectionStatus.flow;
+            dtoIn.documentDefination.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
 
             if (getSectionStatus.status == ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
             {
-           
-                dtoIn.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_DEACTIVE;
+
+                dtoIn.documentDefination.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_DEACTIVE;
             }
             else
-                dtoIn.documentSection.status=ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
+                dtoIn.documentDefination.documentSection.status=ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
 
                 IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-
+                setParentRef(dtoIn.documentDefination);
                 showSuccessMessage(response);
                 doLoad();
             }
@@ -179,14 +184,20 @@ namespace Forms.Webroot.Forms.Management
             DocumentDTO dtoIn = new DocumentDTO();
             dtoIn.header = getHeader();
 
-            dtoIn.documentSection.name = field.Value;
-            dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); 
-            dtoIn.documentSection.flow = tblDocument.Controls.Count + 1;
-            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-            dtoIn.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
-            IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
+            dtoIn.documentDefination.documentSection.name = field.Value;
+            //dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); 
+            dtoIn.documentDefination.documentSection.flow = tblDocument.Controls.Count + 1;
+            dtoIn.documentDefination.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+            dtoIn.documentDefination.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
+
+            dtoIn.page.pageName = field.Value;
+            dtoIn.page.webName = PageConstant.PAGE_DOCUMENT_SECTION;
+
+            IResponseHandler response = new DocumentPageSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
+                setParentRef(dtoIn.documentDefination);
+
                 showSuccessMessage(response);
                 doLoad();
             }
@@ -245,10 +256,11 @@ namespace Forms.Webroot.Forms.Management
         {
             DocumentDTO dto = new DocumentDTO();
             dto.documentRouteUsers.xdocumentdefinitionid = getParentRef().getParentrefKey();
-                dto.documentRouteUsers.role = Convert.ToInt32(ddlEmailRouting.SelectedValue);
-                dto.documentRouteUsers.userid = Convert.ToInt32(ddlUsers.SelectedValue);
+            dto.documentRouteUsers.role = Convert.ToInt32(ddlUserRouting.SelectedValue);
+            dto.documentRouteUsers.userid = Convert.ToInt32(ddlUsers.SelectedValue);
+            dto.documentRouteUsers.useremail = txtUserEmail.Value;
 
-                IResponseHandler response = new DocumentRouteUsersSaveService().executeAsPrimary(dto);
+            IResponseHandler response = new DocumentRouteUsersSaveService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 showSuccessMessage(response);
@@ -256,11 +268,7 @@ namespace Forms.Webroot.Forms.Management
             }
             else
                 showErrorMessage(response);
-
-            
         }
-
-    
         protected void btnAddEmailRouting_Click(object sender, EventArgs e)
         {
             DocumentDTO dto = new DocumentDTO();

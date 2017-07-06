@@ -32,20 +32,20 @@ namespace Forms.Webroot.Forms.NewForm
         {
             if (!IsPostBack)
             {
-              
+
                 getDocument_Store();
             }
-                
+
         }
         private void getDocument_Store()
         {
-            ddlForms.DataSource= DocumentManager.getDefinitions();
+            ddlForms.DataSource = DocumentManager.getDefinitions();
             ddlForms.DataBind();
             StoreDTO dto = new StoreDTO();
             dto.header = getHeader();
             dto.READBY = ReadByConstant.READBYALL;
             IResponseHandler response = new StoreGetService().executeAsPrimary(dto);
-            if(response.getErrorBlock().ErrorCode==ApplicationCodes.ERROR_NO)
+            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (StoreDTO)response;
                 ddlStore.DataSource = dto.storelist;
@@ -63,25 +63,26 @@ namespace Forms.Webroot.Forms.NewForm
             dto.document.transDate = DateFunctions.getCurrentDateAsString();
             dto.document.transTime = DateFunctions.getCurrentTimeInMillis();
 
-            foreach(XDocumentSection section in DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID).documentSections)
+            foreach (XDocumentSection section in DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID).documentSections)
             {
+                if(section.status==ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
                 dto.document.data += XMLUtils.appendTag(ServiceUtils.trimWhiteSpaces(section.name), "");
 
             }
             dto.document.documentName = dto.document.xdocumentDefinition.name;
-          
+
             dto.document.data = XMLUtils.appendTag(dto.document.documentName, dto.document.data);
-            
+
 
             dto.document.Userid = getHeader().userID;
             dto.document.storeid = Convert.ToInt32(ddlStore.SelectedValue);
             dto.document.flow = 1;
-            dto.document.status = ApplicationCodes.DOCUMENT_STATUS_INPROGRESS;
+            dto.document.status = ApplicationCodes.DOCUMENT_STATUS_START;
             dto.document.documentName = dto.document.xdocumentDefinition.name;
 
             IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
 
-            
+
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
                 dto = (DocumentDTO)response;
@@ -91,9 +92,6 @@ namespace Forms.Webroot.Forms.NewForm
                 PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
                 Response.Redirect(getPageDetail.webName);
             }
-            
-
-            
         }
     }
 }

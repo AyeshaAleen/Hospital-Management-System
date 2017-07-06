@@ -96,7 +96,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
     <script>
         function Clicked(btn) {
-            debugger;
+            
             document.getElementById('<%=TxtDocumentName.ClientID%>').value = "";
             document.getElementById('<%=TxtEditDocumentId.ClientID%>').value = "";
 

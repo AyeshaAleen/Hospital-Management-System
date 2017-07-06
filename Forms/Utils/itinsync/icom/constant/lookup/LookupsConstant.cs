@@ -67,7 +67,7 @@ namespace Utils.itinsync.icom.constant.lookup
         public static readonly string LKDocumentType = "LKDocumentType";
         public static readonly string LKMobileProvider = "LKMobileProvider";
 
-
+        public static readonly string LKSignatureType = "LKSignatureType";
 
     }
 }

@@ -11,14 +11,15 @@ using Utils.itinsync.icom.constant.lookup;
 using Utils.itinsync.icom.exceptions;
 using Services.itinsync.icom.documents.dto;
 using DAO.itinsync.icom.idocument;
-using DAO.itinsync.icom.idocument.definition;
-using System.Xml;
-using Utils.itinsync.icom.date;
-using Domains.itinsync.icom.idocument;
+using DAO.itinsync.icom.idocument.section;
+using Services.itinsync.icom.cache;
+using Services.icom.cache.frame;
+using DAO.itinsync.icom.pages;
+using Services.itinsync.icom.document.dynamic.section;
 
-namespace Services.itinsync.icom.documents
+namespace Services.itinsync.icom.document.dynamic.page
 {
-    public class DocumentSaveService : FrameAS
+    public class DocumentPageSaveService : FrameASCache
     {
         DocumentDTO dto = null;
         protected override IResponseHandler executeBody(object o)
@@ -26,14 +27,19 @@ namespace Services.itinsync.icom.documents
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.document.documentID > 0)
+                if (dto.page.pageID > 0)
                 {
-                    DocumentDAO.getInstance(dbContext).update(dto.document, "");
+
+                    PageNameDAO.getInstance(dbContext).update(dto.page, "");
                 }
                 else
                 {
-                    dto.document.documentID = DocumentDAO.getInstance(dbContext).create(dto.document);
+
+                   dto.documentDefination.documentSection.pageID= PageNameDAO.getInstance(dbContext).create(dto.page);
                 }
+
+                new DocumentSectionSaveService().executeAsSecondary(dto, dbContext);
+
             }
             catch (Exception ex)
             {
@@ -44,6 +50,8 @@ namespace Services.itinsync.icom.documents
             return dto;
         }
 
+
+     
 
     }
 }

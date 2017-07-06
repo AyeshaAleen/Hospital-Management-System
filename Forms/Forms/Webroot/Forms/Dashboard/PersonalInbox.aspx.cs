@@ -25,7 +25,7 @@ using Domains.itinsync.icom.idocument.section;
 
 namespace Forms.Webroot.Forms.Dashboard
 {
-    public partial class PersonalInbox : BasePage
+    public partial class PersonalInbox : DocumentBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,12 +57,15 @@ namespace Forms.Webroot.Forms.Dashboard
             {
                 dto = (DocumentDTO)response;
                 dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
-                
+
                 XDocumentSection section = dto.document.xdocumentDefinition.documentSections.Where(u => u.documentdefinitionid == dto.document.xdocumentDefinition.xDocumentDefinationID && Convert.ToInt32(u.flow) == dto.document.flow).SingleOrDefault();
-                
+
                 setParentRef(dto.document);
+                setSection(section);
                 Response.Redirect(getWebPageName(section.pageID));
             }
+            else
+                showErrorMessage(response);
         }
     }
 }

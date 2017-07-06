@@ -7,10 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Forms.Webroot.Forms.Lookup {
+namespace Forms.Webroot.Lookup.LookupTran
+{
     
     
     public partial class LookupTrans {
+        
+        /// <summary>
+        /// txtLookupID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden txtLookupID;
         
         /// <summary>
         /// txtLookupName control.
@@ -20,6 +30,15 @@ namespace Forms.Webroot.Forms.Lookup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtLookupName;
+        
+        /// <summary>
+        /// txtLookupCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtLookupCode;
         
         /// <summary>
         /// btnAddLookup control.

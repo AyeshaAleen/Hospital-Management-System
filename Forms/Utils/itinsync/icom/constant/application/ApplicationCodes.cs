@@ -14,10 +14,14 @@ namespace Utils.itinsync.icom.constant.application
 
 
         ///***************Table TD constant***********///
-        public static readonly string FORMS_TABLE_TD_TYPE= "600";
+        public static readonly string FORMS_TABLE_TD_TYPE = "600";
         public static readonly string FORMS_TABLE_HEADER_TYPE = "601";
         public static readonly string FORMS_TABLE_FOOTER_TYPE = "602";
 
+
+        ///***************SignatureType  constant***********///
+        public static readonly string FORMS_SIGNATURE_TYPE_MANAGER = "6000";
+        public static readonly string FORMS_SIGNATURE_TYPE_COMPLETEDBY = "6001";
 
         ///***************ControlType constant***********///
         public static readonly string FORMS_CONTROL_BUTTON= "0";
@@ -98,6 +102,7 @@ namespace Utils.itinsync.icom.constant.application
         public static readonly string DOCUMENT_STATUS_CANCELLED = "200";
         public static readonly string DOCUMENT_STATUS_INPROGRESS = "201";
         public static readonly string DOCUMENT_STATUS_COMPLETE = "202";
+        public static readonly string DOCUMENT_STATUS_START = "203";
 
         public static readonly string DOCUMENT_STATUS_ACTIVE = "Active";
         public static readonly string DOCUMENT_STATUS_DEACTIVE = "DeActive";
