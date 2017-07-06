@@ -12,8 +12,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <section class="progress-demo">
-                        <button class="ladda-button btn btn-success" data-style="contract">Submit
-                                                </button>
+                        <a class="ladda-button btn btn-success" data-style="contract">Submit
+                                                </a>
                             </section>
 
                         <asp:Button ID="btnd" OnClick="btnd_Click" runat="server" Text="dsfdf" CssClass="ladda-button btn btn-success" OnClientClick="message('Failed ijnmi  ju ')"/>

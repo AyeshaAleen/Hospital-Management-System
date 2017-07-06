@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using Utils.itinsync.icom.cache.pages;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.xml;
+using Domains.itinsync.icom.idocument.definition;
 
 namespace Forms.Webroot.Forms.section
 {
@@ -70,6 +71,26 @@ namespace Forms.Webroot.Forms.section
 
                 Response.Redirect(getPageDetail.webName);
             }
+        }
+
+        protected void btnPrevious_Click(object sender, EventArgs e)
+        {
+            XDocumentDefination documentDefinition = ((Douments)getParentRef()).xdocumentDefinition;
+
+            for (int i = 1; i <= documentDefinition.documentSections.Count; i++)
+            {
+                XDocumentSection section = documentDefinition.documentSections.Where(c => c.flow.Equals(getSection().flow - i)).SingleOrDefault();
+                if (section.status == ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
+                {
+                    setSection(section);
+                    break;
+                }
+            }
+
+            PageName getPageDetail = PageManager.readbyPageID(getSection().pageID);
+
+            Response.Redirect(getPageDetail.webName);
+
         }
     }
 }
