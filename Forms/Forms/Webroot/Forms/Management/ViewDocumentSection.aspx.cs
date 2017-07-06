@@ -170,7 +170,7 @@ namespace Forms.Webroot.Forms.Management
                 IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                setParentRef(dtoIn.documentDefination);
+                //setParentRef(dtoIn.documentDefination);
                 showSuccessMessage(response);
                 doLoad();
             }
@@ -196,7 +196,7 @@ namespace Forms.Webroot.Forms.Management
             IResponseHandler response = new DocumentPageSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                setParentRef(dtoIn.documentDefination);
+                //setParentRef(dtoIn.documentDefination);
 
                 showSuccessMessage(response);
                 doLoad();
