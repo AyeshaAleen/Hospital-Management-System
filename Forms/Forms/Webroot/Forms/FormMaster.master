@@ -16,7 +16,7 @@
                     <div id="sidebar-menu">
                         <ul>
                              <li>
-                                <a href="<%= ResolveClientUrl("NewForm/Forms.aspx") %>" class="waves-effect"><i class="ti-file"></i> <span> <% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
+                                <a href="#custom-modal" data-animation="slidetogether" data-plugin="custommodal" data-overlaySpeed="100" data-overlayColor="#36404a" class="waves-effect"><i class="ti-file"></i> <span> <% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
                             </li>
 
                              <li>
@@ -48,8 +48,7 @@
                             </li>
                                 </ul>
                             </li>
-
-
+                          
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -105,6 +104,39 @@
                         <asp:ContentPlaceHolder ID="FormMasterBody" runat="server">
 
                         </asp:ContentPlaceHolder>
+
+
+                        <div id="custom-modal" class="modal-demo">
+			                <button type="button" class="close" onclick="Custombox.close();">
+			                    <span>&times;</span><span class="sr-only">Close</span>
+			                </button>
+			                <h4 class="custom-modal-title"><% Response.Write(trasnlation("Forms.Management")); %></h4>
+			                <div class="custom-modal-text">
+			                   
+
+                            <div class="form-group col-md-6">
+                                <label class="control-label"><% Response.Write(trasnlation("Forms")); %></label>
+                                <asp:DropDownList ID="ddlForms" class="selectpicker" data-style="btn-white" runat="server" DataTextField="name" DataValueField="xDocumentDefinationID" data-live-search="true"></asp:DropDownList>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"><% Response.Write(trasnlation("Store")); %></label>
+                                <asp:DropDownList ID="ddlStore" class="selectpicker" data-style="btn-white" runat="server" DataTextField="name" DataValueField="storeid" data-live-search="true"></asp:DropDownList>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label"><% Response.Write(trasnlation("Date")); %></label>
+                                <input class="form-control datepicker-autoclose" placeholder="mm/dd/yyyy" id="txtDate" runat="server" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                    
+                               <%-- <button runat="server" id="btnGo" onserverclick="getDocumentDetail" class="btn btn-sp btn-primary waves-effect">
+                                    GO <i class='fa fa-arrow-right'></i>
+                                </button>--%>
+
+                            </div>
+                            <div class="clearfix"></div>
+
+			                </div>
+			            </div>
 
             		</div> <!-- container -->
                                

@@ -50,6 +50,7 @@
 
 </head>
 <body class="widescreen fixed-left-void">
+
     <form id="forms" class="form-horizontal" runat="server" role="form">
         <!-- Begin page -->
         <div id="wrapper" class="enlarged forced">
@@ -278,6 +279,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/custombox.min.js") %>"></script>
     <script src="<%= ResolveClientUrl("~/itinsync/resources/plugins/custombox/js/legacy.min.js") %>"></script>
 
+    
 
     <asp:ContentPlaceHolder ID="CommonMasterFooter" runat="server">
     </asp:ContentPlaceHolder>
