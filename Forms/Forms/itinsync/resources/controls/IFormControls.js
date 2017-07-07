@@ -185,6 +185,8 @@ function iGetControlValue(id)
                 if (tagNameU == "INPUT")
                 {
                     var type = obj.getAttribute("type");//obj.type;
+                   
+
                     if (type)
                     {
                         var typeU = type.toUpperCase();
@@ -217,7 +219,11 @@ function iGetControlValue(id)
                 }
                 else if (tagNameU == 'SELECT')
                 {
-                    // Set the selected combo
+                    var ismultiselect = obj.getAttribute("ismultiselect");//obj.type;
+                     // Set the selected combo
+                    if (ismultiselect)
+                    retVal = getMultiSelectComboValue(obj);
+                    else
                     retVal = getComboValue(obj);
                 }
                 else if (tagNameU == 'TEXTAREA')
@@ -269,6 +275,23 @@ function getComboValue(obj)
 
     return obj.options[obj.selectedIndex].value;
 }
+
+function getMultiSelectComboValue(obj) {
+    if (typeof (obj) == "string") {
+        obj = document.getElementById(obj);
+    }
+    var result="";
+    for (var i = 0; i < obj.options.length; i++) {
+        if (obj.options[i].selected == true) {
+            if (result != "")
+                result += " "+ obj.options[i].value;
+            else
+                result = obj.options[i].value;
+        }
+    }
+    return result;
+}
+
 function getComboText(obj) {
     if (typeof (obj) == "string") {
         obj = document.getElementById(obj);

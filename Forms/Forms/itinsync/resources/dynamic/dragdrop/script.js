@@ -200,7 +200,7 @@ function setTranslation()
 function AddDetail(id) {
 
     
-
+    debugger;
    //Need to revise below logic
     //alert(jQuery("#ddlControlID"));
     $("#ddlControlID").children().remove().end().append('<option selected value="">Select</option>');
@@ -236,7 +236,7 @@ function AddDetail(id) {
     var resultantid          = iGetAttribute(fieldObject, "resultantid");
     var Reftranslation       = iGetAttribute(fieldObject, "Reftranslation");
     var refcontrol           = iGetAttribute(fieldObject, "refcontrol");
-    var cssClass = iGetAttribute(fieldObject, "ddlcssClass");
+    var cssClass             = iGetAttribute(fieldObject, "Class");
     var translation          = iGetAttribute(fieldObject, "translation");
     var points               = iGetAttribute(fieldObject, "points");
     var defaultValue         = iGetAttribute(fieldObject, "defaultValue");
@@ -274,7 +274,7 @@ function AddDetail(id) {
     //set combo value
     setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlForwardedControls", refcontrol);
     //Need to revise this logic
-
+    debugger;
     setSelectedComboValue(CURRENTPAGE_CONTEXT + "ddlcssClass", cssClass);
 
     setSelectedComboText(CURRENTPAGE_CONTEXT + "ddlLookupName", ddlLookupName);
@@ -287,12 +287,20 @@ function AddDetail(id) {
 
 
 function SetDetail() {
-    
-    
+    //var result = [];
+    //result = document.getElementById(CURRENTPAGE_CONTEXT + "ddlcssClass")
+   
+    //var x = document.getElementById(CURRENTPAGE_CONTEXT + "ddlcssClass");
+    //for (var i = 0; i < x.options.length; i++) {
+    //    if (x.options[i].selected == true) {
+    //        alert(x.options[i].value);
+    //    }
+    //}
 
+    debugger;
     var id                      = iGetControlValue("ControlID");
     var ControlName             = iGetControlValue("ControlName");
-    var cssClass                = iGetControlValue(CURRENTPAGE_CONTEXT +"ddlcssClass");
+    var cssClass                = iGetControlValue(CURRENTPAGE_CONTEXT + "ddlcssClass");
     var translation             = iGetControlValue("translation");
     var txtBroughtForward       = iGetControlValue("txtBroughtForward");
     var points                  = iGetControlValue("points");

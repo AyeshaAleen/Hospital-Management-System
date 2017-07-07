@@ -87,6 +87,7 @@ namespace Utils.itinsync.icom.controls
             else
             {
                 Label lbl = new Label();
+                lbl.CssClass = content.cssClass;
                 lbl.Attributes.Add("translation", content.translation);
                 lbl.Attributes.Add("id", content.controlID);
                 lbl.Attributes.Add("name", content.controlName);
