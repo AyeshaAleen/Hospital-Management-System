@@ -73,7 +73,7 @@
                                                 </td>
 
                                                 <td style="text-align: center;">
-                                                    <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="ace-icon fa fa-eye bigger-120"
+                                                    <asp:LinkButton ID="btnViewDocument" runat="server" CssClass="fa fa-eye"
                                                         CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
                                                         CommandName='Reset' OnCommand="btnViewDocument_Command" ToolTip="View">
                                                     </asp:LinkButton>
@@ -82,7 +82,7 @@
                                                  
                                                     <asp:LinkButton ID="btnDeleteDocument" runat="server" Text='<%# Eval("status") %>'
                                                         CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' 
+                                                        CommandName='Reset' CssClass="fa fa-remove"
                                                        OnCommand="btnDeleteDocument_Command">
                                                     </asp:LinkButton>
                                                

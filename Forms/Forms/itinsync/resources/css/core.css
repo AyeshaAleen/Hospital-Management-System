@@ -2320,3 +2320,61 @@ table tr td {
     min-height:400px;
 }
 
+.font-italic {
+    font-style:italic;
+}
+.Red-Color {
+    color:#FF0000
+}
+.DarkRed-Color {
+    color:#8B0000
+}
+.DeepPink-Color {
+    color:#FF1493
+}
+.Tomato-Color {
+    color:#FF6347
+}
+.Orange-Color {
+    color:#FFA500
+}
+.Gold-Color {
+    color:#FFD700
+}
+.DarkKhaki-Color {
+    color:#BDB76B
+}
+.Violet-Color {
+    color:#EE82EE
+}
+.Indigo-Color {
+    color:#4B0082
+}
+.Green-Color {
+    color:#008000
+}
+.DarkGreen-Color {
+    color:#006400
+}
+.LightSeaGreen-Color {
+    color:#20B2AA
+}
+.SteelBlue-Color {
+    color:#4682B4
+}
+.Blue-Color {
+    color:#0000FF
+}
+.Black-Color {
+    color:#000000
+}
+.White-Color {
+    color:#ffffff
+}
+.Silver-Color {
+    color:#C0C0C0
+}
+.Gray-Color {
+    color:#808080
+}
+
