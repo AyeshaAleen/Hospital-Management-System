@@ -87,6 +87,7 @@ namespace Utils.itinsync.icom.controls
             else
             {
                 Label lbl = new Label();
+                lbl.CssClass = content.cssClass;
                 lbl.Attributes.Add("translation", content.translation);
                 lbl.Attributes.Add("id", content.controlID);
                 lbl.Attributes.Add("name", content.controlName);
@@ -96,7 +97,7 @@ namespace Utils.itinsync.icom.controls
                 string trans = XMLUtils.DecodeXML(content.translation);
                 lbl.Attributes.Add("defaultValue", TranslationManager.trans(trans));
                 //
-                lbl.Text = TranslationManager.trans(trans);
+                lbl.Text = TranslationManager.trans(content.translation);
 
 
 
@@ -205,7 +206,7 @@ namespace Utils.itinsync.icom.controls
             check.Attributes.Add("imask", content.mask);
             check.Attributes.Add("points", content.points);
             check.Attributes.Add("formula", content.formula);
-
+            
             if (content.ReferredContent != null && content.ReferredContent.controlID != null && content.ReferredContent.controlID.Length > 0)
             {
                 check.Attributes.Add("Reftranslation", content.ReferredContent.translation);

@@ -23,10 +23,12 @@ namespace Forms.Webroot.Forms.section
         {
             if (!IsPostBack)
             {
+                var test = getParentRef().getParentrefName();
                 sectionHeading.InnerText = getSection().name;
                 createControl();
                 getSectionContentData();
 
+                //base.LoadViewState(savedState);
                 if (getSection().flow > 1)
                     btnPrevious.Visible = true;
             }
@@ -38,9 +40,10 @@ namespace Forms.Webroot.Forms.section
         }
         private void getSectionContentData()
         {
+            Table table = tableDynamic;
             if (!string.IsNullOrEmpty(((Douments)getParentRef()).data))
             {
-                XMLUtils.processXML(this, ((Douments)getParentRef()).data, getSection().name);
+                XMLUtils.processXML(table, ((Douments)getParentRef()).data, getSection().name);
             }
         }
         private void createControl()
@@ -48,7 +51,7 @@ namespace Forms.Webroot.Forms.section
             processDynamicContent(tableDynamic, ((Douments)getParentRef()), getSection().documentsectionid);
             tableDynamic.EnableViewState = true;
             ViewState["tableDynamic"] = true;
-
+           // Page.Controls.Add(tableDynamic);
             processForwardedFields(hiddenFieldDiv, ((Douments)getParentRef()));
         }
 

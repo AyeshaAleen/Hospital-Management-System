@@ -21,6 +21,7 @@
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/ladda-buttons/css/ladda-themeless.min.css" ) %>" rel="stylesheet" />
 
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/timepicker/bootstrap-timepicker.min.css" ) %>" rel="stylesheet" />
+    <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" ) %>" rel="stylesheet" />
     <link href="<%= ResolveClientUrl("~/itinsync/resources/plugins/clockpicker/css/bootstrap-clockpicker.min.css" ) %>" rel="stylesheet" />
 
@@ -47,7 +48,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/modernizr.min.js") %>"></script>
     <asp:ContentPlaceHolder ID="CommonMasterhead" runat="server">
     </asp:ContentPlaceHolder>
-
+    
 </head>
 <body class="widescreen fixed-left-void">
 

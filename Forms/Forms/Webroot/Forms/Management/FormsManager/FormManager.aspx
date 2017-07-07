@@ -237,14 +237,23 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Css Class</label>
+                                                    <label class="control-label">Css Classes</label>
                                                     <%--<input type="text" id="cssClass" class="form-control" />--%>
-
-                                                     <asp:DropDownList ID="ddlcssClass" runat="server" CssClass="form-control"  DataValueField="Code" DataTextField="Text">
+                                                  
+                                                     <asp:DropDownList ID="ddlcssClass" runat="server" class="select2 select2-multiple" multiple="multiple"  DataValueField="Code" DataTextField="Text" ismultiselect="1">
                                                     </asp:DropDownList>
 
                                                 </div>
                                             </div>
+
+
+                                       <%--     <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Font Color</label>
+                                                    <asp:DropDownList ID="ddlFontColors" runat="server" class="form-control"  DataValueField="Code" DataTextField="Text">
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>--%>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">points</label>
@@ -382,8 +391,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>

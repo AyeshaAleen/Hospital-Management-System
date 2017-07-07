@@ -12,32 +12,45 @@
         <div class="sidebar-inner slimscrollleft">
             <!--- Divider -->
             <div id="sidebar-menu">
-                <ul>
+               <ul>
                     <li>
-                        <a href="../NewForm/Forms.aspx" class="waves-effect"><i class="ti-file"></i><span>Add New Form</span> </a>
+                        <a href="#custom-modal" data-animation="slidetogether" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a" class="waves-effect"><i class="ti-file"></i><span><% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
                     </li>
 
                     <li>
-                        <a href="../Management/AddForms.aspx" class="waves-effect"><i class="ti-files"></i><span>Form Manager</span> </a>
+                        <a href="<%= ResolveClientUrl("Management/AddForms.aspx") %>" class="waves-effect"><i class="ti-files"></i><span><% Response.Write(trasnlation("Form.Manager")); %></span> </a>
                     </li>
 
                     <li>
-                        <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-dashboard"></i><span>Personal Inbox</span> </a>
+                        <a href="<%= ResolveClientUrl("Dashboard/PersonalInbox.aspx") %>" class="waves-effect"><i class="icon-drawar"></i><span><% Response.Write(trasnlation("Personal.Inbox")); %></span> </a>
                     </li>
 
-                    <li>
-                        <a href="../Management/FormsManager/FormsManager.aspx" class="waves-effect"><i class="ti-user"></i><span>Team Inbox</span> </a>
+
+                    <li class="has_sub">
+                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-panel"></i><span><% Response.Write(trasnlation("Admin.Panel")); %> </span><span class="menu-arrow"></span></a>
+                        <ul class="list-unstyled">
+                             <li>
+                                <a href="<%= ResolveClientUrl("~/Lookup/LookupTran/LookupTrans.aspx") %>" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Lookup.Trans")); %></span> </a>
+                            </li>
+
+                            <li>
+                                <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Team.Inbox")); %></span> </a>
+                            </li>
+
+
+                            <li>
+                                <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-id-badge"></i><span><% Response.Write(trasnlation("Manage.Users")); %></span> </a>
+                            </li>
+
+                            <li>
+                                <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ion-android-contacts"></i><span><% Response.Write(trasnlation("Manage.Teams")); %></span> </a>
+                            </li>
+                            <li>
+                                <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="md md-store-mall-directory"></i><span><% Response.Write(trasnlation("Manage.Stores")); %></span> </a>
+                            </li>
+                        </ul>
                     </li>
 
-                    <%-- <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> <span class="menu-arrow"></span></a>
-                                <ul class="list-unstyled">
-                                    <li><a href="#">Dashboard 1</a></li>
-                                    <li><a href="#">Dashboard 2</a></li>
-                                    <li><a href="#">Dashboard 3</a></li>
-                                    <li><a href="#">Dashboard 4</a></li>
-                                </ul>
-                            </li>--%>
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -69,7 +82,7 @@
 
                         <div class="card-box">
 
-                            <h4 class="m-t-0 header-title"><b>SIO</b></h4>
+                            <h4 class="m-t-0 header-title"><b><% Response.Write(getParentRef().getParentrefName());%></b></h4>
                             <div class="row">
 
                                 <asp:Repeater ID="tblSectionTab" runat="server">
@@ -86,7 +99,20 @@
 
                 <asp:ContentPlaceHolder ID="DocumnetMasterBody" runat="server">
                 </asp:ContentPlaceHolder>
+                  <div id="custom-modal" class="modal-demo">
+                    <button type="button" class="close" onclick="Custombox.close();">
+                        <span>&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="custom-modal-title"><% Response.Write(trasnlation("Forms.Management")); %></h4>
+                    <div class="custom-modal-text">
+                        <div class="cart">
+                            <iframe style="width:500px; border:0px; height:300px" id="IFrameForm" src="~/Webroot/Forms/NewForm/Forms.aspx" runat="server"></iframe>
+                        </div>
 
+                    <div class="clearfix"></div>
+
+                    </div>
+                </div>
             </div>
             <!-- container -->
 

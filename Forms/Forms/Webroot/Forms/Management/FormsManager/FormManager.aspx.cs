@@ -71,11 +71,12 @@ namespace Forms.Webroot.Forms.Management.FormsManager
 
             ddlForwardedControls.DataSource = refcontentlist;
             ddlForwardedControls.DataBind();
-
+            
             ddlcssClass.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKCSSClass, getHeader().lang);
             ddlcssClass.DataBind();
-
-
+           
+            //ddlFontColors.DataSource = LookupManager.readbyLookupName(LookupsConstant.LKColors, getHeader().lang);
+            //ddlFontColors.DataBind();
         }
         protected void Page_LoadComplete(object sender, EventArgs e)
         {

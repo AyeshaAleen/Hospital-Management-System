@@ -30,6 +30,7 @@
                                             <tr>
                                                 <th data-field="formname" data-sortable="true"><% Response.Write(trasnlation("Form.Name")); %></th>
                                                 <th data-field="startdate" data-sortable="true"><% Response.Write(trasnlation("Start.Date")); %></th>
+                                                 <th data-field="starttime" data-sortable="true"><% Response.Write(trasnlation("Start.Time")); %></th>
                                                 <th data-field="status" data-align="center"><% Response.Write(trasnlation("Status")); %></th>
                                                 <th data-field="submitter" data-sortable="true"><% Response.Write(trasnlation("Submitter.Name")); %></th>
                                                 <th data-field="actions" data-align="center"><% Response.Write(trasnlation("Action")); %></th>
@@ -47,6 +48,9 @@
                                                 </td>
                                                 <td>
                                                     <asp:Label runat="server" ID="tblStartDate" Text='<%# DateFunctions.formatDateInternalToExternal(Eval("transDate").ToString()) %>' />
+                                                </td>
+                                                <td>
+                                                    <asp:Label runat="server" ID="Label1" Text='<%# DateFunctions.formatTimeInternalToExternal(Eval("transTime").ToString()) %>' />
                                                 </td>
                                                 <td>
                                                     <asp:Label runat="server" ID="tblStatus" Text='<%# Eval("status_Text") %>' />
