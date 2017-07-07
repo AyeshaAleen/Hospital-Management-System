@@ -10,12 +10,13 @@ namespace Domains.itinsync.icom.views.personalinbox
 {
     public class PersonalInboxView : System.Attribute, IDomain
     {
-        public enum columns { documentid, documentname, sectionname, transdate, status, userid, username }
+        public enum columns { documentid, documentname, sectionname, transdate, transTime, status, userid, username }
 
         public Int64 documentid { get; set; }
         public string documentname { get; set; }
         public string sectionname { get; set; }
         public string transdate { get; set; }
+        public string transTime { get; set; }
 
         [LookupAttribute(lookupName = "LKDocumentStatus", relatedTag = "status_Text")]
         public string status { get; set; }

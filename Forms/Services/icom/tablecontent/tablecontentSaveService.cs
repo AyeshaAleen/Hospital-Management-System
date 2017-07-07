@@ -123,9 +123,9 @@ namespace Services.itinsync.icom.tablecontent
             if (!string.IsNullOrEmpty(field.translation))
             {
                 dto.lookupTrans.code = field.translation;
-                dto.lookupTrans.value = field.defaultValue;
+                dto.lookupTrans.value = field.lookupValue;
                 dto.lookupTrans.lang = "en";
-                if (LookupTransDAO.getInstance(dbContext).translationExists(field.defaultValue, "en"))
+                if (LookupTransDAO.getInstance(dbContext).translationExists(field.lookupValue, "en"))
                 {
                     LookupTrans trans = LookupTransDAO.getInstance(dbContext).findbyTranslcation(field.defaultValue, "en");
                     field.translation = trans.code;

@@ -51,7 +51,7 @@ namespace Forms.Webroot.Forms.Dashboard
             dto.header = getHeader();
 
             dto.document.documentID = Convert.ToInt32(e.CommandArgument);
-
+            dto.READBY = ReadByConstant.READBYID;
             IResponseHandler response = new DocumentGetService().executeAsPrimary(dto);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {

@@ -42,10 +42,10 @@
                                     <label for="field-1" class="control-label"><% Response.Write(trasnlation("Form.Name")); %></label>
                                     <input type="text" class="form-control" id="field" runat="server" placeholder="Form Name">
                                 </div>
-                                <div class="form-group col-md-5">
+                                <%--<div class="form-group col-md-5">
                                     <label for="field-1" class="control-label"><% Response.Write(trasnlation("Pages")); %></label>
                                     <asp:DropDownList ID="ddlsectionPagesName" runat="server" CssClass="form-control" DataTextField="pageName" DataValueField="pageID"></asp:DropDownList>
-                                </div>
+                                </div>--%>
                                 <div class="form-group col-md-2">
                                     <asp:Button Text="Save" runat="server" ID="btnSaveSection" OnClick="btnSaveSection_Click" class="btn btn-success waves-effect waves-light btn-sp"></asp:Button>
                                 </div>
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" OnClientClick="return false;" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
+                            <asp:Button ID="btnAddUserRole" Text="Add" OnClick="btnAddUserRole_Click" runat="server" CssClass="btn btn-success waves-effect btn-sp" />
                         </div>
 
                         <div class="clearfix"></div>
