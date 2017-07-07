@@ -133,6 +133,7 @@
         function Clicked(btn) {
           
             debugger;
+            document.getElementById('<%=txtLookupsID.ClientID%>').value = 0;
             document.getElementById('<%=txtLookupName.ClientID%>').value = "";
             document.getElementById('<%=txtLookupCode.ClientID%>').value = "";
             document.getElementById('<%=txtLookupText.ClientID%>').value = "";
@@ -141,7 +142,7 @@
             document.getElementById('<%=txtUrdu.ClientID%>').value = "";
 
             if (btn.id.includes("btnEdit")) {
-                document.getElementById('<%=txtLookupsID.ClientID%>').value = document.getElementById(btn.id.replace("btnEdit", "lookUpID")).value;
+                document.getElementById('<%=txtLookupsID.ClientID%>').value = document.getElementById(btn.id.replace("btnEdit", "tbllookupID")).value;
 
                 document.getElementById('<%=txtLookupName.ClientID%>').value = document.getElementById(btn.id.replace("btnEdit", "tbllookupName")).innerHTML;
                 document.getElementById('<%=txtLookupCode.ClientID%>').value = document.getElementById(btn.id.replace("btnEdit", "tbllookupCode")).innerHTML;

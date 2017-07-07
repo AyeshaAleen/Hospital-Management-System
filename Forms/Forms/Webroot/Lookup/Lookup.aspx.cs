@@ -74,7 +74,8 @@ namespace Forms.Webroot.Lookup
             {
                 dto = (LookupDTO)response;
                 getLookups();
-                txtLookupName.Value = txtLookupCode.Value = "";
+                txtLookupName.Value = txtLookupCode.Value = txtLookupText.Value 
+                    = txtFrench.Value = txtSpanish.Value = txtUrdu.Value = "";
                 showSuccessMessage(response);
             }
             else

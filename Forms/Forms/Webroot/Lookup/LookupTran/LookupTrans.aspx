@@ -80,7 +80,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="FormMasterFoot" runat="server">
      <script>
         function Clicked(btn) {
-            document.getElementById('<%=txtLookupName.ClientID%>').value = 0;
+            document.getElementById('<%=txtLookupID.ClientID%>').value = 0;
             document.getElementById('<%=txtLookupName.ClientID%>').value = "";
             document.getElementById('<%=txtLookupCode.ClientID%>').value = "";
 
