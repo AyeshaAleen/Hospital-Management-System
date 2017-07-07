@@ -3,31 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Services.icom.lookuptrans.dto;
+using Services.icom.lookup.dto;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using DAO.itinsync.icom.lookup.trans;
 using DAO.itinsync.icom.BaseAS.frame;
+using DAO.itinsync.icom.lookup;
 
-namespace Services.icom.lookuptrans
+namespace Services.icom.lookup.trans
 {
-    public class LookupTransSaveService : FrameAS
+    public class LookupDeleteService : FrameAS
     {
-        LookupTransDTO dto = null;
+        LookupDTO dto = null;
         protected override IResponseHandler executeBody(object o)
         {
             try
             {
-                dto = (LookupTransDTO)o;
-                if (dto.lookupTrans.lookupTransID > 0)
+                dto = (LookupDTO)o;
+                if (dto.lookup.lookUpID > 0)
                 {
-                    LookupTransDAO.getInstance(dbContext).update(dto.lookupTrans, "");
+                    LookUpDAO.getInstance(dbContext).deleteByID(dto.lookup.lookUpID);
                 }
-                else
-                {
-                    LookupTransDAO.getInstance(dbContext).create(dto.lookupTrans);
-                }
+               
             }
             catch (Exception ex)
             {

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Services.icom.lookuptrans.dto
+namespace Services.icom.lookup.dto
 {
     public class LookupTransDTO : IRequestHandler, IResponseHandler
     {

@@ -2930,6 +2930,7 @@
     <Content Include="Webroot\Forms\CashAudit\EmployeeGuideLines.aspx" />
     <Content Include="Webroot\Forms\CashAudit\Selction.aspx" />
     <Content Include="Webroot\Forms\Dashboard\PersonalInbox.aspx" />
+    <Content Include="Webroot\Lookup\Lookup.aspx" />
     <Content Include="Webroot\Lookup\LookupTran\LookupTrans.aspx" />
     <Content Include="Webroot\Forms\Management\AddForms.aspx" />
     <Content Include="Webroot\Forms\Management\ViewDocumentSection.aspx" />
@@ -3469,6 +3470,13 @@
     </Compile>
     <Compile Include="itinsync\src\session\DocumentBasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Lookup\Lookup.aspx.cs">
+      <DependentUpon>Lookup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webroot\Lookup\Lookup.aspx.designer.cs">
+      <DependentUpon>Lookup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Webroot\Lookup\LookupTran\LookupTrans.aspx.cs">
       <DependentUpon>LookupTrans.aspx</DependentUpon>

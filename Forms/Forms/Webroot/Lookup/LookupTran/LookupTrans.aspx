@@ -33,8 +33,9 @@
                                     <tr>
                                        
                                         <th data-field="name" data-sortable="true">Lookup Trans Name </th>
-                                        <th data-field="name" data-sortable="true">Lookup Trans Code </th>
-                                        <th data-field="action" data-align="center">Action</th>
+                                        <th data-field="code" data-sortable="true">Lookup Trans Code </th>
+                                        <th data-field="edit" data-align="center">Edit</th>
+                                        <th data-field="delete" data-align="center">Delete</th>
                                     </tr>
                                 </thead>
 
@@ -59,7 +60,7 @@
                                                 <td style="text-align: center;">
                                                     <asp:LinkButton ID="btnDelete" runat="server" CssClass="ace-icon fa fa-remove bigger-120"
                                                         CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "lookupTransID") ) %>'
-                                                        CommandName='Edit' OnCommand="tblLookupDelete_RowClick" ToolTip="Delete">
+                                                        CommandName='Delete' OnCommand="tblLookupDelete_RowClick" ToolTip="Delete">
                                                     </asp:LinkButton>
                                                 </td>
                                             </tr>
