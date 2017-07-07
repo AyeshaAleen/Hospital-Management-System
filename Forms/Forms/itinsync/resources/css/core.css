@@ -2378,3 +2378,17 @@ table tr td {
     color:#808080
 }
 
+#pageloading {
+	width: 280px;
+	height: 100px;
+	background-color: #016714;
+	position: absolute;
+	left: 50%;
+    color:#fff;
+	top: 50%;
+    z-index:3;
+	margin-top: -50px;
+	margin-left: -100px;
+	text-align: center;
+}
+

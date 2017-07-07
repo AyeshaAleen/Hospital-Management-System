@@ -1,3 +1,8 @@
+document.write('<DIV id="pageloading"><BR><BR>Loading... Please wait..!</DIV>');
+window.onload=function(){
+    document.getElementById("pageloading").style.display = "none";
+}
+
 $(document).ready(function () {
 
     // Bind normal buttons
