@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
                 jQuery('.datepicker-autoclose').datepicker({
                     format: "mm/dd/yyyy",
                     autoclose: true,
-                    showAnim: 'slideUp',
+                    endDate:'today',
                 	todayHighlight: true
                 });
                 jQuery('#datepicker-inline').datepicker();
