@@ -276,6 +276,7 @@ function getComboValue(obj)
     return obj.options[obj.selectedIndex].value;
 }
 
+//Added By Qundeel Ch
 function getMultiSelectComboValue(obj) {
     if (typeof (obj) == "string") {
         obj = document.getElementById(obj);
@@ -291,7 +292,7 @@ function getMultiSelectComboValue(obj) {
     }
     return result;
 }
-
+//End
 function getComboText(obj) {
     if (typeof (obj) == "string") {
         obj = document.getElementById(obj);
