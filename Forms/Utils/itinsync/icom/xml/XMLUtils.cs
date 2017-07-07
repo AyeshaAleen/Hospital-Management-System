@@ -54,7 +54,7 @@ namespace Utils.itinsync.icom.xml
         public static string DecodeXML(string xml)
         {
             // string xml = xml;
-            return xml.Replace("&amp;", "&").Replace("amp;", "").Replace("&lt;", "<").Replace("&gt;", ">").Replace("&quot;", "\"").Replace("&apos;", "'");
+            return xml.Replace("&amp;", "&").Replace("amp;", "").Replace("&lt;", "<").Replace("&gt;", ">").Replace("&quot;", "''").Replace("&apos;", "'");
 
         }
 
@@ -156,7 +156,7 @@ namespace Utils.itinsync.icom.xml
                         {
                             if (c.HasControls())
                             {
-                                Control ctrl = parent.FindControl(childnode.Name);
+                                Control ctrl = c.FindControl(childnode.Name);
                                 if(ctrl!=null)
                                 findSetControl(ctrl, childnode.InnerText);
                             }
@@ -203,12 +203,12 @@ namespace Utils.itinsync.icom.xml
                     ((HtmlSelect)control).Value = value;
 
                 }
-                else if (control.GetType() == typeof(CheckBox))
+                else if (control.GetType() == typeof(HtmlInputCheckBox))
                 {
                     if (value == "1" || value == "Y" || value == "y" || value == "True" || value == "true")
-                        ((CheckBox)control).Checked = true;
+                        ((HtmlInputCheckBox)control).Checked = true;
                     else
-                        ((CheckBox)control).Checked = false;
+                        ((HtmlInputCheckBox)control).Checked = false;
 
                 }
                 

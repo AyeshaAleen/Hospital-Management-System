@@ -23,7 +23,7 @@ namespace Forms.Webroot.Forms
         {
             if (getParentRef() != null)
             {
-               var DocumentName = ((Douments)getParentRef()).xdocumentDefinition.name;
+               var DocumentName = getParentRef().getParentrefName();
                 DataTable dt_PageDetail = new DataTable();
                 dt_PageDetail.Columns.Add("name");
                 dt_PageDetail.Columns.Add("Webname");

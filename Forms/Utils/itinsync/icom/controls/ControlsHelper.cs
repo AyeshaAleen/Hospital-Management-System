@@ -96,7 +96,7 @@ namespace Utils.itinsync.icom.controls
                 string trans = XMLUtils.DecodeXML(content.translation);
                 lbl.Attributes.Add("defaultValue", TranslationManager.trans(trans));
                 //
-                lbl.Text = TranslationManager.trans(trans);
+                lbl.Text = TranslationManager.trans(content.translation);
 
 
 

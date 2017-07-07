@@ -22,6 +22,7 @@ using System.Web.UI.WebControls;
 using Utils.itinsync.icom.cache.translation;
 using Domains.itinsync.icom.idocument.referedcontent;
 using Utils.itinsync.icom.cache.document;
+using Utils.itinsync.icom.xml;
 
 namespace Utils.itinsync.icom.html
 {
@@ -146,7 +147,22 @@ namespace Utils.itinsync.icom.html
                                         tableContent.mask = fieldnode.ChildNodes[1].GetAttributeValue("imask", "");
                                         tableContent.cssClass = fieldnode.ChildNodes[1].GetAttributeValue("Class", "");
                                         tableContent.lookupName= fieldnode.ChildNodes[1].GetAttributeValue("LookupName", "");
-                                        tableContent.translation= fieldnode.ChildNodes[1].GetAttributeValue("translation", "");
+                                            string trans = fieldnode.ChildNodes[1].GetAttributeValue("translation", "");
+                                            if (!string.IsNullOrEmpty(trans))
+                                            {
+                                                 trans = XMLUtils.DecodeXML(trans);
+
+                                            }
+                                            string lookupValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
+                                            if (!string.IsNullOrEmpty(lookupValue))
+                                            {
+                                                lookupValue = XMLUtils.DecodeXML(lookupValue);
+
+                                            }
+
+
+                                            tableContent.translation= trans;
+                                            tableContent.lookupValue = lookupValue;
                                         tableContent.points = fieldnode.ChildNodes[1].GetAttributeValue("points", "");
                                         tableContent.defaultValue = fieldnode.ChildNodes[1].GetAttributeValue("defaultValue", "");
                                         tableContent.isReadonly = fieldnode.ChildNodes[1].GetAttributeValue("disabled", "");

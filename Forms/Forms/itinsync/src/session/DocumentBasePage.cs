@@ -33,7 +33,8 @@ namespace Forms.itinsync.src.session
             dto.document.storeid = ((Douments)getParentRef()).storeid;
             dto.document.documentID = documentid;
             dto.document.flow = documentFlow;
-            IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
+            dto.document.documentName = ((Douments)getParentRef()).documentName;
+           IResponseHandler response = new DocumentSaveService().executeAsPrimary(dto);
             // update parentref in each section so that session data will update with latest one
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {

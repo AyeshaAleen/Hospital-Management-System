@@ -44,8 +44,8 @@ namespace Forms.Webroot.Forms.Management
 
         private void doLoad()
         {
-            ddlsectionPagesName.DataSource = PageManager.getPages();
-            ddlsectionPagesName.DataBind();
+            //ddlsectionPagesName.DataSource = PageManager.getPages();
+            //ddlsectionPagesName.DataBind();
             if (getParentRef() != null)
             {
                 tblDocument.DataSource = ((XDocumentDefination)getParentRef()).documentSections;
