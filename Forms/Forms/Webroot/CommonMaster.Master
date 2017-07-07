@@ -48,7 +48,7 @@
     <script src="<%= ResolveClientUrl("~/itinsync/resources/js/modernizr.min.js") %>"></script>
     <asp:ContentPlaceHolder ID="CommonMasterhead" runat="server">
     </asp:ContentPlaceHolder>
-
+    
 </head>
 <body class="widescreen fixed-left-void">
 
