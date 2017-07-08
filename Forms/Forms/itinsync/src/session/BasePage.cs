@@ -128,14 +128,20 @@ namespace Forms.itinsync.src.session
 
             foreach (XDocumentReferedContent referedContent in documents.xdocumentDefinition.documentRefferedContent)
             {
+
                 XDocumentSection section = DocumentManager.getDocumentSection(referedContent.documentsectionID);
+
+
                 XMLParser xmlParser = new XMLParser(((Douments)getParentRef()).data);
+
+                //XMLParser xmlParser = new XMLParser(((Douments)getParentRef()).previousDocument.data);
                 string tagXML =  xmlParser.getTagXML(section.name);
                 xmlParser = new XMLParser(tagXML);
                string fieldValue = xmlParser.getTagValue(referedContent.controlID);
 
                 ControlsHelper controlHelper = new ControlsHelper();
                 XDocumentTableContent content = new XDocumentTableContent();
+
                 content.controlID = "hidden"+referedContent.controlID;
                 content.defaultValue = fieldValue;
                 parent.Controls.Add(controlHelper.createHiddenField(content));
@@ -144,6 +150,8 @@ namespace Forms.itinsync.src.session
 
                 
             }
+
+            
         }
 
 

@@ -41,6 +41,8 @@ namespace Forms.itinsync.src.session
                 setParentRef(dto.document);
                 XDocumentDefination documentDefinition = ((Douments)getParentRef()).xdocumentDefinition;
 
+
+                //getParentRef().prvis.grade
                 for(int i=1;i<= documentDefinition.documentSections.Count;i++)
                 {
                 XDocumentSection section = documentDefinition.documentSections.Where(c => c.flow.Equals(getSection().flow + i)).SingleOrDefault();

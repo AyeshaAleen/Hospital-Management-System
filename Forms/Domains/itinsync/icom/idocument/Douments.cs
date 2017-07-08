@@ -53,6 +53,8 @@ namespace Domains.itinsync.icom.idocument
 
         //*************Relational Mapping Objects*******************//////
         public XDocumentDefination xdocumentDefinition { get; set; }
-      //  public XDocumentSection xdocumentSection { get; set; }
+        //  public XDocumentSection xdocumentSection { get; set; }
+
+        //public Douments previousDocument = new Douments();
     }
 }
