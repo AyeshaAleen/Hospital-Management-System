@@ -6,74 +6,70 @@
 </asp:Content>
 
 <asp:Content ID="cntFormMasterBody" ContentPlaceHolderID="CommonMasterBody" runat="server">
-
+    
     <!-- ========== Left Sidebar Start ========== -->
 
 
-    <div class="left side-menu side-menu-sm">
-        <div class="sidebar-inner slimscrollleft">
-            <!--- Divider -->
-            <div id="sidebar-menu">
-                <ul>
-                    <li>
-                        <a href="#custom-modal" data-animation="slidetogether" data-plugin="custommodal" data-overlayspeed="100" data-overlaycolor="#36404a" class="waves-effect"><i class="ti-file"></i><span><% Response.Write(trasnlation("Add.New.Form")); %></span> </a>
-                    </li>
-
-                    <li>
-                        <a href="<%= ResolveClientUrl("Management/AddForms.aspx") %>" class="waves-effect"><i class="ti-files"></i><span><% Response.Write(trasnlation("Form.Manager")); %></span> </a>
-                    </li>
-
-                    <li>
-                        <a href="<%= ResolveClientUrl("Dashboard/PersonalInbox.aspx") %>" class="waves-effect"><i class="icon-drawar"></i><span><% Response.Write(trasnlation("Personal.Inbox")); %></span> </a>
-                    </li>
-
-
-                    <li class="has_sub">
-                        <a href="javascript:void(0);" class="waves-effect"><i class="ti-panel"></i><span><% Response.Write(trasnlation("Admin.Panel")); %> </span><span class="menu-arrow"></span></a>
-                        <ul class="list-unstyled">
-                          
+            <div class="left side-menu side-menu-sm">
+                <div class="sidebar-inner slimscrollleft">
+                    <!--- Divider -->
+                    <div id="sidebar-menu">
+                        <ul>
                              <li>
-                                <a href="<%= ResolveClientUrl("../Lookup/LookupTran/LookupTrans.aspx") %>" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Lookup.Trans")); %></span> </a>
+                                <a href="<%= ResolveClientUrl("NewForm/Forms.aspx") %>" class="waves-effect"><i class="ti-file"></i> <span> Add New Form</span> </a>
                             </li>
 
-                            <li>
-                                <a href="#" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Team.Inbox")); %></span> </a>
+                             <li>
+                                <a href="<%= ResolveClientUrl("Management/AddForms.aspx") %>" class="waves-effect"><i class="ti-files"></i> <span> Form Manager</span> </a>
+                            </li>
+
+                             <li>
+                                <a href="<%= ResolveClientUrl("Dashboard/PersonalInbox.aspx") %>" class="waves-effect"><i class="ti-dashboard"></i> <span> Personal Inbox</span> </a>
+                            </li>
+
+                            
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-home"></i> <span> Admin Penal </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li style="background:#8ec7df">
+                                <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i> <span> Team Inbox</span> </a>
+                            </li>
+
+                           
+                             <li style="background:#8ec7df">
+                                <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Users</span> </a>
+                            </li>
+                       
+                             <li style="background:#8ec7df">
+                                <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Teams</span> </a>
+                            </li>
+                            <li style="background:#8ec7df">
+                                <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="ti-face-smile"></i> <span> Manage Stores</span> </a>
+                            </li>
+                                </ul>
                             </li>
 
 
-                            <li>
-                                <a href="<%= ResolveClientUrl("../Users/UserSearch.aspx") %>" class="waves-effect"><i class="ti-id-badge"></i><span><% Response.Write(trasnlation("Manage.Users")); %></span> </a>
-                            </li>
-
-                            <li>
-                                <a href="<%= ResolveClientUrl("../Team/TeamSearch/TeamSearch.aspx") %>" class="waves-effect"><i class="ion-android-contacts"></i><span><% Response.Write(trasnlation("Manage.Teams")); %></span> </a>
-                            </li>
-                            <li>
-                                <a href="<%= ResolveClientUrl("../Store/SearchStore.aspx") %>" class="waves-effect"><i class="md md-store-mall-directory"></i><span><% Response.Write(trasnlation("Manage.Stores")); %></span> </a>
-                            </li>
                         </ul>
-                    </li>
-
-                </ul>
-                <div class="clearfix"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-    <!-- Left Sidebar End -->
+			<!-- Left Sidebar End -->
 
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="content-page">
-        <!-- Start content -->
-        <div class="content">
-            <div class="container">
+            <!-- ============================================================== -->
+			<!-- Start right Content here -->
+			<!-- ============================================================== -->
+			<div class="content-page">
+				<!-- Start content -->
+				<div class="content">
+					<div class="container">
 
-                <!-- Page-Title -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <%-- <div class="center"  style="position:absolute; left:25%; right:25%; z-index:1">
+						<!-- Page-Title -->
+						<div class="row">
+							<div class="col-sm-12">
+                                <%-- <div class="center"  style="position:absolute; left:25%; right:25%; z-index:1">
                                     <div class="alert alert-success fade in text-center blinking" onchange="hideWaitBox();" visible="false" id="alertSuccess" runat="server">
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                          <% Response.Write(trasnlation("Success.Text")); %>
@@ -83,16 +79,16 @@
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                     </div>
                                 </div>--%>
-                        <div class="btn-group pull-right m-t-15">
-                            <a href="javascript: history.go(-1)" class="btn btn-success waves-effect waves-light" style="background-color: #737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span><% Response.Write(trasnlation("Back")); %> </a>
+                             <div class="btn-group pull-right m-t-15">
+                                    <a href="javascript: history.go(-1)" class="btn btn-inverse waves-effect waves-light" style="background-color:#737d26"><span class="m-l-5"><i class="fa fa-backward"></i></span> Back </a>
+                                    
+                                </div>
 
-                        </div>
+								<h4 class="page-title"><%: Page.Title %></h4>
+								<ol class="breadcrumb" id="breadcrumblist">
+                                     
 
-                        <h4 class="page-title"><%: Page.Title %></h4>
-                        <ol class="breadcrumb" id="breadcrumblist">
-
-
-                            <%--  <asp:Repeater ID="tblBreadCrumb" runat="server">
+                                   <%--  <asp:Repeater ID="tblBreadCrumb" runat="server">
                                         <ItemTemplate>
                                             
                                         <li>
@@ -102,44 +98,28 @@
 									
 									 </ItemTemplate>
                         </asp:Repeater>--%>
-                        </ol>
-                    </div>
-                </div>
+								</ol>
+							</div>
+						</div>
+						
+                        <asp:ContentPlaceHolder ID="FormMasterBody" runat="server">
 
-                <asp:ContentPlaceHolder ID="FormMasterBody" runat="server">
-                </asp:ContentPlaceHolder>
+                        </asp:ContentPlaceHolder>
 
-
-                <div id="custom-modal" class="modal-demo">
-                    <button type="button" class="close" onclick="Custombox.close();">
-                        <span>&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="custom-modal-title"><% Response.Write(trasnlation("Forms.Management")); %></h4>
-                    <div class="custom-modal-text">
-                        <div class="cart">
-                            <iframe style="width:500px; border:0px; height:300px" id="IFrameForm" src="~/Webroot/Forms/NewForm/Forms.aspx" runat="server"></iframe>
-                        </div>
-
-                    <div class="clearfix"></div>
-
-                    </div>
-                </div>
+            		</div> <!-- container -->
+                               
+                </div> <!-- content -->
 
             </div>
-            <!-- container -->
-
-        </div>
-        <!-- content -->
-
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Right content here -->
-    <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
 
 </asp:Content>
 
 <asp:Content ID="cntFormMasterFoot" ContentPlaceHolderID="CommonMasterFooter" runat="server">
     <asp:ContentPlaceHolder ID="FormMasterFoot" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     </asp:ContentPlaceHolder>
     <script>
         //function GenerateTags(control) {
@@ -150,7 +130,7 @@
         //    var table = control;
         //    // document.getElementById("CommonMasterBody_FormMasterBody_Tages").value = "";
         //    var rows = table.getElementsByTagName("tr");
-
+                
         //    for (var i = 0; i < rows.length; i++) {
 
         //        var TagID = "", TagText = "";
