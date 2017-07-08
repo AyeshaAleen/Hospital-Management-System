@@ -46,6 +46,7 @@ namespace Utils.itinsync.icom.cache.global
 
         public static void invalidateCache()
             {
+            
                 translationcacheMap             = new Dictionary<string, Dictionary<string, string>>();
                 LKcacheMap                      = new Dictionary<string, Dictionary<string, Hashtable>>();
                 PermissionCacheMap              = new Dictionary<string, Hashtable>();

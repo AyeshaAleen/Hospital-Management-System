@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Services.icom.lookuptrans.dto;
+using Services.icom.lookup.dto;
 using Domains.itinsync.icom.interfaces.response;
 using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.exceptions;
 using DAO.itinsync.icom.lookup.trans;
 
-namespace Services.icom.lookuptrans
+namespace Services.icom.lookup.trans
 {
     public class LookupTransGetService : FrameAS
     {

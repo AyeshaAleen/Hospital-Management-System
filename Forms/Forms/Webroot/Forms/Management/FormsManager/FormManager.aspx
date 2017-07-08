@@ -239,21 +239,21 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Css Classes</label>
                                                     <%--<input type="text" id="cssClass" class="form-control" />--%>
-
-                                                     <asp:DropDownList ID="ddlcssClass" runat="server" class="select2 select2-multiple" multiple="multiple"  DataValueField="Code" DataTextField="Text">
+                                                  
+                                                     <asp:DropDownList ID="ddlcssClass" runat="server" class="select2 select2-multiple" multiple="multiple"  DataValueField="Code" DataTextField="Text" ismultiselect="1">
                                                     </asp:DropDownList>
 
                                                 </div>
                                             </div>
 
 
-                                            <div class="col-md-6">
+                                       <%--     <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Font Color</label>
                                                     <asp:DropDownList ID="ddlFontColors" runat="server" class="form-control"  DataValueField="Code" DataTextField="Text">
                                                     </asp:DropDownList>
                                                 </div>
-                                            </div>
+                                            </div>--%>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">points</label>
@@ -334,19 +334,18 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Conditional Operation</label>
-                                                    <asp:DropDownList ID="ddlConditionOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
-                                                    </asp:DropDownList>
-
+                                                    <label class="control-label">Control IDs</label>
+                                                   <select id="ddlConditionalControlID" class="form-control"></select>
                                                 </div>
                                             </div>
 
-
+                                            
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label">Control IDs</label>
+                                                    <label class="control-label">Conditional Operation</label>
                                                     <div class="input-group">
-                                                        <select id="ddlConditionalControlID" class="form-control"></select>
+                                                        <asp:DropDownList ID="ddlConditionOperation" runat="server" CssClass="form-control" DataValueField="Code" DataTextField="Text">
+                                                    </asp:DropDownList>
                                                         <span class="input-group-addon btn btn-success" onclick="AddConditionDetail()">Go</span>
                                                     </div>
                                                 </div>

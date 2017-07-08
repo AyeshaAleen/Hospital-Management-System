@@ -39,7 +39,7 @@ namespace Forms.Webroot.Forms.Dashboard
                 IResponseHandler response = new PersonalInboxViewGetService().executeAsPrimary(dto);
                 if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
                 {
-                    tblDocument.DataSource = dto.personalinboxviewList;
+                    tblDocument.DataSource = dto.personalinboxviewList.OrderByDescending(u=>u.transTime);
                     tblDocument.DataBind();
                 }
             }
@@ -58,7 +58,7 @@ namespace Forms.Webroot.Forms.Dashboard
                 dto = (DocumentDTO)response;
                 dto.document.xdocumentDefinition = DocumentManager.getDocumentDefinition(dto.document.documentDefinitionID);
 
-                XDocumentSection section = dto.document.xdocumentDefinition.documentSections.Where(u => u.documentdefinitionid == dto.document.xdocumentDefinition.xDocumentDefinationID && Convert.ToInt32(u.flow) == dto.document.flow).SingleOrDefault();
+                XDocumentSection section = dto.document.xdocumentDefinition.documentSections.Where(u => u.documentdefinitionid == dto.document.xdocumentDefinition.xDocumentDefinationID && Convert.ToInt32(u.flow) == dto.document.flow+1).SingleOrDefault();
 
                 setParentRef(dto.document);
                 setSection(section);

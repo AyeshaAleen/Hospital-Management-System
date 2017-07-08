@@ -82,7 +82,7 @@
                                                  
                                                     <asp:LinkButton ID="btnDeleteDocument" runat="server" Text='<%# Eval("status") %>'
                                                         CommandArgument='<%# ( DataBinder.Eval(Container.DataItem, "documentsectionid") ) %>'
-                                                        CommandName='Reset' CssClass="fa fa-remove"
+                                                        CommandName='Reset'
                                                        OnCommand="btnDeleteDocument_Command">
                                                     </asp:LinkButton>
                                                

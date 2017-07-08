@@ -127,8 +127,8 @@ namespace Utils.itinsync.icom.date
 
         public static string formatTimeInternalToExternal(string time)
         {
-            // DateTime dt = DateTime.ParseExact(time, "HHmmss", CultureInfo.InvariantCulture);
-            return time;//dt.ToString("hh:mm tt");
+            DateTime dt = DateTime.ParseExact(time, "HHmmss", CultureInfo.InvariantCulture);
+            return dt.ToShortTimeString();//dt.ToString("hh:mm tt");
 
 
         }

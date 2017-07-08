@@ -11,9 +11,10 @@ using Utils.itinsync.icom.constant.application;
 using Utils.itinsync.icom.constant.page;
 using Services.itinsync.icom;
 using DAO.itinsync.icom.lookup.trans;
-using Services.icom.lookuptrans.dto;
-using Services.icom.lookuptrans;
+using Services.icom.lookup.dto;
+using Services.icom.lookup;
 using System.IO;
+using Services.icom.lookup.trans;
 
 namespace Forms.Webroot.Lookup.LookupTran
 {

@@ -8,6 +8,8 @@ using Domains.itinsync.icom.lookup;
 using Utils.itinsync.icom.constant.lookup;
 using System.Collections;
 using Utils.itinsync.icom.cache.global;
+using Utils.itinsync.icom.exceptions;
+using Utils.itinsync.icom;
 
 namespace DAO.itinsync.icom.lookup
 {
@@ -23,15 +25,61 @@ namespace DAO.itinsync.icom.lookup
 
         protected override string createQuery(object o)
         {
-            throw new NotImplementedException();
+            return "INSERT INTO " + TABLENAME + preparedCreateQuery(o, typeof(LookUp.columns));
         }
         protected override IDomain setResult(DataTable dt, int i)
         {
-            throw new NotImplementedException();
+            LookUp lookup = new LookUp();
+            lookup.lookUpID = Convert.ToInt32(dt.Rows[i][LookUp.primaryKey.lookUpID.ToString()]);
+
+            setPropertiesValue(lookup, dt, i, typeof(LookUp.columns));
+
+            return lookup;
         }
         protected override string updateQuery(object o, string where)
         {
-            throw new NotImplementedException();
+            List<LookUp> results = new List<LookUp>();
+            if (where.Length > 0)
+                results = readWhere(where);
+            else
+                results.Add(findbyPrimaryKey(((LookUp)o).lookUpID));
+            foreach (LookUp lk in results)
+            {
+                string whereClause = " update " + TABLENAME + " set ";
+                whereClause = whereClause + preparedUpdateQuery(lk, o, typeof(LookUp.columns));
+                if (whereClause.Contains("="))//update on the base of primary key column
+                    update(ServiceUtils.finilizedQuery(whereClause) + ServiceUtils.finilizedQueryWhere(ServiceUtils.appendQuotes(LookUp.primaryKey.lookUpID.ToString(), lk.lookUpID)));
+            }
+            return "";
+        }
+        private List<LookUp> readWhere(string where)
+        {
+            if (where == null || where.Length == 0)
+                throw new ItinsyncException(new Exception());
+            string SQL = string.Format("Select * from " + TABLENAME + where);
+            return wrap(processResults(SQL));
+        }
+        public LookUp findbyPrimaryKey(Int32 id)
+        {
+            string sql = "select * From " + TABLENAME + " where lookUpID = " + id;
+            return (LookUp)processSingleResult(sql);
+        }
+        private List<LookUp> wrap(List<IDomain> result)
+        {
+            List<LookUp> list = new List<LookUp>();
+            foreach (IDomain domain in result)
+                list.Add((LookUp)domain);
+            return list;
+        }
+        public List<LookUp> GetLookup()
+        {
+            string READ = string.Format("Select * from " + TABLENAME);
+            return wrap(processResults(READ));
+        }
+        public bool deleteByID(Int32 ID)
+        {
+            string delSQL = string.Format("delete from " + TABLENAME + " where lookUpID = {0}", ID);
+            return delete(delSQL);
         }
         private List<LookUp> languageLookUp()
         {

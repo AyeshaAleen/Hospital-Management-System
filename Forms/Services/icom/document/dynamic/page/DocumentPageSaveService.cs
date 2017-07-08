@@ -35,7 +35,7 @@ namespace Services.itinsync.icom.document.dynamic.page
                 else
                 {
 
-                   dto.documentDefination.documentSection.pageID= PageNameDAO.getInstance(dbContext).create(dto.page);
+                   dto.documentSection.pageID= PageNameDAO.getInstance(dbContext).create(dto.page);
                 }
 
                 new DocumentSectionSaveService().executeAsSecondary(dto, dbContext);
