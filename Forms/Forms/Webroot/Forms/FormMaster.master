@@ -33,11 +33,11 @@
                         <ul class="list-unstyled">
                           
                              <li>
-                                <a href="<%= ResolveClientUrl("~/Lookup/LookupTran/LookupTrans.aspx") %>" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Lookup.Trans")); %></span> </a>
+                                <a href="<%= ResolveClientUrl("../Lookup/LookupTran/LookupTrans.aspx") %>" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Lookup.Trans")); %></span> </a>
                             </li>
 
                             <li>
-                                <a href="<%= ResolveClientUrl("Management/FormsManager/FormManager.aspx") %>" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Team.Inbox")); %></span> </a>
+                                <a href="#" class="waves-effect"><i class="ti-user"></i><span><% Response.Write(trasnlation("Team.Inbox")); %></span> </a>
                             </li>
 
 
