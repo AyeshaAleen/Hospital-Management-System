@@ -102,43 +102,6 @@ namespace Forms.Webroot.Forms.Management
             chkEmail.Checked = DocumentManager.getDocumentDefinition(getParentRef().getParentrefKey()).email== "0" ? true : false;
             chkStorage.Checked = DocumentManager.getDocumentDefinition(getParentRef().getParentrefKey()).storage == "0" ? true : false;
 
-            /*
-            // Getting Route
-            DocumentDTO dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.documentRoute.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
-            IResponseHandler response = new DocumentRouteGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (DocumentDTO)response;
-                tblRoute.DataBind();
-            }
-
-            // Getting Route Users
-            dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.documentRouteUsers.xdocumentdefinitionid = Convert.ToInt32(getSubjectID());
-            response = null;
-            response = new DocumentRouteUsersGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (DocumentDTO)response;
-                tblRouteUsers.DataSource = dto.documentRouteUserslist;
-                tblRouteUsers.DataBind();
-            }
-
-            // Getting storage, email
-            dto = new DocumentDTO();
-            dto.header = getHeader();
-            dto.documentDefination.xDocumentDefinationID = Convert.ToInt32(getSubjectID());
-            response = null;
-            response = new DocumentDefinitionGetService().executeAsPrimary(dto);
-            if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
-            {
-                dto = (DocumentDTO)response;
-                chkEmail.Checked = dto.documentDefination.email == "0" ? true : false;
-                chkStorage.Checked= dto.documentDefination.storage == "0" ? true : false;
-            }*/
         }
 
         protected void btnViewDocument_Command(object sender, CommandEventArgs e)
@@ -154,23 +117,23 @@ namespace Forms.Webroot.Forms.Management
 
             dtoIn.documentSection.documentsectionid = Convert.ToInt32(e.CommandArgument);
 
-                XDocumentSection getSectionStatus = DocumentManager.getDocumentSection(Convert.ToInt32(e.CommandArgument));
-            dtoIn.documentDefination.documentSection.pageID = getSectionStatus.pageID;
-            dtoIn.documentDefination.documentSection.flow = getSectionStatus.flow;
-            dtoIn.documentDefination.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+            XDocumentSection getSectionStatus = DocumentManager.getDocumentSection(Convert.ToInt32(e.CommandArgument));
+            dtoIn.documentSection.pageID = getSectionStatus.pageID;
+            dtoIn.documentSection.flow = getSectionStatus.flow;
+            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
 
             if (getSectionStatus.status == ApplicationCodes.DOCUMENT_STATUS_ACTIVE)
             {
 
-                dtoIn.documentDefination.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_DEACTIVE;
+                dtoIn.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_DEACTIVE;
             }
             else
-                dtoIn.documentDefination.documentSection.status=ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
+                dtoIn.documentSection.status=ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
 
-                IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
+            IResponseHandler response = new DocumentSectionSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                //setParentRef(dtoIn.documentDefination);
+                setParentRef(dtoIn.documentDefination);
                 showSuccessMessage(response);
                 doLoad();
             }
@@ -184,11 +147,10 @@ namespace Forms.Webroot.Forms.Management
             DocumentDTO dtoIn = new DocumentDTO();
             dtoIn.header = getHeader();
 
-            dtoIn.documentDefination.documentSection.name = field.Value;
-            //dtoIn.documentSection.pageID = Convert.ToInt32(ddlsectionPagesName.SelectedValue); 
-            dtoIn.documentDefination.documentSection.flow = tblDocument.Controls.Count + 1;
-            dtoIn.documentDefination.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
-            dtoIn.documentDefination.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
+            dtoIn.documentSection.name = field.Value;
+            dtoIn.documentSection.flow = tblDocument.Controls.Count + 1;
+            dtoIn.documentSection.documentdefinitionid = ((XDocumentDefination)getParentRef()).xDocumentDefinationID;
+            dtoIn.documentSection.status = ApplicationCodes.DOCUMENT_STATUS_ACTIVE;
 
             dtoIn.page.pageName = field.Value;
             dtoIn.page.webName = PageConstant.PAGE_DOCUMENT_SECTION;
@@ -196,8 +158,9 @@ namespace Forms.Webroot.Forms.Management
             IResponseHandler response = new DocumentPageSaveService().executeAsPrimary(dtoIn);
             if (response.getErrorBlock().ErrorCode == ApplicationCodes.ERROR_NO)
             {
-                //setParentRef(dtoIn.documentDefination);
+                dtoIn = (DocumentDTO)response;
 
+                setParentRef(DocumentManager.getDocumentDefinition(Convert.ToInt32(dtoIn.documentSection.documentdefinitionid)));
                 showSuccessMessage(response);
                 doLoad();
             }

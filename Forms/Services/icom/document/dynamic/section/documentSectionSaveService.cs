@@ -25,14 +25,14 @@ namespace Services.itinsync.icom.document.dynamic.section
             try
             {
                 dto = (DocumentDTO)o;
-                if (dto.documentDefination.documentSection.documentsectionid > 0)
+                if (dto.documentSection.documentsectionid > 0)
                 {
                     
-                    XDocumentSectionDAO.getInstance(dbContext).update(dto.documentDefination.documentSection, "");
+                    XDocumentSectionDAO.getInstance(dbContext).update(dto.documentSection, "");
                 }
                 else
                 {
-                    dto.documentSection.flow = (XDocumentSectionDAO.getInstance(dbContext).LastFlowID(dto.documentDefination.documentSection.documentdefinitionid)+1);
+                    dto.documentSection.flow = (XDocumentSectionDAO.getInstance(dbContext).LastFlowID(dto.documentSection.documentdefinitionid)+1);
                     XDocumentSectionDAO.getInstance(dbContext).create(dto.documentSection);
                 }
 
