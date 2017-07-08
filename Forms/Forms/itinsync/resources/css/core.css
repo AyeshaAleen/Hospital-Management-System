@@ -2377,7 +2377,9 @@ table tr td {
 .Gray-Color {
     color:#808080
 }
-
+.Default-Color {
+    color:#797979
+}
 #pageloading {
 	width: 280px;
 	height: 100px;
